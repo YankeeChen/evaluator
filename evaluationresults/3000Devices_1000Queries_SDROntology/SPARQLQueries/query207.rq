@@ -1,0 +1,44 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?Half_DuplexCommunicationsSystem_0
+      { ?Situation_0  Nuvio:expresses  ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:Antenna
+            { ?Entity_0  a                    RFDevice:AmplitudeModulation }
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 >= -1464576718 )
+            }
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:NoiseFigure
+                { ?Var0  Nuvio:hasValue  ?Entity_0 }
+                { ?Entity_0  Nuvio:participatesIn  ?PulseDopplerRadarModulation_0
+                  { ?PulseDopplerRadarModulation_0
+                              RFDevice:hasMaxOutputPower  ?Time_0
+                    { ?Time_0  a                     RFDevice:Time
+                      { ?Var1  Nuvio:hasValue  ?Time_0
+                        { ?Var1  a                     RFDevice:PositiveDecimalValue
+                          { ?Entity_1  Nuvio:hasUnitOfMeasure  ?Var1 }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        { ?Situation_0  a                 Nuvio:Situation .
+          ?TrackingRadar_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          { ?Platform_0  RFDevice:isDeployedOn  ?TrackingRadar_0
+            { ?Platform_0  a                  RFDevice:Platform }
+          }
+        }
+      }
+    }
+  }

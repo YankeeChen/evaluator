@@ -1,0 +1,11 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ObjectDescription:Spartan6FPGA_instance0
+                Nuvio:partOf  ?USRPB200_0
+    }
+  }

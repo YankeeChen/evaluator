@@ -1,0 +1,44 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:hasProducer  ?Half_DuplexCommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  a                    SDR:Artix7FPGA
+              { ?RFFrontEnd_0
+                          Nuvio:aggregateOf  ?Entity_0
+              }
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Value
+              { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                FILTER ( ?DataValue0 = 956932052 )
+              }
+              { ?Entity_0  a                    RFDevice:LongitudeValueInRadian }
+              OPTIONAL
+                { ?Entity_0  a                    Nuvio:Situation
+                  { ?Entity_0  Nuvio:relevantIndividual  ?SelfProtectionJamming_0
+                    { ?SelfProtectionJamming_0
+                                a                     RFDevice:SelfProtectionJamming
+                      { SDR:Power_15dBm
+                                  RFDevice:hasPulseWidth  ?SelfProtectionJamming_0
+                      }
+                    }
+                  }
+                  { ?Entity_1  Nuvio:represents  ?Entity_0 }
+                }
+            }
+        }
+        { ?Process_0  a                   Nuvio:Process ;
+                    RFDevice:hasTarget    ?Process_0
+        }
+      }
+    }
+  }

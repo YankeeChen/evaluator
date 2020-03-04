@@ -1,0 +1,29 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Object_0  RFDevice:isProducerOf  ?CommunicationsSystem_0
+      { ?SelfProtectionJamming_0
+                  RFDevice:supportsTransmitting  ?Object_0
+        {   { ?SelfProtectionJamming_0
+                        a                     RFDevice:SelfProtectionJamming
+            }
+          UNION
+            { ?Power_0  Nuvio:hasProcessQuantity  ?SelfProtectionJamming_0
+              { ?Power_0  a                     RFDevice:Power
+                { ?Power_0  Nuvio:hasValue  ?Var0
+                  { ?Var0  RFDevice:hasDecimalValue  ?DataValue0
+                    FILTER ( ?DataValue0 > -69.87 )
+                  }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

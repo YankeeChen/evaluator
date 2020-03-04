@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Object_0  Nuvio:compositeOf  ?Half_DuplexCommunicationsSystem_0
+      { ?Object_0  a                    Nuvio:Object .
+        SDR:Height_43_7mm
+                  RFDevice:hasVoltage   ?Object_0
+      }
+    }
+  }

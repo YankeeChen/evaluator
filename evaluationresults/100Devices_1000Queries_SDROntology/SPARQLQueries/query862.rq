@@ -1,0 +1,17 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Half_DuplexCommunicationsSystem_0
+                RFDevice:isDeployedOn  ?MobilePlatform_0
+      { ?MobilePlatform_0
+                  a                     RFDevice:MobilePlatform
+        { ?Moving_0  RFDevice:hasCapability  ?MobilePlatform_0
+          { ?Moving_0  a                    RFDevice:Moving }
+        }
+      }
+    }
+  }

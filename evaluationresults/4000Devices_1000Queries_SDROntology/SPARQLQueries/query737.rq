@@ -1,0 +1,16 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Jammer_0  Nuvio:aggregateOf  ?JammingSystem_0
+      { ?Jammer_0  a                    RFDevice:Jammer
+        { ObjectDescription:Producer_instance448
+                    RFDevice:isProducerOf  ?Jammer_0
+        }
+      }
+    }
+  }

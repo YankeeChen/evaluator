@@ -1,0 +1,15 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?ElectronicAttackSystem_0
+                Nuvio:compositeOf  ?RadioComponent_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+      }
+    }
+  }

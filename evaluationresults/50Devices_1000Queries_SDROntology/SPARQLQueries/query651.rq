@@ -1,0 +1,11 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ObjectDescription:Producer_instance12
+                RFDevice:hasProducer  ?BistaticRadar_0
+    }
+  }

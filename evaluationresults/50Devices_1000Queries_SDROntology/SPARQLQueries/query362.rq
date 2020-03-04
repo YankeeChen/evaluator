@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?CR_0  RFDevice:supportsTuning  ?Var0
+      { ?Var0  a                     RFDevice:Transceiving
+        { ?Var0  RFDevice:hasPulseRepetitionFrequency  ?Entity_0
+          { ?Entity_0  a                    Nuvio:Situation .
+            ?ARMProcessor_0
+                      Nuvio:relevantIndividual  ?Entity_0
+            OPTIONAL
+              { ?Entity_0  Nuvio:relevantIndividual  ?Clothoid_0
+                { ?Clothoid_0  a                  gml:Clothoid }
+              }
+            { ?Processor_0  Nuvio:partOf  ?ARMProcessor_0 }
+            { ?Entity_0  a                    Nuvio:Attribute }
+            { ?Entity_0  a                    Nuvio:InformationRepresentation }
+          }
+          OPTIONAL
+            { ?Var0  a                     Nuvio:Process }
+        }
+      }
+    }
+  }

@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    { ?Entity_0  RFDevice:hasSamplingRate  ?USRPB205mini_i_0
+      { ?Entity_0  a                    Nuvio:Entity
+        {   { ?Entity_0  a                    gml:BSpline }
+          UNION
+            { ?Entity_0  a                    RFDevice:Receiving
+              { ?Entity_0  a                    Nuvio:DimensionlessUnit
+                { ?Entity_0  Nuvio:representedBy  ?InformationRepresentation_0
+                  OPTIONAL
+                    { ?InformationRepresentation_0
+                                a                     Nuvio:InformationRepresentation
+                    }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

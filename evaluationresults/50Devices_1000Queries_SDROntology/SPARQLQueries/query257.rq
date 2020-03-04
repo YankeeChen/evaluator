@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_i_0
+WHERE
+  { ?USRPB200mini_i_0
+              a                     SDR:USRPB200mini-i
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?USRPB200mini_i_0
+      { ?Var0  a                     RFDevice:InverseGainJamming
+        { ?Var0  RFDevice:hasPulseRepetitionInterval  ?Entity_0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?UnitOfMeasure_0
+                      Nuvio:expresses       ?Entity_0
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 = 1922661316 )
+              { ?Entity_0  a                    Nuvio:Object .
+                ?AutomaticGainControl_0
+                          Nuvio:participatesIn  ?Entity_0
+                { ?AutomaticGainControl_0
+                            a                     RFDevice:AutomaticGainControl
+                  { ?Power_0  RFDevice:hasTransmitPowerRange  ?AutomaticGainControl_0
+                    { ?Power_0  a                     RFDevice:Power }
+                  }
+                }
+              }
+            }
+            { ?UnitOfMeasure_0
+                        a                     Nuvio:UnitOfMeasure
+            }
+          }
+        }
+      }
+    }
+  }

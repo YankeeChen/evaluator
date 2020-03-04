@@ -1,0 +1,46 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?ContinuousWaveRadar_0
+      { ?Var0  a                     RFDevice:Transceiving
+        OPTIONAL
+          {   { ?Var0     a                     Nuvio:Entity .
+                ?Situation_0  Nuvio:isExpressedBy  ?Var0
+              }
+            UNION
+              { ?Var0  a                     Nuvio:InformationEntity }
+            { ?FixedBandwidthSensing_0
+                        Nuvio:relevantIndividual  ?Situation_0
+              {   { ?ARMProcessor_0
+                              Nuvio:relevantIndividual  ?Situation_0
+                    { ?ARMProcessor_0
+                                a                     SDR:ARMProcessor
+                      { ?ARMProcessor_0
+                                  Nuvio:aggregateOf  ?XilinxZynq7020SoC_0
+                        { ?XilinxZynq7020SoC_0
+                                    a                     SDR:XilinxZynq7020SoC
+                        }
+                      }
+                    }
+                  }
+                UNION
+                  {   { ?FixedBandwidthSensing_0
+                                  a                     RFDevice:AdjustableBandwidthSensing
+                      }
+                    UNION
+                      { RFDevice:RadioBand_EHF
+                                  RFDevice:hasBandwidthRange  ?FixedBandwidthSensing_0
+                      }
+                  }
+              }
+            }
+          }
+      }
+    }
+  }

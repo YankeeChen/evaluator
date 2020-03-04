@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Var0  RFDevice:supportsJamming  ?ModelX_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { ObjectDescription:FreqencyRange_instance8
+                    RFDevice:hasBandwidthRange  ?Var0
+        }
+      }
+    }
+  }

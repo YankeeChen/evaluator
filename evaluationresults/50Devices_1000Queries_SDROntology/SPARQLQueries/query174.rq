@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPE313_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:CompositeSolid
+          { ?Entity_0  a                    RFDevice:ElectronicProtection }
+          { ?Entity_0  a                    Nuvio:InformationEntity
+            { ?Entity_0  a                    Nuvio:Attribute }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,18 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?RadioComponent_0
+                Nuvio:partOf  ?GNURadio_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ObjectDescription:Producer_instance12
+                    RFDevice:isProducerOf  ?RadioComponent_0
+        }
+      }
+    }
+  }

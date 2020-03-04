@@ -1,0 +1,12 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?PulseDopplerRadarModulation_0
+                RFDevice:supportsJamming  ?MonostaticRadar_0
+      { ?Quantity_0  RFDevice:hasPulseRepetitionInterval  ?PulseDopplerRadarModulation_0 }
+    }
+  }

@@ -1,0 +1,24 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    OPTIONAL
+      { ?ModelX_0  RFDevice:hasProducer  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?InformationContent_0
+                    Nuvio:isExpressedBy   ?Entity_0
+          { ?Entity_0  a                    Nuvio:Value
+            { ?Surface_0  Nuvio:relevantIndividual  ?Entity_0
+              { ?Entity_0  Nuvio:relevantIndividual  RFDevice:Freq_2_5GHz }
+              OPTIONAL
+                { ?Surface_0  a                   sf:Surface }
+            }
+          }
+          { ?Entity_1  Nuvio:representedBy  ?InformationContent_0 }
+        }
+      }
+  }

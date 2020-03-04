@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:partOf  ?USRPN2xx_0
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  Nuvio:aggregateOf  ?ParabolicDishAntenna_0
+        { ?ParabolicDishAntenna_0
+                    a                     RFDevice:ParabolicDishAntenna
+          { ?ParabolicDishAntenna_0
+                      RFDevice:isProducerOf  ?Object_0
+            { ?Object_0  RFDevice:hasVoltage  ?Voltage_0
+              { ?Voltage_0  a                   RFDevice:Voltage }
+            }
+            { ObjectDescription:Producer_instance26
+                        RFDevice:hasProducer  ?ParabolicDishAntenna_0
+            }
+          }
+        }
+      }
+    }
+  }

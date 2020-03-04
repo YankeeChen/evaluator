@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?JammingSystem_0
+      { ?Entity_0  a                    RFDevice:SpatialVolumeUnit
+        { ?Entity_0  a                    Nuvio:InformationEntity .
+          ObjectDescription:USRPE310_instance0
+                    Nuvio:isExpressedBy   ?Entity_0
+        }
+        { ?Entity_0  a                    Nuvio:Object .
+          ?Modulation_0
+                    RFDevice:hasCapability  ?Entity_0
+          { ?Modulation_0
+                      a                     RFDevice:Modulation
+          }
+        }
+      }
+    }
+  }

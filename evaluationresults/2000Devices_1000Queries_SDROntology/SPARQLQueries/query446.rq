@@ -1,0 +1,33 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?TrackingRadar_0
+                Nuvio:compositeOf  ?SuperheterodyneReceiver_0
+      { ?SuperheterodyneReceiver_0
+                  a                     RFDevice:SuperheterodyneReceiver
+        { ?SuperheterodyneReceiver_0
+                    Nuvio:partOf  ?Entity_0
+          { ?Value_0  Nuvio:isExpressedBy  ?Entity_0
+            {   { ?Entity_0  a                    sf:Geometry
+                  { ?Entity_0  a                    Nuvio:Object .
+                    ?ElectronicSupport_0
+                              RFDevice:supportsTuning  ?Entity_0
+                    { ?ElectronicSupport_0
+                                a                     RFDevice:ElectronicSupport
+                    }
+                  }
+                }
+              UNION
+                { ?Value_0  a                     Nuvio:Value }
+            }
+          }
+        }
+      }
+    }
+  }

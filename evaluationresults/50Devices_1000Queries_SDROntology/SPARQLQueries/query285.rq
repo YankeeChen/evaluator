@@ -1,0 +1,44 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?CommunicationsSystem_0
+      {   { ?Var0  a                     RFDevice:InverseGainJamming
+            { ObjectDescription:Power_instance2
+                        Nuvio:hasProcessQuantity  ?Var0
+            }
+          }
+        UNION
+          {   { ?Var0  a                     RFDevice:Transceiving }
+            UNION
+              { ?Var0  a                     RFDevice:FormationJamming
+                { ?Var0  a                     RFDevice:Receiving
+                  { ?Var0  RFDevice:hasFrequencyRange  ?Entity_0
+                    {   { ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+                          { RFDevice:HorizontalPolarization
+                                      RFDevice:hasPolarization  ?Entity_0
+                            { ?Entity_0  a                    Nuvio:InformationContent }
+                          }
+                        }
+                      UNION
+                        { ?Process_0  Nuvio:subprocessOf  ?Value_0
+                          { ?Value_0  a                     Nuvio:Value .
+                            ?WeightUnit_0
+                                      Nuvio:hasUnitOfMeasure  ?Value_0
+                            { ?WeightUnit_0
+                                        a                     RFDevice:WeightUnit
+                            }
+                          }
+                        }
+                    }
+                  }
+                }
+              }
+          }
+      }
+    }
+  }

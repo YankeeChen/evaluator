@@ -1,0 +1,22 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                RFDevice:hasProducer  ?Entity_0
+      { ?Entity_0  a                    sf:Surface
+        {   { ?Entity_0  a                    RFDevice:PowerUnit }
+          UNION
+            { ?Entity_0  a                    Nuvio:Object .
+              ObjectDescription:Instance982
+                        Nuvio:hasObjectQuantity  ?Entity_0
+            }
+        }
+      }
+    }
+  }

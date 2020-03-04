@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    { ?SDR_0  RFDevice:supportsTuning  ?Var0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  Nuvio:aggregateOf  ObjectDescription:XilinxZynq7100SoC_instance3
+          { ?FrequencyScanRateUnit_0
+                      Nuvio:hasUnitOfMeasure  ?Var0
+          }
+          { ?Var0  a                     RFDevice:LatitudeValueInDegree
+            { ?Var0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 < 1962904971 )
+            }
+            { ?EmitterIdentification_0
+                        RFDevice:supportsTuning  ?Var0
+              { ?EmitterIdentification_0
+                          a                     RFDevice:EmitterIdentification
+                OPTIONAL
+                  { ?Var1  Nuvio:participatesIn  ?EmitterIdentification_0 }
+              }
+            }
+          }
+        }
+        { ?Var0  a                     RFDevice:Receiving
+          { ?Entity_0  RFDevice:hasFrequencyAccuracy  ?Var0 }
+        }
+      }
+    }
+  }

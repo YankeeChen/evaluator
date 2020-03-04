@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?BistaticRadar_0
+                  RFDevice:hasCapacity  ?Entity_0
+        {   { ?Entity_0  a                    Nuvio:Entity .
+              ?UnitOfMeasure_0
+                        Nuvio:expresses       ?Entity_0
+            }
+          UNION
+            { ?Entity_0  a                    SDR:XilinxZynq7020SoC
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:PulseDopplerRadarModulation
+                  { ?Entity_0  Nuvio:hasProcessQuantity  ?Attribute_0 }
+                }
+              { ?Entity_0  Nuvio:isExpressedBy  ?Percentage_0
+                OPTIONAL
+                  { ?Percentage_0
+                              a                     RFDevice:Percentage
+                  }
+              }
+            }
+        }
+      }
+  }

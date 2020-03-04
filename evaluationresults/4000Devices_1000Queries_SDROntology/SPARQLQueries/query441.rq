@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Weight_0  RFDevice:hasChargingTime  ?ElectronicSupportSystem_0
+      { ?Var0  Nuvio:hasValue  ?Weight_0
+        { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?Process_0  Nuvio:expresses     ?Entity_0
+            OPTIONAL
+              {   { ?Entity_0  a                    SDR:USRPE312 }
+                UNION
+                  { SDR:Length_133mm
+                              RFDevice:hasWeight  ?Entity_0
+                  }
+                OPTIONAL
+                  { ?Entity_0  a                    Nuvio:Object .
+                    ObjectDescription:Frequency_instance249
+                              RFDevice:hasCapacity  ?Entity_0
+                  }
+                { ?Process_0  a                   Nuvio:Process ;
+                            Nuvio:hasProcessQuality  ?Quality_0
+                  { ?Quality_0  a                   Nuvio:Quality }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    { ?Entity_0  RFDevice:hasProducer  ?USRPE3xx_0
+      { ?Entity_0  a                    Nuvio:Entity
+        OPTIONAL
+          { ?Entity_0  a                    gml:Cone
+            {   { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue }
+              UNION
+                { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+                  FILTER ( ?DataValue0 != -31.43 )
+                }
+            }
+          }
+      }
+    }
+  }

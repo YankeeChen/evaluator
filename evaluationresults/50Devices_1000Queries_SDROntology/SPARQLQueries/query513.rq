@@ -1,0 +1,40 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    { ?Entity_0  RFDevice:hasProducer  ?USRPE312_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:isExpressedBy   ?Situation_0
+        {   { ?Object_0  Nuvio:hasUnitOfMeasure  ?Entity_0 }
+          UNION
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 = -962028513 )
+              OPTIONAL
+                { ObjectDescription:Instance35
+                            RFDevice:supportsJamming  ?Object_0
+                }
+            }
+          {   { ?Entity_0  a                    Nuvio:Situation .
+                ?PolyhedralSurface_0
+                          Nuvio:relevantIndividual  ?Entity_0
+              }
+            UNION
+              {   { ?Quantity_0  Nuvio:relevantIndividual  ?Entity_0
+                    { ?Quantity_0  a                  Nuvio:Quantity }
+                  }
+                UNION
+                  { ?PolyhedralSurface_0
+                              a                     gml:PolyhedralSurface
+                  }
+              }
+          }
+        }
+      }
+    }
+  }

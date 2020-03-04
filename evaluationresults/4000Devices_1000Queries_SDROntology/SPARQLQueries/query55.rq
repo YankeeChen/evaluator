@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    OPTIONAL
+      { ?Entity_0  Nuvio:partOf  ?SDR_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?Entity_0  a                    sf:MultiCurve
+            { ?Entity_0  a                    RFDevice:AutomaticGainControl
+              { ?Entity_1  RFDevice:hasEffectiveRadiatedPower  ?Entity_0 }
+            }
+            { ?Entity_0  a                    RFDevice:Angle
+              { ?Entity_0  Nuvio:hasValue  ?LatitudeValueInDegree_0
+                { ?LatitudeValueInDegree_0
+                            a                     RFDevice:LatitudeValueInDegree
+                  { ?LatitudeValueInDegree_0
+                              RFDevice:hasFloatValue  ?DataValue0
+                    FILTER ( ?DataValue0 <= "90"^^xsd:decimal )
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

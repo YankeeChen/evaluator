@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    OPTIONAL
+      { ?Entity_0  RFDevice:hasProducer  ?USRPN200_0
+        { ?Value_0  Nuvio:expresses  ?Entity_0
+          {   { ?Entity_0  a                    gml:GeometricComplex
+                { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+              }
+            UNION
+              { ?Value_0  a                     Nuvio:Value .
+                RFDevice:Meter
+                          Nuvio:hasUnitOfMeasure  ?Value_0
+                { ?Value_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 > 2007580716 )
+                }
+              }
+          }
+        }
+      }
+  }

@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    OPTIONAL
+      { ?Transmitter_0
+                  Nuvio:partOf  ?USRPX300_0
+        { ?Transmitter_0
+                    a                     RFDevice:Transmitter
+          OPTIONAL
+            { ?DeceptiveJamming_0
+                        RFDevice:supportsTransmitting  ?Transmitter_0
+              { ?DeceptiveJamming_0
+                          a                     RFDevice:DeceptiveJamming
+                { ?Power_0  RFDevice:hasMaxOutputPower  ?DeceptiveJamming_0
+                  { ?Var0  Nuvio:hasValue  ?Power_0
+                    { ?Var0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                      FILTER ( ?DataValue0 <= 3.73 )
+                      { ?Var0  RFDevice:hasNonNegativeIntegerValue  ?DataValue1
+                        FILTER ( ?DataValue1 <= -16.6 )
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+      }
+  }

@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    OPTIONAL
+      { ?Entity_0  Nuvio:partOf  ?ElectronicAttackSystem_0
+        {   {   { ?Entity_0  a                    Nuvio:Entity .
+                  ?InformationEntity_0
+                            Nuvio:isExpressedBy   ?Entity_0
+                }
+              UNION
+                { ?Entity_0  a                    RFDevice:LatitudeValueInDegree
+                  { ?Entity_0  a                    Nuvio:Situation .
+                    ?USRPN210_0  Nuvio:relevantIndividual  ?Entity_0
+                    { ?USRPN210_0  a                  SDR:USRPN210
+                      { ?Satellite_0  RFDevice:isDeployedOn  ?USRPN210_0
+                        { ?Satellite_0  a                 RFDevice:Satellite }
+                      }
+                    }
+                  }
+                }
+            }
+          UNION
+            { ?InformationEntity_0
+                        a                     Nuvio:InformationEntity
+            }
+        }
+      }
+  }

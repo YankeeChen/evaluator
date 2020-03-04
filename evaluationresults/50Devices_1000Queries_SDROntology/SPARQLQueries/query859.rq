@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Entity_0  Nuvio:compositeOf  ?BistaticRadar_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationContent_0
+                  Nuvio:isExpressedBy   ?Entity_0
+        OPTIONAL
+          {   { ?RFFrontEnd_0
+                          Nuvio:compositeOf  ?Entity_0
+                { ?RFFrontEnd_0
+                            a                     RFDevice:RFFrontEnd
+                }
+                { ?Entity_0  a                    Nuvio:Object .
+                  SDR:USRP_Transmitting_Instance0
+                            RFDevice:supportsSpectrumSensing  ?Entity_0
+                  { ?Entity_0  a                    RFDevice:Gain
+                    { ?Var0  Nuvio:hasValue  ?Entity_0
+                      { ?Var1  Nuvio:hasUnitOfMeasure  ?Var0 }
+                    }
+                  }
+                }
+              }
+            UNION
+              { ?Entity_0  a                    Nuvio:Attribute }
+          }
+        { ?InformationContent_0
+                    a                     Nuvio:InformationContent
+        }
+      }
+    }
+  }

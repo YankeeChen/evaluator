@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Var0  Nuvio:partOf  ?USRPB210_0
+      { ?Var0  a                     RFDevice:RadioComponent
+        { ?XC6SLX75FPGA_0
+                    Nuvio:compositeOf  ?Var0
+        }
+        { ?Var1  RFDevice:hasChargingTime  ?Var0 }
+      }
+    }
+  }

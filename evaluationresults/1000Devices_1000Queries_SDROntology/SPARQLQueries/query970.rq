@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Entity_0  RFDevice:isProducerOf  ?Full_DuplexCommunicationsSystem_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?Entity_0  a                    RFDevice:ChokeRingAntenna
+            OPTIONAL
+              { ?Entity_0  Nuvio:partOf  ?Transmitter_0
+                { ?Transmitter_0
+                            a                     RFDevice:Transmitter
+                  { ObjectDescription:RadarFrequencyBand_instance42
+                              RFDevice:hasFrequencyAccuracy  ?Transmitter_0
+                  }
+                }
+              }
+          }
+        }
+      }
+  }

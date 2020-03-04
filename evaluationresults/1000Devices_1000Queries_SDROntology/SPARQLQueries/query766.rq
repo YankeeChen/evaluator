@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPN310_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:expresses       ?InformationEntity_0
+        { ?Entity_0  a                    sf:Surface
+          { ?Entity_0  a                    RFDevice:LongValue
+            { ?Entity_0  a                    Nuvio:Process }
+          }
+        }
+        OPTIONAL
+          { ?InformationRepresentation_0
+                      Nuvio:expresses  ?InformationEntity_0
+          }
+      }
+    }
+  }

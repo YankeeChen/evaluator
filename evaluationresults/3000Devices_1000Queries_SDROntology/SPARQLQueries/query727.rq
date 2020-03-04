@@ -1,0 +1,6 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR }

@@ -1,0 +1,52 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?USRPB210_0  RFDevice:supportsTuning  ?Var0
+      { ?Var0  a                     RFDevice:SpectrumSensing
+        OPTIONAL
+          { ?Var0  RFDevice:hasBandwidthRange  ?Entity_0
+            {   { ?Entity_0  a                    Nuvio:Entity .
+                  ?Object_0  Nuvio:expresses      ?Entity_0
+                }
+              UNION
+                {   { ?Entity_0  a                    gml:Composite
+                      { ?Entity_0  a                    RFDevice:SpatialAreaUnit
+                        OPTIONAL
+                          { ?Entity_0  a                    RFDevice:AngleValue
+                            OPTIONAL
+                              { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                                FILTER ( ?DataValue0 = 1067826938 )
+                              }
+                          }
+                        { ?Var1  Nuvio:hasValue  ?Entity_0
+                          { ?Var1  RFDevice:hasFloatValue  ?DataValue1 }
+                          { ?Entity_0  a                    Nuvio:Situation
+                            { ?SearchRadar_0
+                                        Nuvio:relevantIndividual  ?Entity_0
+                              { ?SearchRadar_0
+                                          a                     RFDevice:SearchRadar
+                                { ?SearchRadar_0
+                                            Nuvio:partOf  ?Jammer_0
+                                  { ?Jammer_0  a                    RFDevice:Jammer }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  UNION
+                    { ?Object_0  a                    Nuvio:Object }
+                }
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    { ?Var0  RFDevice:supportsTuning  ?USRPX300_0
+      { ?InformationRepresentation_0
+                  Nuvio:isExpressedBy  ?Var0
+        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+          FILTER ( ?DataValue0 > 1504300281 )
+          { ?Var0     a                     Nuvio:Situation .
+            ObjectDescription:USRPB200-210_instance27
+                      Nuvio:relevantIndividual  ?Var0
+            { ?Polygon_0  Nuvio:relevantIndividual  ?Var0
+              { ?Polygon_0  a                   sf:Polygon }
+            }
+          }
+          OPTIONAL
+            { ?Var0     a                     Nuvio:Object .
+              ?Entity_0  RFDevice:hasPolarization  ?Var0
+            }
+        }
+        { ?InformationRepresentation_0
+                    a                     Nuvio:InformationRepresentation
+        }
+      }
+    }
+  }

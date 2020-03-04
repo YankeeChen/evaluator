@@ -1,0 +1,15 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE310_0
+WHERE
+  { ?USRPE310_0  a                  SDR:USRPE310
+    { ?USRPE310_0  RFDevice:supportsTransmitting  ?Var0
+      { ?Var0  a                     RFDevice:Receiving
+        { ObjectDescription:FreqencyRange_instance12
+                    RFDevice:hasBandwidthRange  ?Var0
+        }
+      }
+    }
+  }

@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    { ?Jammer_0  Nuvio:compositeOf  ?USRPB200mini_0
+      { ?Jammer_0  a                    RFDevice:Jammer
+        { ?Entity_0  RFDevice:hasProducer  ?Jammer_0
+          {   { ?Entity_0  a                    Nuvio:Entity .
+                ?Entity_1  Nuvio:expresses      ?Entity_0
+              }
+            UNION
+              {   { ?Entity_0  a                    Nuvio:Situation .
+                    ?AmplitudeModulation_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                  }
+                UNION
+                  { ?Entity_0  Nuvio:relevantIndividual  ?QuadratureAmplitudeModulation_0
+                    { ?QuadratureAmplitudeModulation_0
+                                a                     RFDevice:QuadratureAmplitudeModulation
+                    }
+                    { ?AmplitudeModulation_0
+                                a                     RFDevice:AmplitudeModulation
+                    }
+                  }
+              }
+          }
+          OPTIONAL
+            { ?Entity_2  RFDevice:isProducerOf  ?Jammer_0 }
+        }
+      }
+    }
+  }

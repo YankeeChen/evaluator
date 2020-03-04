@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?Entity_0  RFDevice:hasProducer  ?CR_0
+      {   { ?Situation_0  Nuvio:isExpressedBy  ?Entity_0 }
+        UNION
+          { ?Entity_0  a                    gml:ArcString
+            {   {   { ?Entity_0  a                    RFDevice:FrequencyScanRate }
+                  UNION
+                    { ?Entity_0  Nuvio:hasValue  ?Var0
+                      { ?Var0  a                     Nuvio:Value
+                        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 != -7249149 )
+                        }
+                      }
+                    }
+                }
+              UNION
+                { ?Polygon_0  RFDevice:hasTarget  ?Entity_0 }
+            }
+          }
+        { ?Situation_0  a                 Nuvio:Situation }
+      }
+    }
+  }

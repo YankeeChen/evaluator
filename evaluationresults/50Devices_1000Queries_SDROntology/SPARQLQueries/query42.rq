@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?SearchRadar_0
+                RFDevice:isProducerOf  ?Entity_0
+      { ?InformationRepresentation_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:Amplifier
+          { ?Power_0  RFDevice:hasTransmitPowerRange  ?Entity_0 }
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    OPTIONAL
+      { ?Entity_0  RFDevice:hasProducer  ?USRPB200_210_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?UnitOfMeasure_0
+                    Nuvio:isExpressedBy   ?Entity_0
+          {   { ?Entity_0  a                    sf:MultiLineString
+                OPTIONAL
+                  { ?Entity_0  a                    RFDevice:VoltageUnit
+                    { ?Entity_0  a                    RFDevice:Weight }
+                  }
+              }
+            UNION
+              { ?RFFrontEnd_0
+                          Nuvio:expresses  ?Entity_0
+                { SDR:USRP_SpectrumSensing_Instance5
+                            Nuvio:hasSubprocess  ?Entity_0
+                }
+              }
+            { ?UnitOfMeasure_0
+                        a                     Nuvio:UnitOfMeasure
+            }
+          }
+        }
+      }
+  }

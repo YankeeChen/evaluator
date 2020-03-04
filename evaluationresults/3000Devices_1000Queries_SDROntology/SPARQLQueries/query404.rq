@@ -1,0 +1,17 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?MobilePlatform_0
+                RFDevice:isDeployedOn  ?ContinuousWaveRadar_0
+      { ?MobilePlatform_0
+                  a                     RFDevice:MobilePlatform
+        { ObjectDescription:Moving_instance4
+                    RFDevice:hasCapability  ?MobilePlatform_0
+        }
+      }
+    }
+  }

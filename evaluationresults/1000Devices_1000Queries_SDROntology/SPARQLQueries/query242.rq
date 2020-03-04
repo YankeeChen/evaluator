@@ -1,0 +1,34 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    OPTIONAL
+      { ?Transmitter_0
+                  Nuvio:aggregateOf  ?RFSystem_0
+        { ?Transmitter_0
+                    a                     RFDevice:Transmitter
+          { ?CoverPulsesJamming_0
+                      RFDevice:supportsSpectrumSensing  ?Transmitter_0
+            {   { ?CoverPulsesJamming_0
+                            a                     RFDevice:CoverPulsesJamming
+                }
+              UNION
+                { ?CoverPulsesJamming_0
+                            RFDevice:hasMaxSensedPower  ?Power_0
+                  { ?Power_0  a                     RFDevice:Power
+                    { ?Power_0  Nuvio:hasValue  ?Var0
+                      { ?Var0  RFDevice:hasDecimalValue  ?DataValue0
+                        FILTER ( ?DataValue0 <= 0.19 )
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }

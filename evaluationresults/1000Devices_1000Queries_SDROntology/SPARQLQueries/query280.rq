@@ -1,0 +1,36 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?RadioComponent_0
+                Nuvio:compositeOf  ?JammingSystem_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?Entity_0  RFDevice:hasProducer  ?RadioComponent_0
+          { ?Entity_0  a                    Nuvio:Entity ;
+                      Nuvio:expresses       ?Value_0
+            {   { ?Entity_0  a                    gml:AbstractSurfacePatch }
+              UNION
+                { ?Entity_0  a                    Nuvio:Process }
+              OPTIONAL
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?Entity_1  Nuvio:hasUnitOfMeasure  ?Entity_0
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 = -127105101 )
+                  }
+                }
+              { ?Entity_0  a                    Nuvio:InformationContent .
+                ?Entity_2  Nuvio:representedBy  ?Entity_0
+              }
+            }
+          }
+        }
+      }
+    }
+  }

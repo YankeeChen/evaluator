@@ -1,0 +1,11 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?Producer_0  RFDevice:isProducerOf  ?PulseDopplerRadar_0
+      { ?Producer_0  a                  RFDevice:Producer }
+    }
+  }

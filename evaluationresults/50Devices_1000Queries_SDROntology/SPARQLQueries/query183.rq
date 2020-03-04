@@ -1,0 +1,30 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Var0  RFDevice:supportsTuning  ?RadarSystem_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        { ?Frequency_0  RFDevice:hasBandwidth  ?Var0
+          { ?Frequency_0  a                 RFDevice:Frequency
+            { ?Var1  Nuvio:hasValue  ?Frequency_0
+              { ?UnitOfMeasure_0
+                          Nuvio:hasUnitOfMeasure  ?Var1
+                {   { ?TimeUnit_0  Nuvio:hasUnitOfMeasure  ?Var1 }
+                  UNION
+                    { ?Var1  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 > 22019328 )
+                      { ?TimeUnit_0  a                  RFDevice:TimeUnit }
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

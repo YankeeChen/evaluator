@@ -1,0 +1,24 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Var0  RFDevice:supportsTuning  ?SearchRadar_0
+      {   { ?Var0     a                     Nuvio:Process .
+            ?LinearRing_0
+                      Nuvio:hasParticipant  ?Var0
+            { ?LinearRing_0
+                        a                     sf:LinearRing
+            }
+          }
+        UNION
+          { ?Var0  a                     Nuvio:Entity ;
+                   Nuvio:expresses       ?InformationContent_0
+          }
+      }
+    }
+  }

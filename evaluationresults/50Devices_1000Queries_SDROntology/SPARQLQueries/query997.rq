@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Entity_0  RFDevice:hasProducer  ?GNURadio_0
+      { ?InformationEntity_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:ElectronicProtection
+            OPTIONAL
+              { ?Entity_0  Nuvio:relevantIndividual  ?Processor_0
+                { ObjectDescription:XC6SLX75FPGA_instance0
+                            Nuvio:aggregateOf  ?Processor_0
+                }
+              }
+          }
+        { ?InformationEntity_0
+                    a                     Nuvio:InformationEntity .
+          ?Var0     Nuvio:informationSource  ?InformationEntity_0
+          { ?Var0  a                     gml:Sphere }
+        }
+      }
+    }
+  }

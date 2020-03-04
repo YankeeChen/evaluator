@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?GNURadio_0  RFDevice:hasCapability  ?Var0
+      { ?Var0  a                     RFDevice:Jamming
+        { ?Var0  RFDevice:hasPulseRepetitionFrequency  ?Quantity_0 }
+        { ?Var0  a                     Nuvio:Entity
+          OPTIONAL
+            { ?Var0     a                     Nuvio:Value .
+              ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Var0
+              { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                FILTER ( ?DataValue0 = -1449389537 )
+              }
+              { ?AngleUnit_0  a                 RFDevice:AngleUnit }
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?MannedPlatform_0
+                RFDevice:isDeployedOn  ?ModelX_0
+      { ?MannedPlatform_0
+                  a                     RFDevice:MannedPlatform
+      }
+    }
+  }

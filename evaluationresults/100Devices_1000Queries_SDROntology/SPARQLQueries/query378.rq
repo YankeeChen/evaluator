@@ -1,0 +1,51 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?Var0  RFDevice:supportsTuning  ?USRPB200_0
+      { ?Var0  RFDevice:hasPulseWidth  ?Var1
+        { ?Entity_0  Nuvio:hasProcessQuantity  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+            { ?Entity_0  a                    Nuvio:UnitOfMeasure
+              OPTIONAL
+                {   { ?Entity_0  a                    Nuvio:Value .
+                      RFDevice:Radian
+                                Nuvio:hasUnitOfMeasure  ?Entity_0
+                      { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                        FILTER ( ?DataValue0 = 1126314368 )
+                      }
+                    }
+                  UNION
+                    { ?Entity_0  a                    Nuvio:Process .
+                      ?Mixer_0  Nuvio:hasParticipant  ?Entity_0
+                      { ?Mixer_0  a                     RFDevice:Mixer
+                        { ?IEDJammer_0  Nuvio:compositeOf  ?Mixer_0
+                          { ?IEDJammer_0  a                 RFDevice:IEDJammer
+                            OPTIONAL
+                              { ?SweptSpotJamming_0
+                                          RFDevice:supportsTuning  ?IEDJammer_0
+                                { ?SweptSpotJamming_0
+                                            a                     RFDevice:SweptSpotJamming
+                                }
+                              }
+                          }
+                        }
+                      }
+                    }
+                }
+              { ?Situation_0  a                 Nuvio:Situation .
+                ?InformationRepresentation_0
+                          Nuvio:relevantIndividual  ?Situation_0
+              }
+            }
+          }
+        }
+      }
+    }
+  }

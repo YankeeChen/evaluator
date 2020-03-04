@@ -1,0 +1,22 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?TrackingRadar_0
+                Nuvio:aggregateOf  ?Jammer_0
+      { ?Jammer_0  Nuvio:aggregateOf  ?ADC_0
+        { ?ADC_0  RFDevice:isProducerOf  ?Entity_0
+          { ?Entity_0  a                    Nuvio:Entity
+            { ?Entity_0  a                    skos:Collection .
+              ?Var0     skos:member           ?Entity_0
+            }
+          }
+        }
+      }
+    }
+  }

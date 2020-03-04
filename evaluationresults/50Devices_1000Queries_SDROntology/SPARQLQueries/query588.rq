@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    OPTIONAL
+      { ?Entity_0  RFDevice:hasProducer  ?ElectronicSupportSystem_0
+        { ?Entity_0  Nuvio:partOf  ?XC6SLX150FPGA_0
+          { ?XC6SLX150FPGA_0
+                      a                     SDR:XC6SLX150FPGA
+          }
+          { ?Entity_0  Nuvio:relevantIndividual  ObjectDescription:Frequency_instance1
+            { ?Submarine_0  Nuvio:relevantIndividual  ?Entity_0
+              { ?Submarine_0  a                 RFDevice:Submarine }
+            }
+          }
+        }
+      }
+  }

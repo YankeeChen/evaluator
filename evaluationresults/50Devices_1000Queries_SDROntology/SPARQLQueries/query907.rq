@@ -1,0 +1,21 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Half_DuplexCommunicationsSystem_0
+                RFDevice:hasCapability  ?Receiving_0
+      { ?Entity_0  RFDevice:hasBandwidthRange  ?Receiving_0
+        { ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+          { ?Entity_0  a                    sf:MultiPolygon
+            { ?Entity_0  a                    RFDevice:Distance }
+            { ?Object_0  a                    Nuvio:Object }
+          }
+        }
+      }
+    }
+  }

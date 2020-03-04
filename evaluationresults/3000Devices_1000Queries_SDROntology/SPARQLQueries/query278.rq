@@ -1,0 +1,30 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?JammingSystem_0
+      { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+          { ?Entity_0  a                    SDR:USRPN300
+            { ?Entity_0  Nuvio:partOf  ?XilinxZynq7000Family_0
+              { ?XilinxZynq7000Family_0
+                          a                     SDR:XilinxZynq7000Family
+              }
+            }
+            { ?Entity_0  a                    RFDevice:BlinkingJamming }
+            {   { ?Entity_0  a                    Nuvio:Object }
+              UNION
+                { ?Entity_0  a                    Nuvio:InformationContent }
+            }
+          }
+        }
+        { ?Var0  a                     RFDevice:CoverJamming }
+      }
+    }
+  }

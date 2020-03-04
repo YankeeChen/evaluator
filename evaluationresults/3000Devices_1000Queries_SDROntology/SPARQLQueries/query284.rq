@@ -1,0 +1,25 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:hasVoltage  ?Half_DuplexCommunicationsSystem_0
+      {   { ?Entity_0  a                    Nuvio:Entity }
+        UNION
+          { ?Entity_0  a                    sf:MultiPolygon
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure
+                { ?Entity_0  Nuvio:hasValue  ?Var0 }
+              }
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 >= -1257125353 )
+            }
+          }
+      }
+    }
+  }

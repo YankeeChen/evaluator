@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?USRPN300_0  Nuvio:partOf  ?XilinxZynq7000Family_0
+      { ?XilinxZynq7000Family_0
+                  a                     SDR:XilinxZynq7000Family
+        { ?Entity_0  RFDevice:hasProducer  ?XilinxZynq7000Family_0
+          { ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+            { ?Var0  RFDevice:supportsJamming  ?Entity_0 }
+            {   { ?Situation_0  a                 Nuvio:Situation }
+              UNION
+                { ?Situation_0  Nuvio:relevantIndividual  ?OmnidirectionalAntenna_0
+                  { ?OmnidirectionalAntenna_0
+                              RFDevice:hasProducer  ?Entity_1
+                    { ?Object_0  RFDevice:isProducerOf  ?OmnidirectionalAntenna_0
+                      { ?Object_0  Nuvio:hasParticipant  ?DeceptiveCommunicationsJamming_0
+                        { ?DeceptiveCommunicationsJamming_0
+                                    a                     RFDevice:DeceptiveCommunicationsJamming
+                          { ?Entity_0  RFDevice:hasEffectiveRadiatedPower  ?DeceptiveCommunicationsJamming_0 }
+                        }
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+    }
+  }

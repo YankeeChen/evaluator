@@ -1,0 +1,12 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN3xx_0
+WHERE
+  { ?USRPN3xx_0  a                  SDR:USRPN3xx
+    OPTIONAL
+      { ?Producer_0  RFDevice:isProducerOf  ?USRPN3xx_0
+        { ?Producer_0  a                  RFDevice:Producer }
+      }
+  }

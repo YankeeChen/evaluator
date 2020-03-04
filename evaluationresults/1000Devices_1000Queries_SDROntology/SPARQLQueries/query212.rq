@@ -1,0 +1,29 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Entity_0  RFDevice:supportsSpectrumSensing  ?Full_DuplexCommunicationsSystem_0
+        { ?Entity_0  Nuvio:expresses  ?InformationContent_0
+          OPTIONAL
+            { ?Entity_0  a                    gml:ArcByCenterPoint
+              { ?Entity_0  a                    RFDevice:FrequencyScanRateUnit }
+              { ?Entity_0  a                    RFDevice:FloatValue
+                { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 <= 990343926 )
+                }
+                { ?Entity_0  RFDevice:hasPolarization  ?Entity_1 }
+              }
+            }
+          { ?InformationContent_0
+                      a                     Nuvio:InformationContent
+          }
+        }
+      }
+  }

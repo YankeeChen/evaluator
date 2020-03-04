@@ -1,0 +1,15 @@
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?RadarSystem_0
+                RFDevice:isProducerOf  ?Entity_0
+      { ?Entity_0  a                    geosparql:SpatialObject
+        { ?Entity_0  a                    RFDevice:OnOffKeyingModulation }
+      }
+    }
+  }

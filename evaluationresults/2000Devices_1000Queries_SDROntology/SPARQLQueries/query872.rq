@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?RFSystem_0  Nuvio:partOf  ?Object_0
+      { ?Object_0  RFDevice:supportsTransmitting  ?CoverPulsesJamming_0
+        OPTIONAL
+          { ?CoverPulsesJamming_0
+                      a                     RFDevice:CoverPulsesJamming
+            OPTIONAL
+              { ?Power_0  RFDevice:hasPulseWidth  ?CoverPulsesJamming_0 }
+          }
+      }
+    }
+  }

@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    { ?Entity_0  RFDevice:hasProducer  ?SDR_0
+      { ?Entity_0  a                    Nuvio:Process .
+        ?AmplitudeShiftKeyingModulation_0
+                  Nuvio:hasSubprocess   ?Entity_0
+        { ?AmplitudeShiftKeyingModulation_0
+                    a                     RFDevice:AmplitudeShiftKeyingModulation
+        }
+        { ?Entity_0  Nuvio:representedBy  ?InformationRepresentation_0
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation .
+            ?Entity_1  Nuvio:representedBy  ?InformationRepresentation_0
+          }
+        }
+      }
+    }
+  }

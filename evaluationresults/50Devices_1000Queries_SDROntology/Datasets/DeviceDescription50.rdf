@@ -1,0 +1,3233 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ece.neu.edu/ontologies/ObjectDescription50.owl#"
+     xml:base="http://ece.neu.edu/ontologies/ObjectDescription50.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:Nuvio="http://cogradio.org/ont/Nuvio.owl#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:RFDevice="http://ece.neu.edu/ontologies/RFDevice.owl#">
+    <owl:Ontology rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl">
+        <owl:imports rdf:resource="http://ece.neu.edu/ontologies/SDR.owl"/>
+        <rdfs:comment>A sample of 50 object descriptions</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance0">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance3"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance1">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance2">
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance4"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance3">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SuperheterodyneReceiver_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance19"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Aircraft_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Aircraft_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Aircraft"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Aircraft_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Aircraft_instance1"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance0">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance1">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Angle_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Angle_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Antenna_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Antenna_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Antenna"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <RFDevice:hasBeamwidth rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Angle_instance0"/>
+        <RFDevice:hasGain rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Gain_instance0"/>
+        <RFDevice:hasPolarization rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#HorizontalPolarization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Artix7FPGA_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Artix7FPGA_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Artix7FPGA"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Series7FPGA"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance14"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#AutomaticGainControl_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#AutomaticGainControl_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#AutomaticGainControl"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ElectronicWarfare"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#BarrageJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#BarrageJamming_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#BarrageJamming"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#CR_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CR_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#CR"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance18"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance1"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#CommunicationsSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance32"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance1"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#CommunicationsSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance3"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance2"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance37"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance2"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#CommunicationsSystem"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance7"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ContinuousWaveRadar_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ContinuousWaveRadar_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ContinuousWaveRadar"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance4"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance15"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_8kg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#CoverJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CoverJamming_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Attribute"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DataSize"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DataSize_instance2">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DataSize"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#DeceptiveCommunicationsJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DeceptiveCommunicationsJamming_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DeceptiveCommunicationsJamming"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ElectronicAttack"/>
+        <RFDevice:hasMaxOutputPower rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DirectConversionReceiver"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Antenna_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance2"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance1"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarBand_Ka"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance2"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance6"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarBand_Ka"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ElectronicAttackSystem_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ElectronicAttackSystem_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ElectronicAttackSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance3"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance2"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance43"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SweptSpotJamming_instance0"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ElectronicSupport_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ElectronicSupport_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Filter_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Filter_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Filter"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#QuantityRange"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance4"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_300MHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_300GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FreqencyRange"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#FrequencyUnit_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FrequencyUnit_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#FrequencyUnit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Quantity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance2"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance3">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance22"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance4">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Attribute"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance24"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance5">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance27"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance6">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance42"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance7">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance45"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance8 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance8">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Quantity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Frequency"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance57"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Full-DuplexCommunicationsSystem_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Full-DuplexCommunicationsSystem_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-DuplexCommunicationsSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance5"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance5"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance41"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance10"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Gain_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Gain_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Gain"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Half-DuplexCommunicationsSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Half-DuplexCommunicationsSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance52"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance2">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Half-DuplexCommunicationsSystem"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDJammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200mini-i_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_ELF"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_ELF"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Component"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDJammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SpotJamming_instance1"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance3"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance1"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance3"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance2">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDJammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN2xx_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance3">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RangeGatePullOffJamming_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ISM_Band_2_4GHz"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance3"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ISM_Band_2_4GHz"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDJammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadar_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RangeGatePullOffJamming_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance5">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDJammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Full-DuplexCommunicationsSystem_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CoverJamming_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_LF"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance10"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance5"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_LF"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xxmini_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiving_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance2"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance2"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDTrigger"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Full-DuplexCommunicationsSystem_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiving_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance2">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDTrigger"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance3"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_EHF"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_UHF"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance3"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance2"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_EHF"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance3">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#OmnidirectionalAntenna_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ElectronicAttackSystem_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance3"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance4"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance3"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance4"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance4">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#IEDTrigger"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance4"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ContinuousWaveRadar_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance1"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#InboundRangeGatePullOffJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InboundRangeGatePullOffJamming_instance0">
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_15dBm"/>
+        <RFDevice:hasEffectiveRadiatedPower rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_15dBm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance1"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance10 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance10">
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xxmini_instance0"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance11 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance11">
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance12 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance12"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance13 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance13"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance14 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance14">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance15 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance15"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance16 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance16">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveIntegerValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance17 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance17">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance1"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance18 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance18">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance19 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance19">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance20"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance2">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xx_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance20 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance20">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveDecimalValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance21 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance21">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NoiseFigure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance22 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance22">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FrequencyUnit_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance23 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance23">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance24 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance24">
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5729.28</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance25 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance25"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance26 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance26">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance27 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance27">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Value"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance28 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance28">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance1"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance29 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance29"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance3"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance30 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance30">
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance31 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance31">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PositiveFloatValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance32 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance32"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance33 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance33">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance34 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance34">
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_125MHz"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN300_instance0"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Data_16bit"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_125MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance35 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance35">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance36 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance36"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance37 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance37"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance38 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance38"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance39 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance39">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeUnit_instance0"/>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7973.47</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance4"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance40 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance40">
+        <Nuvio:hasUnitOfMeasure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Gram"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance41 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance41">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance42 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance42">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NonNegativeDecimalValue"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9920.44</Nuvio:hasDataValue>
+        <RFDevice:hasDecimalValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9920.44</RFDevice:hasDecimalValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance43 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance43">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance44 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance44">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance45 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance45"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance46 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance46">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE310_instance0"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance47 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance47"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance48 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance48"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance49 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance49">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance5"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance50 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance50">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance51 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance51">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX310_instance0"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_800MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance52 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance52"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance53 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance53">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DecimalValue"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance54 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance54">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#DAC"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance0"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Data_16bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance55 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance55">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance56 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance56">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB210_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance57 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance57"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance58 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance58">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance1"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance59 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance59">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpectrumSensing"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance6"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance60 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance60">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ADC"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance61 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance61"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance62 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance62">
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_12bit"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_61_44MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance63 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance63"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance7">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance8 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance8">
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_200MHz"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance0"/>
+        <RFDevice:hasResolution rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Data_14bit"/>
+        <RFDevice:hasSamplingRate rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Freq_200MHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance9 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance9">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#InstantaneousFrequencyMeasurementReceiver"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#OmnidirectionalAntenna_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#JammingSystem_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance0"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance0"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance0"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#InstantaneousFrequencyMeasurementReceiver"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioComponent"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance5"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance16"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance1"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance5"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Jammer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Jammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SpotJamming_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarBand_UHF"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE310_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#BarrageJamming_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance3"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance12"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance8"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance3"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Jammer"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioComponent"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX310_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#AutomaticGainControl_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance5"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance16"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance5"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Jammer"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance4"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance4"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance3"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DeceptiveCommunicationsJamming_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance17"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#JammingSystem_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#JammingSystem_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#JammingSystem"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InboundRangeGatePullOffJamming_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance23"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#JammingSystem_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#JammingSystem_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ElectronicAttackSystem"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#JammingSystem"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance6"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#MannedPlatform_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MannedPlatform_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#MannedPlatform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Mixer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance1">
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance17"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#MobilePlatform_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MobilePlatform_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ModelX"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance12"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance0"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#CommunicationsSystem"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ModelX"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance38"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance3"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance4"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ModelX"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RFSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ModelX"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance49"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#ModelX"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance2"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Aircraft_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#MonostaticRadar_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MonostaticRadar_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#MonostaticRadar"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance9"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#MonostaticRadar_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MonostaticRadar_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#MonostaticRadar"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance0"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Moving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance1"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance2"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance3"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#NoiseFigure"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance5">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance53"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#OmnidirectionalAntenna_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#OmnidirectionalAntenna_instance0">
+        <Nuvio:hasObjectQuality rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#CircularPolarization"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance3"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance7"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_UHF"/>
+        <RFDevice:hasPolarization rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#CircularPolarization"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#OmnidirectionalAntenna_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioBand_UHF"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PhasedArrayAntenna_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PhasedArrayAntenna_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Component"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PhasedArrayAntenna"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+        <RFDevice:hasBeamwidth rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Angle_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Platform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Quantity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance1"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Power"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance3"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance1"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance10 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance10">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Full-DuplexCommunicationsSystem_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance5"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadar_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance11 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance11">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SurveillanceRadar_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance12 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance12">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance2"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE310_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance13 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance13">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance14 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance14">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Artix7FPGA_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE3xx_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance15 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance15">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ContinuousWaveRadar_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance16 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance16">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance1"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX310_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance17 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance17">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance18 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance18">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance19 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance19">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance3"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN2xx_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance1"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance1"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance4"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN310_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance4">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance2"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance5">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200mini-i_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance6">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance7">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance8 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance8">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Producer"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN300_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance9 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance9">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MonostaticRadar_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance0">
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_3MHz"/>
+        <RFDevice:hasPulseRepetitionFrequency rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_3MHz"/>
+        <RFDevice:hasPulseRepetitionInterval rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance1">
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance1"/>
+        <RFDevice:hasPulseRepetitionInterval rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PulseDopplerRadar"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance25"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance0"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Platform_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PulseDopplerRadar"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance26"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance1"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PulseDopplerRadar"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#DirectConversionReceiver_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance0"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadarModulation_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadarModulation_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PulseRadarModulation"/>
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance0"/>
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance1"/>
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_30kHz"/>
+        <RFDevice:hasPulseRepetitionFrequency rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_30kHz"/>
+        <RFDevice:hasPulseRepetitionInterval rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance0"/>
+        <RFDevice:hasPulseRepetitionInterval rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance1"/>
+        <RFDevice:hasPulseWidth rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadar_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadar_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PulseRadar"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance4"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadarModulation_instance0"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_8kg"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Satellite_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadar_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadar_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#PulseRadar"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadarModulation_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance10"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RFFrontEnd"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Amplifier_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Filter_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Mixer_instance1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RFSystem"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RFSystem"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance33"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarFrequencyBand_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarFrequencyBand_instance0">
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_4GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Component"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarJammer"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MonostaticRadar_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance2"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarFrequencyBand_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance13"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarFrequencyBand_instance0"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance1">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Half-DuplexCommunicationsSystem_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance2">
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJamming_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance6"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance17"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance2"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance6"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJamming_instance0">
+        <RFDevice:hasEffectiveRadiatedPower rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance0"/>
+        <RFDevice:hasTarget rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarModulation_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarModulation_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarModulation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarWarningReceiver_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarWarningReceiver_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarWarningReceiver"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ElectronicSupport_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioFrequencyBand"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance0"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance1">
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioFrequencyBand"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance3">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioFrequencyBand"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioFrequencyBand"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance5">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioFrequencyBand"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2GHz"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance6">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioFrequencyBand"/>
+        <RFDevice:hasMax rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Frequency_instance8"/>
+        <RFDevice:hasMin rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Freq_2_5GHz"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RangeGatePullOffJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RangeGatePullOffJamming_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#RangeGatePullOffJamming_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RangeGatePullOffJamming_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RangeGatePullOffJamming"/>
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance1"/>
+        <RFDevice:hasEffectiveRadiatedPower rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiver"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiving_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance1"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance1"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Component"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiver"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PhasedArrayAntenna_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseDopplerRadar_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN300_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiving_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance2"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance6"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance2"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance2">
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance3"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance12"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance2"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#FreqencyRange_instance3"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance3">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiver"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance4"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance2"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance5"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance0"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#NoiseFigure_instance5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiving_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiving_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#SDR_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SDR_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#SDR"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Satellite_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Satellite_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Satellite"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Ship"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance1">
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#SpotJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SpotJamming_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SpotJamming"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#SpotJamming_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SpotJamming_instance1">
+        <RFDevice:hasEffectiveRadiatedPower rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Submarine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Submarine"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#MobilePlatform"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Submarine"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Moving_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#SuperheterodyneReceiver_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SuperheterodyneReceiver_instance0">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ADC_instance3"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN2xx_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarBand_S"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SuperheterodyneReceiver_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadarBand_S"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#SurveillanceRadar_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SurveillanceRadar_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SurveillanceRadar"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance44"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#PulseRadarModulation_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance11"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#SweptSpotJamming_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SweptSpotJamming_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#SweptSpotJamming"/>
+        <Nuvio:hasProcessQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance2"/>
+        <RFDevice:hasEffectiveRadiatedPower rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance2"/>
+        <RFDevice:hasMaxOutputPower rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Power_instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#TimeInterval"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeInterval_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#TimeInterval"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance39"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeUnit_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TimeUnit_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#TrackingRadar"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_3_13kg"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_3_13kg"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MannedPlatform_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#TrackingRadar_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#TrackingRadar"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarModulation_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance7"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance0"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance1"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transceiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Receiving"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transceiving_instance4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transceiving"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitting"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Transmitter"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#CommunicationsSystem_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#ModelX_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SDR_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0"/>
+        <RFDevice:hasFrequencyRange rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance0"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Transmitter_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasFrequencyAccuracy"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadioFrequencyBand_instance0"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB200"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance1"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_1_5cm"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_1_5cm"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance21"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g"/>
+        <RFDevice:hasWidth rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_9_7cm"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB200"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance28"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance30"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance1"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_15_5cm"/>
+        <RFDevice:hasDataTransmissionMode rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_15_5cm"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance1"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance29"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance1"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasCenterFrequency"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance2">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB200"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance60"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance62"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance59"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance61"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance61"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200mini-i_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200mini-i_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB200mini-i"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_24g"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_8_4mm"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_83_3mm"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance19"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance5"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_24g"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB210_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB210_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#SDR"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB210"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance56"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_15_5cm"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance55"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_15_5cm"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_350g"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xx_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xx_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xx"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance3"/>
+        <RFDevice:hasDataTransmissionMode rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xx_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasCenterFrequency"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xxmini_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB2xxmini_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#System"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPB2xxmini"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance10"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance11"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance9"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_8_4mm"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance2"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE310_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE310_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPE310"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance46"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance47"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_26_4mm"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_26_4mm"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance47"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance12"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance1"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance0"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance48"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE3xx_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE3xx_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPE3xx"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance14"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN200_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN200_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN200"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance1"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_5cm"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_22cm"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_2kg"/>
+        <RFDevice:hasWidth rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_16cm"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Aircraft_instance0"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN2xx_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN2xx_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN2xx"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDJammer_instance2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance63"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SuperheterodyneReceiver_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_5dB"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance19"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#MobilePlatform_instance0"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN300_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN300_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN300"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance34"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance35"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_43_7mm"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_357mm"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance8"/>
+        <RFDevice:hasWidth rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_211mm"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance0"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN310_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN310_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN310"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance14"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_3_13kg"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance13"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance0"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance4"/>
+        <RFDevice:hasDataTransmissionMode rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_43_7mm"/>
+        <RFDevice:hasPowerConsumptionRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_50W-80W"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance3"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_3_13kg"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance0"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance1"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN3xx_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPN3xx_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#GNURadio"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPN3xx"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_357mm"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance50"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_357mm"/>
+        <RFDevice:hasPowerConsumptionRange rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Range_50W-80W"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance0"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance4"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_Transmitting_Instance2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX300"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance8"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance0"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance0"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_21_8cm"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance5"/>
+        <RFDevice:hasLength rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Length_27_7cm"/>
+        <RFDevice:hasMaxPowerConsumption rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_7kg"/>
+        <RFDevice:hasWidth rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_21_8cm"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Ship_instance0"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance6"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX300"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance17"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance1"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5"/>
+        <RFDevice:hasDataTransmissionMode rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5"/>
+        <RFDevice:supportsTransmitting rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance15"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance1"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasCenterFrequency"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX310_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX310_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX310"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance51"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#InstantaneousFrequencyMeasurementReceiver_instance1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance3"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+        <RFDevice:hasMaxPowerConsumption rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance16"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX3xx"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance54"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance4"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance3"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_3_9cm"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_7kg"/>
+        <RFDevice:hasDataTransmissionMode rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_3_9cm"/>
+        <RFDevice:hasNoiseFigure rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Noise_8dB"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_7kg"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance0"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasCenterFrequency"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRPX3xx"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance58"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance2"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_3_9cm"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+        <Nuvio:hasObjectQuantity rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_21_8cm"/>
+        <RFDevice:hasCapability rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5"/>
+        <RFDevice:hasDataTransmissionMode rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+        <RFDevice:hasHeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Height_3_9cm"/>
+        <RFDevice:hasMaxPowerConsumption rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Power_45W"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance18"/>
+        <RFDevice:hasWeight rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Weight_1_7kg"/>
+        <RFDevice:hasWidth rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Width_21_8cm"/>
+        <RFDevice:isDeployedOn rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Submarine_instance2"/>
+        <RFDevice:supportsSpectrumSensing rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#USRP_SpectrumSensing_Instance5"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NegativePropertyAssertion"/>
+        <owl:sourceIndividual rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX3xx_instance1"/>
+        <owl:assertionProperty rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#hasCenterFrequency"/>
+        <owl:targetIndividual rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Full-Duplex"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#UnmannedPlatform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance1">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#UnmannedPlatform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#UnmannedPlatform"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#UnmannedPlatform_instance3"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance1"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance31"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance36"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance4"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance5">
+        <Nuvio:hasValue rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Instance40"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance6">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Quantity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Weight_instance7">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#Weight"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0">
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#IEDTrigger_instance4"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Receiver_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#WhipAntenna_instance0"/>
+        <RFDevice:hasPolarization rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#HorizontalPolarization"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance0">
+        <rdf:type rdf:resource="http://cogradio.org/ont/Nuvio.owl#Entity"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance2"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200mini-i_instance0"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance5"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC6SLX75FPGA_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioComponent"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC6SLX75FPGA"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Jammer_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC7K325TFPGA"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/RFDevice.owl#RadioComponent"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XC7K325TFPGA"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPX300_instance1"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XC7K325TFPGA_instance1"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Producer_instance4"/>
+        <RFDevice:hasProducer rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#Xilinx"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance0">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7020SoC"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE310_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/ObjectDescription50.owl#XilinxZynq7020SoC_instance1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SDR.owl#XilinxZynq7020SoC"/>
+        <Nuvio:compositeOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Artix7FPGA_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Artix7FPGA_instance0"/>
+        <Nuvio:partOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPE3xx_instance0"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SDR.owl#Xilinx -->
+
+
+    <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SDR.owl#Xilinx">
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#Artix7FPGA_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFFrontEnd_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RFSystem_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#RadarJammer_instance1"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#SDR_instance0"/>
+        <RFDevice:isProducerOf rdf:resource="http://ece.neu.edu/ontologies/ObjectDescription50.owl#USRPB200_instance2"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.7.2018-09-02T11:51:43Z) https://github.com/owlcs/owlapi/ -->
+
+

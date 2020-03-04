@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    { ?Var0  RFDevice:supportsTuning  ?USRPB200mini_0
+      { ?Var0  RFDevice:hasPulseWidth  ?Var1
+        { ?Var1  a                     RFDevice:TerrainBounceJamming
+          OPTIONAL
+            { ?Var1     a                     Nuvio:InformationEntity .
+              ?USRPE310_0  Nuvio:expresses    ?Var1
+              OPTIONAL
+                { ObjectDescription:GroundPlatform_instance49
+                            RFDevice:isDeployedOn  ?USRPE310_0
+                }
+              { ?Var1  a                     RFDevice:DecimalValue
+                OPTIONAL
+                  { ?Var1  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                    FILTER ( ?DataValue0 >= -76.09 )
+                  }
+              }
+            }
+        }
+        { ?USRPN300_0  Nuvio:hasParticipant  ?Var0 }
+      }
+    }
+  }

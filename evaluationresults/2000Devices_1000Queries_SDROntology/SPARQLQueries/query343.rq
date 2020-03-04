@@ -1,0 +1,21 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Jammer_0  Nuvio:partOf  ?USRPX3xx_0
+      {   { ?Jammer_0  a                    RFDevice:Jammer }
+        UNION
+          { ?RangeGatePullOffJamming_0
+                      RFDevice:supportsJamming  ?Jammer_0
+            { ?RangeGatePullOffJamming_0
+                        a                     RFDevice:RangeGatePullOffJamming
+              { ?Quantity_0  RFDevice:hasPulseRepetitionFrequency  ?RangeGatePullOffJamming_0 }
+            }
+          }
+      }
+    }
+  }

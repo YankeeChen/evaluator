@@ -1,0 +1,41 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Catalog files
+catalog-v*.xml
+
+# .classpath                           
+.classpath
+
+# .project
+.project
+
+# .gitattributes
+.gitattributes
+
+# .DS_Store
+.DS_Store
+
+# ignore all files in the .settings/ directory
+.settings/
+
+# ignore all files in the doc/ directory
+doc/
+
+# ignore all files in the logs/ directory
+logs/
+
+# ignore all files in the target/ directory
+target/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

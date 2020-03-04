@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?GNURadio_0  Nuvio:partOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:isExpressedBy   ?Entity_0
+        {   { ?Entity_0  a                    gml:CompositeSurface
+              { ?Entity_0  a                    Nuvio:Attribute }
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Process .
+              ?MultiPolygon_0
+                        Nuvio:hasParticipant  ?Entity_0
+            }
+        }
+      }
+    }
+  }

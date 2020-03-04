@@ -1,0 +1,25 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  RFDevice:hasHeight  ?JammingSystem_0
+      {   { ?Entity_0  Nuvio:isExpressedBy  ?Situation_0 }
+        UNION
+          { ?Entity_0  a                    RFDevice:TimeUnit
+            { ?Entity_0  a                    RFDevice:PositiveDecimalValue
+              { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+                FILTER ( ?DataValue0 > "0"^^xsd:decimal )
+              }
+            }
+          }
+        { RFDevice:Freq_30GHz
+                    Nuvio:relevantIndividual  ?Situation_0
+        }
+      }
+    }
+  }

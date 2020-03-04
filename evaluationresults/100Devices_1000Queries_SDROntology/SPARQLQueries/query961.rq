@@ -1,0 +1,15 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  Nuvio:partOf  ?USRPN310_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    Nuvio:Process
+          { ?Entity_0  a                    Nuvio:Attribute }
+        }
+      }
+    }
+  }

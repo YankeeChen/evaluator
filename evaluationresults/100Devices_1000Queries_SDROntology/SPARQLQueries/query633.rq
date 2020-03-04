@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  RFDevice:hasProducer  ?CommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:LineStringSegment
+          {   { ?Entity_0  a                    RFDevice:DeceptiveJamming }
+            UNION
+              { ?Entity_0  a                    RFDevice:IntValue }
+            { ?Entity_0  a                    Nuvio:Object ;
+                        RFDevice:hasPolarization  ?Quantity_0
+              { ?Quantity_0  a                  Nuvio:Quantity }
+              { ?Entity_0  a                    Nuvio:InformationContent }
+            }
+          }
+        }
+      }
+    }
+  }

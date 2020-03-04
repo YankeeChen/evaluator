@@ -1,0 +1,14 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription100.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?DirectConversionReceiver_0
+                Nuvio:aggregateOf  ?RFSystem_0
+      { ?DirectConversionReceiver_0
+                  RFDevice:hasFrequencyAccuracy  RFDevice:RadioBand_UHF
+      }
+    }
+  }

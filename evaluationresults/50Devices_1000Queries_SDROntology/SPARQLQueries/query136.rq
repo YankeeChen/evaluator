@@ -1,0 +1,9 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN3xx_0
+WHERE
+  { ?USRPN3xx_0  a                  SDR:USRPN3xx
+    { ?Var0  RFDevice:supportsTransmitting  ?USRPN3xx_0 }
+  }

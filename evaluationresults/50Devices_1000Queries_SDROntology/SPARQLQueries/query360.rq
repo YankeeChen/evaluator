@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription50.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?RadioComponent_0
+                Nuvio:compositeOf  ?USRPN300_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?ADC_0  Nuvio:partOf  ?RadioComponent_0
+          { ?Entity_0  RFDevice:hasResolution  ?ADC_0
+            { ?Entity_0  a                    SDR:USRPE312
+              { ?Entity_0  a                    RFDevice:InverseGainJamming
+                OPTIONAL
+                  { ObjectDescription:Power_instance2
+                              RFDevice:hasEffectiveRadiatedPower  ?Entity_0
+                  }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
