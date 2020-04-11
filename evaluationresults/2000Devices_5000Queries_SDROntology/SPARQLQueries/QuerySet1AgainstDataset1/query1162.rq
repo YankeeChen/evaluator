@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Ship_0  RFDevice:isDeployedOn  ?USRPX3xx_0
+      { ?Ship_0  a                     RFDevice:Ship
+        { ?Process_0  RFDevice:supportsJamming  ?Ship_0
+          {   { ?Process_0  a                   Nuvio:Process ;
+                          Nuvio:hasParticipant  ?Jammer_0
+              }
+            UNION
+              { ObjectDescription:Instance1028
+                          RFDevice:supportsTransmitting  ?Jammer_0
+              }
+          }
+        }
+      }
+    }
+  }

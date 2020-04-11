@@ -1,0 +1,23 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    { ?Entity_0  RFDevice:hasChargingTime  ?PulseRadar_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationContent_0
+                  Nuvio:isExpressedBy   ?Entity_0
+        {   { ?Entity_0  a                    RFDevice:Amplifier }
+          UNION
+            { ?Entity_0  RFDevice:isProducerOf  ?Entity_0 }
+          OPTIONAL
+            { ?InformationContent_0
+                        a                     Nuvio:InformationContent
+            }
+        }
+      }
+    }
+  }

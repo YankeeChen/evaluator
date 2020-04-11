@@ -1,0 +1,36 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Transmitter_0
+                Nuvio:compositeOf  ?CommunicationsSystem_0
+      {   { ?Transmitter_0
+                      a                     RFDevice:Transmitter
+          }
+        UNION
+          { ?Entity_0  RFDevice:hasProducer  ?Transmitter_0
+            { ?Entity_0  a                    Nuvio:Entity ;
+                        Nuvio:expresses       ?InformationRepresentation_0
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:OnOffKeyingModulation
+                  { ?Entity_0  a                    Nuvio:Process }
+                }
+              {   { ?InformationRepresentation_0
+                              a                     Nuvio:InformationRepresentation .
+                    ?InformationContent_0
+                              Nuvio:representedBy   ?InformationRepresentation_0
+                  }
+                UNION
+                  { ?InformationContent_0
+                              Nuvio:representedBy  ?InformationRepresentation_1
+                  }
+              }
+            }
+          }
+      }
+    }
+  }

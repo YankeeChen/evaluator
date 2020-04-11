@@ -1,0 +1,16 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?IEDJammer_0  Nuvio:partOf  ?MonostaticRadar_0
+      { ?IEDJammer_0  a                 RFDevice:IEDJammer
+        { ?Mixer_0  Nuvio:compositeOf  ?IEDJammer_0
+          { ?Mixer_0  a                     RFDevice:Mixer }
+        }
+      }
+    }
+  }

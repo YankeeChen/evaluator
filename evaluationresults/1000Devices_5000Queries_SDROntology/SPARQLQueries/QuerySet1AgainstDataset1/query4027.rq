@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?SurveillanceRadar_0
+                Nuvio:partOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationContent_0
+                  Nuvio:isExpressedBy   ?Entity_0
+        { ?Entity_0  a                    RFDevice:SpatialVolumeUnit
+          { ?Entity_0  a                    RFDevice:LatitudeValueInRadian }
+          { ?Entity_0  a                    Nuvio:Quality }
+          { ?Entity_0  a                    Nuvio:InformationEntity ;
+                      Nuvio:informationSource  ?Var0
+            { ?Var0  a                     gml:ArcString }
+          }
+        }
+      }
+    }
+  }

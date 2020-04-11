@@ -1,0 +1,48 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?ElectronicAttackSystem_0
+                Nuvio:partOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        OPTIONAL
+          { RFDevice:Half-Duplex
+                      Nuvio:hasParticipant  ?Entity_0
+            { ?Entity_0  RFDevice:hasBandwidthRange  ?Object_0
+              { ?Object_0  RFDevice:hasPolarization  ?Attribute_0 }
+            }
+            { ?Entity_0  a                    Nuvio:Situation .
+              ObjectDescription:USRPN300_instance18
+                        Nuvio:relevantIndividual  ?Entity_0
+              { ?SuperheterodyneReceiver_0
+                          Nuvio:relevantIndividual  ?Entity_0
+                { ?SuperheterodyneReceiver_0
+                            a                     RFDevice:SuperheterodyneReceiver
+                  OPTIONAL
+                    { ?Object_1  RFDevice:hasFrequencyRange  ?SuperheterodyneReceiver_0 }
+                }
+              }
+              { ?Entity_0  a                    RFDevice:Distance
+                { ?Entity_0  Nuvio:hasValue  ?Var0 }
+              }
+            }
+            { ?Entity_0  a                    Nuvio:Value .
+              ?VelocityUnit_0
+                        Nuvio:hasUnitOfMeasure  ?Entity_0
+              { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                FILTER ( ?DataValue0 < -880334083 )
+                OPTIONAL
+                  { ?VelocityUnit_0
+                              a                     RFDevice:VelocityUnit
+                  }
+              }
+            }
+          }
+      }
+    }
+  }

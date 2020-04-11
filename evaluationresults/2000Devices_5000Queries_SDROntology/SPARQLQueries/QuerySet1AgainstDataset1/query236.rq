@@ -1,0 +1,33 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Var0  RFDevice:supportsTransmitting  ?TrackingRadar_0
+      {   { ?Var0  a                     RFDevice:DeceptiveJamming }
+        UNION
+          { ObjectDescription:Instance2781
+                      RFDevice:hasMaxSensedPower  ?Var0
+          }
+        { ?Var0  Nuvio:isExpressedBy  ?Situation_0
+          {   { ?Var0     a                     Nuvio:Object .
+                ?QuadratureAmplitudeModulation_0
+                          Nuvio:participatesIn  ?Var0
+              }
+            UNION
+              { ?QuadratureAmplitudeModulation_0
+                          a                     RFDevice:QuadratureAmplitudeModulation
+              }
+            { ?Var0  a                     RFDevice:FrequencyScanRate }
+            { ?Situation_0  a                 Nuvio:Situation .
+              ?PolygonPatch_0
+                        Nuvio:relevantIndividual  ?Situation_0
+            }
+          }
+        }
+      }
+    }
+  }

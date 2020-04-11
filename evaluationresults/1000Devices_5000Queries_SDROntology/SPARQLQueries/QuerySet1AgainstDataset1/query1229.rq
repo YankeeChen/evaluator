@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Entity_0  RFDevice:supportsSpectrumSensing  ?TrackingRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        OPTIONAL
+          { ?Entity_0  a                    gml:TriangulatedSurface
+            { ?Entity_0  a                    Nuvio:Attribute }
+          }
+      }
+    }
+  }

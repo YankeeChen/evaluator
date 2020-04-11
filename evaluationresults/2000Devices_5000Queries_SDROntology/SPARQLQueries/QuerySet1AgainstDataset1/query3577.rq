@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                Nuvio:partOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:expresses       ?UnitOfMeasure_0
+        {   { ?Var0  Nuvio:partOf  ?Entity_0
+              {   { ?Var0  a                     RFDevice:Component }
+                UNION
+                  { SDR:Freq_400MHz
+                              RFDevice:hasCapacity  ?Var0
+                  }
+              }
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:ElectronicSupport }
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Object }
+        }
+      }
+    }
+  }

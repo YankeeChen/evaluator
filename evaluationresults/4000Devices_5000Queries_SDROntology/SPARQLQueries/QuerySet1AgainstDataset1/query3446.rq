@@ -1,0 +1,40 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Half_DuplexCommunicationsSystem_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?Var0  a                     Nuvio:Entity
+        OPTIONAL
+          { ?Var0  a                     RFDevice:IEDTrigger
+            OPTIONAL
+              { ?RadioComponent_0
+                          Nuvio:compositeOf  ?Var0
+                { ?RadioComponent_0
+                            a                     RFDevice:RadioComponent
+                  OPTIONAL
+                    { ?RadioComponent_0
+                                Nuvio:aggregateOf  ?XC3SD1800AFPGA_0
+                      { ?XC3SD1800AFPGA_0
+                                  a                     SDR:XC3SD1800AFPGA
+                      }
+                    }
+                }
+              }
+            { ?Var0  a                     RFDevice:ElectronicSupport }
+            { ?Var0  a                     RFDevice:Width }
+            { ?Quantity_0  Nuvio:hasProcessQuality  ?Var0
+              { ?Quantity_0  a                  Nuvio:Quantity }
+            }
+          }
+        { ?Var0  a                     RFDevice:Transceiving
+          { ?Var0  a                     RFDevice:DeceptiveJamming }
+        }
+      }
+    }
+  }

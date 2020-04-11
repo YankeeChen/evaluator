@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Entity_0  RFDevice:isDeployedOn  ?USRPB2xx_0
+      { ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  RFDevice:isProducerOf  ?Var0 }
+          UNION
+            { ?Entity_0  a                    RFDevice:AutomaticGainControl
+              { ?Quantity_0  RFDevice:hasTransmitPowerRange  ?Entity_0
+                { ?Quantity_0  a                  Nuvio:Quantity }
+              }
+              { ?Entity_0  a                    Nuvio:InformationEntity }
+            }
+          { ?Process_0  a                   Nuvio:Process .
+            ?PulseDopplerRadar_0
+                      Nuvio:participatesIn  ?Process_0
+          }
+        }
+      }
+    }
+  }

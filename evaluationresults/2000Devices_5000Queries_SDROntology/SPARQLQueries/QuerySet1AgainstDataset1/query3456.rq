@@ -1,0 +1,45 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Entity_0  RFDevice:isProducerOf  ?GNURadio_0
+      {   { ?Entity_0  a                    Nuvio:Entity .
+            ?InformationRepresentation_0
+                      Nuvio:expresses       ?Entity_0
+            {   { ?Entity_0  a                    SDR:ARMProcessor }
+              UNION
+                { ?Object_0  RFDevice:isProducerOf  ?Entity_0
+                  { ?Object_0  a                    Nuvio:Object .
+                    ObjectDescription:AntennaPolarization_instance7
+                              Nuvio:hasObjectQuality  ?Object_0
+                  }
+                }
+              { ?Entity_0  a                    RFDevice:QuadratureAmplitudeModulation
+                { ?Entity_0  a                    RFDevice:LongValue }
+              }
+            }
+          }
+        UNION
+          { ?InformationEntity_0
+                      Nuvio:representedBy  ?InformationRepresentation_0
+            { ?Var0  Nuvio:informationSource  ?InformationEntity_0
+              OPTIONAL
+                { ?Var0     a                     geosparql:SpatialObject .
+                  ?MultiCurve_0
+                            geosparql:rcc8ec      ?Var0
+                  { ?MultiCurve_0
+                              a                     gml:MultiCurve
+                  }
+                  { ?Var0  a                     RFDevice:DRFMJamming }
+                }
+            }
+          }
+      }
+    }
+  }

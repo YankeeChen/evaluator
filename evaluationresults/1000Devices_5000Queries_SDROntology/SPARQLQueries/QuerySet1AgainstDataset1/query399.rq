@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Var0  RFDevice:supportsTransmitting  ?ModelX_0
+      { ?Var0  a                     RFDevice:SpectrumSensing
+        { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+          {   { ?Entity_0  Nuvio:isExpressedBy  ?Entity_0 }
+            UNION
+              { ?Entity_0  a                    SDR:USRPB200mini
+                {   { ?Entity_0  a                    RFDevice:DigitalModulation }
+                  UNION
+                    { ?Entity_0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                      FILTER ( ?DataValue0 >= "95.60498"^^xsd:double )
+                    }
+                  { ?Entity_0  a                    Nuvio:InformationRepresentation .
+                    ?Entity_1  Nuvio:representedBy  ?Entity_0
+                  }
+                }
+              }
+          }
+        }
+        { ?Var0  a                     RFDevice:StandoffJamming
+          { ObjectDescription:Instance1041
+                      RFDevice:hasMaxOutputPower  ?Var0
+          }
+          { ObjectDescription:Instance1203
+                      Nuvio:subprocessOf  ?Var0
+          }
+        }
+      }
+    }
+  }

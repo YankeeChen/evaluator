@@ -1,0 +1,39 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Full_DuplexCommunicationsSystem_0
+                RFDevice:isProducerOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:expresses       ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    gml:Clothoid
+            { ?Power_0  RFDevice:hasMaxSensedPower  ?Entity_0
+              {   { ?Power_0  a                     RFDevice:Power }
+                UNION
+                  { ?Var0  Nuvio:hasValue  ?Power_0
+                    { ?Var0  Nuvio:hasDataValue  ?DataValue0
+                      FILTER ( ?DataValue0 > -93.25 )
+                      { ObjectDescription:PowerUnit_instance2
+                                  Nuvio:hasUnitOfMeasure  ?Var0
+                      }
+                    }
+                  }
+              }
+            }
+            { ?Entity_0  a                    Nuvio:InformationEntity ;
+                        Nuvio:expresses       ?TIN_0
+              { ?TIN_0  a                     sf:TIN }
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            }
+          }
+      }
+    }
+  }

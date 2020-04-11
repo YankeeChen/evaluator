@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Entity_0  RFDevice:hasMaxPowerConsumption  ?USRPB2xx_0
+      { ?Situation_0  Nuvio:expresses  ?Entity_0
+        { ?PolygonPatch_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          { ?Situation_0  Nuvio:relevantIndividual  ?Receiving_0
+            { ?Receiving_0  a                 RFDevice:Receiving
+              { ObjectDescription:RadarFrequencyBand_instance147
+                          RFDevice:hasBandwidthRange  ?Receiving_0
+              }
+            }
+          }
+        }
+      }
+    }
+  }

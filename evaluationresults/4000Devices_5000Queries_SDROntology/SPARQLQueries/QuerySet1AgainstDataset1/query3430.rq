@@ -1,0 +1,14 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:compositeOf  ?USRPE313_0
+      { ObjectDescription:ChokeRingAntenna_instance14
+                  Nuvio:aggregateOf  ?InstantaneousFrequencyMeasurementReceiver_0
+      }
+    }
+  }

@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTransmitting  ?GNURadio_0
+        {   { ?Var0     a                     Nuvio:Entity .
+              ?Situation_0  Nuvio:expresses   ?Var0
+            }
+          UNION
+            { ?Var0  a                     gml:Arc
+              { ?Var0  Nuvio:hasSubprocess  ObjectDescription:RadarJamming_instance7 }
+              OPTIONAL
+                { ?Var0     a                     Nuvio:InformationEntity .
+                  ?DigitalModulation_0
+                            Nuvio:isExpressedBy   ?Var0
+                  { ?DigitalModulation_0
+                              a                     RFDevice:DigitalModulation
+                  }
+                }
+            }
+          {   { ?Situation_0  a                 Nuvio:Situation }
+            UNION
+              { ?Situation_0  Nuvio:relevantIndividual  ?EmitterLocationDetection_0
+                { ?Var1  Nuvio:hasParticipant  ?EmitterLocationDetection_0 }
+              }
+          }
+        }
+      }
+  }

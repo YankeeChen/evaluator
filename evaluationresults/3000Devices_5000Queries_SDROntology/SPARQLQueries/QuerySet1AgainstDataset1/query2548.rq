@@ -1,0 +1,31 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:supportsTransmitting  ?RFSystem_0
+      {   {   { ?UnitOfMeasure_0
+                          Nuvio:isExpressedBy  ?Var0
+              }
+            UNION
+              { ?Var0  a                     sf:LineString
+                { ?Var0  a                     RFDevice:LongValue
+                  { ?ElectronicSupport_0
+                              Nuvio:expresses  ?Var0
+                    { ?ElectronicSupport_0
+                                a                     RFDevice:ElectronicSupport
+                    }
+                  }
+                }
+              }
+          }
+        UNION
+          { ?UnitOfMeasure_0
+                      a                     Nuvio:UnitOfMeasure
+          }
+      }
+    }
+  }

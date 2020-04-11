@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?CrossEyeJamming_0
+                RFDevice:supportsTransmitting  ?JammingSystem_0
+      { ?CrossEyeJamming_0
+                  a                     RFDevice:CrossEyeJamming
+      }
+    }
+  }

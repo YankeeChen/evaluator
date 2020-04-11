@@ -1,0 +1,57 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    OPTIONAL
+      { ?USRPB2xx_0  Nuvio:aggregateOf  ?SuperheterodyneReceiver_0
+        { ?Entity_0  Nuvio:compositeOf  ?SuperheterodyneReceiver_0
+          { ?Entity_0  a                    Nuvio:Entity
+            {   { ?Entity_0  a                    sf:LineString
+                  OPTIONAL
+                    { ?Entity_0  a                    RFDevice:ElectronicAttack
+                      { ?Entity_0  a                    RFDevice:PowerUnit }
+                    }
+                  { ?Entity_0  a                    Nuvio:Object .
+                    ?Power_0  RFDevice:hasNoiseFigure  ?Entity_0
+                    { ?Var0  Nuvio:hasValue  ?Power_0 }
+                    { ?Var1  Nuvio:hasValue  ?Entity_0
+                      { ?Var1  RFDevice:hasFloatValue  ?DataValue0
+                        {   { ?Var1  a                     RFDevice:DecimalValue }
+                          UNION
+                            { RFDevice:Minute
+                                        Nuvio:hasUnitOfMeasure  ?Var1
+                            }
+                        }
+                      }
+                      OPTIONAL
+                        {   { ?Entity_0  a                    Nuvio:Process .
+                              ?Attribute_0  Nuvio:hasProcessQuality  ?Entity_0
+                            }
+                          UNION
+                            { ?Attribute_0  a                 Nuvio:Attribute }
+                        }
+                    }
+                  }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:InformationEntity .
+                  ?DirectConversionReceiver_0
+                            Nuvio:isExpressedBy   ?Entity_0
+                  { ?DirectConversionReceiver_0
+                              a                     RFDevice:DirectConversionReceiver
+                    { ObjectDescription:Producer_instance69
+                                RFDevice:isProducerOf  ?DirectConversionReceiver_0
+                      { ?Entity_1  RFDevice:isProducerOf  ?DirectConversionReceiver_0 }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }

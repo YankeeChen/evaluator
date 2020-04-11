@@ -1,0 +1,52 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Transceiving_0
+                RFDevice:supportsJamming  ?Half_DuplexCommunicationsSystem_0
+      { ?Transceiving_0
+                  a                     RFDevice:Transceiving
+        { ?Transceiving_0
+                    a                     Nuvio:Process .
+          ?Entity_0  Nuvio:hasProcessQuality  ?Transceiving_0
+          { ?Entity_0  a                    Nuvio:Entity
+            { ?Entity_0  a                    RFDevice:ElectronicProtection
+              { ?Entity_0  a                    RFDevice:LongitudeValueInDegree
+                { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 <= 1708012147 )
+                }
+                { ?Entity_0  a                    RFDevice:ElectricCharge
+                  { ?Var0  Nuvio:hasValue  ?Entity_0
+                    { ?UnitOfMeasure_0
+                                Nuvio:hasUnitOfMeasure  ?Var0
+                    }
+                  }
+                }
+              }
+              { ?AdjustableBandwidthSensing_0
+                          Nuvio:participatesIn  ?Entity_0
+                { ?AdjustableBandwidthSensing_0
+                            a                     RFDevice:AdjustableBandwidthSensing
+                  { ?Frequency_0  RFDevice:hasBandwidth  ?AdjustableBandwidthSensing_0
+                    { ?Var1  Nuvio:hasValue  ?Frequency_0 }
+                    { ?FreqencyRange_0
+                                RFDevice:hasBandwidthRange  ?AdjustableBandwidthSensing_0
+                      { ?FreqencyRange_0
+                                  RFDevice:hasMax  ?Velocity_0
+                        { ?Velocity_0  a                  RFDevice:Velocity }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

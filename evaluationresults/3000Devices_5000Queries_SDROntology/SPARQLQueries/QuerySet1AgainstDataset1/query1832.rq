@@ -1,0 +1,17 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Entity_0  RFDevice:hasProducer  ?BistaticRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:OrientableCurve
+          { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+        }
+      }
+    }
+  }

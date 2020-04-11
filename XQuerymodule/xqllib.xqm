@@ -4,7 +4,7 @@ declare function xqllib:matches ($result1 as node(), $result2 as node(), $variab
   if(not(fn:empty($variables))) then
     let $result :=
       for $var in $variables
-      where not($result1/xqllib:var/@name = $var and $result2/xqllib:var/@name and data($result1/xqllib:var[@name = $var]) = data($result2/xqllib:var[@name = $var]))
+      where not(($result1/xqllib:var/@name = $var and $result2/xqllib:var/@name = $var and data($result1/xqllib:var[@name = $var]) = data($result2/xqllib:var[@name = $var])) or ($result1/xqllib:var/@name = $var and not(fn:exists($result2/xqllib:var[@name = $var]))) or (not(fn:exists($result1/xqllib:var[@name = $var])) and $result2/xqllib:var/@name = $var))
       return fn:true()
     return not(fn:exists($result))
   else fn:true()
@@ -26,10 +26,8 @@ declare function xqllib:optional ($result1 as node()*, $result2 as node()*, $var
     for $element2 in $result2
     where xqllib:matches($element1, $element2, $variables)
     return
-      <result>
-	  {
-	    xqllib:distinct-deep(($element1/*, $element2/*))
-	  }
+    <result>
+	    { xqllib:distinct-deep(($element1/*, $element2/*)) }
 	  </result>
   return
     if($join) then

@@ -1,0 +1,11 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Aircraft_0  RFDevice:isDeployedOn  ?RadarWarningReceiver_0
+      { ?Moving_0  RFDevice:supportsJamming  ?Aircraft_0 }
+    }
+  }

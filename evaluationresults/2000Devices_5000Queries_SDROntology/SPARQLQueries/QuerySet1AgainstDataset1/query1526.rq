@@ -1,0 +1,37 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Entity_0  Nuvio:compositeOf  ?ContinuousWaveRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    Nuvio:UnitOfMeasure
+          OPTIONAL
+            { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+              FILTER ( ?DataValue0 <= 1365933533 )
+            }
+          { ?Entity_0  a                    Nuvio:Process .
+            ?OrientableCurve_0
+                      Nuvio:hasParticipant  ?Entity_0
+            { ?OrientableCurve_0
+                        a                     gml:OrientableCurve
+            }
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Situation .
+                ?Length_0  Nuvio:relevantIndividual  ?Entity_0
+                { ?Jammer_0  Nuvio:relevantIndividual  ?Entity_0
+                  { ObjectDescription:Transceiving_instance38
+                              RFDevice:hasCapability  ?Jammer_0
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

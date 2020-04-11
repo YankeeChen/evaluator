@@ -1,0 +1,50 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  RFDevice:isDeployedOn  ?ModelX_0
+      { ?Entity_0  a                    Nuvio:Entity
+        {   { ?Entity_0  a                    RFDevice:RadioComponent }
+          UNION
+            { ?ChokeRingAntenna_0
+                        Nuvio:aggregateOf  ?Entity_0
+              { ObjectDescription:Angle_instance30
+                          RFDevice:hasBeamwidth  ?ChokeRingAntenna_0
+              }
+            }
+          {   {   { ?Entity_0  a                    Nuvio:Value .
+                    ?DimensionlessUnit_0
+                              Nuvio:hasUnitOfMeasure  ?Entity_0
+                  }
+                UNION
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 > -133366672 )
+                  }
+                OPTIONAL
+                  { ?DimensionlessUnit_0
+                              a                     Nuvio:DimensionlessUnit
+                  }
+              }
+            UNION
+              { ?Entity_0  Nuvio:relevantIndividual  ?Kintex7FPGA_0
+                { ?CyclostationaryDetection_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?CyclostationaryDetection_0
+                              a                     RFDevice:CyclostationaryDetection
+                  }
+                }
+                { ?Entity_0  a                    RFDevice:IntValue
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue1
+                    FILTER ( ?DataValue1 > -554425490 )
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,36 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Object_0  RFDevice:isDeployedOn  ?Half_DuplexCommunicationsSystem_0
+        { ?Object_0  a                    Nuvio:Object .
+          ?TimeInstant_0
+                    RFDevice:hasBeamwidth  ?Object_0
+          { ?Var0  Nuvio:hasValue  ?TimeInstant_0
+            { ?Var0  a                     RFDevice:MobilePlatform
+              { ?Var0     a                     Nuvio:Value .
+                ?UnitOfMeasure_0
+                          Nuvio:hasUnitOfMeasure  ?Var0
+                { ?UnitOfMeasure_0
+                            a                     Nuvio:UnitOfMeasure
+                }
+                { ?Var1  Nuvio:informationSource  ?Var0
+                  { ?Var1  a                     gml:Point
+                    OPTIONAL
+                      { ?InformationContent_0
+                                  Nuvio:representedBy  ?Var1
+                      }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

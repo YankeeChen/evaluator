@@ -1,0 +1,12 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?Quantity_0  RFDevice:hasPulseRepetitionInterval  ?Var0 }
+    }
+  }

@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?Var0  RFDevice:supportsTransmitting  ?PulseDopplerRadar_0
+      {   { ?Var0  a                     RFDevice:FixedBandwidthSensing }
+        UNION
+          { ?Var0  a                     gml:AbstractParametricCurveSurface
+            { ?Var0  a                     RFDevice:ShortValue }
+            OPTIONAL
+              { ?Var0  a                     Nuvio:InformationEntity .
+                ?Var1  Nuvio:informationSource  ?Var0
+              }
+          }
+      }
+    }
+  }

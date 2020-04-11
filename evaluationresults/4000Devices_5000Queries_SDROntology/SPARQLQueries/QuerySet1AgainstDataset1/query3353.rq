@@ -1,0 +1,26 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?SurveillanceRadar_0
+                RFDevice:isDeployedOn  ?MobilePlatform_0
+      { ?Entity_0  RFDevice:supportsSpectrumSensing  ?MobilePlatform_0
+        {   { ?Entity_0  a                    gml:Polygon }
+          UNION
+            { ?Entity_0  a                    RFDevice:NoiseJamming
+              { ?Entity_1  RFDevice:hasMaxOutputPower  ?Entity_0 }
+            }
+          { ?Entity_0  a                    RFDevice:PositiveFloatValue
+            { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+              FILTER ( ?DataValue0 >= "-62.396286"^^xsd:double )
+            }
+          }
+        }
+      }
+    }
+  }

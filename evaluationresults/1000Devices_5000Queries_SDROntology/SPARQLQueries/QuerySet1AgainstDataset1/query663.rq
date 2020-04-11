@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Submarine_0  RFDevice:isDeployedOn  ?ModelX_0
+      {   { ?Submarine_0  a                 RFDevice:Submarine }
+        UNION
+          { ?Process_0  RFDevice:supportsSpectrumSensing  ?Submarine_0
+            { ObjectDescription:Instance93
+                        Nuvio:subprocessOf  ?Process_0
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,13 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?USRPB200_0  Nuvio:compositeOf  ?XC6SLX75FPGA_0
+      { ?XC6SLX75FPGA_0
+                  a                     SDR:XC6SLX75FPGA
+      }
+    }
+  }

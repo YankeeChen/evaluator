@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Var0  RFDevice:supportsJamming  ?GNURadio_0
+      { ?Var0  a                     RFDevice:SpectrumSensing
+        { ?Quantity_0  RFDevice:hasBandwidth  ?Var0 }
+        { ?Var0  RFDevice:hasTransmitPowerRange  ?Power_0
+          { ?Power_0  a                     RFDevice:Power }
+        }
+        { ?Var0     a                     Nuvio:Entity .
+          ?Process_0  Nuvio:expresses     ?Var0
+          {   { ?Var0  RFDevice:hasCenterFrequency  ?Var1 }
+            UNION
+              { ?Var0  a                     Nuvio:Process }
+          }
+        }
+      }
+    }
+  }

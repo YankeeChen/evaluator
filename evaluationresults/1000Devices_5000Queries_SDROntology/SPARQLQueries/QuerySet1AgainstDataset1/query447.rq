@@ -1,0 +1,40 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Entity_0  RFDevice:hasProducer  ?ContinuousWaveRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        OPTIONAL
+          { ?Entity_0  a                    Nuvio:Value .
+            ObjectDescription:FrequencyUnit_instance3
+                      Nuvio:hasUnitOfMeasure  ?Entity_0
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 > 783602202 )
+            }
+            {   { ?Entity_0  a                    Nuvio:Situation .
+                  ObjectDescription:Kintex7FPGA_instance0
+                            Nuvio:relevantIndividual  ?Entity_0
+                }
+              UNION
+                { ?XC6SLX75FPGA_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?XC6SLX75FPGA_0
+                              RFDevice:isProducerOf  ?Producer_0
+                    { ?Producer_0  a                  RFDevice:Producer }
+                  }
+                }
+              { ?Entity_0  a                    RFDevice:Percentage
+                { ?Entity_0  Nuvio:hasValue  ?Var0
+                  { ?Var0  a                     RFDevice:NonNegativeIntegerValue }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

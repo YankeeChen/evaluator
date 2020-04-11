@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?USRPB200_0  Nuvio:aggregateOf  ?RadioComponent_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?OmnidirectionalAntenna_0
+                    Nuvio:partOf  ?RadioComponent_0
+          { ?OmnidirectionalAntenna_0
+                      a                     RFDevice:OmnidirectionalAntenna
+            { ?OmnidirectionalAntenna_0
+                        RFDevice:hasSamplingRate  ?Entity_0
+              { ?Entity_0  a                    Nuvio:Entity
+                { ?Entity_0  a                    RFDevice:RadarJamming
+                  { ?Entity_0  Nuvio:expresses  ?Circle_0
+                    OPTIONAL
+                      { ?Circle_0  a                    gml:Circle }
+                  }
+                  { ?Entity_0  a                    Nuvio:Situation .
+                    ?Line_0   Nuvio:relevantIndividual  ?Entity_0
+                    { ?Line_0  a                     sf:Line }
+                  }
+                }
+              }
+              { ?Angle_0  RFDevice:hasLevel  ?OmnidirectionalAntenna_0 }
+            }
+          }
+        }
+      }
+    }
+  }

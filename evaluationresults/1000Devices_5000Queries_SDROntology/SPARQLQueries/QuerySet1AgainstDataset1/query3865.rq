@@ -1,0 +1,40 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?IEDJammer_0  Nuvio:compositeOf  ?USRPX3xx_0
+      { ?IEDJammer_0  a                 RFDevice:IEDJammer
+        { ?IEDJammer_0  Nuvio:partOf  ?ChokeRingAntenna_0
+          {   { ?ChokeRingAntenna_0
+                          a                     RFDevice:ChokeRingAntenna
+              }
+            UNION
+              { ?Var0  RFDevice:supportsSpectrumSensing  ?ChokeRingAntenna_0
+                { ?TimeInterval_0
+                            RFDevice:hasPulseRepetitionInterval  ?Var0
+                  {   { ?TimeInterval_0
+                                  a                     RFDevice:TimeInterval
+                      }
+                    UNION
+                      { ?Var1  Nuvio:hasValue  ?TimeInterval_0
+                        { ?Var1  RFDevice:hasDecimalValue  ?DataValue0
+                          FILTER ( ?DataValue0 != 30.95 )
+                        }
+                      }
+                  }
+                  { ?UnitOfMeasure_0
+                              Nuvio:expresses  ?Var0
+                    { ?Var0  a                     Nuvio:UnitOfMeasure }
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

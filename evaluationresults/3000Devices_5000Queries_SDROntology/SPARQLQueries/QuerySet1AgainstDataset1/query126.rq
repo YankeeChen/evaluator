@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    { ?Var0  RFDevice:supportsTransmitting  ?PulseRadar_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        OPTIONAL
+          { ?Object_0  RFDevice:hasBandwidthRange  ?Var0
+            { ?Object_0  a                    Nuvio:Object .
+              ?SelfProtectionJamming_0
+                        RFDevice:supportsSpectrumSensing  ?Object_0
+              OPTIONAL
+                { ?SelfProtectionJamming_0
+                            a                     RFDevice:SelfProtectionJamming
+                  { ?Attribute_0  RFDevice:hasPulseRepetitionFrequency  ?SelfProtectionJamming_0
+                    { ?Attribute_0  a                 Nuvio:Attribute }
+                  }
+                }
+            }
+          }
+        { ?Var0  a                     Nuvio:Entity ;
+                 Nuvio:isExpressedBy   ?Var0
+          { ?Var0  a                     RFDevice:RadarJamming
+            { ?Power_0  RFDevice:hasPulseWidth  ?Var0
+              { ?Power_0  a                     RFDevice:Power }
+            }
+            { ?Var0     a                     Nuvio:InformationEntity .
+              ?USRPN210_0  Nuvio:isExpressedBy  ?Var0
+              { ?USRPN210_0  a                  SDR:USRPN210
+                { ?Var1  RFDevice:supportsJamming  ?USRPN210_0 }
+              }
+            }
+            { ?Var0  Nuvio:hasUnitOfMeasure  ?VoltageUnit_0 }
+          }
+        }
+      }
+    }
+  }

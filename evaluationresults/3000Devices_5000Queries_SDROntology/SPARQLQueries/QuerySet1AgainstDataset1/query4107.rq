@@ -1,0 +1,34 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    OPTIONAL
+      { ?Entity_0  RFDevice:isProducerOf  ?SurveillanceRadar_0
+        { ?Process_0  Nuvio:expresses  ?Entity_0
+          { ?Entity_0  a                    gml:Cylinder
+            { ?Entity_0  a                    RFDevice:FixedBandwidthSensing
+              { ?Entity_0  a                    Nuvio:Process ;
+                          RFDevice:hasPulseRepetitionFrequency  ?FrequencyScanRate_0
+                { ?FrequencyScanRate_0
+                            a                     RFDevice:FrequencyScanRate
+                  { ?FrequencyScanRate_0
+                              Nuvio:hasValue  ?Var0
+                    { ?FrequencyScanRateUnit_0
+                                Nuvio:hasUnitOfMeasure  ?Var0
+                      { ?FrequencyScanRateUnit_0
+                                  a                     RFDevice:FrequencyScanRateUnit
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

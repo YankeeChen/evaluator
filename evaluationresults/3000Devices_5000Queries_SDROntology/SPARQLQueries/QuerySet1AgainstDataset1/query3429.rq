@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?CR_0  RFDevice:isProducerOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:Mixer
+            { ?Series7FPGA_0
+                        Nuvio:aggregateOf  ?Entity_0
+              { ?Series7FPGA_0
+                          a                     SDR:Series7FPGA
+                { ?XC3SD1800AFPGA_0
+                            Nuvio:partOf  ?Series7FPGA_0
+                  { ?XC3SD1800AFPGA_0
+                              a                     SDR:XC3SD1800AFPGA
+                  }
+                }
+              }
+            }
+            { ?Entity_0  a                    RFDevice:FrequencyScanRateUnit
+              { ?Entity_0  a                    RFDevice:DoubleValue }
+            }
+          }
+      }
+    }
+  }

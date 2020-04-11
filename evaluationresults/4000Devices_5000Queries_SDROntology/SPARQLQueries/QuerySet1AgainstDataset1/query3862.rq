@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_i_0
+WHERE
+  { ?USRPB200mini_i_0
+              a                     SDR:USRPB200mini-i
+    { ?USRPB200mini_i_0
+                Nuvio:aggregateOf  ?Entity_0
+      { ?Entity_0  a                    SDR:USRPN3xx
+        { ?Entity_1  RFDevice:hasProducer  ?Entity_0 }
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:SpectrumSensing
+            OPTIONAL
+              { ?Entity_0  RFDevice:hasBandwidthRange  ?QuantityRange_0
+                { ?QuantityRange_0
+                            a                     RFDevice:QuantityRange
+                }
+              }
+            { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue }
+          }
+      }
+    }
+  }

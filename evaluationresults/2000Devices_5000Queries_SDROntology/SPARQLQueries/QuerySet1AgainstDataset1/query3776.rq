@@ -1,0 +1,22 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Entity_0  RFDevice:hasVoltage  ?TrackingRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        OPTIONAL
+          { ?Entity_0  a                    sf:PolyhedralSurface
+            { ?Entity_0  a                    Nuvio:Situation
+              { ?Entity_0  a                    RFDevice:NoiseFigure
+                { ?Var0  Nuvio:hasValue  ?Entity_0 }
+              }
+            }
+          }
+      }
+    }
+  }

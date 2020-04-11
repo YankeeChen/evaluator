@@ -1,0 +1,35 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Entity_0  RFDevice:isProducerOf  ?SearchRadar_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:LatitudeValueInDegree
+          { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0 }
+          { ?Entity_0  a                    RFDevice:Angle
+            OPTIONAL
+              { ?LongitudeValue_0
+                          Nuvio:hasValue  ?Entity_0
+                {   { ?LongitudeValue_0
+                                a                     RFDevice:LongitudeValue
+                    }
+                  UNION
+                    { ?LongitudeValue_0
+                                Nuvio:hasPrecision  ?DataValue1
+                      FILTER ( ?DataValue1 > 211957844 )
+                    }
+                }
+              }
+          }
+          OPTIONAL
+            { ?Process_0  a                   Nuvio:Process }
+        }
+      }
+    }
+  }

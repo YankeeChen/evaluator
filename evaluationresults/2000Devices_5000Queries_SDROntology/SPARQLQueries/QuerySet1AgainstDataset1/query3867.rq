@@ -1,0 +1,19 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Ship_0  RFDevice:isDeployedOn  ?ElectronicAttackSystem_0
+      { ?Ship_0  a                     RFDevice:Ship
+        { ?Entity_0  RFDevice:supportsTransmitting  ?Ship_0
+          { ?Entity_0  a                    Nuvio:Object .
+            ObjectDescription:DeceptiveCommunicationsJamming_instance4
+                      RFDevice:supportsJamming  ?Entity_0
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Entity_0  RFDevice:isProducerOf  ?ContinuousWaveRadar_0
+      { ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  a                    SDR:ARMProcessor }
+          UNION
+            { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+              FILTER ( ! ( ?DataValue0 <= 1.57 ) )
+            }
+          { ?Entity_0  a                    RFDevice:Voltage }
+        }
+      }
+    }
+  }

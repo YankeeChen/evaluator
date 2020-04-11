@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Var0  RFDevice:supportsTransmitting  ?RadarWarningReceiver_0
+      { ?Var0  a                     RFDevice:EmitterIdentification
+        { ?Var1  Nuvio:hasParticipant  ?Var0
+          { ?InverseGainJamming_0
+                      RFDevice:supportsTransmitting  ?Var1
+            {   { ?InverseGainJamming_0
+                            a                     RFDevice:InverseGainJamming
+                }
+              UNION
+                { ObjectDescription:Instance482
+                            RFDevice:hasMaxOutputPower  ?InverseGainJamming_0
+                }
+            }
+          }
+        }
+      }
+    }
+  }

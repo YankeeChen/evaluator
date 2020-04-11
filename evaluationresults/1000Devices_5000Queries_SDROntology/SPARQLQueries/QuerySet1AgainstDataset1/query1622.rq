@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:compositeOf  ?ModelX_0
+      {   { ?Entity_0  a                    Nuvio:Entity }
+        UNION
+          {   { ?Entity_0  a                    gml:CircleByCenterPoint
+                { ?Entity_0  a                    Nuvio:Object }
+              }
+            UNION
+              { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+                FILTER ( ?DataValue0 != -1437551591 )
+              }
+            { ?Entity_0  Nuvio:hasValue  ?Var0
+              { ?XilinxZynq7000Family_0
+                          Nuvio:relevantIndividual  ?Entity_0
+                {   { ?XilinxZynq7000Family_0
+                                a                     SDR:XilinxZynq7000Family
+                    }
+                  UNION
+                    { ?Object_0  RFDevice:isProducerOf  ?XilinxZynq7000Family_0 }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

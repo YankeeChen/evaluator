@@ -1,0 +1,41 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Half_DuplexCommunicationsSystem_0
+                RFDevice:hasCapacity  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationRepresentation_0
+                  Nuvio:expresses       ?Entity_0
+        {   { ?Entity_0  a                    RFDevice:Receiver
+              { ?Entity_0  a                    Nuvio:Attribute }
+              OPTIONAL
+                { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+                  FILTER ( ?DataValue0 = 9.35 )
+                  { ?Entity_0  a                    Nuvio:Situation
+                    OPTIONAL
+                      { ?XC3SD3400AFPGA_0
+                                  Nuvio:relevantIndividual  ?Entity_0
+                        { ?XC3SD3400AFPGA_0
+                                    a                     SDR:XC3SD3400AFPGA
+                          { SDR:Xilinx  RFDevice:isProducerOf  ?XC3SD3400AFPGA_0 }
+                        }
+                      }
+                  }
+                  { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                }
+            }
+          UNION
+            { ?InformationRepresentation_0
+                        a                     Nuvio:InformationRepresentation
+            }
+        }
+      }
+    }
+  }

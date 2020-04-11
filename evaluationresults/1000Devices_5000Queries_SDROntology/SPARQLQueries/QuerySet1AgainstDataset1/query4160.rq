@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  RFDevice:hasHeight  ?CommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationEntity_0
+                  Nuvio:expresses       ?Entity_0
+        { ?Entity_0  a                    Nuvio:Situation
+          { ?InboundRangeGatePullOffJamming_0
+                      Nuvio:relevantIndividual  ?Entity_0
+            {   { ?InboundRangeGatePullOffJamming_0
+                            a                     RFDevice:InboundRangeGatePullOffJamming
+                }
+              UNION
+                { SDR:Power_45W
+                            RFDevice:hasMaxSensedPower  ?InboundRangeGatePullOffJamming_0
+                }
+            }
+          }
+          OPTIONAL
+            {   { ?Entity_0  a                    Nuvio:InformationEntity }
+              UNION
+                { ?Entity_0  a                    Nuvio:InformationContent }
+            }
+        }
+      }
+    }
+  }

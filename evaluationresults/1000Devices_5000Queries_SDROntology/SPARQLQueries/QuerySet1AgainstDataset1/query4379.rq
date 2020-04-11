@@ -1,0 +1,20 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?SurveillanceRadar_0
+                RFDevice:hasCapability  ?Process_0
+      { ?Process_0  a                   Nuvio:Process .
+        ?LineStringSegment_0
+                  RFDevice:hasTarget    ?Process_0
+        { ?LineStringSegment_0
+                    a                     gml:LineStringSegment
+        }
+      }
+    }
+  }

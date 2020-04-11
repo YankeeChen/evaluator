@@ -1,0 +1,32 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Var0  RFDevice:supportsTuning  ?ElectronicAttackSystem_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity ;
+                      Nuvio:isExpressedBy   ?Entity_0
+            { ?Entity_0  a                    RFDevice:PositiveFloatValue
+              { ?Entity_0  a                    Nuvio:Situation .
+                ObjectDescription:XilinxZynq7100SoC_instance36
+                          Nuvio:relevantIndividual  ?Entity_0
+                { ?Entity_0  RFDevice:hasCapacity  ?NoiseFigure_0
+                  { ?NoiseFigure_0
+                              a                     RFDevice:NoiseFigure
+                    { ?Var1  Nuvio:hasValue  ?NoiseFigure_0
+                      { ?Var2  Nuvio:hasUnitOfMeasure  ?Var1 }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

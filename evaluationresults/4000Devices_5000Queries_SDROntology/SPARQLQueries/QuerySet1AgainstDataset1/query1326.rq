@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsJamming  ?Full_DuplexCommunicationsSystem_0
+        { ?Var0  a                     SDR:USRPX3xx
+          { ?Var1  RFDevice:hasCapability  ?Var0 }
+          {   { ?Var0  a                     RFDevice:SpotJamming }
+            UNION
+              { ?Var0     a                     Nuvio:Object .
+                ?ElectronicAttack_0
+                          RFDevice:supportsTuning  ?Var0
+              }
+          }
+          OPTIONAL
+            { ?Var0  RFDevice:hasTransmitPowerRange  ?Var0 }
+          { ObjectDescription:ADC_instance1
+                      Nuvio:participatesIn  ?Var0
+          }
+        }
+      }
+  }

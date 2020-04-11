@@ -1,0 +1,17 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Var0  RFDevice:supportsJamming  ?CommunicationsSystem_0
+      {   { ?Var0  a                     RFDevice:Transceiving }
+        UNION
+          { ?Var0  RFDevice:hasTarget  ?Surface_0
+            { ?Surface_0  a                   sf:Surface }
+          }
+      }
+    }
+  }

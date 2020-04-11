@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Weight_0  RFDevice:hasMaxPowerConsumption  ?RFSystem_0
+      {   { ?Weight_0  a                    RFDevice:Weight }
+        UNION
+          { ?Weight_0  Nuvio:hasValue  ?Var0
+            { ?Var0  Nuvio:expresses  ?UnitOfMeasure_0
+              {   { ?Var0  a                     SDR:Spartan3ADSPFPGA
+                    { ?Entity_0  RFDevice:hasProducer  ?Var0 }
+                  }
+                UNION
+                  { ?Var0  RFDevice:hasPulseWidth  ?Attribute_0
+                    { ?Attribute_0  a                 Nuvio:Attribute }
+                  }
+              }
+              OPTIONAL
+                { ?UnitOfMeasure_0
+                            a                     Nuvio:UnitOfMeasure
+                }
+              { ?Var0  RFDevice:hasDoubleValue  ?DataValue0 }
+            }
+          }
+      }
+    }
+  }

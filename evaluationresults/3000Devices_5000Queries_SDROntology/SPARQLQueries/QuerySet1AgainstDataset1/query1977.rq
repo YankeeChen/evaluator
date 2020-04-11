@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?RadarJammer_0
+                Nuvio:aggregateOf  ?ElectronicSupportSystem_0
+      { ?RadarJammer_0
+                  a                     RFDevice:RadarJammer
+        { ?TerrainBounceJamming_0
+                    RFDevice:supportsJamming  ?RadarJammer_0
+          { ?TerrainBounceJamming_0
+                      a                     RFDevice:TerrainBounceJamming
+          }
+        }
+      }
+    }
+  }

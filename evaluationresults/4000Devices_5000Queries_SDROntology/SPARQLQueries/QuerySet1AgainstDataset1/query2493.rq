@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?Var0  Nuvio:compositeOf  ?USRPN210_0
+      { ?Var0  a                     RFDevice:DAC
+        { ?Component_0  Nuvio:aggregateOf  ?Var0
+          { ?Component_0  a                 RFDevice:Component }
+        }
+        OPTIONAL
+          { SDR:Freq_400MHz
+                      RFDevice:hasLevel  ?Var0
+            OPTIONAL
+              { ?Var1  RFDevice:hasResolution  ?Var0 }
+          }
+      }
+    }
+  }

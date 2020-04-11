@@ -1,0 +1,51 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsSpectrumSensing  ?ElectronicAttackSystem_0
+        { ?Var0  a                     Nuvio:Entity
+          {   { ObjectDescription:Instance1747
+                          Nuvio:aggregateOf  ?Var0
+              }
+            UNION
+              {   { ?Var0  a                     RFDevice:LatitudeValueInRadian
+                    { ?Var1  Nuvio:hasUnitOfMeasure  ?Var0 }
+                  }
+                UNION
+                  { ?VoltageUnit_0
+                              Nuvio:hasUnitOfMeasure  ?Var0
+                    { ?VoltageUnit_0
+                                a                     RFDevice:VoltageUnit
+                    }
+                  }
+              }
+            { ?Var0     a                     Nuvio:Situation .
+              ?OrderedCollection_0
+                        Nuvio:relevantIndividual  ?Var0
+              { ?OrderedCollection_0
+                          a                     skos:OrderedCollection .
+                ?Object_0  skos:memberList      ?OrderedCollection_0
+                { ?Object_0  a                    Nuvio:Object .
+                  ?RadarModulation_0
+                            RFDevice:supportsTuning  ?Object_0
+                  OPTIONAL
+                    { ?RadarModulation_0
+                                a                     RFDevice:RadarModulation
+                    }
+                }
+              }
+            }
+            { ?Var0  Nuvio:expresses  ?USRPN2xx_0
+              { ?USRPN2xx_0  a                  SDR:USRPN2xx }
+            }
+          }
+        }
+      }
+  }

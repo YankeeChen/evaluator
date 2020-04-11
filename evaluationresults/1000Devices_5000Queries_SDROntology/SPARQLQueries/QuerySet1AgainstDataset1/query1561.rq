@@ -1,0 +1,38 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?CommunicationsSystem_0
+                RFDevice:hasProducer  ?Entity_0
+      { ?Value_0  Nuvio:expresses  ?Entity_0
+        {   {   { ?Entity_0  a                    Nuvio:Situation .
+                  ?GeodesicString_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?GeodesicString_0
+                              a                     gml:GeodesicString
+                  }
+                }
+              UNION
+                { ?Entity_0  a                    RFDevice:VelocityUnit }
+            }
+          UNION
+            { ?Var0  Nuvio:hasValue  ?Entity_0
+              { ?Var0  a                     RFDevice:PositiveDecimalValue }
+            }
+        }
+        {   { ?UnitOfMeasure_0
+                        Nuvio:hasUnitOfMeasure  ?Value_0
+            }
+          UNION
+            { ?UnitOfMeasure_0
+                        a                     Nuvio:UnitOfMeasure
+            }
+        }
+      }
+    }
+  }

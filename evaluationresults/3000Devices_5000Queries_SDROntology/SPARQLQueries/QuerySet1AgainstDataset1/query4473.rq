@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Entity_0  RFDevice:hasSamplingRate  ?USRPX3xx_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Situation_0  a                 Nuvio:Situation
+          { ?Feature_0  Nuvio:relevantIndividual  ?Situation_0
+            { ?Feature_0  a                   geosparql:Feature .
+              ?MultiSolid_0
+                        geosparql:hasGeometry  ?Feature_0
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  RFDevice:hasCapacity  ?RadarSystem_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    skos:ConceptScheme .
+          ?Collection_0
+                    skos:hasTopConcept    ?Entity_0
+          { ?Collection_0
+                      skos:member  ?Var0
+          }
+          { ?Entity_0  a                    RFDevice:OnOffKeyingModulation
+            { ?Var1  Nuvio:hasValue  ?Entity_0
+              { ?Entity_1  Nuvio:hasUnitOfMeasure  ?Var1 }
+            }
+          }
+        }
+      }
+    }
+  }

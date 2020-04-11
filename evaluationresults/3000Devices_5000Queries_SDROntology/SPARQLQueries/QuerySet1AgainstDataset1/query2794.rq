@@ -1,0 +1,36 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    OPTIONAL
+      { ?RadarSystem_0
+                  RFDevice:isProducerOf  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?Value_0  Nuvio:expresses       ?Entity_0
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Value .
+              ?InformationUnit_0
+                        Nuvio:hasUnitOfMeasure  ?Entity_0
+              { ?InformationUnit_0
+                          a                     RFDevice:InformationUnit
+              }
+              { ?XC3SD3400AFPGA_0
+                          Nuvio:participatesIn  ?Entity_0
+                {   { ?XC3SD3400AFPGA_0
+                                a                     SDR:XC3SD3400AFPGA
+                    }
+                  UNION
+                    { ?Object_0  RFDevice:isProducerOf  ?XC3SD3400AFPGA_0
+                      { ?Object_0  a                    Nuvio:Object }
+                    }
+                }
+              }
+            }
+        }
+      }
+  }

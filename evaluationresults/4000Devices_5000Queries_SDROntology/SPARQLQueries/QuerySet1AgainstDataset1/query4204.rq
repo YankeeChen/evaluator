@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Entity_0  RFDevice:isProducerOf  ?USRPN2xx_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?InformationEntity_0
+        { ?Entity_0  a                    gml:OffsetCurve
+          { ?Entity_0  a                    Nuvio:Attribute }
+          { ?Entity_0  a                    Nuvio:Situation .
+            ?ConceptScheme_0
+                      Nuvio:relevantIndividual  ?Entity_0
+            { ?ConceptScheme_0
+                        a                     skos:ConceptScheme ;
+                        skos:hasTopConcept    ?Object_0
+              { ?Object_0  a                    Nuvio:Object ;
+                          RFDevice:hasCapability  ?FeatureDetection_0
+              }
+            }
+          }
+        }
+        { ?Var0  Nuvio:informationSource  ?InformationEntity_0
+          { ?Var0  RFDevice:supportsTransmitting  ?Var1
+            { ?Var1  RFDevice:hasTransmitPowerRange  ?Quantity_0
+              { ?Quantity_0  a                  Nuvio:Quantity }
+              { ?Var1  a                     RFDevice:Receiving }
+            }
+          }
+        }
+      }
+    }
+  }

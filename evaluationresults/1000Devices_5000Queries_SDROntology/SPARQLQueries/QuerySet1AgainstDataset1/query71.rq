@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              a                     SDR:USRPB2xxmini
+    { ?Var0  RFDevice:supportsJamming  ?USRPB2xxmini_0
+      { ?UnitOfMeasure_0
+                  Nuvio:expresses  ?Var0
+        OPTIONAL
+          { ?Var0  a                     RFDevice:ParabolicDishAntenna
+            { ?Var0  a                     Nuvio:Attribute }
+            { ?Var0  a                     RFDevice:SpatialAreaUnit
+              { ?Var0     a                     Nuvio:InformationContent .
+                ?Entity_0  Nuvio:representedBy  ?Var0
+              }
+            }
+          }
+        OPTIONAL
+          { ?UnitOfMeasure_0
+                      a                     Nuvio:UnitOfMeasure
+          }
+        { ?CoverJamming_0
+                    Nuvio:subprocessOf  ?Var0
+          { ?CoverJamming_0
+                      a                     RFDevice:CoverJamming
+            { ?CoverJamming_0
+                        RFDevice:hasPulseRepetitionInterval  ?Entity_1
+            }
+          }
+        }
+      }
+    }
+  }

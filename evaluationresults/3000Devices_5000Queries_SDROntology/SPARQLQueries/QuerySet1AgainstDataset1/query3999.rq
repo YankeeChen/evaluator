@@ -1,0 +1,12 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    OPTIONAL
+      { ObjectDescription:SuperheterodyneReceiver_instance42
+                  Nuvio:aggregateOf  ?USRPE313_0
+      }
+  }

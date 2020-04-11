@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?RadarWarningReceiver_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?MultiCurve_0
+                  RFDevice:hasTarget  ?Var0
+        { ?MultiCurve_0
+                    a                     gml:MultiCurve
+        }
+      }
+    }
+  }

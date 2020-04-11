@@ -1,0 +1,31 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?EmitterLocationDetection_0
+                RFDevice:supportsJamming  ?ElectronicSupportSystem_0
+      { ?EmitterLocationDetection_0
+                  a                     RFDevice:EmitterLocationDetection
+        OPTIONAL
+          { ?Var0  RFDevice:hasTarget  ?EmitterLocationDetection_0
+            { ?Transceiving_0
+                        RFDevice:supportsSpectrumSensing  ?Var0
+              {   { ?Transceiving_0
+                              a                     RFDevice:Transceiving
+                  }
+                UNION
+                  { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?Transceiving_0
+                    { ?Power_0  a                     RFDevice:Power }
+                  }
+              }
+              { ?Var0  a                     RFDevice:JammingSystem
+                { ?Quantity_0  RFDevice:hasNoiseFigure  ?Var0 }
+              }
+            }
+          }
+      }
+    }
+  }

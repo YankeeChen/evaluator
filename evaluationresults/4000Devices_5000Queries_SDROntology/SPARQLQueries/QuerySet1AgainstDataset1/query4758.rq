@@ -1,0 +1,36 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?PulseDopplerRadar_0
+                Nuvio:aggregateOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:AbstractGeometricPrimitive
+          OPTIONAL
+            {   { ?Entity_0  a                    RFDevice:PowerUnit }
+              UNION
+                { ?Entity_0  a                    RFDevice:FloatValue
+                  OPTIONAL
+                    { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+                      FILTER ( ?DataValue0 >= "52.85875"^^xsd:double )
+                    }
+                }
+            }
+          { ?Entity_0  a                    Nuvio:Value .
+            ObjectDescription:FrequencyUnit_instance14
+                      Nuvio:hasUnitOfMeasure  ?Entity_0
+            { ?Entity_0  a                    Nuvio:Process .
+              ?EmitterLocationDetection_0
+                        Nuvio:hasSubprocess   ?Entity_0
+            }
+          }
+        }
+      }
+    }
+  }

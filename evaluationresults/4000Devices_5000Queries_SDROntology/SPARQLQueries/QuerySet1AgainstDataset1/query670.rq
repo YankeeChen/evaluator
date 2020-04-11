@@ -1,0 +1,30 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?ContinuousWaveRadar_0
+      { ?Var0  a                     Nuvio:Entity ;
+               Nuvio:expresses       ?Var0
+        {   { ?Var0  a                     RFDevice:ModelX
+              { ?Var0  RFDevice:isDeployedOn  ?GroundPlatform_0 }
+            }
+          UNION
+            { ?Var0  a                     RFDevice:ElectronicAttack
+              { ?Var0  a                     RFDevice:PowerUnit
+                { ?Var0  a                     RFDevice:Weight
+                  OPTIONAL
+                    { ?Var1  Nuvio:hasValue  ?Var0
+                      { ?Var1  RFDevice:hasFloatValue  ?DataValue0 }
+                    }
+                }
+              }
+            }
+        }
+        { ?Var0  a                     RFDevice:RangeGatePullOffJamming }
+      }
+    }
+  }

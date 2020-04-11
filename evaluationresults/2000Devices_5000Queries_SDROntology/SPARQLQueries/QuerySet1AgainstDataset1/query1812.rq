@@ -1,0 +1,29 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?ElectronicSupportSystem_0
+      { ?InformationRepresentation_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:SweptSpotJamming
+          { ?Power_0  RFDevice:hasPulseWidth  ?Entity_0
+            { ?Power_0  a                     RFDevice:Power }
+          }
+          { ?Entity_0  a                    Nuvio:InformationEntity .
+            ?Var0     Nuvio:informationSource  ?Entity_0
+            { ?Var0  a                     sf:MultiSurface
+              { ?Var0  a                     RFDevice:AnalogModulation }
+            }
+          }
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation
+          }
+        }
+      }
+    }
+  }

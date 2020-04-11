@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Var0  RFDevice:hasNoiseFigure  ?USRPE313_0
+      { ?Var0  a                     gml:AbstractGeometricPrimitive
+        OPTIONAL
+          { ?Var0  a                     RFDevice:LongValue }
+        { ?Var0     a                     Nuvio:Situation .
+          ObjectDescription:NoiseFigure_instance29
+                    Nuvio:relevantIndividual  ?Var0
+        }
+      }
+    }
+  }

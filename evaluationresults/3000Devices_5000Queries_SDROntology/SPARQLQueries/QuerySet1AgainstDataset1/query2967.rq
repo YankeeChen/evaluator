@@ -1,0 +1,31 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?BistaticRadar_0
+                RFDevice:supportsTransmitting  ?Var0
+      { ?Var0     a                     Nuvio:Entity .
+        ?InformationRepresentation_0
+                  Nuvio:isExpressedBy   ?Var0
+        { ObjectDescription:IEDJammer_instance62
+                    Nuvio:aggregateOf  ?Var0
+          OPTIONAL
+            { ?Var0  a                     Nuvio:Object }
+          {   { ?InformationEntity_0
+                          Nuvio:representedBy  ?InformationRepresentation_0
+              }
+            UNION
+              { ?InformationEntity_0
+                          a                     Nuvio:InformationEntity .
+                ?System_0  Nuvio:isExpressedBy  ?InformationEntity_0
+              }
+          }
+        }
+        { ?Var0  a                     RFDevice:BlinkingJamming }
+      }
+    }
+  }

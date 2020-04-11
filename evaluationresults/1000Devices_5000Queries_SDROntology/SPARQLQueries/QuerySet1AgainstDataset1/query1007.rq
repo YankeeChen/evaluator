@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Entity_0  RFDevice:hasProducer  ?BistaticRadar_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?Process_0
+        { ?Entity_0  a                    RFDevice:TrackingRadar
+          { ObjectDescription:Weight_instance46
+                      RFDevice:hasMaxPowerConsumption  ?Entity_0
+          }
+          { ?Entity_0  a                    Nuvio:Situation .
+            SDR:Length_357mm
+                      Nuvio:relevantIndividual  ?Entity_0
+          }
+        }
+      }
+    }
+  }

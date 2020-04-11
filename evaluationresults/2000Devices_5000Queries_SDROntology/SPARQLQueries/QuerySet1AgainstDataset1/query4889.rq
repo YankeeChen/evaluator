@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?RadarJammer_0
+                Nuvio:aggregateOf  ?BistaticRadar_0
+      { ?RadarJammer_0
+                  a                     RFDevice:RadarJammer
+        { ?XC6SLX75FPGA_0
+                    Nuvio:aggregateOf  ?RadarJammer_0
+          { ?XC6SLX75FPGA_0
+                      a                     SDR:XC6SLX75FPGA
+            OPTIONAL
+              { ?Antenna_0  Nuvio:partOf  ?XC6SLX75FPGA_0 }
+          }
+        }
+      }
+    }
+  }

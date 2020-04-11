@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX310_0
+WHERE
+  { ?USRPX310_0  a                  SDR:USRPX310
+    { ?Var0  RFDevice:supportsJamming  ?USRPX310_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+          {   { ?Entity_0  a                    SDR:XilinxFPGA }
+            UNION
+              { ?Entity_0  a                    RFDevice:Width
+                { ?Var1  Nuvio:hasValue  ?Entity_0
+                  {   { ?PowerUnit_0  Nuvio:hasUnitOfMeasure  ?Var1 }
+                    UNION
+                      { ?PowerUnit_0  a                 RFDevice:PowerUnit }
+                  }
+                }
+              }
+          }
+        }
+        { ObjectDescription:AntennaPolarization_instance10
+                    Nuvio:hasProcessQuality  ?Var0
+        }
+      }
+    }
+  }

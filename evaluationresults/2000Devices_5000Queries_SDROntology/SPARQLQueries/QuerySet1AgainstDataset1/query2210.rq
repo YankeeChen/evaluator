@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Var0  RFDevice:supportsTuning  ?GNURadio_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?Situation_0  Nuvio:isExpressedBy  ?Var0
+        { ?Gain_0  RFDevice:hasMin  ?Var0
+          { ?Gain_0  a                     RFDevice:Gain }
+          { ?Var0  a                     RFDevice:WeightUnit }
+          { ?Var0  Nuvio:hasPrecision  ?DataValue0
+            FILTER ( ?DataValue0 <= 631783542 )
+          }
+        }
+        { ?Angle_0  Nuvio:relevantIndividual  ?Situation_0 }
+      }
+    }
+  }

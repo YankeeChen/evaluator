@@ -1,0 +1,41 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Var0  RFDevice:hasCapability  ?SurveillanceRadar_0
+      { ?Var0  a                     Nuvio:Entity ;
+               Nuvio:isExpressedBy   ?Value_0
+        { ?Var0  a                     gml:Triangle
+          { ?Var0     a                     Nuvio:Object .
+            ?Quantity_0  RFDevice:hasPolarization  ?Var0
+            { ?Var0  a                     RFDevice:Gain
+              { ?Var1  Nuvio:hasValue  ?Var0
+                { ?Var1  RFDevice:hasDoubleValue  ?DataValue0
+                  FILTER ( ?DataValue0 >= 1170159265 )
+                }
+              }
+            }
+          }
+          {   { ?Value_0  a                     Nuvio:Value ;
+                          Nuvio:hasUnitOfMeasure  ?InformationEntity_0
+              }
+            UNION
+              { ?InformationEntity_0
+                          a                     Nuvio:InformationEntity ;
+                          Nuvio:informationSource  ?Var2
+                { ?Entity_0  Nuvio:hasProcessQuantity  ?Var2
+                  OPTIONAL
+                    { ?Var2  a                     Nuvio:Attribute }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

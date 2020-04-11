@@ -1,0 +1,27 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  RFDevice:isDeployedOn  ?ModelX_0
+      {   { ?Entity_0  a                    Nuvio:Situation
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 <= -2104196939 )
+            }
+          }
+        UNION
+          { ?Entity_0  Nuvio:hasValue  ?Var0
+            { ?Var0  a                     RFDevice:DecimalValue
+              OPTIONAL
+                { ?Var0  RFDevice:hasNonNegativeIntegerValue  ?DataValue1
+                  FILTER ( ?DataValue1 > 76.41 )
+                }
+              { ?Entity_1  Nuvio:hasUnitOfMeasure  ?Var0 }
+            }
+          }
+      }
+    }
+  }

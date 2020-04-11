@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Var0  RFDevice:supportsTuning  ?Half_DuplexCommunicationsSystem_0
+      { ?Var0     a                     Nuvio:Process .
+        ?SweptSpotJamming_0
+                  Nuvio:subprocessOf    ?Var0
+        { ?SweptSpotJamming_0
+                    a                     RFDevice:SweptSpotJamming
+        }
+        { ?BistaticRadar_0
+                    Nuvio:hasParticipant  ?Var0
+          { ?BistaticRadar_0
+                      a                     RFDevice:BistaticRadar
+          }
+        }
+      }
+    }
+  }

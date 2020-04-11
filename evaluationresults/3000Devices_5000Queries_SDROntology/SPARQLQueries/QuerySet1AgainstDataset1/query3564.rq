@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Entity_0  RFDevice:hasLevel  ?SearchRadar_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    gml:CubicSpline
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:FrequencyUnit }
+          {   { ?Entity_0  a                    RFDevice:PositiveDecimalValue }
+            UNION
+              { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0 }
+          }
+          { ?Process_0  a                   Nuvio:Process }
+        }
+      }
+    }
+  }

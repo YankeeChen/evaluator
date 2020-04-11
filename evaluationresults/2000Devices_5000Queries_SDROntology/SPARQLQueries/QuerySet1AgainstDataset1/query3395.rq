@@ -1,0 +1,30 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Entity_0  RFDevice:isProducerOf  ?SearchRadar_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    sf:Point
+          {   { ?Entity_0  a                    RFDevice:AngleUnit }
+            UNION
+              { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue
+                { ?Entity_0  a                    Nuvio:InformationEntity ;
+                            Nuvio:informationSource  ?Var0
+                  {   { ?Var0  a                     RFDevice:DeceptiveJamming }
+                    UNION
+                      { ?Attribute_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+                        { ?Attribute_0  a                 Nuvio:Attribute }
+                      }
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

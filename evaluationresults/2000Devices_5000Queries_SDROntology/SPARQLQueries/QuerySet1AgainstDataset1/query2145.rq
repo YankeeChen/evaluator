@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?TrackingRadar_0
+                RFDevice:hasProducer  ?Object_0
+      { ?Object_0  a                    Nuvio:Object ;
+                  Nuvio:hasObjectQuantity  ?Weight_0
+        { ?Weight_0  a                    RFDevice:Weight
+          OPTIONAL
+            { ?Var0  Nuvio:hasValue  ?Weight_0
+              { ?Var0  a                     Nuvio:Entity
+                { ?Var0  a                     Nuvio:Value
+                  {   { ?Var1  Nuvio:hasValue  ?Var0
+                        { ?Var1  a                     RFDevice:NonNegativeDecimalValue }
+                      }
+                    UNION
+                      { ?Var0  a                     Nuvio:UnitOfMeasure }
+                  }
+                }
+                { SDR:Gram  Nuvio:hasUnitOfMeasure  ?Var0 }
+              }
+            }
+        }
+      }
+    }
+  }

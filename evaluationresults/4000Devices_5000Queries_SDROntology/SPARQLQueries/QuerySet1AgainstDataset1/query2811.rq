@@ -1,0 +1,14 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:aggregateOf  ?USRPX300_0
+      { ?CortexA9_0  Nuvio:partOf  ?InstantaneousFrequencyMeasurementReceiver_0
+        { ?CortexA9_0  a                  SDR:CortexA9 }
+      }
+    }
+  }

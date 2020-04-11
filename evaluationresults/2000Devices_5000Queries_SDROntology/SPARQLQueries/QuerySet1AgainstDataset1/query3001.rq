@@ -1,0 +1,48 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Var0  RFDevice:supportsTuning  ?Half_DuplexCommunicationsSystem_0
+      { ?Var0  a                     RFDevice:SelfProtectionJamming
+        { ?Entity_0  RFDevice:hasPulseWidth  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity
+            { ?Entity_0  a                    RFDevice:IEDTrigger
+              { ?FreqencyRange_0
+                          RFDevice:hasFrequencyAccuracy  ?Entity_0
+                { ?FreqencyRange_0
+                            a                     RFDevice:FreqencyRange
+                  { ?Frequency_0  RFDevice:hasMax  ?FreqencyRange_0
+                    { ?Frequency_0  a                 RFDevice:Frequency
+                      { ?Frequency_0  Nuvio:hasValue  ?Var1
+                        { ?Var1  RFDevice:hasFloatValue  ?DataValue0
+                          FILTER ( ?DataValue0 <= -75.95 )
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              { ?Entity_0  Nuvio:hasDataValue  ?DataValue1
+                FILTER ( ?DataValue1 = "80"^^xsd:decimal )
+              }
+              { ?Entity_0  a                    RFDevice:Gain
+                OPTIONAL
+                  { ?FeatureDetection_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                    OPTIONAL
+                      { ?FeatureDetection_0
+                                  a                     RFDevice:FeatureDetection
+                      }
+                  }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

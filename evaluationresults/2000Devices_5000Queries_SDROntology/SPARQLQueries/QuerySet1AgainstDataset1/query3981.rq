@@ -1,0 +1,36 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?ElectronicAttackSystem_0
+        {   { ?Var0  a                     RFDevice:CoverJamming }
+          UNION
+            { ?Entity_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+              { ?Entity_0  a                    Nuvio:Entity .
+                ?Object_0  Nuvio:expresses      ?Entity_0
+                { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 = -565329975 )
+                  { ?Var1  Nuvio:hasValue  ?Entity_0
+                    { ?SpatialLinearUnit_0
+                                Nuvio:hasUnitOfMeasure  ?Var1
+                      { ?SpatialLinearUnit_0
+                                  a                     RFDevice:SpatialLinearUnit
+                      }
+                    }
+                  }
+                }
+                { ?Object_0  a                    Nuvio:Object }
+              }
+            }
+          { ?RadioFrequencyBand_0
+                      RFDevice:hasBandwidthRange  ?Var0
+          }
+        }
+      }
+  }

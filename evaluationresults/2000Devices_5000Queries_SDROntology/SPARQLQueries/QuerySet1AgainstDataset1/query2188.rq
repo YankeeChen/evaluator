@@ -1,0 +1,35 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?TrackingRadar_0
+      {   { ?Var0  a                     RFDevice:CrossEyeJamming }
+        UNION
+          { ?Entity_0  RFDevice:hasPulseWidth  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?Attribute_0  Nuvio:expresses   ?Entity_0
+              OPTIONAL
+                {   { ?Entity_0  a                    sf:Triangle
+                      { ?Entity_0  a                    RFDevice:CoverJamming }
+                      { ?Entity_0  a                    Nuvio:Situation .
+                        ObjectDescription:XC3SD3400AFPGA_instance1
+                                  Nuvio:relevantIndividual  ?Entity_0
+                        OPTIONAL
+                          { RFDevice:Radian
+                                      Nuvio:hasUnitOfMeasure  ?Entity_0
+                          }
+                      }
+                    }
+                  UNION
+                    { ?Attribute_0  a                 Nuvio:Attribute }
+                }
+            }
+          }
+      }
+    }
+  }

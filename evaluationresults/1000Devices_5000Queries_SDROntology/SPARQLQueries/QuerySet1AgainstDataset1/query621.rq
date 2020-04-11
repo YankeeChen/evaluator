@@ -1,0 +1,10 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    OPTIONAL
+      { ?USRPN310_0  RFDevice:isDeployedOn  ObjectDescription:MobilePlatform_instance9 }
+  }

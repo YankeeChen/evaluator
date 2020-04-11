@@ -1,0 +1,24 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Var0  RFDevice:supportsTransmitting  ?JammingSystem_0
+      {   { ?Var0  a                     Nuvio:Entity
+            OPTIONAL
+              { ?Var0  a                     sf:MultiSurface
+                { ?Var0  a                     Nuvio:Quality }
+                { ?Var0  a                     Nuvio:InformationContent ;
+                         Nuvio:representedBy   ?InformationEntity_0
+                }
+              }
+          }
+        UNION
+          { ?Var0  a                     RFDevice:DRFMJamming }
+      }
+    }
+  }

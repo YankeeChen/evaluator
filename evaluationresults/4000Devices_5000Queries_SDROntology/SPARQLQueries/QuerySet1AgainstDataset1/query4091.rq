@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Entity_0  RFDevice:hasNoiseFigure  ?USRPN2xx_0
+      { ?Entity_0  a                    RFDevice:SurveillanceRadar
+        { ?IEDTrigger_0
+                    Nuvio:aggregateOf  ?Entity_0
+          { ?IEDTrigger_0
+                      a                     RFDevice:IEDTrigger
+            { ?Artix7FPGA_0
+                        Nuvio:partOf  ?IEDTrigger_0
+              { ?Artix7FPGA_0
+                          a                     SDR:Artix7FPGA
+              }
+            }
+          }
+        }
+        { ?Entity_0  a                    Nuvio:Process .
+          ?InverseGainJamming_0
+                    Nuvio:hasSubprocess   ?Entity_0
+          {   { ?InverseGainJamming_0
+                          a                     RFDevice:InverseGainJamming
+              }
+            UNION
+              { ?Attribute_0  Nuvio:hasProcessQuantity  ?InverseGainJamming_0 }
+          }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Quality }
+        }
+      }
+    }
+  }

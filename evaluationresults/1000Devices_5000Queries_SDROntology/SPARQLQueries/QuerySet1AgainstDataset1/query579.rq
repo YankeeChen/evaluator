@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Var0  RFDevice:supportsTuning  ?USRPB2xx_0
+      {   { ?Frequency_0  Nuvio:hasProcessQuantity  ?Var0
+            { ?Var1  Nuvio:hasValue  ?Frequency_0
+              { ?Var1     a                     Nuvio:Entity .
+                ?Process_0  Nuvio:isExpressedBy  ?Var1
+                {   {   { ?Var1  a                     gml:TriangulatedSurface }
+                      UNION
+                        { ?Var1  a                     RFDevice:DataSize }
+                    }
+                  UNION
+                    { ?Var1  a                     Nuvio:Situation }
+                }
+              }
+            }
+          }
+        UNION
+          { ?Var0  a                     RFDevice:DeceptiveCommunicationsJamming
+            OPTIONAL
+              { ?Var0  a                     RFDevice:Transceiving }
+          }
+      }
+    }
+  }

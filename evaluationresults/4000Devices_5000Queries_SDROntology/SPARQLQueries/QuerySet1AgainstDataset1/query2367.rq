@@ -1,0 +1,41 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    OPTIONAL
+      { ?RadarSystem_0
+                  RFDevice:supportsTuning  ?Var0
+        { ?Situation_0  Nuvio:isExpressedBy  ?Var0
+          OPTIONAL
+            { ?Var0  a                     gml:LineString
+              OPTIONAL
+                { ?Var0  a                     RFDevice:OnOffKeyingModulation
+                  { ?Var0  a                     Nuvio:Process
+                    OPTIONAL
+                      { ?Var0  a                     RFDevice:LongitudeValueInDegree
+                        { ?Var0  RFDevice:hasDoubleValue  ?DataValue0
+                          FILTER ( ?DataValue0 >= "-180"^^xsd:decimal )
+                        }
+                      }
+                  }
+                }
+            }
+          { ?Situation_0  a                 Nuvio:Situation .
+            ?GroundPlatform_0
+                      Nuvio:relevantIndividual  ?Situation_0
+            { ObjectDescription:Transceiving_instance150
+                        Nuvio:relevantIndividual  ?Situation_0
+            }
+            { ?GroundPlatform_0
+                        a                     RFDevice:GroundPlatform
+            }
+          }
+        }
+      }
+  }

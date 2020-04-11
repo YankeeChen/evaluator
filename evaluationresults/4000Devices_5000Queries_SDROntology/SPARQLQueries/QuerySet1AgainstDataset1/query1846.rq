@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    OPTIONAL
+      { ?Weight_0  Nuvio:hasObjectQuantity  ?SurveillanceRadar_0
+        { ?Weight_0  a                    RFDevice:Weight
+          OPTIONAL
+            { ?Weight_0  Nuvio:hasValue  ?Var0
+              { ?Entity_0  RFDevice:supportsSpectrumSensing  ?Var0
+                { ?WeightUnit_0
+                            Nuvio:hasUnitOfMeasure  ?Var0
+                  { ?WeightUnit_0
+                              a                     RFDevice:WeightUnit
+                  }
+                  { ?Var0  RFDevice:hasFloatValue  ?DataValue0 }
+                }
+              }
+            }
+        }
+      }
+  }

@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:supportsJamming  ?Full_DuplexCommunicationsSystem_0
+      {   { ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+            { ?Entity_0  a                    RFDevice:DeceptiveJamming
+              { ?Entity_1  RFDevice:hasTransmitPowerRange  ?Entity_0 }
+            }
+          }
+        UNION
+          { ?Process_0  a                   Nuvio:Process .
+            ObjectDescription:RadarJammer_instance35
+                      RFDevice:hasTarget    ?Process_0
+          }
+      }
+    }
+  }

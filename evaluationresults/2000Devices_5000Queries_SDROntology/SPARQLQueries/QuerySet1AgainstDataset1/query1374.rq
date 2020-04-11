@@ -1,0 +1,29 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?SuperheterodyneReceiver_0
+                Nuvio:compositeOf  ?RFSystem_0
+      { ?SuperheterodyneReceiver_0
+                  a                     RFDevice:SuperheterodyneReceiver
+        OPTIONAL
+          { ?OmnidirectionalAntenna_0
+                      Nuvio:partOf  ?SuperheterodyneReceiver_0
+            {   { ?OmnidirectionalAntenna_0
+                            a                     RFDevice:OmnidirectionalAntenna
+                }
+              UNION
+                { ?Quantity_0  RFDevice:hasWidth  ?OmnidirectionalAntenna_0
+                  { ?Quantity_0  a                  Nuvio:Quantity }
+                  { ObjectDescription:Angle_instance10
+                              Nuvio:hasObjectQuantity  ?OmnidirectionalAntenna_0
+                  }
+                }
+            }
+          }
+      }
+    }
+  }

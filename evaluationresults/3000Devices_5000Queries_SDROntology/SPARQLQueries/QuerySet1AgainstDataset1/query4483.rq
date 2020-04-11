@@ -1,0 +1,39 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?USRPN210_0  Nuvio:aggregateOf  ?Var0
+      {   { ?InformationRepresentation_0
+                      Nuvio:expresses  ?Var0
+            OPTIONAL
+              {   { ?XC7K325TFPGA_0
+                              Nuvio:relevantIndividual  ?Var0
+                    { ?XC7K325TFPGA_0
+                                a                     SDR:XC7K325TFPGA
+                      { ?Var1  RFDevice:isProducerOf  ?XC7K325TFPGA_0 }
+                    }
+                  }
+                UNION
+                  { ?Var0  a                     Nuvio:Object }
+              }
+          }
+        UNION
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation .
+            ?InformationEntity_0
+                      Nuvio:representedBy   ?InformationRepresentation_0
+            { ?Var2  Nuvio:informationSource  ?InformationEntity_0
+              {   { ?Var2  a                     SDR:USRPB200-210 }
+                UNION
+                  { ?Var3  RFDevice:hasNoiseFigure  ?Var2 }
+                { ?Var2  a                     Nuvio:Attribute }
+              }
+            }
+          }
+      }
+    }
+  }

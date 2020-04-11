@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    OPTIONAL
+      { ?Entity_0  Nuvio:partOf  ?USRPB210_0
+        { ?ArcString_0  Nuvio:relevantIndividual  ?Entity_0
+          { ?ArcString_0  a                 gml:ArcString }
+          { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+        }
+      }
+  }

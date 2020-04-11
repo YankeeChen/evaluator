@@ -1,0 +1,30 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?DirectConversionReceiver_0
+                Nuvio:partOf  ?Half_DuplexCommunicationsSystem_0
+      { ?DirectConversionReceiver_0
+                  a                     RFDevice:DirectConversionReceiver
+        { ?Entity_0  Nuvio:aggregateOf  ?DirectConversionReceiver_0
+          { ?Entity_0  a                    Nuvio:Entity
+            OPTIONAL
+              {   { ?Entity_0  a                    RFDevice:FrequencyScanRateUnit }
+                UNION
+                  {   { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue }
+                    UNION
+                      { ?Entity_0  Nuvio:hasDataValue  ?DataValue0
+                        FILTER ( ?DataValue0 >= "0"^^xsd:decimal )
+                      }
+                  }
+              }
+          }
+        }
+      }
+    }
+  }

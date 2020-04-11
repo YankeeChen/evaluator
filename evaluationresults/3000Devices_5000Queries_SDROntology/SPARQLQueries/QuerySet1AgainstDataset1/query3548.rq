@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN3xx_0
+WHERE
+  { ?USRPN3xx_0  a                  SDR:USRPN3xx
+    { ?XilinxZynq7100SoC_0
+                Nuvio:aggregateOf  ?USRPN3xx_0
+      { ?XilinxZynq7100SoC_0
+                  a                     SDR:XilinxZynq7100SoC
+        OPTIONAL
+          { ?DirectConversionReceiver_0
+                      Nuvio:compositeOf  ?XilinxZynq7100SoC_0
+            { ?DirectConversionReceiver_0
+                        a                     RFDevice:DirectConversionReceiver
+              OPTIONAL
+                { ?DirectConversionReceiver_0
+                            RFDevice:hasNoiseFigure  ?Entity_0
+                  {   {   { ?Entity_0  a                    RFDevice:CrossEyeJamming
+                            { ?Attribute_0  RFDevice:hasMaxOutputPower  ?Entity_0
+                              { ?Attribute_0  a                 Nuvio:Attribute }
+                            }
+                          }
+                        UNION
+                          { ?Entity_0  a                    RFDevice:AngleUnit }
+                      }
+                    UNION
+                      { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                  }
+                }
+            }
+          }
+      }
+    }
+  }

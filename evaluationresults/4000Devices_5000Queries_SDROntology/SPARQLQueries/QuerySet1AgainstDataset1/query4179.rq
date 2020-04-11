@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?USRPB210_0  RFDevice:hasNoiseFigure  ?Var0
+      { ?Var1  Nuvio:hasValue  ?Var0
+        { ?Var1  Nuvio:hasUnitOfMeasure  RFDevice:Decibel
+          { ?Var1  a                     Nuvio:Entity ;
+                   Nuvio:expresses       ?InformationContent_0
+            {   {   { ?Var1  a                     gml:MultiSurface }
+                  UNION
+                    {   { ?Var1  a                     RFDevice:LatitudeValueInRadian }
+                      UNION
+                        { ?Var1  a                     RFDevice:TimeInstant }
+                    }
+                }
+              UNION
+                { ?Var1  a                     Nuvio:Attribute }
+              { ?InformationContent_0
+                          a                     Nuvio:InformationContent .
+                ?InformationEntity_0
+                          Nuvio:representedBy   ?InformationContent_0
+              }
+            }
+          }
+        }
+      }
+    }
+  }

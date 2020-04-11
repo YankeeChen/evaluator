@@ -1,0 +1,11 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { RFDevice:Full-Duplex
+                RFDevice:hasCenterFrequency  ?USRPN210_0
+    }
+  }

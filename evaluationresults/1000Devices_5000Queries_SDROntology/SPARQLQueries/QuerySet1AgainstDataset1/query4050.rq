@@ -1,0 +1,52 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Var0  RFDevice:hasCapability  ?ElectronicAttackSystem_0
+      { ?Var0  a                     Nuvio:Process
+        OPTIONAL
+          {   { ?Var0  a                     RFDevice:InboundRangeGatePullOffJamming
+                { ?Entity_0  RFDevice:hasMaxOutputPower  ?Var0
+                  { ?Entity_0  a                    Nuvio:Entity .
+                    ?UnitOfMeasure_0
+                              Nuvio:isExpressedBy   ?Entity_0
+                    { ?Entity_0  a                    RFDevice:Oscillator
+                      OPTIONAL
+                        { ?Transmitter_0
+                                    Nuvio:partOf  ?Entity_0
+                          { ?Transmitter_0
+                                      a                     RFDevice:Transmitter
+                          }
+                        }
+                      { ?Entity_0  a                    Nuvio:Attribute
+                        OPTIONAL
+                          { ?Entity_0  a                    Nuvio:Object .
+                            ?TimeInterval_0
+                                      RFDevice:hasVoltage   ?Entity_0
+                            { ?TimeInterval_0
+                                        a                     RFDevice:TimeInterval
+                            }
+                          }
+                      }
+                      { ?UnitOfMeasure_0
+                                  a                     Nuvio:UnitOfMeasure
+                      }
+                    }
+                  }
+                }
+              }
+            UNION
+              {   { ?Var0  a                     RFDevice:Transceiving }
+                UNION
+                  { ?Var0  a                     RFDevice:Jamming
+                    { ?Quantity_0  RFDevice:hasTransmitPowerRange  ?Var0 }
+                  }
+              }
+          }
+      }
+    }
+  }

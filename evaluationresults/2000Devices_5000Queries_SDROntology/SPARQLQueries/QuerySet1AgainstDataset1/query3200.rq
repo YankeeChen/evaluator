@@ -1,0 +1,23 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?Var0  RFDevice:supportsTransmitting  ?MonostaticRadar_0
+      {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing }
+        UNION
+          { ?Var0  RFDevice:hasBandwidthRange  ObjectDescription:RadioFrequencyBand_instance93 }
+        OPTIONAL
+          { ?Var0  a                     RFDevice:Transceiving
+            { ?ElectricCharge_0
+                        RFDevice:hasPulseWidth  ?Var0
+              { ?ElectricCharge_0
+                          a                     RFDevice:ElectricCharge
+              }
+            }
+          }
+      }
+    }
+  }

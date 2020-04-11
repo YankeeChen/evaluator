@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?RadioComponent_0
+                Nuvio:compositeOf  ?PulseDopplerRadar_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?DipoleAntenna_0
+                    Nuvio:partOf  ?RadioComponent_0
+          { ?DipoleAntenna_0
+                      a                     RFDevice:DipoleAntenna
+          }
+        }
+      }
+    }
+  }

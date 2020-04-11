@@ -1,0 +1,42 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  Nuvio:partOf  ?CommunicationsSystem_0
+      { ?Entity_0  a                    SDR:XC3SD1800AFPGA
+        OPTIONAL
+          { ?PhasedArrayAntenna_0
+                      Nuvio:aggregateOf  ?Entity_0
+            { ?PhasedArrayAntenna_0
+                        a                     RFDevice:PhasedArrayAntenna
+            }
+          }
+        { ?Entity_0  a                    RFDevice:InboundRangeGatePullOffJamming
+          {   {   { ?Entity_0  a                    RFDevice:PositiveIntegerValue }
+                UNION
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 > -1937359479 )
+                  }
+              }
+            UNION
+              {   { ?TriangulatedSurface_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                  }
+                UNION
+                  { ?TriangulatedSurface_0
+                              a                     gml:TriangulatedSurface
+                  }
+              }
+            { ?Entity_0  a                    Nuvio:Process }
+          }
+        }
+      }
+    }
+  }

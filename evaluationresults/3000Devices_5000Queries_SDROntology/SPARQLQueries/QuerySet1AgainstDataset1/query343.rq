@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Var0  Nuvio:partOf  ?USRPB2xx_0
+      { SDR:Data_12bit
+                  RFDevice:hasResolution  ?Var0
+        OPTIONAL
+          {   { ?Var0     a                     Nuvio:Process .
+                ?Jamming_0  Nuvio:hasSubprocess  ?Var0
+              }
+            UNION
+              { ?Jamming_0  a                   RFDevice:Jamming }
+            { ?Var0  a                     Nuvio:Object ;
+                     RFDevice:supportsJamming  ?AdjustableBandwidthSensing_0
+              { ?AdjustableBandwidthSensing_0
+                          a                     RFDevice:AdjustableBandwidthSensing
+                { ?AdjustableBandwidthSensing_0
+                            a                     RFDevice:SpectrumSensing
+                  { ?Object_0  RFDevice:hasBandwidthRange  ?AdjustableBandwidthSensing_0 }
+                }
+              }
+              { ?Var0  a                     Nuvio:Attribute }
+            }
+          }
+      }
+    }
+  }

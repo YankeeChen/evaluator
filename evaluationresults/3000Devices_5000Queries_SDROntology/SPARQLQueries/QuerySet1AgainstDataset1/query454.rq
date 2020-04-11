@@ -1,0 +1,38 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    OPTIONAL
+      { ?ElectronicSupportSystem_0
+                  RFDevice:supportsSpectrumSensing  ?Var0
+        { ?InformationEntity_0
+                    Nuvio:isExpressedBy  ?Var0
+          OPTIONAL
+            { ?Object_0  RFDevice:isDeployedOn  ?Var0
+              { ?Object_0  a                    Nuvio:Object .
+                ?TimeInterval_0
+                          RFDevice:hasChargingTime  ?Object_0
+                { ?TimeInterval_0
+                            Nuvio:hasValue  ?Var1
+                  { ?Var1  Nuvio:hasUnitOfMeasure  ?Var0 }
+                }
+              }
+              OPTIONAL
+                { ?Var0  RFDevice:hasDecimalValue  ?DataValue0
+                  FILTER ( ?DataValue0 < "19.34315590151732"^^xsd:double )
+                }
+              { ?Var0  a                     Nuvio:InformationContent }
+            }
+          OPTIONAL
+            { ?InformationEntity_0
+                        a                     Nuvio:InformationEntity
+            }
+          { ?Var0  a                     RFDevice:Transceiving }
+        }
+      }
+  }

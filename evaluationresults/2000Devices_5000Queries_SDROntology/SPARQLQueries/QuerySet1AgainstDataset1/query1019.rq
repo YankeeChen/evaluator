@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:hasHeight  ?Half_DuplexCommunicationsSystem_0
+      { ?Process_0  Nuvio:expresses  ?Entity_0
+        OPTIONAL
+          { ?Entity_1  RFDevice:hasNoiseFigure  ?Entity_0
+            { ?Entity_0  a                    RFDevice:BlinkingJamming
+              { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?Entity_0 }
+              { ?Entity_0  a                    Nuvio:Situation ;
+                          Nuvio:relevantIndividual  ObjectDescription:USRPX300_instance21
+              }
+            }
+          }
+        { ?Process_0  a                   Nuvio:Process ;
+                    Nuvio:hasProcessQuality  ?Attribute_0
+          OPTIONAL
+            { ?Attribute_0  a                 Nuvio:Attribute }
+        }
+      }
+    }
+  }

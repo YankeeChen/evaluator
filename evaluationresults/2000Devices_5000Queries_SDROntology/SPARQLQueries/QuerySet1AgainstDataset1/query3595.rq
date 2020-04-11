@@ -1,0 +1,32 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?ModelX_0  RFDevice:hasGain  ?Entity_0
+      { ?InformationEntity_0
+                  Nuvio:expresses  ?Entity_0
+        {   { ?Entity_0  a                    RFDevice:Filter
+              { ?Entity_0  a                    Nuvio:Process .
+                ?Ratio_0  RFDevice:hasPulseWidth  ?Entity_0
+                { ?Ratio_0  a                     RFDevice:Ratio }
+              }
+            }
+          UNION
+            { ?CubicSpline_0
+                        Nuvio:relevantIndividual  ?Entity_0
+              { ?CubicSpline_0
+                          a                     gml:CubicSpline
+              }
+            }
+        }
+        { ?InformationEntity_0
+                    a                     Nuvio:InformationEntity .
+          ?Var0     Nuvio:informationSource  ?InformationEntity_0
+        }
+      }
+    }
+  }

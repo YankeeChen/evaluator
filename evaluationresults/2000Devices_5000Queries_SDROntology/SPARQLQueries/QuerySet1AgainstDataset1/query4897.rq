@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?Entity_0  RFDevice:hasProducer  ?MonostaticRadar_0
+      {   {   { ?Process_0  Nuvio:expresses  ?Entity_0 }
+            UNION
+              {   { ?Entity_0  a                    RFDevice:SpatialLinearUnit }
+                UNION
+                  { ?Entity_0  a                    RFDevice:LatitudeValueInRadian }
+              }
+          }
+        UNION
+          { ?Process_0  a                   Nuvio:Process .
+            ObjectDescription:Producer_instance437
+                      RFDevice:hasTarget    ?Process_0
+          }
+      }
+    }
+  }

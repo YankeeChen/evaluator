@@ -1,0 +1,39 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:supportsJamming  ?RFSystem_0
+      { ObjectDescription:Weight_instance104
+                  RFDevice:hasMaxSensedPower  ?Var0
+        {   { ?Var0  a                     RFDevice:SelfProtectionJamming
+              { ?Quantity_0  RFDevice:hasEffectiveRadiatedPower  ?Var0
+                { ?Quantity_0  a                  Nuvio:Quantity }
+              }
+            }
+          UNION
+            { ?Var0  a                     Nuvio:Entity ;
+                     Nuvio:isExpressedBy   ?Situation_0
+              { ?Var0  a                     gml:MultiSurface
+                { ?Var0  a                     RFDevice:CrossEyeJamming
+                  {   { ?Var0  a                     RFDevice:ElectricCharge }
+                    UNION
+                      { ?Var1  Nuvio:hasValue  ?Var0 }
+                  }
+                }
+                { ?MultiLineString_0
+                            Nuvio:relevantIndividual  ?Situation_0
+                  { ?MultiLineString_0
+                              a                     sf:MultiLineString
+                  }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

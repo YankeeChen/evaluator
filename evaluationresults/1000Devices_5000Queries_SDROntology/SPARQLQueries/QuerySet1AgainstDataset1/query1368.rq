@@ -1,0 +1,32 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Entity_0  RFDevice:hasCapacity  ?BistaticRadar_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:isExpressedBy   ?Entity_0
+        { ?Entity_0  a                    RFDevice:DRFMJamming
+          OPTIONAL
+            {   { ?Entity_0  Nuvio:hasObjectQuality  ?AntennaPolarization_0 }
+              UNION
+                { ?AntennaPolarization_0
+                            a                     RFDevice:AntennaPolarization
+                }
+              { ?Entity_0  a                    RFDevice:Velocity
+                { ?Var0  Nuvio:hasValue  ?Entity_0
+                  { ?Var0  Nuvio:hasDataValue  ?DataValue0 }
+                }
+              }
+            }
+          { ?Triangle_0  Nuvio:relevantIndividual  ?Entity_0
+            { ?Triangle_0  a                  sf:Triangle }
+          }
+        }
+      }
+    }
+  }

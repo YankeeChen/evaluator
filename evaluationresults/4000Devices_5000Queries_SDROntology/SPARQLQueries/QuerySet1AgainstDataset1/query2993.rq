@@ -1,0 +1,15 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    { ?Submarine_0  RFDevice:isDeployedOn  ?USRPE312_0
+      { ?Submarine_0  a                 RFDevice:Submarine
+        { ObjectDescription:Moving_instance21
+                    RFDevice:supportsTransmitting  ?Submarine_0
+        }
+      }
+    }
+  }

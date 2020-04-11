@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPE313_0
+      { ?Entity_0  a                    gml:Ring
+        OPTIONAL
+          {   { ?Entity_0  a                    RFDevice:CoverJamming }
+            UNION
+              { ?Power_0  Nuvio:hasProcessQuantity  ?Entity_0
+                { ?Power_0  a                     RFDevice:Power }
+              }
+            { ?Entity_0  a                    RFDevice:WeightUnit
+              { ?Entity_0  a                    Nuvio:Situation
+                { ?Entity_0  Nuvio:relevantIndividual  ?BSpline_0 }
+              }
+            }
+          }
+      }
+    }
+  }

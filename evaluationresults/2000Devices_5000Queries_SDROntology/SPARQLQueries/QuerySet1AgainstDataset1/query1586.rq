@@ -1,0 +1,18 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    { ?USRPN200_0  Nuvio:compositeOf  ?Var0
+      { ObjectDescription:Producer_instance274
+                  RFDevice:isProducerOf  ?Var0
+        { ?Var1  RFDevice:hasHeight  ?Var0
+          OPTIONAL
+            { ?Var0  RFDevice:hasResolution  ?Var2 }
+        }
+      }
+    }
+  }

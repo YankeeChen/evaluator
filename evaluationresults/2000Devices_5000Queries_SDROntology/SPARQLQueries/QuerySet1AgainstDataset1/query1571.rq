@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?Var0  RFDevice:supportsTuning  ?USRPN210_0
+      { ?Var0     a                     Nuvio:Process .
+        ?Transceiving_0
+                  Nuvio:subprocessOf    ?Var0
+        {   { ?Transceiving_0
+                        a                     RFDevice:RadarJamming
+            }
+          UNION
+            { ObjectDescription:PulseRadar_instance16
+                        Nuvio:participatesIn  ?Transceiving_0
+            }
+          OPTIONAL
+            { RFDevice:RadarBand_X
+                        RFDevice:hasFrequencyAccuracy  ?Transceiving_0
+            }
+        }
+      }
+    }
+  }

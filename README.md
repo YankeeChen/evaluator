@@ -3,31 +3,14 @@
 ## Instructions 
 
 ### Step 1: Initialize repositories
-#### 1.1 Install, setup and run Fuseki2
 
-* Download a binary distribution of [Fuseki2](https://jena.apache.org/download/)
+#### 1.1 Run DeVISor
 
-* Unpack the archive
+* Run DeVISor-1.1.3.jar in ./devisor
 
-* Navigate to the unpacked directory
+  **Example**: `java -jar deVISor-1.1.3.jar`
 
-* Create a directory, e.g. tmp
-
-* Run the Fuseki2 server using the following command (replace `<dir>` with the name of the directory created above):
-
-  In UNIX/Linux:
-`java -jar fuseki-server.jar -update -loc ./<dir> /ds`
-
-  In Windows:
-`java -jar fuseki-server.jar -update -loc .\<dir> /ds`
-
-#### 1.2 Run DeVISor
-
-* Run DeVISor-1.1.2.jar in ./divisor
-
-  **Example**: `java -jar deVISor-1.1.2.jar`
-
-#### 1.3 Install, setup and run BaseX
+#### 1.2 Install, setup and run BaseX
 
 * Download the latest version of [BaseX](http://basex.org/products/download/all-downloads/) jar file
 
@@ -39,8 +22,8 @@
 The benchmark supports three modes: evaluation mode, transform mode and help mode. To run the benchmark, users are required to choose one of them with corresponding commands.
 #### Usage
 ```console
-# Evaluation mode: derive metrics-based evalaution results with specified datasets and query sets. SPARQL queries are in ./SPARQLqueries whereas XQuery queries are in ./XQueryqueries.
-$ java -jar evaluator-1.0-SNAPSHOT.jar -datasetURI <URI> -devNumber <NUMBER> [-completeOntologyDirecotry <PATH>] [-testOntologyDirecotry <PATH>]
+# Evaluation mode: derive metrics-based evalaution results with specified datasets and query sets. Note that XQuery queries must be in ./XQueryqueries.
+$ java -jar evaluator-1.0-SNAPSHOT.jar -datasetURI <URI> -devNumber <NUMBER> [-completeOntologyDirecotry <PATH>] [-testOntologyDirecotry <PATH>] [-sparqlQueryDirecotry <PATH>]
 ```
   
 `-datasetURI <URI>` is required and states the URI of the device descriptions in RDF/XML.
@@ -51,12 +34,15 @@ $ java -jar evaluator-1.0-SNAPSHOT.jar -datasetURI <URI> -devNumber <NUMBER> [-c
 
 `-testOntologyDirecotry <PATH>` is optional and states the parent directory of the test ontologies (TBox); ./ontoloiges/SDROntology/TestOntology/ by default.
 
-  **Example**: `java -jar evaluator-1.0-SNAPSHOT.jar -datasetURI file:/Users/yanji/Dropbox/workspace/evaluator/evaluationresults/50Devices_1000Queries_SDROntology/Datasets/DeviceDescription50.rdf -devNumber 50`
+`-sparqlQueryDirecotry <PATH>` is optional and states the directory of the SPARQL queries; ./SPARQLqueries/ by default.
+
+  **Example**: `java -jar evaluator-1.0-SNAPSHOT.jar -datasetURI file:/Users/yanji/Dropbox/workspace/evaluator/evaluationresults/4000Devices_5000Queries_SDROntology/Datasets/Dataset1/DeviceDescription4000.rdf -devNumber 4000 -sparqlQueryDirectory /Users/yanji/Dropbox/workspace/evaluator/evaluationresults/4000Devices_5000Queries_SDROntology/SPARQLQueries/QuerySet1AgainstDataset1`
   
 ```console
-# Transform mode: Transform SPARQL queries to XQuery queries (for Windows only).
-$ java -jar evaluator-1.0-SNAPSHOT.jar -t -datasetURI <URI> -devNumber <NUMBER>
+# Transform mode: Transform SPARQL queries to XQuery queries (for Windows only). Note that XQuery queries must be in ./XQueryqueries.
+$ java -jar evaluator-1.0-SNAPSHOT.jar -t -datasetURI <URI> -devNumber <NUMBER> [-sparqlQueryDirecotry <PATH>]
 ```
+
 ```console
 # Help mode: Describe the usage of arguments.
 $ java -jar evaluator-1.0-SNAPSHOT.jar -h

@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Process_0  RFDevice:supportsSpectrumSensing  ?ModelX_0
+      {   { ?NoiseJamming_0
+                      Nuvio:subprocessOf  ?Process_0
+          }
+        UNION
+          { ObjectDescription:Power_instance70
+                      RFDevice:hasPulseRepetitionInterval  ?NoiseJamming_0
+          }
+      }
+    }
+  }

@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Object_0  RFDevice:hasProducer  ?ElectronicSupportSystem_0
+      { ?Voltage_0  RFDevice:hasWidth  ?Object_0
+        { ?Voltage_0  a                   RFDevice:Voltage }
+      }
+    }
+  }

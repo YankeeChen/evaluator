@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:supportsTransmitting  ?RFSystem_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?Object_0  Nuvio:expresses      ?Var0
+        OPTIONAL
+          {   { ?Object_0  RFDevice:hasChargingTime  ?Distance_0 }
+            UNION
+              { ?Distance_0  a                  RFDevice:Distance
+                { ?Var1  Nuvio:hasValue  ?Distance_0
+                  { ?Var1  Nuvio:hasUnitOfMeasure  ?Var0 }
+                }
+              }
+          }
+      }
+    }
+  }

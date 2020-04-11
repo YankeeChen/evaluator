@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?ElectronicSupportSystem_0
+                RFDevice:hasCapability  ?EmitterIdentification_0
+      { ?EmitterIdentification_0
+                  Nuvio:hasParticipant  ?Var0
+        { ?Var0  a                     SDR:USRPB200mini-i }
+      }
+    }
+  }

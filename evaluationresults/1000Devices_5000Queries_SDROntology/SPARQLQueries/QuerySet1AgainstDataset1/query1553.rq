@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    { ?Var0  RFDevice:hasNoiseFigure  ?USRPB205mini_i_0
+      { ?Var1  Nuvio:hasValue  ?Var0
+        { ?Var1  RFDevice:hasFloatValue  ?DataValue0
+          { ?Var1     a                     Nuvio:Value .
+            ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Var1
+          }
+        }
+        { ?Var0  a                     RFDevice:NoiseFigure
+          OPTIONAL
+            { ?Var0  Nuvio:hasValue  ?Var2
+              { ?Var3  Nuvio:hasUnitOfMeasure  ?Var2
+                { ?Var2  a                     RFDevice:DecimalValue
+                  { ?Var2  Nuvio:hasPrecision  ?DataValue1
+                    FILTER ( ?DataValue1 <= -1707047388 )
+                  }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?SuperheterodyneReceiver_0
+                Nuvio:aggregateOf  ?ModelX_0
+      { ?SuperheterodyneReceiver_0
+                  a                     RFDevice:SuperheterodyneReceiver
+        { ?Entity_0  Nuvio:partOf  ?SuperheterodyneReceiver_0
+          {   { ?Entity_0  a                    RFDevice:Satellite }
+            UNION
+              { ?Moving_0  RFDevice:supportsJamming  ?Entity_0
+                { ?Moving_0  a                    RFDevice:Moving }
+              }
+            { ?Entity_0  a                    RFDevice:RadarJamming
+              { ?Entity_0  RFDevice:hasPulseRepetitionFrequency  ?Entity_0 }
+            }
+            { ?Entity_0  a                    Nuvio:Attribute }
+          }
+        }
+      }
+    }
+  }

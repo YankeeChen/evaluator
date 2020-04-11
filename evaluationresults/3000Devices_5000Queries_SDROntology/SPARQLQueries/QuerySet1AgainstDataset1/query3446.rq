@@ -1,0 +1,18 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    { ?Var0  RFDevice:supportsTuning  ?PulseRadar_0
+      { ?Var0  a                     RFDevice:Transmitting
+        {   { ?Var0  a                     RFDevice:Receiving }
+          UNION
+            { ObjectDescription:RadarFrequencyBand_instance60
+                        RFDevice:hasBandwidthRange  ?Var0
+            }
+        }
+      }
+    }
+  }

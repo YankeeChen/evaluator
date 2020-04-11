@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?USRPB2xx_0  RFDevice:isProducerOf  ?Entity_0
+      { ?Entity_1  Nuvio:expresses  ?Entity_0
+        { ?Entity_0  a                    RFDevice:RangeGatePullOffJamming
+          { ?Entity_0  RFDevice:hasTransmitPowerRange  ObjectDescription:Power_instance17 }
+          { ?Entity_0  a                    Nuvio:Value }
+          { ?Entity_0  a                    RFDevice:FrequencyScanRate }
+          OPTIONAL
+            { ?Entity_0  Nuvio:hasSubprocess  ?BarrageJamming_0
+              { ?BarrageJamming_0
+                          a                     RFDevice:BarrageJamming
+                { ?Entity_0  RFDevice:hasPulseRepetitionInterval  ?BarrageJamming_0 }
+              }
+            }
+        }
+      }
+    }
+  }

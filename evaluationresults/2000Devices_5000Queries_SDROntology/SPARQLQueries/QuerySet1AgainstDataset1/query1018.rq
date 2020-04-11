@@ -1,0 +1,31 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?SearchRadar_0
+                Nuvio:hasObjectQuantity  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        {   {   { ?Entity_0  a                    geosparql:Geometry ;
+                            geosparql:coordinateDimension  ?DataValue0
+                  FILTER ( ?DataValue0 <= -1829248940 )
+                }
+              UNION
+                { ?Entity_0  a                    RFDevice:VoltageUnit }
+            }
+          UNION
+            { ?Entity_0  RFDevice:hasPositiveIntegerValue  ?DataValue1
+              FILTER ( ?DataValue1 < 202431260 )
+            }
+          { ?Entity_0  a                    RFDevice:Gain
+            { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+          }
+        }
+      }
+    }
+  }

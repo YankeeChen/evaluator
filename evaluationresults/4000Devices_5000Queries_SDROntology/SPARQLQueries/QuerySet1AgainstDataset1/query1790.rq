@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Entity_0  Nuvio:aggregateOf  ?Half_DuplexCommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Value_0  Nuvio:isExpressedBy   ?Entity_0
+        { ?Entity_0  a                    SDR:XC6SLX150FPGA
+          OPTIONAL
+            { ?Var0  RFDevice:hasProducer  ?Entity_0 }
+          { ?Entity_0  a                    RFDevice:ElectronicWarfare }
+          { ?Ratio_0  RFDevice:hasEffectiveRadiatedPower  ?Entity_0 }
+        }
+        {   { ?Object_0  Nuvio:hasUnitOfMeasure  ?Value_0 }
+          UNION
+            { ?Value_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 >= 2014599334 )
+            }
+        }
+      }
+    }
+  }

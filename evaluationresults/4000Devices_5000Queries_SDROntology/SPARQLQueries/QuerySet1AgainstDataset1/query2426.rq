@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    { ?USRPB200mini_0
+                RFDevice:hasVoltage  ?Entity_0
+      {   { ?Entity_0  a                    Nuvio:Process .
+            ObjectDescription:JammingSystem_instance55
+                      RFDevice:hasTarget    ?Entity_0
+          }
+        UNION
+          { ?Entity_0  a                    RFDevice:AngleValue
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 < -144964780 )
+            }
+            { ?Entity_0  a                    RFDevice:Percentage }
+          }
+        { ?Entity_0  a                    Nuvio:InformationEntity .
+          ?OffsetCurve_0
+                    Nuvio:isExpressedBy   ?Entity_0
+          { ?OffsetCurve_0
+                      a                     gml:OffsetCurve
+          }
+        }
+      }
+    }
+  }

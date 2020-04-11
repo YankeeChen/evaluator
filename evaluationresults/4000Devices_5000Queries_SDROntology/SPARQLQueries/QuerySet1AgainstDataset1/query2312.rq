@@ -1,0 +1,40 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTransmitting  ?ContinuousWaveRadar_0
+        { ?Var0     a                     Nuvio:Entity .
+          ?Value_0  Nuvio:isExpressedBy   ?Var0
+          OPTIONAL
+            {   {   { ?Var0  a                     RFDevice:VelocityUnit }
+                  UNION
+                    { ?Var0  a                     RFDevice:LongitudeValueInRadian }
+                }
+              UNION
+                { ?Var1  Nuvio:hasValue  ?Var0
+                  { ?Var2  Nuvio:hasUnitOfMeasure  ?Var1 }
+                }
+              { ?Value_0  a                     Nuvio:Value ;
+                          Nuvio:hasUnitOfMeasure  ?SpatialUnit_0
+                { ?Value_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 > -1699357720 )
+                }
+                { ?SpatialUnit_0
+                            a                     RFDevice:SpatialUnit
+                }
+              }
+            }
+          { ?Var0  a                     RFDevice:FormationJamming }
+          { ?Var0     a                     Nuvio:Process .
+            ObjectDescription:Instance3621
+                      RFDevice:hasMaxOutputPower  ?Var0
+          }
+        }
+      }
+  }

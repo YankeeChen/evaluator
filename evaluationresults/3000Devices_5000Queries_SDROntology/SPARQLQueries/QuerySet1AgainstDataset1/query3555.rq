@@ -1,0 +1,29 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    OPTIONAL
+      { ?Entity_0  RFDevice:hasProducer  ?RadarWarningReceiver_0
+        { ?Entity_0  a                    RFDevice:DataSize
+          { ?Var0  Nuvio:hasValue  ?Entity_0
+            { ?Var0  RFDevice:hasIntegerValue  ?DataValue0
+              FILTER ( ?DataValue0 <= 1645587679 )
+              { ?Var0  a                     RFDevice:IntegerValue
+                { ?Var0  RFDevice:hasDecimalValue  ?DataValue1
+                  FILTER ( ?DataValue1 >= 57.21 )
+                }
+              }
+            }
+          }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Process ;
+                        Nuvio:hasSubprocess   ObjectDescription:Instance3695
+            }
+        }
+      }
+  }

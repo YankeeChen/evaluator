@@ -1,0 +1,62 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Weight_0  RFDevice:hasChargingTime  ?ContinuousWaveRadar_0
+      { ?Weight_0  a                    RFDevice:Weight
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          { ?Var0  a                     RFDevice:FloatValue
+            {   { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+                  {   { ?Entity_0  Nuvio:expresses  ?Value_0
+                        { ?Entity_0  a                    RFDevice:BistaticRadar
+                          { ?Entity_0  RFDevice:supportsSpectrumSensing  ?PulseRadarModulation_0
+                            { ?TimeInterval_0
+                                        RFDevice:hasTransmitPowerRange  ?PulseRadarModulation_0
+                              { ?TimeInterval_0
+                                          a                     RFDevice:TimeInterval
+                              }
+                            }
+                          }
+                          { ?Entity_0  a                    RFDevice:DRFMJamming
+                            { ObjectDescription:Instance2303
+                                        RFDevice:hasTransmitPowerRange  ?Entity_0
+                            }
+                          }
+                          {   { ?Entity_0  a                    RFDevice:IntegerValue }
+                            UNION
+                              { ?Entity_0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                                FILTER ( ?DataValue0 < 145726802 )
+                              }
+                          }
+                        }
+                      }
+                    UNION
+                      { ?InformationEntity_0
+                                  Nuvio:hasUnitOfMeasure  ?Value_0
+                        { ?Value_0  Nuvio:hasPrecision  ?DataValue1
+                          FILTER ( ?DataValue1 > -2094242557 )
+                        }
+                        { ?Oscillator_0
+                                    Nuvio:expresses  ?InformationEntity_0
+                          { ?Oscillator_0
+                                      a                     RFDevice:Oscillator
+                            OPTIONAL
+                              { ?Entity_1  RFDevice:isProducerOf  ?Oscillator_0 }
+                          }
+                        }
+                      }
+                  }
+                }
+              UNION
+                { ?Var0  RFDevice:hasDecimalValue  ?DataValue2 }
+            }
+          }
+        }
+      }
+    }
+  }

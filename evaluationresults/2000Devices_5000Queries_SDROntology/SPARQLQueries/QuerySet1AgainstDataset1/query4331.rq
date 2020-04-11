@@ -1,0 +1,19 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Object_0  RFDevice:isProducerOf  ?SurveillanceRadar_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?Situation_0  RFDevice:supportsTransmitting  ?Object_0
+        { ?Situation_0  a                 Nuvio:Situation
+          { ?Ship_0  Nuvio:relevantIndividual  ?Situation_0
+            { ?Moving_0  RFDevice:hasCapability  ?Ship_0 }
+          }
+        }
+      }
+    }
+  }

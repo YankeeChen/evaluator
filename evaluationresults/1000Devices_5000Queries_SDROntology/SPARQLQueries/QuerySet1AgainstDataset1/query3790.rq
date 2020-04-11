@@ -1,0 +1,23 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    OPTIONAL
+      { ?Weight_0  RFDevice:hasMaxPowerConsumption  ?PulseRadar_0
+        { ?Weight_0  a                    RFDevice:Weight
+          OPTIONAL
+            { ?Var0  Nuvio:hasValue  ?Weight_0
+              { ?Var0  a                     RFDevice:FloatValue
+                { ?Var0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                  FILTER ( ?DataValue0 = "47.27301"^^xsd:double )
+                }
+              }
+            }
+        }
+      }
+  }

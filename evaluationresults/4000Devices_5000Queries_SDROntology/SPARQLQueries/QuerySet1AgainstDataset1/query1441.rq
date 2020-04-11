@@ -1,0 +1,37 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?RFSystem_0
+      { ?Var0  a                     RFDevice:SpectrumSensing
+        { ?Attribute_0  RFDevice:hasBandwidth  ?Var0
+          { ?Attribute_0  a                 Nuvio:Attribute }
+        }
+        OPTIONAL
+          { ?Var0  a                     Nuvio:Entity ;
+                   Nuvio:isExpressedBy   ?Process_0
+            { ?Var0  a                     RFDevice:ParabolicDishAntenna
+              OPTIONAL
+                { ?Var0  Nuvio:compositeOf  ?Transceiver_0
+                  { ?Transceiver_0
+                              RFDevice:isProducerOf  ?Object_0
+                    { ?Quality_0  Nuvio:hasObjectQuality  ?Object_0 }
+                  }
+                }
+              { ?Var0  a                     RFDevice:CommunicationsJamming
+                { ObjectDescription:Power_instance50
+                            RFDevice:hasPulseRepetitionInterval  ?Var0
+                }
+                { ?Var0  a                     Nuvio:Value }
+              }
+            }
+            { ?Process_0  a                   Nuvio:Process .
+              ?Quality_1  Nuvio:hasProcessQuality  ?Process_0
+            }
+          }
+      }
+    }
+  }

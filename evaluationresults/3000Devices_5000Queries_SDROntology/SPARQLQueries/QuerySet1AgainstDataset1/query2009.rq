@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    { ?USRPE3xx_0  Nuvio:compositeOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ObjectDescription:Instance3607
+                    RFDevice:hasTransmitPowerRange  ?Entity_0
+        }
+      }
+    }
+  }

@@ -1,0 +1,12 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    OPTIONAL
+      { ?ModelX_0  RFDevice:hasSamplingRate  ?Attribute_0
+        { ?Attribute_0  a                 Nuvio:Attribute }
+      }
+  }

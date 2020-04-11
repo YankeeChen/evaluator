@@ -1,0 +1,52 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?ElectronicSupportSystem_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        { ?Var0  a                     RFDevice:InverseGainJamming
+          OPTIONAL
+            { ?Power_0  RFDevice:hasEffectiveRadiatedPower  ?Var0
+              { ?Power_0  a                     RFDevice:Power
+                { ?Var1  Nuvio:hasValue  ?Power_0
+                  { ?Var1  RFDevice:hasDoubleValue  ?DataValue0
+                    FILTER ( ?DataValue0 != 84.41 )
+                  }
+                }
+              }
+            }
+        }
+        {   { ?Var0     a                     Nuvio:Entity .
+              ?InformationContent_0
+                        Nuvio:isExpressedBy   ?Var0
+            }
+          UNION
+            { ?Var0  a                     skos:Collection .
+              ?Var2  skos:member           ?Var0
+              { ?Weight_0  RFDevice:hasCapacity  ?Var0
+                { ?Weight_0  a                    RFDevice:Weight
+                  OPTIONAL
+                    { ?Var3  Nuvio:hasValue  ?Weight_0
+                      { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var3 }
+                    }
+                }
+              }
+            }
+          { ?InformationContent_0
+                      a                     Nuvio:InformationContent .
+            ?InformationEntity_0
+                      Nuvio:represents      ?InformationContent_0
+            { ?InformationEntity_0
+                        a                     Nuvio:InformationEntity
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,16 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    OPTIONAL
+      { ?RadioComponent_0
+                  Nuvio:compositeOf  ?RadarWarningReceiver_0
+        { ?RadioComponent_0
+                    a                     RFDevice:RadioComponent
+        }
+      }
+  }

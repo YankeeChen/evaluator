@@ -1,0 +1,45 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?USRPE313_0  RFDevice:supportsTuning  ?Var0
+      {   { ?Var0  a                     RFDevice:BarrageJamming }
+        UNION
+          { ?Entity_0  RFDevice:hasEffectiveRadiatedPower  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?InformationEntity_0
+                        Nuvio:isExpressedBy   ?Entity_0
+              {   { ?Entity_0  a                    gml:OffsetCurve
+                    { ?Entity_0  a                    RFDevice:Gain
+                      OPTIONAL
+                        { ?Var1  Nuvio:hasValue  ?Entity_0
+                          { ?Var1  Nuvio:hasUnitOfMeasure  RFDevice:Decibel }
+                        }
+                    }
+                  }
+                UNION
+                  { ?Entity_0  a                    Nuvio:Attribute }
+                { ?InformationEntity_0
+                            a                     Nuvio:InformationEntity ;
+                            Nuvio:expresses       ?RadarJamming_0
+                  { ?RadarJamming_0
+                              a                     RFDevice:RadarJamming
+                    { ?SurveillanceRadar_0
+                                Nuvio:participatesIn  ?RadarJamming_0
+                      { ?SurveillanceRadar_0
+                                  a                     RFDevice:SurveillanceRadar
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

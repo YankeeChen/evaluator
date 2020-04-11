@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Entity_0  RFDevice:hasProducer  ?GNURadio_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Process .
+          ?Antenna_0  Nuvio:hasParticipant  ?Entity_0
+          { ObjectDescription:AntennaPolarization_instance30
+                      RFDevice:hasPolarization  ?Antenna_0
+          }
+          { ?Entity_0  a                    Nuvio:Value }
+          { ?Object_0  a                    Nuvio:Object .
+            ?Transmitting_0
+                      RFDevice:supportsJamming  ?Object_0
+            { ?Power_0  RFDevice:hasTransmitPowerRange  ?Transmitting_0
+              { ?Var0  Nuvio:hasValue  ?Power_0
+                { ?Var0  Nuvio:hasDataValue  ?DataValue0
+                  FILTER ( ?DataValue0 != 50.38 )
+                  OPTIONAL
+                    { ?Var0  a                     RFDevice:PositiveDecimalValue }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

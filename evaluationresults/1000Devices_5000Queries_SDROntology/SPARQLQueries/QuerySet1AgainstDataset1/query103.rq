@@ -1,0 +1,49 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Transmitting_0
+                RFDevice:supportsTransmitting  ?Half_DuplexCommunicationsSystem_0
+      { ?Transmitting_0
+                  a                     RFDevice:Transmitting
+        { ?Entity_0  RFDevice:hasPulseRepetitionFrequency  ?Transmitting_0
+          { ?Entity_0  a                    Nuvio:Entity
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:ElectronicProtection
+                {   { ?Entity_0  a                    Nuvio:Value .
+                      ?InformationEntity_0
+                                Nuvio:hasUnitOfMeasure  ?Entity_0
+                      OPTIONAL
+                        { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 = -1257145958 )
+                        }
+                      { ?InformationEntity_0
+                                  a                     Nuvio:InformationEntity
+                      }
+                    }
+                  UNION
+                    { ?ShortValue_0
+                                Nuvio:relevantIndividual  ?Entity_0
+                      { ?Entity_0  Nuvio:relevantIndividual  ?Gain_0
+                        { ?Var0  Nuvio:hasValue  ?Gain_0
+                          { ?Var0  RFDevice:hasDecimalValue  ?DataValue1
+                            FILTER ( ?DataValue1 < 22.13 )
+                          }
+                        }
+                        { ?ShortValue_0
+                                    a                     RFDevice:ShortValue
+                        }
+                      }
+                    }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

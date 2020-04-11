@@ -1,0 +1,20 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Entity_0  RFDevice:isProducerOf  ?ContinuousWaveRadar_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:expresses       ?Entity_0
+        { ?Entity_0  a                    RFDevice:PhaseModulation
+          { ?Entity_0  a                    Nuvio:Situation .
+            ObjectDescription:Instance2658
+                      Nuvio:relevantIndividual  ?Entity_0
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,41 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Receiver_0  Nuvio:partOf  ?ModelX_0
+      { ?Receiver_0  a                  RFDevice:Receiver
+        { ?Receiver_0  Nuvio:aggregateOf  ?RadioComponent_0
+          { ?Entity_0  RFDevice:hasProducer  ?RadioComponent_0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?InformationContent_0
+                        Nuvio:isExpressedBy   ?Entity_0
+              { ?Entity_0  a                    SDR:USRPB2xx
+                { ?Var0  RFDevice:supportsTransmitting  ?Entity_0
+                  { ?Quantity_0  Nuvio:hasProcessQuantity  ?Var0
+                    { ?Var0  a                     RFDevice:Receiving
+                      { ?Var0  RFDevice:hasFrequencyAccuracy  ?FreqencyRange_0 }
+                    }
+                  }
+                }
+                { ?Entity_0  a                    RFDevice:SpatialVolumeUnit }
+                { ?Entity_0  a                    RFDevice:Gain
+                  OPTIONAL
+                    { ?Entity_0  a                    Nuvio:Attribute }
+                }
+                { ?InformationContent_0
+                            a                     Nuvio:InformationContent .
+                  ?InformationRepresentation_0
+                            Nuvio:represents      ?InformationContent_0
+                  { ?Entity_0  Nuvio:represents  ?InformationRepresentation_0 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

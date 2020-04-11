@@ -1,0 +1,32 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?SearchRadar_0
+                RFDevice:supportsTuning  ?Var0
+      {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+            { ?Var0     a                     Nuvio:Process .
+              ?MultiGeometry_0
+                        Nuvio:participatesIn  ?Var0
+              { SDR:Range_70MHz-6GHz
+                          RFDevice:hasBandwidthRange  ?Var0
+              }
+            }
+          }
+        UNION
+          { ?Var0  a                     RFDevice:Receiving
+            { ?QuantityRange_0
+                        RFDevice:hasFrequencyRange  ?Var0
+              { ?QuantityRange_0
+                          a                     RFDevice:QuantityRange
+              }
+            }
+          }
+      }
+    }
+  }

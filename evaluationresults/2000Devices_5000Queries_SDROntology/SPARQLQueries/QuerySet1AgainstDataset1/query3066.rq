@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    { ?Var0  Nuvio:aggregateOf  ?USRPB200mini_0
+      { ?Var1  RFDevice:hasResolution  ?Var0
+        { ?Var0  a                     RFDevice:ADC
+          { ?InstantaneousFrequencyMeasurementReceiver_0
+                      Nuvio:aggregateOf  ?Var0
+            { ?Entity_0  RFDevice:hasCapability  ?InstantaneousFrequencyMeasurementReceiver_0
+              {   { ?Entity_0  a                    RFDevice:UnmannedPlatform
+                    OPTIONAL
+                      { ?Entity_0  a                    RFDevice:AmplitudeModulation }
+                    { ?Entity_0  a                    RFDevice:IntValue
+                      { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                        FILTER ( ?DataValue0 != -313430902 )
+                      }
+                    }
+                  }
+                UNION
+                  { ?Entity_0  a                    RFDevice:Height
+                    { ?Entity_0  a                    Nuvio:Situation .
+                      ?XC6SLX150FPGA_0
+                                Nuvio:relevantIndividual  ?Entity_0
+                      OPTIONAL
+                        { ?XC6SLX150FPGA_0
+                                    a                     SDR:XC6SLX150FPGA
+                        }
+                    }
+                  }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Var0  RFDevice:supportsTransmitting  ?BistaticRadar_0
+      { ?Var0  a                     Nuvio:Entity
+        { ObjectDescription:Antenna_instance6
+                    Nuvio:partOf  ?Var0
+          {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing }
+            UNION
+              { ?Var0  Nuvio:relevantIndividual  ?XilinxFPGA_0
+                OPTIONAL
+                  { ?XilinxFPGA_0
+                              a                     SDR:XilinxFPGA
+                    { ?Mixer_0  Nuvio:compositeOf  ?XilinxFPGA_0
+                      { ObjectDescription:Producer_instance590
+                                  RFDevice:isProducerOf  ?Mixer_0
+                        { ?Entity_0  RFDevice:isProducerOf  ?Mixer_0 }
+                      }
+                    }
+                  }
+              }
+            { ?Var0  a                     Nuvio:Object }
+          }
+        }
+        { ?Var0  a                     RFDevice:BlinkingJamming }
+      }
+    }
+  }

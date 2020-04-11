@@ -1,0 +1,17 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?ElectronicSupportSystem_0
+                RFDevice:isDeployedOn  ?MobilePlatform_0
+      { ?MobilePlatform_0
+                  a                     RFDevice:MobilePlatform
+        { ObjectDescription:Moving_instance37
+                    RFDevice:hasCapability  ?MobilePlatform_0
+        }
+      }
+    }
+  }

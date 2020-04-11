@@ -1,0 +1,55 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    OPTIONAL
+      { ?Aircraft_0  RFDevice:isDeployedOn  ?RadarSystem_0
+        { ?Entity_0  RFDevice:hasCapability  ?Aircraft_0
+          {   { ?Entity_0  a                    Nuvio:Entity ;
+                          Nuvio:expresses       ?InformationContent_0
+              }
+            UNION
+              { ObjectDescription:Power_instance8
+                          RFDevice:hasTransmitPowerRange  ?Entity_0
+                OPTIONAL
+                  { ?SpatialLinearUnit_0
+                              Nuvio:hasUnitOfMeasure  ?Entity_0
+                    { ?SpatialLinearUnit_0
+                                a                     RFDevice:SpatialLinearUnit
+                    }
+                    { ?Entity_0  a                    RFDevice:Gain
+                      { ?Var0  Nuvio:hasValue  ?Entity_0
+                        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 = -589820572 )
+                        }
+                      }
+                    }
+                  }
+                { ?InformationContent_0
+                            a                     Nuvio:InformationContent .
+                  ?InformationEntity_0
+                            Nuvio:representedBy   ?InformationContent_0
+                  { ?InformationEntity_0
+                              a                     Nuvio:InformationEntity ;
+                              Nuvio:isExpressedBy   ?OrderedCollection_0
+                    { ?OrderedCollection_0
+                                a                     skos:OrderedCollection .
+                      ?Object_0  skos:memberList      ?OrderedCollection_0
+                      OPTIONAL
+                        { ?Object_0  a                    Nuvio:Object .
+                          ?Gain_0   RFDevice:hasMaxPowerConsumption  ?Object_0
+                        }
+                    }
+                  }
+                }
+              }
+          }
+        }
+      }
+  }

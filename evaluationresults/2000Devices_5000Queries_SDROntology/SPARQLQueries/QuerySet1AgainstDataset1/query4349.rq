@@ -1,0 +1,29 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsJamming  ?RFSystem_0
+        { ?Var0     a                     Nuvio:Entity .
+          ?UnitOfMeasure_0
+                    Nuvio:isExpressedBy   ?Var0
+          { ?Var0  a                     gml:ArcByCenterPoint
+            OPTIONAL
+              { ?Var0     a                     Nuvio:Situation .
+                ?SweepJamming_0
+                          Nuvio:relevantIndividual  ?Var0
+                { ?Surface_0  Nuvio:relevantIndividual  ?Var0
+                  { ?Surface_0  a                   gml:Surface }
+                }
+                { ?SweepJamming_0
+                            a                     RFDevice:SweepJamming
+                }
+              }
+          }
+        }
+      }
+  }

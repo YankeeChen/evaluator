@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?RadioComponent_0
+                Nuvio:aggregateOf  ?BistaticRadar_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?XilinxZynq7020SoC_0
+                    Nuvio:aggregateOf  ?RadioComponent_0
+          { ?XilinxZynq7020SoC_0
+                      a                     SDR:XilinxZynq7020SoC
+            { ?DirectConversionReceiver_0
+                        Nuvio:partOf  ?XilinxZynq7020SoC_0
+              { ?DirectConversionReceiver_0
+                          a                     RFDevice:DirectConversionReceiver
+                { ObjectDescription:RadioFrequencyBand_instance18
+                            RFDevice:hasFrequencyRange  ?DirectConversionReceiver_0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

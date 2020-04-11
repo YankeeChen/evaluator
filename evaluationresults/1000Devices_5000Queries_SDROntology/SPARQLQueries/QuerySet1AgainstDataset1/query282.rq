@@ -1,0 +1,25 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Aircraft_0  RFDevice:isDeployedOn  ?TrackingRadar_0
+      { ?Aircraft_0  a                  RFDevice:Aircraft
+        { ?Process_0  RFDevice:supportsTuning  ?Aircraft_0
+          { ?Voltage_0  RFDevice:hasEffectiveRadiatedPower  ?Process_0
+            { ?Voltage_0  Nuvio:hasValue  ?Var0
+              { ?Var0  a                     RFDevice:PositiveFloatValue
+                { ?Var0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                  FILTER ( ?DataValue0 > "-86.28996"^^xsd:double )
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

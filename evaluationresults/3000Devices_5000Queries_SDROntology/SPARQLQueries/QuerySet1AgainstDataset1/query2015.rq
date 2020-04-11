@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?CommunicationsSystem_0
+                RFDevice:supportsJamming  ?Var0
+      {   { ?Var0  a                     gml:ArcByBulge }
+        UNION
+          { ?Var0  a                     Nuvio:Situation }
+        { ?Var0     a                     Nuvio:Object .
+          ?FormationJamming_0
+                    RFDevice:supportsTransmitting  ?Var0
+          { ?FormationJamming_0
+                      a                     RFDevice:FormationJamming
+          }
+        }
+        { ?Quantity_0  RFDevice:hasPulseRepetitionFrequency  ?Var0 }
+      }
+    }
+  }

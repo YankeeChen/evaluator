@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Receiver_0  Nuvio:partOf  ?USRPN2xx_0
+      { ?Receiver_0  RFDevice:supportsTransmitting  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?InformationEntity_0
+                    Nuvio:expresses       ?Entity_0
+          { ?Entity_0  a                    gml:Curve
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Process .
+                ?Satellite_0  Nuvio:participatesIn  ?Entity_0
+                { ?Moving_0  RFDevice:hasCapability  ?Satellite_0
+                  { ?Moving_0  a                    RFDevice:Moving }
+                }
+                { ?Var0  Nuvio:hasValue  ?Entity_0
+                  { ?Var0  a                     RFDevice:DecimalValue
+                    { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 != 1175988716 )
+                    }
+                  }
+                }
+              }
+            { ?Var1  Nuvio:informationSource  ?Entity_0
+              { ?Var1  a                     RFDevice:ElectronicAttack }
+            }
+          }
+        }
+      }
+    }
+  }

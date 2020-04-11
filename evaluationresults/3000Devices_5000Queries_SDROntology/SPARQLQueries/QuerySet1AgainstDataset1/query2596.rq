@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?Var0  Nuvio:aggregateOf  ?USRPB200_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?Situation_0  Nuvio:isExpressedBy  ?Var0
+        {   { ?Aircraft_0  RFDevice:isDeployedOn  ?Var0
+              { ?Aircraft_0  a                  RFDevice:Aircraft }
+              OPTIONAL
+                { ?Var0  a                     RFDevice:LatitudeValue }
+            }
+          UNION
+            { ?Var1  Nuvio:hasValue  ?Var0 }
+        }
+        { ?Situation_0  Nuvio:relevantIndividual  ?MultiCurve_0
+          { ?MultiCurve_0
+                      a                     sf:MultiCurve
+          }
+        }
+      }
+    }
+  }

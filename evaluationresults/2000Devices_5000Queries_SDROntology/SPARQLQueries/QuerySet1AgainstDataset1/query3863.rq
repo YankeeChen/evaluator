@@ -1,0 +1,36 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    { ?Var0  Nuvio:partOf  ?USRPB205mini_i_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?InformationRepresentation_0
+                  Nuvio:expresses       ?Var0
+        OPTIONAL
+          { ?Var0  a                     RFDevice:Jammer
+            { ObjectDescription:RadarFrequencyBand_instance134
+                        RFDevice:hasFrequencyAccuracy  ?Var0
+            }
+            { ?Var0  a                     Nuvio:UnitOfMeasure
+              { ?SweepJamming_0
+                          Nuvio:participatesIn  ?Var0
+                OPTIONAL
+                  { ?Power_0  RFDevice:hasMaxOutputPower  ?SweepJamming_0
+                    { ?Power_0  a                     RFDevice:Power }
+                  }
+                OPTIONAL
+                  { ?Var0  a                     Nuvio:Situation }
+              }
+            }
+            { ?InformationRepresentation_0
+                        a                     Nuvio:InformationRepresentation
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Var0  RFDevice:supportsTuning  ?ElectronicSupportSystem_0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  a                     gml:PolynomialSpline
+          { ?Var0  RFDevice:hasFloatValue  ?DataValue0
+            FILTER ( ?DataValue0 > -31.27 )
+          }
+          { ?Var1  Nuvio:informationSource  ?Var0
+            { ?Var1  a                     sf:Line
+              { ?Var1  a                     Nuvio:InformationContent }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,29 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Half_DuplexCommunicationsSystem_0
+                RFDevice:hasVoltage  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    RFDevice:IEDTrigger
+          OPTIONAL
+            { ?QuantityRange_0
+                        RFDevice:hasFrequencyRange  ?Entity_0
+              { ?QuantityRange_0
+                          a                     RFDevice:QuantityRange
+              }
+            }
+          { ?Entity_0  a                    RFDevice:RadarModulation }
+          { ?Entity_0  a                    RFDevice:Weight
+            { ?Var0  Nuvio:hasValue  ?Entity_0
+              { ?Var0  RFDevice:hasDecimalValue  ?DataValue0 }
+            }
+          }
+        }
+      }
+    }
+  }

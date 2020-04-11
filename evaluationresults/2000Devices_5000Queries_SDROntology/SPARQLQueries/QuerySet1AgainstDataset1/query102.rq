@@ -1,0 +1,51 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Receiving_0  RFDevice:supportsTuning  ?Full_DuplexCommunicationsSystem_0
+        { ?Receiving_0  a                 RFDevice:Receiving
+          OPTIONAL
+            { ?Entity_0  RFDevice:hasFrequencyAccuracy  ?Receiving_0
+              { ?InformationEntity_0
+                          Nuvio:expresses  ?Entity_0
+                OPTIONAL
+                  { ?Artix7FPGA_0
+                              Nuvio:aggregateOf  ?Entity_0
+                    { ?Artix7FPGA_0
+                                a                     SDR:Artix7FPGA
+                      { ?XilinxZynq7020SoC_0
+                                  Nuvio:compositeOf  ?Artix7FPGA_0
+                      }
+                    }
+                    { ?Entity_0  a                    RFDevice:Width
+                      OPTIONAL
+                        { ?Var0  Nuvio:hasValue  ?Entity_0
+                          { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                            FILTER ( ?DataValue0 != 1641020867 )
+                          }
+                        }
+                      OPTIONAL
+                        { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                    }
+                  }
+                { ?InformationEntity_0
+                            a                     Nuvio:InformationEntity ;
+                            Nuvio:isExpressedBy   ?Geometry_0
+                  { ?Geometry_0  a                  geosparql:Geometry ;
+                              geosparql:isEmpty     ?DataValue1
+                    FILTER ( ?DataValue1 < false )
+                  }
+                }
+              }
+            }
+        }
+      }
+  }

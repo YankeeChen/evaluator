@@ -1,0 +1,44 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?Var0  RFDevice:supportsJamming  ?USRPN210_0
+      {   { ObjectDescription:Frequency_instance116
+                      RFDevice:hasBandwidth  ?Var0
+          }
+        UNION
+          { ?Var0     a                     Nuvio:Entity .
+            ?InformationContent_0
+                      Nuvio:isExpressedBy   ?Var0
+            { ?Var0  a                     sf:Curve
+              OPTIONAL
+                {   { ?Var0  a                     Nuvio:UnitOfMeasure }
+                  UNION
+                    { ?Var0  a                     RFDevice:FloatValue }
+                }
+            }
+            {   { ?InformationContent_0
+                            a                     Nuvio:InformationContent .
+                  ?InformationEntity_0
+                            Nuvio:represents      ?InformationContent_0
+                }
+              UNION
+                { ?InformationEntity_0
+                            a                     Nuvio:InformationEntity .
+                  ?DataTransmissionMode_0
+                            Nuvio:expresses       ?InformationEntity_0
+                  { ?DataTransmissionMode_0
+                              a                     RFDevice:DataTransmissionMode
+                  }
+                }
+            }
+            { ?Var0  a                     Nuvio:Process }
+          }
+      }
+    }
+  }

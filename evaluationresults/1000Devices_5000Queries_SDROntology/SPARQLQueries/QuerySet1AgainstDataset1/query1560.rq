@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?Var0  RFDevice:supportsTuning  ?MonostaticRadar_0
+      {   { ?Var0  a                     Nuvio:Entity ;
+                   Nuvio:isExpressedBy   ?Var0
+            OPTIONAL
+              { ?Var0     a                     Nuvio:Object .
+                ?Situation_0  RFDevice:supportsTuning  ?Var0
+                { ?Situation_0  a                 Nuvio:Situation .
+                  ?USRPN200_0  Nuvio:relevantIndividual  ?Situation_0
+                  { ?USRPN200_0  a                  SDR:USRPN200 }
+                }
+              }
+          }
+        UNION
+          {   { ?Var0  a                     RFDevice:Receiving }
+            UNION
+              { ?QuantityRange_0
+                          RFDevice:hasBandwidthRange  ?Var0
+                { ?QuantityRange_0
+                            a                     RFDevice:QuantityRange
+                }
+              }
+          }
+      }
+    }
+  }

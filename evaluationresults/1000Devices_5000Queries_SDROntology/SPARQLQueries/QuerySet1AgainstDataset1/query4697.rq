@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Var0  RFDevice:supportsJamming  ?JammingSystem_0
+      { ?XC6SLX75FPGA_0
+                  Nuvio:compositeOf  ?Var0
+        { ?XC6SLX75FPGA_0
+                    a                     SDR:XC6SLX75FPGA
+          { ?Object_0  RFDevice:isProducerOf  ?XC6SLX75FPGA_0
+            { ?Object_0  a                    Nuvio:Object .
+              ObjectDescription:AntennaPolarization_instance0
+                        RFDevice:hasPolarization  ?Object_0
+            }
+          }
+        }
+        OPTIONAL
+          { ?Var0  a                     RFDevice:TimeUnit
+            OPTIONAL
+              { ?Var0  a                     RFDevice:LongitudeValue
+                OPTIONAL
+                  { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 < 1146190344 )
+                  }
+              }
+          }
+      }
+    }
+  }

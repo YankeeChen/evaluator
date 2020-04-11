@@ -1,0 +1,45 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              rdf:type  SDR:USRPB2xxmini
+    OPTIONAL
+      { ?USRPB2xxmini_0
+                  Nuvio:partOf  ?RadarJammer_0
+        {   { ?RadarJammer_0
+                        rdf:type  RFDevice:RadarJammer
+            }
+          UNION
+            { ?Entity_0  RFDevice:hasProducer  ?RadarJammer_0
+              { ?Attribute_0  Nuvio:expresses  ?Entity_0
+                {   { ?Entity_0  rdf:type        skos:OrderedCollection .
+                      ?List_0   skos:memberList  ?Entity_0
+                      OPTIONAL
+                        { ?List_0  rdf:type  rdf:List }
+                    }
+                  UNION
+                    {   {   { ?Entity_0  rdf:type  RFDevice:AmplitudeModulation }
+                          UNION
+                            { ?Entity_0  rdf:type  RFDevice:NonNegativeIntegerValue }
+                        }
+                      UNION
+                        { ?Entity_0  rdf:type  RFDevice:Percentage
+                          { ?Entity_0  Nuvio:hasValue  ?Var0
+                            { ?Var0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0 }
+                          }
+                        }
+                    }
+                  OPTIONAL
+                    { ?Entity_0  rdf:type  Nuvio:Attribute }
+                }
+              }
+            }
+        }
+      }
+  }

@@ -1,0 +1,55 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Var0  RFDevice:supportsTuning  ?USRPE313_0
+      {   { ?Var0  Nuvio:expresses  ?InformationRepresentation_0
+            { ?Var0  a                     gml:Sphere
+              OPTIONAL
+                { ObjectDescription:Frequency_instance201
+                            Nuvio:hasProcessQuantity  ?Var0
+                }
+              {   { ?Var0     a                     Nuvio:Value .
+                    ?TimeUnit_0  Nuvio:hasUnitOfMeasure  ?Var0
+                  }
+                UNION
+                  { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 = 233321506 )
+                  }
+                OPTIONAL
+                  { ?TimeUnit_0  a                  RFDevice:TimeUnit }
+              }
+              {   { ?Var0  a                     RFDevice:FrequencyAccuracy }
+                UNION
+                  {   {   { ?Var0   a                     Nuvio:Situation .
+                            ?Tin_0  Nuvio:relevantIndividual  ?Var0
+                          }
+                        UNION
+                          { ?CompositeSolid_0
+                                      Nuvio:relevantIndividual  ?Var0
+                            { ?CompositeSolid_0
+                                        a                     gml:CompositeSolid
+                            }
+                            OPTIONAL
+                              { ?Tin_0  a                     gml:Tin }
+                          }
+                      }
+                    UNION
+                      { ?Var0  a                     Nuvio:UnitOfMeasure }
+                  }
+              }
+            }
+          }
+        UNION
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation
+          }
+      }
+    }
+  }

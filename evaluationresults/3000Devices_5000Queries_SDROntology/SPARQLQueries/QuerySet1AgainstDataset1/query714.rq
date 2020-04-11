@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    { ?Var0  RFDevice:supportsTransmitting  ?USRPE3xx_0
+      {   {   { ?DeceptiveCommunicationsJamming_0
+                          Nuvio:subprocessOf  ?Var0
+              }
+            UNION
+              { ?DeceptiveCommunicationsJamming_0
+                          a                     RFDevice:DeceptiveCommunicationsJamming
+                { ?Entity_0  RFDevice:hasPulseWidth  ?DeceptiveCommunicationsJamming_0
+                  { ?Entity_0  a                    Nuvio:Entity
+                    { ?Entity_0  a                    RFDevice:Aircraft
+                      { ?Entity_0  a                    RFDevice:InformationUnit
+                        { ?Entity_0  a                    RFDevice:PositiveFloatValue }
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        UNION
+          { ?Var0  a                     RFDevice:CoverJamming
+            { ?Var0  RFDevice:hasPulseRepetitionFrequency  ?Entity_0 }
+          }
+      }
+    }
+  }

@@ -1,0 +1,10 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_i_0
+WHERE
+  { ?USRPB200mini_i_0
+              a                     SDR:USRPB200mini-i
+    { ?Var0  Nuvio:aggregateOf  ?USRPB200mini_i_0 }
+  }

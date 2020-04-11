@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:aggregateOf  ?ElectronicAttackSystem_0
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  a                     RFDevice:InstantaneousFrequencyMeasurementReceiver
+        { ?InstantaneousFrequencyMeasurementReceiver_0
+                    RFDevice:hasFrequencyAccuracy  ?QuantityRange_0
+          { ?QuantityRange_0
+                      a                     RFDevice:QuantityRange
+            { ?Time_0  RFDevice:hasMin  ?QuantityRange_0
+              { ?Time_0  a                     RFDevice:Time }
+            }
+          }
+        }
+      }
+    }
+  }

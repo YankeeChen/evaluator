@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_i_0
+WHERE
+  { ?USRPB200mini_i_0
+              a                     SDR:USRPB200mini-i
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?USRPB200mini_i_0
+        { ?Var0  a                     Nuvio:Entity
+          { ?Var0  a                     RFDevice:InverseGainJamming
+            {   { ?Var0  a                     Nuvio:InformationEntity .
+                  ?Var1  Nuvio:informationSource  ?Var0
+                }
+              UNION
+                { ?Var1  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 != 1120258449 )
+                }
+              { ?Var0     a                     Nuvio:Situation .
+                ?DeceptiveJamming_0
+                          Nuvio:relevantIndividual  ?Var0
+                { ?Triangle_0  Nuvio:relevantIndividual  ?Var0
+                  { ?Triangle_0  a                  sf:Triangle }
+                  { ?DeceptiveJamming_0
+                              a                     RFDevice:DeceptiveJamming
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

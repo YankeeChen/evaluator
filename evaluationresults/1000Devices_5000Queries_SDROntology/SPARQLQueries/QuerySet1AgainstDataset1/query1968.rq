@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?CR_0  RFDevice:hasProducer  ?Entity_0
+      {   { ?Entity_0  a                    RFDevice:TimeInterval }
+        UNION
+          { ?Entity_0  a                    Nuvio:Situation ;
+                      Nuvio:relevantIndividual  ?Entity_0
+            { ?Entity_0  Nuvio:relevantIndividual  ObjectDescription:USRPB200mini-i_instance25 }
+            { ?Entity_0  a                    Nuvio:Process .
+              ?DirectionalAntenna_0
+                        RFDevice:hasTarget    ?Entity_0
+              { ?DirectionalAntenna_0
+                          a                     RFDevice:DirectionalAntenna
+                { ?Object_0  RFDevice:hasFrequencyAccuracy  ?DirectionalAntenna_0
+                  { ?Object_0  a                    Nuvio:Object .
+                    ObjectDescription:Instance1430
+                              RFDevice:supportsJamming  ?Object_0
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

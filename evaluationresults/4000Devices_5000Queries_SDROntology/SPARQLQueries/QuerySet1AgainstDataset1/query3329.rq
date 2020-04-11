@@ -1,0 +1,35 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:partOf  ?ModelX_0
+      {   { ?Entity_0  a                    Nuvio:Entity .
+            ?Process_0  Nuvio:expresses     ?Entity_0
+          }
+        UNION
+          { ?Entity_0  a                    Nuvio:Object
+            { ObjectDescription:USRPN310_instance7
+                        Nuvio:relevantIndividual  ?Entity_0
+            }
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            { ?Process_0  a                   Nuvio:Process .
+              ?AutomaticGainControl_0
+                        Nuvio:subprocessOf    ?Process_0
+              OPTIONAL
+                { ?AutomaticGainControl_0
+                            a                     RFDevice:AutomaticGainControl
+                  OPTIONAL
+                    { ?AutomaticGainControl_0
+                                RFDevice:hasEffectiveRadiatedPower  ?Power_0
+                      { ?Power_0  a                     RFDevice:Power }
+                    }
+                }
+            }
+          }
+      }
+    }
+  }

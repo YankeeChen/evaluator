@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:aggregateOf  ?GNURadio_0
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  a                     RFDevice:InstantaneousFrequencyMeasurementReceiver
+        { ?InstantaneousFrequencyMeasurementReceiver_0
+                    Nuvio:partOf  ?Entity_0
+          { ?Entity_0  a                    RFDevice:FeatureDetection
+            { ?Entity_0  a                    RFDevice:ElectricChargeUnit
+              { ?Entity_0  a                    RFDevice:LatitudeValue }
+            }
+          }
+        }
+      }
+    }
+  }

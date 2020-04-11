@@ -1,0 +1,28 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:aggregateOf  ?ModelX_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?UnitOfMeasure_0
+                  Nuvio:expresses       ?Entity_0
+        { ?Entity_0  a                    RFDevice:DoubleValue
+          OPTIONAL
+            { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+              FILTER ( ?DataValue0 <= "71.47066545599449"^^xsd:double )
+            }
+          { ObjectDescription:CoverJamming_instance1
+                      Nuvio:participatesIn  ?Entity_0
+          }
+        }
+        OPTIONAL
+          { ?UnitOfMeasure_0
+                      a                     Nuvio:UnitOfMeasure
+          }
+      }
+    }
+  }

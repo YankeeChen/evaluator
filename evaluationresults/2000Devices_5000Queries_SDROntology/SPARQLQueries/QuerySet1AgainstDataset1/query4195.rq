@@ -1,0 +1,20 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Entity_0  RFDevice:hasProducer  ?ElectronicSupportSystem_0
+      { ?Entity_0  a                    gml:Solid
+        { ?Entity_0  a                    RFDevice:CommunicationsJamming
+          { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+          { ?Entity_0  a                    Nuvio:Object .
+            ?Quality_0  RFDevice:hasPolarization  ?Entity_0
+          }
+        }
+      }
+    }
+  }

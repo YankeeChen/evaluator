@@ -1,0 +1,36 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    { ?Var0  RFDevice:supportsTuning  ?USRPB205mini_i_0
+      { ?Var0  Nuvio:hasProcessQuantity  ?Var1
+        { ?Var1  a                     Nuvio:Entity
+          OPTIONAL
+            { ?Var1  a                     RFDevice:PulseDopplerRadar
+              { ?Object_0  RFDevice:isProducerOf  ?Var1
+                { ?Object_0  a                    Nuvio:Object .
+                  ObjectDescription:Weight_instance7
+                            RFDevice:hasSamplingRate  ?Object_0
+                }
+              }
+              {   { ?Var1     a                     Nuvio:InformationEntity .
+                    ?OrientableCurve_0
+                              Nuvio:isExpressedBy   ?Var1
+                  }
+                UNION
+                  { ?OrientableCurve_0
+                              a                     gml:OrientableCurve
+                  }
+              }
+              { ?Var1  a                     Nuvio:Attribute }
+            }
+        }
+      }
+    }
+  }

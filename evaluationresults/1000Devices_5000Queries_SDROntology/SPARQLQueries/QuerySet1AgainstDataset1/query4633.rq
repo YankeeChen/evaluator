@@ -1,0 +1,42 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?BistaticRadar_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?InformationEntity_0
+                  Nuvio:expresses       ?Var0
+        { ?Var0  a                     RFDevice:Moving
+          {   { ?Var0  a                     RFDevice:IntValue
+                { ?Var0  Nuvio:hasDataValue  ?DataValue0
+                  FILTER ( ?DataValue0 != 1572004708 )
+                }
+                { ?Var1  Nuvio:hasValue  ?Var0 }
+              }
+            UNION
+              { ?Var0     a                     Nuvio:Object .
+                ObjectDescription:Instance1020
+                          RFDevice:hasCapability  ?Var0
+              }
+          }
+          OPTIONAL
+            { ?InformationEntity_0
+                        a                     Nuvio:InformationEntity .
+              ?Var2     Nuvio:informationSource  ?InformationEntity_0
+              { ObjectDescription:MonostaticRadar_instance8
+                          Nuvio:relevantIndividual  ?Var2
+                { ?Var2     a                     Nuvio:InformationRepresentation .
+                  ?InformationEntity_1
+                            Nuvio:represents      ?Var2
+                }
+              }
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,45 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?RadarWarningReceiver_0
+                RFDevice:supportsTransmitting  ?Var0
+      {   { ?Entity_0  RFDevice:hasBandwidthRange  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?Situation_0  Nuvio:expresses   ?Entity_0
+              {   { ?Entity_0  a                    skos:OrderedCollection .
+                    ?List_0   skos:memberList       ?Entity_0
+                    { ?Entity_0  a                    RFDevice:FrequencyUnit
+                      { ?Entity_0  a                    Nuvio:Value .
+                        ?DimensionlessUnit_0
+                                  Nuvio:hasUnitOfMeasure  ?Entity_0
+                        { ?DimensionlessUnit_0
+                                    a                     Nuvio:DimensionlessUnit
+                        }
+                      }
+                    }
+                  }
+                UNION
+                  { ?Spartan3ADSPFPGA_0
+                              Nuvio:relevantIndividual  ?Situation_0
+                    { ?Spartan3ADSPFPGA_0
+                                a                     SDR:Spartan3ADSPFPGA
+                      { ?RFFrontEnd_0
+                                  Nuvio:partOf  ?Spartan3ADSPFPGA_0
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        UNION
+          { ?Var0  a                     RFDevice:CoverJamming }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPN200_0
+      { ?Var0  Nuvio:hasValue  ?Entity_0
+        { ?Var0  Nuvio:hasUnitOfMeasure  ?Situation_0
+          { ?Value_0  Nuvio:relevantIndividual  ?Situation_0
+            { ?Angle_0  Nuvio:relevantIndividual  ?Situation_0
+              { ?Angle_0  Nuvio:hasValue  ?AngleValue_0
+                { ?AngleValue_0
+                            Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 > 870888398 )
+                }
+              }
+            }
+          }
+        }
+        { ?Entity_0  a                    Nuvio:Attribute }
+      }
+    }
+  }

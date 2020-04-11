@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?Entity_0  RFDevice:hasProducer  ?MonostaticRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    SDR:USRPB2xxmini
+          { ?Var0  Nuvio:partOf  ?Entity_0
+            { ?Var0  RFDevice:hasResolution  ?Var1 }
+          }
+          { ?Entity_0  a                    RFDevice:CommunicationsJamming }
+          { ?Entity_0  a                    RFDevice:SpatialUnit
+            { ?Entity_0  a                    Nuvio:Object .
+              ?Quantity_0  RFDevice:hasPolarization  ?Entity_0
+            }
+          }
+        }
+      }
+    }
+  }

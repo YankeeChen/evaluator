@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Transceiving_0
+                RFDevice:supportsSpectrumSensing  ?Full_DuplexCommunicationsSystem_0
+      { ?Transceiving_0
+                  a                     RFDevice:Transceiving
+      }
+    }
+  }

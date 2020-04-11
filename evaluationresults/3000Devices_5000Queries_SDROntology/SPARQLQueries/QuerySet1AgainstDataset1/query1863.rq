@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  RFDevice:hasCapability  ?CommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Value_0  Nuvio:isExpressedBy   ?Entity_0
+        { ?Entity_0  a                    Nuvio:InformationEntity .
+          ?Var0     Nuvio:informationSource  ?Entity_0
+          { ?IEDTrigger_0
+                      Nuvio:compositeOf  ?Var0
+            { ?IEDTrigger_0
+                        RFDevice:hasFrequencyRange  ?Entity_0
+            }
+          }
+        }
+        { ?Value_0  a                     Nuvio:Value }
+      }
+    }
+  }

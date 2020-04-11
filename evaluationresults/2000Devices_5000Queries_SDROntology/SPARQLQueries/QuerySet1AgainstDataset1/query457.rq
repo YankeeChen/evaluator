@@ -1,0 +1,28 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    OPTIONAL
+      { ?Aircraft_0  RFDevice:isDeployedOn  ?PulseRadar_0
+        { ?Aircraft_0  a                  RFDevice:Aircraft
+          { ?Process_0  RFDevice:hasCapability  ?Aircraft_0
+            {   { ?Process_0  a                   Nuvio:Process .
+                  ?Percentage_0
+                            RFDevice:hasMaxOutputPower  ?Process_0
+                }
+              UNION
+                {   { ?Percentage_0
+                                a                     RFDevice:Percentage
+                    }
+                  UNION
+                    { ?Var0  Nuvio:hasValue  ?Percentage_0 }
+                }
+            }
+          }
+        }
+      }
+  }

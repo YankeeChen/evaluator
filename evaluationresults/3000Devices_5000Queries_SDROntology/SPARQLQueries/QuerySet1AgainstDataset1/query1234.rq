@@ -1,0 +1,15 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?RadarWarningReceiver_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { ObjectDescription:Power_instance58
+                    RFDevice:hasPulseRepetitionInterval  ?Var0
+        }
+      }
+    }
+  }

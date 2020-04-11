@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Var0  RFDevice:hasNoiseFigure  ?USRPE313_0
+      { ?Object_0  Nuvio:expresses  ?Var0
+        { ?Var0  a                     RFDevice:EmitterLocationDetection
+          { ?Var1  Nuvio:hasParticipant  ?Var0 }
+          { ?Var0  a                     RFDevice:VoltageUnit
+            { ?Var0  a                     RFDevice:PositiveFloatValue
+              { ?Var0  a                     Nuvio:Situation }
+            }
+          }
+        }
+        { ?Object_0  a                    Nuvio:Object ;
+                    RFDevice:hasWidth     ?FrequencyAccuracy_0
+          { ?Var2  Nuvio:hasValue  ?FrequencyAccuracy_0 }
+        }
+      }
+    }
+  }

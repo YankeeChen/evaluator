@@ -1,0 +1,24 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?Entity_0  RFDevice:hasProducer  ?PulseDopplerRadar_0
+      {   { ?Entity_0  a                    Nuvio:Entity }
+        UNION
+          { ?Entity_0  a                    RFDevice:TimeInterval
+            { ?ConceptScheme_0
+                        Nuvio:hasParticipant  ?Entity_0
+              {   { ?Object_0  skos:inScheme  ?ConceptScheme_0 }
+                UNION
+                  { ?Object_0  Nuvio:hasObjectQuality  ?AntennaPolarization_0 }
+              }
+            }
+          }
+      }
+    }
+  }

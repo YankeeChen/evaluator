@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  Nuvio:compositeOf  ?RadarSystem_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:NoiseJamming
+          { ?Entity_0  RFDevice:hasEffectiveRadiatedPower  ?Attribute_0 }
+          { ?Entity_0  a                    RFDevice:FrequencyScanRateUnit }
+          { ?Entity_0  a                    Nuvio:Object .
+            ?ElectronicSupport_0
+                      RFDevice:supportsTransmitting  ?Entity_0
+            { ?ElectronicSupport_0
+                        a                     RFDevice:ElectronicSupport
+            }
+          }
+        }
+      }
+    }
+  }

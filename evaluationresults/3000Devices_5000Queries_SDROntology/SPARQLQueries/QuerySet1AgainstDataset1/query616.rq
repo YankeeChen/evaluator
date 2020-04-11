@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Var0  Nuvio:compositeOf  ?USRPX3xx_0
+      { ?Var0  a                     RFDevice:DAC
+        { ?Spartan3ADSPFPGA_0
+                    Nuvio:aggregateOf  ?Var0
+          { ?Spartan3ADSPFPGA_0
+                      a                     SDR:Spartan3ADSPFPGA
+          }
+        }
+        OPTIONAL
+          {   { ?Var0  RFDevice:hasResolution  ?Var1 }
+            UNION
+              { ?Var0  RFDevice:hasLevel  ?Var2 }
+          }
+      }
+    }
+  }

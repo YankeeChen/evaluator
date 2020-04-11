@@ -1,0 +1,18 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?CR_0  Nuvio:partOf  ?Entity_0
+      { ?Value_0  Nuvio:expresses  ?Entity_0
+        { ?Entity_0  a                    gml:CompositeCurve }
+        { ?Value_0  Nuvio:hasPrecision  ?DataValue0
+          FILTER ( ?DataValue0 != 297811740 )
+        }
+      }
+    }
+  }

@@ -1,0 +1,28 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?JammingSystem_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?InformationRepresentation_0
+        OPTIONAL
+          {   { ?Entity_0  a                    gml:ArcString }
+            UNION
+              { ?Entity_0  a                    RFDevice:SpatialLinearUnit }
+            { ?Var0  Nuvio:hasValue  ?Entity_0 }
+          }
+        {   { ?InformationRepresentation_0
+                        a                     Nuvio:InformationRepresentation .
+              ?InformationEntity_0
+                        Nuvio:represents      ?InformationRepresentation_0
+            }
+          UNION
+            { ?Var1  Nuvio:informationSource  ?InformationEntity_0 }
+        }
+      }
+    }
+  }

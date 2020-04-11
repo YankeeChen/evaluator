@@ -1,0 +1,48 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?GNURadio_0
+        { ?Var0  a                     Nuvio:Entity ;
+                 Nuvio:isExpressedBy   ?Var0
+          { ObjectDescription:Instance381
+                      Nuvio:hasProcessQuantity  ?Var0
+            {   { ?Var0  a                     RFDevice:Width }
+              UNION
+                { ?Var1  Nuvio:hasValue  ?Var0
+                  { ?Var1  a                     Nuvio:Value ;
+                           Nuvio:hasUnitOfMeasure  ?SpatialVolumeUnit_0
+                    OPTIONAL
+                      { ?Var1  Nuvio:hasPrecision  ?DataValue0
+                        FILTER ( ?DataValue0 > 622132331 )
+                        { ?SpatialVolumeUnit_0
+                                    a                     RFDevice:SpatialVolumeUnit
+                        }
+                      }
+                  }
+                }
+              { ?Var0  a                     Nuvio:InformationEntity .
+                ?Var2  Nuvio:informationSource  ?Var0
+                { ?Var2  a                     RFDevice:DeceptiveJamming
+                  { ?Power_0  RFDevice:hasTransmitPowerRange  ?Var2
+                    { ?Power_0  a                     RFDevice:Power }
+                  }
+                }
+              }
+            }
+          }
+          { ?FreqencyRange_0
+                      RFDevice:hasBandwidthRange  ?Var0
+            { ObjectDescription:Frequency_instance49
+                        RFDevice:hasMax  ?FreqencyRange_0
+            }
+          }
+        }
+      }
+  }

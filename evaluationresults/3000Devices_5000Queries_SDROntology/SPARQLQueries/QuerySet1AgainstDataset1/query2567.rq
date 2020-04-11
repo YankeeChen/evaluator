@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?TrackingRadar_0
+                RFDevice:hasProducer  ?Entity_0
+      {   { ?Entity_0  a                    gml:Solid }
+        UNION
+          { ?Entity_0  a                    RFDevice:LongitudeValueInDegree
+            { ?Entity_0  a                    RFDevice:Gain
+              { ?Var0  Nuvio:hasValue  ?Entity_0 }
+            }
+          }
+        { ?Entity_0  a                    Nuvio:Situation
+          { ?Entity_0  a                    Nuvio:InformationContent .
+            ?InformationEntity_0
+                      Nuvio:representedBy   ?Entity_0
+          }
+        }
+      }
+    }
+  }

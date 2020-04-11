@@ -1,0 +1,36 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  RFDevice:hasGain  ?RadarSystem_0
+      {   { ?Entity_0  a                    SDR:USRPB205mini-i }
+        UNION
+          { ?Var0  RFDevice:hasNoiseFigure  ?Entity_0 }
+        { ?Entity_0  a                    RFDevice:ElectronicAttack }
+        OPTIONAL
+          { ?Entity_0  a                    Nuvio:InformationEntity .
+            ?ContinuousWaveRadar_0
+                      Nuvio:isExpressedBy   ?Entity_0
+            OPTIONAL
+              { ?ContinuousWaveRadar_0
+                          a                     RFDevice:ContinuousWaveRadar
+                { ?Var1  RFDevice:supportsTuning  ?ContinuousWaveRadar_0
+                  { ?Quantity_0  RFDevice:hasBandwidth  ?Var1
+                    { ?Quantity_0  a                  Nuvio:Quantity }
+                    { ?Var1  a                     RFDevice:AdjustableBandwidthSensing
+                      { ObjectDescription:RadarFrequencyBand_instance119
+                                  RFDevice:hasBandwidthRange  ?Var1
+                      }
+                    }
+                  }
+                }
+              }
+          }
+      }
+    }
+  }

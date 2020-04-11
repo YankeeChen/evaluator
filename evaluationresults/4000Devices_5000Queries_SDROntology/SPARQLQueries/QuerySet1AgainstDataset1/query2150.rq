@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?ElectronicAttackSystem_0
+        { ?Var0  a                     RFDevice:CrossPolarizationJamming
+          { ObjectDescription:Power_instance41
+                      RFDevice:hasMaxOutputPower  ?Var0
+          }
+          { ?Var0  a                     Nuvio:Entity
+            { ?Var0  a                     SDR:XC3SD1800AFPGA
+              OPTIONAL
+                { ?Var0  a                     RFDevice:BlinkingJamming
+                  { ?Quantity_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+                    { ?Quantity_0  a                  Nuvio:Quantity }
+                  }
+                  { ?XilinxZynq7020SoC_0
+                              Nuvio:relevantIndividual  ?Var0
+                    OPTIONAL
+                      { ?XilinxZynq7020SoC_0
+                                  a                     SDR:XilinxZynq7020SoC
+                      }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }

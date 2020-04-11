@@ -1,0 +1,19 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Entity_0  RFDevice:isProducerOf  ?RadarWarningReceiver_0
+      {   { ?Situation_0  Nuvio:expresses  ?Entity_0 }
+        UNION
+          { ?Entity_0  a                    sf:MultiPolygon
+            { ?Entity_0  a                    RFDevice:AngleUnit }
+            { ?Situation_0  a                 Nuvio:Situation }
+          }
+      }
+    }
+  }

@@ -1,0 +1,41 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?ElectronicAttackSystem_0
+      { ?Var0  a                     RFDevice:SpectrumSensing
+        { ?Var0  a                     RFDevice:InboundRangeGatePullOffJamming
+          {   { ?Var0  a                     Nuvio:Entity ;
+                       Nuvio:isExpressedBy   ?Value_0
+              }
+            UNION
+              { ?Var0  a                     gml:CubicSpline
+                {   { ?Var0  a                     RFDevice:TerrainBounceJamming }
+                  UNION
+                    {   { ?Var0  a                     RFDevice:AngleValue }
+                      UNION
+                        { ?Var0  a                     Nuvio:Process ;
+                                 RFDevice:hasTarget    ?XilinxZynq7020SoC_0
+                        }
+                    }
+                }
+              }
+            OPTIONAL
+              { ?Value_0  a                     Nuvio:Value .
+                ?FrequencyUnit_0
+                          Nuvio:hasUnitOfMeasure  ?Value_0
+                OPTIONAL
+                  { ?FrequencyUnit_0
+                              a                     RFDevice:FrequencyUnit
+                  }
+              }
+          }
+        }
+      }
+    }
+  }

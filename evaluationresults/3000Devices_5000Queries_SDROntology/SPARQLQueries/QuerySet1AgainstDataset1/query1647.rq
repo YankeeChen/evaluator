@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?CommunicationsSystem_0
+                Nuvio:compositeOf  ?IEDJammer_0
+      { ?Object_0  RFDevice:isProducerOf  ?IEDJammer_0
+        { ?Object_0  a                    Nuvio:Object .
+          ?Angle_0  RFDevice:hasNoiseFigure  ?Object_0
+          { ?Angle_0  a                     RFDevice:Angle
+            { ?LongitudeValue_0
+                        Nuvio:hasValue  ?Angle_0
+              { ?LongitudeValue_0
+                          a                     RFDevice:LongitudeValue
+              }
+            }
+          }
+        }
+      }
+    }
+  }

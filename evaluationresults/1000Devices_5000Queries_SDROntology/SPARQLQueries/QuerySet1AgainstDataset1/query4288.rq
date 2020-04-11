@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE310_0
+WHERE
+  { ?USRPE310_0  a                  SDR:USRPE310
+    { ?Var0  RFDevice:supportsJamming  ?USRPE310_0
+      { ?Var0  a                     RFDevice:SweepJamming
+        { ?Entity_0  RFDevice:hasTransmitPowerRange  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity ;
+                      Nuvio:isExpressedBy   ?Object_0
+            { ?Entity_0  a                    RFDevice:AngleValue
+              { ?Entity_0  a                    Nuvio:Value .
+                ?PowerUnit_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+                { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 >= 2048939501 )
+                }
+                OPTIONAL
+                  { ?PowerUnit_0  a                 RFDevice:PowerUnit }
+              }
+              { ?Entity_0  a                    Nuvio:Process .
+                ObjectDescription:Instance1401
+                          Nuvio:hasSubprocess   ?Entity_0
+              }
+            }
+            { ?Object_0  a                    Nuvio:Object .
+              ?Angle_0  RFDevice:hasHeight    ?Object_0
+              { ?Angle_0  a                     RFDevice:Angle
+                { ?Angle_0  Nuvio:hasValue  ?LatitudeValueInRadian_0
+                  { ?LatitudeValueInRadian_0
+                              a                     RFDevice:LatitudeValueInRadian
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

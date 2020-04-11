@@ -1,0 +1,26 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Transceiving_0
+                RFDevice:supportsJamming  ?ModelX_0
+      { ?Transceiving_0
+                  a                     RFDevice:Transceiving
+        { ?Transceiving_0
+                    a                     RFDevice:TerrainBounceJamming
+          OPTIONAL
+            { ?Transceiving_0
+                        a                     RFDevice:Receiving
+              { ?RadioFrequencyBand_0
+                          RFDevice:hasFrequencyAccuracy  ?Transceiving_0
+                { ?RadioFrequencyBand_0
+                            a                     RFDevice:RadioFrequencyBand
+                }
+              }
+            }
+        }
+      }
+    }
+  }

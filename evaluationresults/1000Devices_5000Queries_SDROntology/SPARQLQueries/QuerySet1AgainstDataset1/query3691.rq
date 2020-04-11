@@ -1,0 +1,56 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Half_DuplexCommunicationsSystem_0
+                  Nuvio:partOf  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?InformationRepresentation_0
+                    Nuvio:isExpressedBy   ?Entity_0
+          { ?Var0  RFDevice:supportsJamming  ?Entity_0
+            { ?Var0  a                     RFDevice:SpotJamming }
+            { ?Entity_0  a                    RFDevice:Jamming
+              { ?Power_0  RFDevice:hasMaxOutputPower  ?Entity_0
+                { ?Power_0  a                     RFDevice:Power
+                  { ?Var1  Nuvio:hasValue  ?Power_0
+                    { ?Var1  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                      FILTER ( ?DataValue0 != -32.65 )
+                      OPTIONAL
+                        {   { ?Var1  Nuvio:hasUnitOfMeasure  ?UnitOfMeasure_0 }
+                          UNION
+                            { ?Var1  a                     RFDevice:IntegerValue }
+                        }
+                    }
+                  }
+                }
+              }
+            }
+            {   { ?Entity_0  a                    RFDevice:TimeUnit }
+              UNION
+                { ?Entity_0  a                    RFDevice:NonNegativeIntegerValue
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue1
+                    FILTER ( ?DataValue1 != -1620738495 )
+                  }
+                }
+            }
+            { ?InformationRepresentation_0
+                        a                     Nuvio:InformationRepresentation .
+              ?InformationContent_0
+                        Nuvio:represents      ?InformationRepresentation_0
+              { ?InformationEntity_0
+                          Nuvio:represents  ?InformationContent_0
+                { ?InformationEntity_0
+                            a                     Nuvio:InformationEntity
+                }
+              }
+            }
+          }
+        }
+      }
+  }

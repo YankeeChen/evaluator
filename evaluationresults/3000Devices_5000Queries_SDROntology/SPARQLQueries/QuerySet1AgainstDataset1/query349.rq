@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    OPTIONAL
+      { ?Var0  Nuvio:partOf  ?USRPE312_0
+        {   { ?Var0  RFDevice:hasResolution  ?Var1 }
+          UNION
+            { ?Var0  a                     Nuvio:Entity ;
+                     Nuvio:isExpressedBy   ?InformationEntity_0
+              OPTIONAL
+                { ?List_0  skos:memberList  ?Var0
+                  { ?Var0  a                     Nuvio:UnitOfMeasure
+                    OPTIONAL
+                      { ?Var0     a                     Nuvio:InformationContent .
+                        ?Entity_0  Nuvio:representedBy  ?Var0
+                      }
+                  }
+                }
+              { ?Var2  Nuvio:informationSource  ?InformationEntity_0
+                { ?Var2  a                     Nuvio:Object }
+              }
+            }
+        }
+      }
+  }

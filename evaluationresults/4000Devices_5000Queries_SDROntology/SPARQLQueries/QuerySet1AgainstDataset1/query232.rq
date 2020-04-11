@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB200mini_i_0
+WHERE
+  { ?USRPB200mini_i_0
+              a                     SDR:USRPB200mini-i
+    { ?Var0  Nuvio:partOf  ?USRPB200mini_i_0
+      { ?Var0  RFDevice:hasResolution  ?Var1
+        { ?Var0  a                     RFDevice:ADC
+          { ?Var0  Nuvio:aggregateOf  ?Entity_0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?Attribute_0  Nuvio:isExpressedBy  ?Entity_0
+              { ?Entity_0  a                    gml:TriangulatedSurface
+                { ?Entity_0  a                    RFDevice:SpatialUnit }
+                { ?Quantity_0  RFDevice:hasTransmitPowerRange  ?Entity_0
+                  { ?Quantity_0  a                  Nuvio:Quantity }
+                }
+                { ?Entity_0  a                    RFDevice:Length
+                  OPTIONAL
+                    { ?Entity_0  a                    Nuvio:Situation ;
+                                Nuvio:relevantIndividual  ObjectDescription:DirectConversionReceiver_instance98
+                    }
+                }
+              }
+              { ?Attribute_0  a                 Nuvio:Attribute }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    OPTIONAL
+      { ?Entity_0  Nuvio:aggregateOf  ?USRPX300_0
+        {   { ?Value_0  Nuvio:isExpressedBy  ?Entity_0 }
+          UNION
+            {   { ?Entity_0  a                    RFDevice:PhaseModulation }
+              UNION
+                { ?Entity_0  a                    Nuvio:Quality
+                  { ?Entity_0  a                    Nuvio:Situation }
+                }
+              { ?Value_0  a                     Nuvio:Value ;
+                          Nuvio:hasUnitOfMeasure  ?PowerUnit_0
+                { ?PowerUnit_0  a                 RFDevice:PowerUnit }
+              }
+            }
+        }
+      }
+  }

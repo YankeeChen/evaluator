@@ -1,0 +1,27 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                Nuvio:aggregateOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:Curve
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Attribute
+              {   { ?Entity_0  a                    Nuvio:Value }
+                UNION
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 <= 550905231 )
+                  }
+              }
+            }
+        }
+      }
+    }
+  }

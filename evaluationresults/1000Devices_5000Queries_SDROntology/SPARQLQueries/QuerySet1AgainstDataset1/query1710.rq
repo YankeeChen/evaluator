@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Object_0  RFDevice:isProducerOf  ?TrackingRadar_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?AdjustableBandwidthSensing_0
+                  RFDevice:supportsTuning  ?Object_0
+        { ?AdjustableBandwidthSensing_0
+                    a                     RFDevice:AdjustableBandwidthSensing
+          { ?QuantityRange_0
+                      RFDevice:hasBandwidthRange  ?AdjustableBandwidthSensing_0
+            { ObjectDescription:Frequency_instance56
+                        RFDevice:hasMin  ?QuantityRange_0
+            }
+          }
+        }
+      }
+    }
+  }

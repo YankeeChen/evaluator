@@ -1,0 +1,23 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    OPTIONAL
+      { ?ElectronicSupportSystem_0
+                  RFDevice:isProducerOf  ?Object_0
+        { ?Situation_0  Nuvio:participatesIn  ?Object_0
+          { ?Situation_0  Nuvio:relevantIndividual  ObjectDescription:IEDJammer_instance68
+            { ?FrequencyShiftKeyingModulation_0
+                        Nuvio:relevantIndividual  ?Situation_0
+              { ?FrequencyShiftKeyingModulation_0
+                          a                     RFDevice:FrequencyShiftKeyingModulation
+              }
+            }
+          }
+        }
+      }
+  }

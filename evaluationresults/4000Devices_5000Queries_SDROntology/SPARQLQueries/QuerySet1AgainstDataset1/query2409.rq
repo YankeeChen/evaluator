@@ -1,0 +1,46 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    { ?Entity_0  Nuvio:compositeOf  ?USRPX300_0
+      { ?InformationContent_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    geosparql:SpatialObject .
+          ?MultiSurface_0
+                    geosparql:ehMeet      ?Entity_0
+          { ?Entity_0  a                    RFDevice:PowerUnit }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:InformationEntity .
+              ?Var0     Nuvio:informationSource  ?Entity_0
+              { ?MobilePlatform_0
+                          RFDevice:isDeployedOn  ?Var0
+                { ?MobilePlatform_0
+                            a                     RFDevice:MobilePlatform
+                  { ?Moving_0  RFDevice:supportsSpectrumSensing  ?MobilePlatform_0
+                    { ?Moving_0  a                    RFDevice:Moving }
+                  }
+                }
+                {   { ?Var0  a                     RFDevice:CrossPolarizationJamming }
+                  UNION
+                    { ObjectDescription:Instance2600
+                                RFDevice:hasPulseRepetitionFrequency  ?Var0
+                    }
+                }
+              }
+            }
+        }
+        { ?InformationContent_0
+                    a                     Nuvio:InformationContent ;
+                    Nuvio:representedBy   ?InformationRepresentation_0
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation
+          }
+        }
+      }
+    }
+  }

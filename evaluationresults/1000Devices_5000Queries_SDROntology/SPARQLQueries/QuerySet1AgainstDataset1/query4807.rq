@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX310_0
+WHERE
+  { ?USRPX310_0  a                  SDR:USRPX310
+    { ?Weight_0  RFDevice:hasMaxPowerConsumption  ?USRPX310_0
+      { ?Weight_0  a                    RFDevice:Weight
+        OPTIONAL
+          { ?Var0  Nuvio:hasValue  ?Weight_0
+            {   { ?Var0  a                     Nuvio:Value ;
+                         Nuvio:hasUnitOfMeasure  ?VelocityUnit_0
+                  { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 = -2045683435 )
+                  }
+                  { ?VelocityUnit_0
+                              a                     RFDevice:VelocityUnit
+                  }
+                }
+              UNION
+                { ?Var0  RFDevice:hasDecimalValue  ?DataValue1
+                  FILTER ( ?DataValue1 > "0.0"^^xsd:double )
+                }
+            }
+          }
+      }
+    }
+  }

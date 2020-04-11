@@ -1,0 +1,26 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Entity_0  RFDevice:isDeployedOn  ?ElectronicAttackSystem_0
+      {   { ?Entity_0  a                    Nuvio:Entity .
+            ?Value_0  Nuvio:isExpressedBy   ?Entity_0
+          }
+        UNION
+          { ?Entity_0  a                    skos:Collection .
+            ?Var0     skos:member           ?Entity_0
+            { ?Entity_0  a                    Nuvio:InformationRepresentation .
+              ?InformationContent_0
+                        Nuvio:represents      ?Entity_0
+            }
+            OPTIONAL
+              { ?Value_0  a                     Nuvio:Value }
+          }
+      }
+    }
+  }

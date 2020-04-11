@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Var0  RFDevice:hasCapability  ?ContinuousWaveRadar_0
+      { ?Var0  RFDevice:hasBandwidth  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?InformationEntity_0
+                    Nuvio:isExpressedBy   ?Entity_0
+          { ?Entity_0  a                    sf:MultiCurve
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Attribute }
+            { ?Kintex7FPGA_0
+                        Nuvio:expresses  ?InformationEntity_0
+              {   { ?Kintex7FPGA_0
+                              a                     SDR:Kintex7FPGA
+                  }
+                UNION
+                  { ?Var1  RFDevice:hasProducer  ?Kintex7FPGA_0 }
+              }
+            }
+          }
+        }
+        { ?Var0  a                     RFDevice:AutomaticGainControl
+          { ?Attribute_0  RFDevice:hasEffectiveRadiatedPower  ?Var0 }
+        }
+      }
+    }
+  }

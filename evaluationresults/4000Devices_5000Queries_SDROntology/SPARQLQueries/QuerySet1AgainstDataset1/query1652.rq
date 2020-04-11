@@ -1,0 +1,47 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              a                     SDR:USRPB2xxmini
+    { ?Entity_0  RFDevice:isProducerOf  ?USRPB2xxmini_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationRepresentation_0
+                  Nuvio:isExpressedBy   ?Entity_0
+        { ?Entity_0  a                    sf:MultiSurface
+          { ?Entity_0  a                    RFDevice:DeceptiveJamming
+            { ObjectDescription:Instance1571
+                        RFDevice:hasMaxSensedPower  ?Entity_0
+            }
+          }
+          {   { ?RadarJamming_0
+                          Nuvio:subprocessOf  ?Entity_0
+              }
+            UNION
+              { ?Quantity_0  RFDevice:hasEffectiveRadiatedPower  ?RadarJamming_0 }
+            { ?Entity_0  Nuvio:relevantIndividual  ?XilinxZynq7020SoC_0
+              { ?XilinxZynq7020SoC_0
+                          a                     SDR:XilinxZynq7020SoC
+              }
+              { ?Entity_0  a                    Nuvio:Attribute }
+            }
+          }
+        }
+        { ?InformationRepresentation_0
+                    a                     Nuvio:InformationRepresentation .
+          ?InformationEntity_0
+                    Nuvio:representedBy   ?InformationRepresentation_0
+          { ?Var0  Nuvio:informationSource  ?InformationEntity_0
+            { ?Var0  a                     gml:GeometricComplex
+              { ?Var0  a                     RFDevice:BarrageJamming }
+            }
+          }
+        }
+      }
+    }
+  }

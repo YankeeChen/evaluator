@@ -1,0 +1,33 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  RFDevice:isDeployedOn  ?RadarSystem_0
+      {   { ?Entity_0  Nuvio:expresses  ?InformationEntity_0
+            OPTIONAL
+              { ?Var0  Nuvio:participatesIn  ?Entity_0
+                { ?StandoffJamming_0
+                            RFDevice:supportsTuning  ?Var0
+                  { ?Entity_0  RFDevice:hasTransmitPowerRange  ?StandoffJamming_0 }
+                }
+                { ?Entity_0  a                    Nuvio:UnitOfMeasure
+                  { ?Entity_0  a                    Nuvio:Object }
+                }
+              }
+          }
+        UNION
+          { ?InformationEntity_0
+                      a                     Nuvio:InformationEntity .
+            ?Var1     Nuvio:informationSource  ?InformationEntity_0
+            {   { ?Var1  a                     RFDevice:EnergyDetection }
+              UNION
+                { ?Var1  Nuvio:representedBy  ?Entity_1 }
+            }
+          }
+      }
+    }
+  }

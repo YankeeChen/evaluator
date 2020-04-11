@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?USRPB2xx_0  RFDevice:supportsSpectrumSensing  ?Var0
+      {   { ?InformationRepresentation_0
+                      Nuvio:isExpressedBy  ?Var0
+          }
+        UNION
+          { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+            { ?Var0  a                     Nuvio:Value
+              OPTIONAL
+                { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 >= -1502605283 )
+                }
+            }
+          }
+        { ?Var0  a                     RFDevice:Jamming
+          { ?Var0  a                     RFDevice:Receiving }
+        }
+      }
+    }
+  }

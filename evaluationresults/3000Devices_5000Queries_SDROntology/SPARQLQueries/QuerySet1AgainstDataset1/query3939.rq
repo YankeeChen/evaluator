@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN3xx_0
+WHERE
+  { ?USRPN3xx_0  a                  SDR:USRPN3xx
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:aggregateOf  ?USRPN3xx_0
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  a                     RFDevice:InstantaneousFrequencyMeasurementReceiver
+        { ?Transceiving_0
+                    RFDevice:hasCapability  ?InstantaneousFrequencyMeasurementReceiver_0
+          { ?Transceiving_0
+                      a                     RFDevice:FormationJamming
+            { ?Entity_0  RFDevice:hasPulseRepetitionInterval  ?Transceiving_0
+              { ?Entity_0  a                    Nuvio:Entity .
+                ?UnitOfMeasure_0
+                          Nuvio:isExpressedBy   ?Entity_0
+                { ?Entity_0  a                    gml:LinearRing }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

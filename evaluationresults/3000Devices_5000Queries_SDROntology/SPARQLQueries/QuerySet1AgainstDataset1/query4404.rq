@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    OPTIONAL
+      { ?RadioComponent_0
+                  Nuvio:aggregateOf  ?USRPB2xx_0
+        { ?RadioComponent_0
+                    a                     RFDevice:RadioComponent
+          { ?OmnidirectionalAntenna_0
+                      Nuvio:aggregateOf  ?RadioComponent_0
+            { ?OmnidirectionalAntenna_0
+                        a                     RFDevice:OmnidirectionalAntenna
+              { ?Quality_0  Nuvio:hasObjectQuality  ?OmnidirectionalAntenna_0
+                { ?Quality_0  a                   Nuvio:Quality }
+              }
+            }
+          }
+        }
+      }
+  }

@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Entity_0  Nuvio:aggregateOf  ?BistaticRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        {   { ?Entity_0  a                    SDR:XilinxZynq7100SoC
+              OPTIONAL
+                { ?CortexA9_0  Nuvio:partOf  ?Entity_0
+                  { ?CortexA9_0  Nuvio:compositeOf  ?Spartan3ADSPFPGA_0
+                    { ?Spartan3ADSPFPGA_0
+                                a                     SDR:Spartan3ADSPFPGA
+                    }
+                  }
+                }
+            }
+          UNION
+            { ?Entity_0  a                    RFDevice:SpatialLinearUnit }
+          { ?Entity_0  a                    RFDevice:LongValue
+            OPTIONAL
+              { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+                FILTER ( ?DataValue0 = 132229644 )
+              }
+            { ?Var0  Nuvio:hasValue  ?Entity_0 }
+          }
+        }
+      }
+    }
+  }

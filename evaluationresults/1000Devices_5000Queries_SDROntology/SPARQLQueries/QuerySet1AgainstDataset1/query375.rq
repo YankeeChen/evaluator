@@ -1,0 +1,21 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?MonostaticRadar_0
+                RFDevice:isProducerOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Var0  skos:member  ?Entity_0
+          { ?Var0  a                     skos:ConceptScheme }
+          { ?Entity_0  a                    RFDevice:TimeUnit }
+          { ?Entity_0  a                    RFDevice:PositiveIntegerValue }
+          { ?Entity_0  RFDevice:hasPolarization  ?Entity_0 }
+        }
+      }
+    }
+  }

@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    { ?Var0  RFDevice:hasCapability  ?USRPE312_0
+      { ?Var0  a                     gml:LineString
+        OPTIONAL
+          {   { ?Var0  a                     RFDevice:PositiveDecimalValue
+                { ?Var0  RFDevice:hasDoubleValue  ?DataValue0 }
+              }
+            UNION
+              { ?Var0  a                     RFDevice:TimeInterval }
+          }
+      }
+    }
+  }

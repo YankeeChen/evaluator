@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Var0  RFDevice:supportsJamming  ?ModelX_0
+      { ?Var0  a                     gml:Bezier
+        { ?Var0  a                     RFDevice:Moving }
+        { ?Var0     a                     Nuvio:InformationContent .
+          ?InformationEntity_0
+                    Nuvio:represents      ?Var0
+          { ?InformationEntity_0
+                      a                     Nuvio:InformationEntity
+          }
+        }
+      }
+    }
+  }

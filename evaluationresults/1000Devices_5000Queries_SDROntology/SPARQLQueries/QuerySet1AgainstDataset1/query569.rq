@@ -1,0 +1,34 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?RFSystem_0  Nuvio:compositeOf  ?Entity_0
+      {   { ?Entity_0  a                    Nuvio:Entity }
+        UNION
+          { ?Entity_0  a                    RFDevice:DecimalValue
+            { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+              FILTER ( ?DataValue0 >= -6.47 )
+            }
+            {   { ?Entity_0  a                    RFDevice:Percentage
+                  { ?Entity_0  Nuvio:hasValue  ?Var0
+                    { ?Var0  a                     RFDevice:LongValue }
+                  }
+                }
+              UNION
+                {   { ?EmitterLocationDetection_0
+                                Nuvio:relevantIndividual  ?Entity_0
+                    }
+                  UNION
+                    { ?Var1  Nuvio:hasParticipant  ?EmitterLocationDetection_0
+                      { ?Var1  a                     RFDevice:ElectronicAttackSystem }
+                    }
+                }
+            }
+          }
+      }
+    }
+  }

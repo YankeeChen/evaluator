@@ -1,0 +1,29 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?Entity_0  RFDevice:hasProducer  ?BistaticRadar_0
+        { ?Entity_0  a                    Nuvio:Entity ;
+                    Nuvio:expresses       ?Value_0
+          { ?Entity_0  a                    sf:Geometry
+            OPTIONAL
+              { ?Power_0  Nuvio:hasProcessQuantity  ?Entity_0
+                { ?Power_0  a                     RFDevice:Power
+                  { ?Var0  Nuvio:hasValue  ?Power_0
+                    { ?Var0  a                     RFDevice:PositiveDecimalValue }
+                  }
+                }
+              }
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Process }
+            { ?Entity_0  a                    RFDevice:TimeInterval }
+          }
+        }
+      }
+  }

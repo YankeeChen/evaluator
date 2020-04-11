@@ -1,0 +1,36 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  rdf:type  RFDevice:ModelX
+    OPTIONAL
+      { ?Entity_0  RFDevice:supportsJamming  ?ModelX_0
+        { ?Entity_0  rdf:type            Nuvio:Entity .
+          ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+          { ?Situation_0  rdf:type          Nuvio:Situation .
+            ?RFSystem_0  Nuvio:relevantIndividual  ?Situation_0
+            { ?List_0  Nuvio:relevantIndividual  ?Situation_0
+              { ?List_0  rdf:type  rdf:List }
+              { ?RFSystem_0  rdf:type  RFDevice:RFSystem
+                { ?IEDTrigger_0
+                            Nuvio:compositeOf  ?RFSystem_0
+                  { ?IEDTrigger_0
+                              rdf:type  RFDevice:IEDTrigger
+                    OPTIONAL
+                      { ?RadarFrequencyBand_0
+                                  RFDevice:hasFrequencyRange  ?IEDTrigger_0
+                        { ?RadarFrequencyBand_0
+                                    rdf:type  RFDevice:RadarFrequencyBand
+                        }
+                      }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

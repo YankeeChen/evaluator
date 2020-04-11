@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?USRPE312_0
+      { ?Var1  RFDevice:hasMaxOutputPower  ?Var0
+        { ?Var2  Nuvio:hasValue  ?Var1
+          { ?Attribute_0  Nuvio:expresses  ?Var1
+            { ?Var1  a                     Nuvio:Attribute }
+          }
+        }
+        { ?Attribute_0  RFDevice:hasMaxSensedPower  ?Var0 }
+      }
+    }
+  }

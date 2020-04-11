@@ -1,0 +1,29 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?MobilePlatform_0
+                RFDevice:isDeployedOn  ?SearchRadar_0
+      { ?Entity_0  RFDevice:supportsTransmitting  ?MobilePlatform_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            { ?Entity_0  a                    Nuvio:Process ;
+                        Nuvio:participatesIn  ?Artix7FPGA_0
+            }
+            { ?Entity_0  a                    Nuvio:Situation
+              { ?Sphere_0  Nuvio:relevantIndividual  ?Entity_0
+                { ?Sphere_0  a                    gml:Sphere }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

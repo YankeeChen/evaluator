@@ -1,0 +1,16 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    OPTIONAL
+      { ?TerrainBounceJamming_0
+                  RFDevice:supportsTransmitting  ?JammingSystem_0
+        { ?TerrainBounceJamming_0
+                    a                     RFDevice:TerrainBounceJamming
+          { ?Quantity_0  RFDevice:hasPulseRepetitionInterval  ?TerrainBounceJamming_0 }
+        }
+      }
+  }

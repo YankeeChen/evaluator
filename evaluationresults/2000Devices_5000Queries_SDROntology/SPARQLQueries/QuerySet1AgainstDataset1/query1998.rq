@@ -1,0 +1,25 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    { ?Entity_0  RFDevice:hasCapability  ?PulseRadar_0
+      { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?Entity_0
+        { ?Power_0  a                     RFDevice:Power
+          { ?Power_0  Nuvio:hasValue  ?Var0
+            { ?Var0  a                     RFDevice:ShortValue
+              OPTIONAL
+                { ?Var0  RFDevice:hasPositiveIntegerValue  ?DataValue0
+                  FILTER ( ?DataValue0 <= -1192375788 )
+                }
+            }
+          }
+        }
+        { ?Entity_0  a                    RFDevice:SpatialAreaUnit }
+      }
+    }
+  }

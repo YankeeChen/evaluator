@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Var0  RFDevice:supportsJamming  ?USRPE313_0
+      { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+        {   { ?Entity_0  a                    Nuvio:Entity }
+          UNION
+            {   { ?Entity_0  a                    RFDevice:PulseRadarModulation
+                  { ?Entity_0  RFDevice:hasEffectiveRadiatedPower  ?Entity_0 }
+                  { ?Entity_0  a                    RFDevice:Velocity
+                    { ?Var1  Nuvio:hasValue  ?Entity_0 }
+                  }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:Situation .
+                  ObjectDescription:CommunicationsSystem_instance44
+                            Nuvio:relevantIndividual  ?Entity_0
+                }
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:supportsTransmitting  ?Full_DuplexCommunicationsSystem_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?InformationEntity_0
+        { ?Entity_0  a                    Nuvio:Situation .
+          ?XilinxZynq7000Family_0
+                    Nuvio:relevantIndividual  ?Entity_0
+          { ?StandoffJamming_0
+                      Nuvio:relevantIndividual  ?Entity_0
+          }
+          { ?XilinxZynq7000Family_0
+                      a                     SDR:XilinxZynq7000Family
+          }
+          { ?Entity_0  Nuvio:represents  ?Entity_0 }
+        }
+        { ?InformationEntity_0
+                    a                     Nuvio:InformationEntity
+        }
+      }
+    }
+  }

@@ -1,0 +1,35 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?SurveillanceRadar_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  a                     skos:Collection .
+          ?Var1  skos:member           ?Var0
+          { ?FrequencyScanRate_0
+                      RFDevice:hasBeamwidth  ?Var1
+            { ?FrequencyScanRate_0
+                        a                     RFDevice:FrequencyScanRate
+            }
+          }
+          OPTIONAL
+            { ?Var0  a                     RFDevice:VelocityUnit }
+          { ?Var0  a                     RFDevice:Weight }
+        }
+        OPTIONAL
+          { ?Var0  a                     RFDevice:CrossEyeJamming
+            OPTIONAL
+              {   { ?Var0  a                     RFDevice:Transceiving }
+                UNION
+                  { ?Var0  a                     RFDevice:Receiving }
+              }
+          }
+      }
+    }
+  }

@@ -1,0 +1,17 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?CrossEyeJamming_0
+                RFDevice:supportsJamming  ?ElectronicAttackSystem_0
+      { ?Entity_0  RFDevice:hasMaxOutputPower  ?CrossEyeJamming_0
+        { ?Entity_0  Nuvio:isExpressedBy  ?Entity_1
+          { ?Entity_0  a                    RFDevice:FrequencyScanRate }
+        }
+      }
+    }
+  }

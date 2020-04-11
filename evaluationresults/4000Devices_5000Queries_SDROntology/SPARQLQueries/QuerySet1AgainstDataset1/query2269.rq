@@ -1,0 +1,18 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Var0  RFDevice:supportsTuning  ?GNURadio_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        { ?RadioFrequencyBand_0
+                    RFDevice:hasBandwidthRange  ?Var0
+          { ?RadioFrequencyBand_0
+                      a                     RFDevice:RadioFrequencyBand
+          }
+        }
+      }
+    }
+  }

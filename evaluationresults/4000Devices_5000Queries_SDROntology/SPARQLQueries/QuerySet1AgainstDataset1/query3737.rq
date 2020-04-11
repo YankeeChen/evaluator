@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    OPTIONAL
+      { ?Object_0  RFDevice:hasProducer  ?USRPB205mini_i_0
+        { ?FrequencyScanRate_0
+                    RFDevice:hasWidth  ?Object_0
+          OPTIONAL
+            { ?FrequencyScanRate_0
+                        a                     RFDevice:FrequencyScanRate
+            }
+        }
+      }
+  }

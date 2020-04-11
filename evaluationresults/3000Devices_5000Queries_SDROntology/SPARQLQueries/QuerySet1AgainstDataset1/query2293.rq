@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    { ?USRPE3xx_0  Nuvio:partOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  Nuvio:relevantIndividual  ?ChokeRingAntenna_0
+          { ?ChokeRingAntenna_0
+                      a                     RFDevice:ChokeRingAntenna
+            { ?Quantity_0  RFDevice:hasMaxPowerConsumption  ?ChokeRingAntenna_0 }
+          }
+          { ?Entity_0  a                    RFDevice:Voltage
+            OPTIONAL
+              { ?Var0  Nuvio:hasValue  ?Entity_0 }
+          }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Process .
+              ObjectDescription:AntennaPolarization_instance1
+                        Nuvio:hasProcessQuality  ?Entity_0
+            }
+        }
+      }
+    }
+  }

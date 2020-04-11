@@ -1,0 +1,46 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?Object_0  Nuvio:partOf  ?USRPN300_0
+      { ?Weight_0  RFDevice:hasVoltage  ?Object_0
+        { ?Weight_0  a                    RFDevice:Weight
+          { ?Weight_0  Nuvio:hasValue  ?Var0
+            { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+              { ?Entity_0  a                    Nuvio:Entity .
+                ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+                OPTIONAL
+                  { ?Entity_0  a                    RFDevice:SystemCluster
+                    { ?TrackingRadar_0
+                                Nuvio:compositeOf  ?Entity_0
+                      { ?TrackingRadar_0
+                                  RFDevice:hasHeight  ?Entity_1
+                      }
+                    }
+                    { ?Entity_0  a                    RFDevice:InverseGainJamming }
+                    {   { ?Entity_0  a                    RFDevice:ShortValue }
+                      UNION
+                        { ?Entity_0  RFDevice:hasPulseWidth  ?Length_0 }
+                      OPTIONAL
+                        { ?Entity_1  Nuvio:representedBy  ?Entity_0 }
+                    }
+                  }
+                { ?Situation_0  a                 Nuvio:Situation .
+                  ?Ship_0   Nuvio:relevantIndividual  ?Situation_0
+                  { ?Ship_0  a                     RFDevice:Ship }
+                }
+              }
+              { ?Var0  RFDevice:hasDecimalValue  ?DataValue0
+                FILTER ( ?DataValue0 > "0.0"^^xsd:double )
+              }
+            }
+          }
+        }
+      }
+    }
+  }

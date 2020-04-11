@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?USRPB200_0  RFDevice:hasChargingTime  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Attribute_0  Nuvio:expresses   ?Entity_0
+        { ?Entity_0  a                    Nuvio:UnitOfMeasure
+          { ?Entity_0  a                    Nuvio:InformationRepresentation .
+            ?InformationContent_0
+                      Nuvio:represents      ?Entity_0
+            { ?InformationContent_0
+                        a                     Nuvio:InformationContent .
+              ?InformationEntity_0
+                        Nuvio:represents      ?InformationContent_0
+              { ?InformationEntity_0
+                          a                     Nuvio:InformationEntity
+              }
+            }
+          }
+        }
+        { ?Attribute_0  a                 Nuvio:Attribute }
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?Entity_0  Nuvio:hasObjectQuantity  ?USRPN210_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Situation_0  Nuvio:expresses   ?Entity_0
+        { ?Entity_0  a                    Nuvio:Attribute
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Situation
+              { ?BSpline_0  Nuvio:relevantIndividual  ?Entity_0
+                { ?BSpline_0  a                   gml:BSpline }
+              }
+            }
+        }
+      }
+    }
+  }

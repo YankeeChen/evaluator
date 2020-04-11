@@ -1,0 +1,35 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?ElectronicAttackSystem_0
+                Nuvio:aggregateOf  ?Entity_0
+      { ?InformationEntity_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ObjectDescription:TimeInterval_instance7
+                    RFDevice:hasPulseRepetitionInterval  ?Entity_0
+          {   { ?BSpline_0  Nuvio:relevantIndividual  ?Entity_0 }
+            UNION
+              { ?SDR_0  Nuvio:relevantIndividual  ?Entity_0
+                { ObjectDescription:IEDJammer_instance38
+                            Nuvio:compositeOf  ?SDR_0
+                }
+                { ?BSpline_0  a                   gml:BSpline }
+              }
+            { ?Entity_0  a                    RFDevice:Time }
+            { ?Entity_0  a                    Nuvio:InformationContent .
+              ?Entity_1  Nuvio:represents     ?Entity_0
+            }
+          }
+        }
+        { ?InformationEntity_0
+                    a                     Nuvio:InformationEntity
+        }
+      }
+    }
+  }

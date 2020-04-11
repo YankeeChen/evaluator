@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  Nuvio:partOf  ?JammingSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationRepresentation_0
+                  Nuvio:expresses       ?Entity_0
+        {   { ?Entity_0  a                    SDR:Artix7FPGA
+              { ?Entity_0  RFDevice:isProducerOf  ?Var0 }
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Situation .
+              ?Object_0  Nuvio:relevantIndividual  ?Entity_0
+              { ?Object_0  a                    Nuvio:Object .
+                ?AntennaPolarization_0
+                          Nuvio:hasObjectQuality  ?Object_0
+                { ?AntennaPolarization_0
+                            a                     RFDevice:AntennaPolarization
+                }
+              }
+            }
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation .
+            ?Entity_1  Nuvio:representedBy  ?InformationRepresentation_0
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Entity_0  Nuvio:partOf  ?USRPB2xx_0
+      { ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?AbstractGriddedSurface_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          { ?ConceptScheme_0
+                      Nuvio:relevantIndividual  ?Situation_0
+            { ?ConceptScheme_0
+                        a                     skos:ConceptScheme .
+              ?Concept_0  skos:hasTopConcept  ?ConceptScheme_0
+              { ?Concept_0  a                   skos:Concept .
+                ?Collection_0
+                          skos:inScheme         ?Concept_0
+                { ?Collection_0
+                            a                     skos:Collection
+                }
+              }
+            }
+          }
+          { ?AbstractGriddedSurface_0
+                      a                     gml:AbstractGriddedSurface
+          }
+        }
+      }
+    }
+  }

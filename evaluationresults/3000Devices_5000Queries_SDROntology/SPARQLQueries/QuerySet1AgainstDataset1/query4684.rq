@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  RFDevice:hasProducer  ?USRPN310_0
+      { ?Entity_0  a                    RFDevice:Ship
+        { ?Moving_0  RFDevice:hasCapability  ?Entity_0 }
+        { ?Entity_0  a                    RFDevice:CrossPolarizationJamming
+          OPTIONAL
+            { ?Quantity_0  RFDevice:hasMaxSensedPower  ?Entity_0
+              { ?Quantity_0  a                  Nuvio:Quantity }
+            }
+        }
+        { ?Entity_0  a                    RFDevice:DoubleValue
+          {   { ?Entity_0  a                    Nuvio:Situation }
+            UNION
+              { ?Entity_0  Nuvio:relevantIndividual  ?GeodesicString_0 }
+          }
+        }
+      }
+    }
+  }

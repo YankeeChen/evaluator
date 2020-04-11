@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    { ?Kintex7FPGA_0
+                Nuvio:partOf  ?USRPX300_0
+      {   { ?Kintex7FPGA_0
+                      a                     SDR:Kintex7FPGA
+          }
+        UNION
+          { ObjectDescription:DirectConversionReceiver_instance11
+                      Nuvio:aggregateOf  ?Kintex7FPGA_0
+          }
+      }
+    }
+  }

@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:aggregateOf  ?ModelX_0
+      { ?UnitOfMeasure_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    SDR:XC6SLX150FPGA
+          { ?Entity_0  a                    RFDevice:DigitalModulation }
+          { ?Entity_0  a                    Nuvio:Situation
+            { ?Shell_0  Nuvio:relevantIndividual  ?Entity_0 }
+          }
+          { ?CyclostationaryDetection_0
+                      Nuvio:isExpressedBy  ?Entity_0
+            { ?CyclostationaryDetection_0
+                        a                     RFDevice:CyclostationaryDetection
+            }
+          }
+          { ?UnitOfMeasure_0
+                      a                     Nuvio:UnitOfMeasure
+          }
+        }
+      }
+    }
+  }

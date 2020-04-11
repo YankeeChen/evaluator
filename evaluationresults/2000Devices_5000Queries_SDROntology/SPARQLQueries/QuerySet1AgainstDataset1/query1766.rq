@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  RFDevice:isProducerOf  ?ModelX_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:Curve
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:BarrageJamming }
+          { ?Entity_0  a                    RFDevice:SpatialVolumeUnit }
+        }
+      }
+    }
+  }

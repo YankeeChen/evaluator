@@ -1,0 +1,19 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Receiving_0  RFDevice:supportsTransmitting  ?Half_DuplexCommunicationsSystem_0
+      { ?FreqencyRange_0
+                  RFDevice:hasBandwidthRange  ?Receiving_0
+        { ?FreqencyRange_0
+                    a                     RFDevice:FreqencyRange
+          { ?FrequencyAccuracy_0
+                      RFDevice:hasMax  ?FreqencyRange_0
+          }
+        }
+      }
+    }
+  }

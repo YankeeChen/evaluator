@@ -1,0 +1,39 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Entity_0  RFDevice:isProducerOf  ?USRPB210_0
+      { ?Entity_0  a                    skos:OrderedCollection ;
+                  skos:memberList       ?Object_0
+        { ?Object_0  a                    Nuvio:Object }
+        { ?Entity_0  a                    RFDevice:FrequencyModulation
+          { ?Entity_0  a                    RFDevice:LongValue
+            OPTIONAL
+              { ?Entity_0  Nuvio:hasDataValue  ?DataValue0 }
+          }
+          { ?Entity_0  a                    RFDevice:Distance
+            { ?Entity_0  a                    Nuvio:Situation .
+              ?PolynomialSpline_0
+                        Nuvio:relevantIndividual  ?Entity_0
+              OPTIONAL
+                { ?ChokeRingAntenna_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?ChokeRingAntenna_0
+                              a                     RFDevice:ChokeRingAntenna
+                  }
+                }
+              { ?PolynomialSpline_0
+                          a                     gml:PolynomialSpline
+              }
+            }
+          }
+        }
+      }
+    }
+  }

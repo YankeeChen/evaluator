@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?USRPN210_0  Nuvio:aggregateOf  ?Var0
+      { ?Var0  a                     Nuvio:Entity
+        OPTIONAL
+          { ?Var0  a                     SDR:Series7FPGA
+            { ?Var0  a                     RFDevice:CoverPulsesJamming
+              { ?Attribute_0  RFDevice:hasMaxOutputPower  ?Var0 }
+              { ?Var0  a                     Nuvio:Value
+                { ObjectDescription:LongitudeValueInDegree_instance0
+                            Nuvio:hasValue  ?Var0
+                }
+                { ?Var0  a                     Nuvio:InformationContent ;
+                         Nuvio:represents      ?Var0
+                }
+              }
+            }
+          }
+      }
+    }
+  }

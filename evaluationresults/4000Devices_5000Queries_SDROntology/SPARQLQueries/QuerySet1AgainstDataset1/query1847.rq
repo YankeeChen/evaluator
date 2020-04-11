@@ -1,0 +1,29 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Object_0  Nuvio:aggregateOf  ?SearchRadar_0
+      { ?Object_0  a                    Nuvio:Object ;
+                  Nuvio:participatesIn  ?InverseGainJamming_0
+        { ?InverseGainJamming_0
+                    a                     RFDevice:InverseGainJamming
+          OPTIONAL
+            { ?InverseGainJamming_0
+                        RFDevice:hasPulseRepetitionFrequency  ?Entity_0
+              {   { ?Entity_0  a                    Nuvio:Entity .
+                    ?Value_0  Nuvio:isExpressedBy   ?Entity_0
+                  }
+                UNION
+                  { ?Entity_0  a                    Nuvio:Value
+                    { ?Entity_0  a                    RFDevice:Frequency }
+                  }
+              }
+            }
+        }
+      }
+    }
+  }

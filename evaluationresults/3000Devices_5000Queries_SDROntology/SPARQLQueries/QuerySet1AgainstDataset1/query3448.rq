@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    OPTIONAL
+      { ?Process_0  RFDevice:hasCapability  ?MonostaticRadar_0
+        { ?TerrainBounceJamming_0
+                    Nuvio:subprocessOf  ?Process_0
+          { ObjectDescription:Power_instance45
+                      RFDevice:hasPulseRepetitionFrequency  ?TerrainBounceJamming_0
+          }
+        }
+      }
+  }

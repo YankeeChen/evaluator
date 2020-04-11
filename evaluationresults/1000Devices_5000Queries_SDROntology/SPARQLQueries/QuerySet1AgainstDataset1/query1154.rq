@@ -1,0 +1,24 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Entity_0  Nuvio:hasObjectQuantity  ?SurveillanceRadar_0
+      { ?Entity_0  a                    RFDevice:RangeGatePullOffJamming
+        { ObjectDescription:Power_instance11
+                    RFDevice:hasMaxOutputPower  ?Entity_0
+        }
+        { ?Entity_0  a                    RFDevice:SpatialVolumeUnit }
+        { ?Entity_0  a                    RFDevice:PositiveDecimalValue
+          { ?Entity_0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+            FILTER ( ?DataValue0 >= "82"^^xsd:decimal )
+          }
+        }
+        { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+      }
+    }
+  }

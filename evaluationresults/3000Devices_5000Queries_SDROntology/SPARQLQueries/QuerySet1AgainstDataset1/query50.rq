@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  RFDevice:isProducerOf  ?USRPN310_0
+      { ?Entity_0  a                    RFDevice:CyclostationaryDetection
+        { ?Entity_0  a                    Nuvio:Value .
+          ObjectDescription:WeightUnit_instance16
+                    Nuvio:hasUnitOfMeasure  ?Entity_0
+        }
+        { ?Entity_0  a                    Nuvio:Process .
+          ?DeceptiveJamming_0
+                    Nuvio:subprocessOf    ?Entity_0
+          { ?DeceptiveJamming_0
+                      a                     RFDevice:DeceptiveJamming
+          }
+        }
+      }
+    }
+  }

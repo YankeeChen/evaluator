@@ -1,0 +1,26 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    OPTIONAL
+      { ?JammingSystem_0
+                  RFDevice:supportsJamming  ?Var0
+        {   { ?Var0  a                     RFDevice:SpectrumSensing
+              { ?Var0  RFDevice:hasBandwidth  ?Attribute_0 }
+            }
+          UNION
+            { ObjectDescription:Instance5547
+                        RFDevice:hasPulseRepetitionInterval  ?Var0
+              {   { ?Var0  a                     RFDevice:Receiving }
+                UNION
+                  { ObjectDescription:FreqencyRange_instance65
+                              RFDevice:hasBandwidthRange  ?Var0
+                  }
+              }
+            }
+        }
+      }
+  }

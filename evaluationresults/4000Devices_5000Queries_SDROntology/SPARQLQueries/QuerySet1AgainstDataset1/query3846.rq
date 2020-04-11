@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    OPTIONAL
+      { ?MobilePlatform_0
+                  RFDevice:isDeployedOn  ?GNURadio_0
+        { ?MobilePlatform_0
+                    a                     RFDevice:MobilePlatform
+          { ?Entity_0  RFDevice:hasCapability  ?MobilePlatform_0
+            { ?Entity_0  a                    RFDevice:PhaseModulation
+              { ?Entity_0  a                    RFDevice:TimeInstant
+                { ?Var0  Nuvio:hasValue  ?Entity_0
+                  { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 != -1456425894 )
+                    OPTIONAL
+                      { ?UnitOfMeasure_0
+                                  Nuvio:hasUnitOfMeasure  ?Var0
+                      }
+                  }
+                }
+              }
+              {   { ?RFFrontEnd_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                  }
+                UNION
+                  { ?Var0  Nuvio:relevantIndividual  ?Entity_0 }
+              }
+            }
+          }
+        }
+      }
+  }

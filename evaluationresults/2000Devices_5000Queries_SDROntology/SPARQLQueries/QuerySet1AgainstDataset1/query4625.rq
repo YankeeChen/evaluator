@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    { ?Entity_0  Nuvio:compositeOf  ?USRPE312_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    sf:Line
+          { ?Entity_0  RFDevice:hasPulseWidth  ?Entity_0
+            { ?InformationUnit_0
+                        Nuvio:hasUnitOfMeasure  ?Entity_0
+              { ?InformationUnit_0
+                          a                     RFDevice:InformationUnit
+              }
+            }
+          }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Attribute }
+        }
+      }
+    }
+  }

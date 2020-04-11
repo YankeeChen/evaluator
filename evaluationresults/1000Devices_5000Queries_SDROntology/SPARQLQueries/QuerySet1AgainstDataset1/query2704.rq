@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?XilinxZynq7100SoC_0
+                Nuvio:partOf  ?USRPN300_0
+      { ?XilinxZynq7100SoC_0
+                  a                     SDR:XilinxZynq7100SoC
+        { ?XC3SD1800AFPGA_0
+                    Nuvio:aggregateOf  ?XilinxZynq7100SoC_0
+          { ?XC3SD1800AFPGA_0
+                      a                     SDR:XC3SD1800AFPGA
+          }
+        }
+      }
+    }
+  }

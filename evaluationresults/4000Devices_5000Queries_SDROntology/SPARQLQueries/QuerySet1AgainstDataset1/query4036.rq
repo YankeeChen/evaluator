@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?CR_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        { ?RadarFrequencyBand_0
+                    RFDevice:hasBandwidthRange  ?Var0
+          { ?RadarFrequencyBand_0
+                      a                     RFDevice:RadarFrequencyBand
+          }
+        }
+        { ?Var0  a                     RFDevice:Transceiving }
+      }
+    }
+  }

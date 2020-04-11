@@ -1,0 +1,19 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?Full_DuplexCommunicationsSystem_0
+        { ?TimeInterval_0
+                    RFDevice:hasPulseRepetitionInterval  ?Var0
+          { ?TimeInterval_0
+                      a                     RFDevice:TimeInterval
+          }
+          OPTIONAL
+            { ?Var0  a                     RFDevice:Receiving }
+        }
+      }
+  }

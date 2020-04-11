@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    OPTIONAL
+      { ?Entity_0  Nuvio:compositeOf  ?RFSystem_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?InformationRepresentation_0
+                    Nuvio:isExpressedBy   ?Entity_0
+          OPTIONAL
+            {   { ?Entity_0  a                    RFDevice:SelfProtectionJamming
+                  { ?Entity_0  RFDevice:hasTransmitPowerRange  ?Power_0
+                    { ?Power_0  a                     RFDevice:Power }
+                  }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+                  { ?AngleUnit_0  a                 RFDevice:AngleUnit }
+                }
+            }
+        }
+      }
+  }

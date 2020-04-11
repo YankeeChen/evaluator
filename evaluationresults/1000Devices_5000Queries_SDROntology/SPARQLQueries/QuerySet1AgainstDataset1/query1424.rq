@@ -1,0 +1,36 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?ElectronicAttackSystem_0
+                RFDevice:hasWeight  ?Entity_0
+      { ?UnitOfMeasure_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  a                    gml:Solid }
+          UNION
+            { ?Entity_0  a                    RFDevice:AngleModulation }
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:WeightUnit
+              { ?Entity_0  a                    RFDevice:LatitudeValueInDegree
+                { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+                  FILTER ( ?DataValue0 >= "-90"^^xsd:decimal )
+                }
+                { ?Entity_0  a                    Nuvio:Situation .
+                  ?AmplitudeModulation_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?AmplitudeModulation_0
+                              a                     RFDevice:AmplitudeModulation
+                  }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

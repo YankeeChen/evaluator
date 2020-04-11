@@ -1,0 +1,55 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    { ?Entity_0  RFDevice:hasProducer  ?USRPX300_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:CubicSpline
+          { ?Entity_0  a                    RFDevice:ContinuousWaveRadarModulation }
+          { ?Entity_0  a                    Nuvio:Process .
+            ?InformationEntity_0
+                      Nuvio:hasSubprocess   ?Entity_0
+            OPTIONAL
+              { ?InformationEntity_0
+                          a                     Nuvio:InformationEntity .
+                ?Var0     Nuvio:informationSource  ?InformationEntity_0
+                OPTIONAL
+                  { ?Var0  a                     RFDevice:DeceptiveCommunicationsJamming
+                    { ?Var0  RFDevice:hasTransmitPowerRange  ?Power_0
+                      { ?Power_0  a                     RFDevice:Power }
+                    }
+                    { ?Var0  a                     Nuvio:Value
+                      OPTIONAL
+                        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 = 204663668 )
+                        }
+                    }
+                  }
+              }
+            { ?Entity_0  a                    RFDevice:Frequency
+              { ?Var1  Nuvio:hasValue  ?Entity_0
+                { ?Var1  RFDevice:hasFloatValue  ?DataValue1
+                  FILTER ( ! ( ?DataValue1 >= "0"^^xsd:decimal ) )
+                }
+              }
+              { ObjectDescription:PulseDopplerRadar_instance21
+                          Nuvio:relevantIndividual  ?Entity_0
+              }
+              OPTIONAL
+                { ?Entity_0  Nuvio:participatesIn  ?InboundRangeGatePullOffJamming_0
+                  { ?InboundRangeGatePullOffJamming_0
+                              a                     RFDevice:InboundRangeGatePullOffJamming
+                  }
+                }
+            }
+          }
+        }
+      }
+    }
+  }

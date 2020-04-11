@@ -1,0 +1,38 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Var0  RFDevice:supportsJamming  ?TrackingRadar_0
+      {   { ?Var0  Nuvio:isExpressedBy  ?Var0 }
+        UNION
+          {   { ?Geometry_0  geosparql:hasGeometry  ?Var0
+                OPTIONAL
+                  { ?Geometry_0  a                  geosparql:Geometry ;
+                              geosparql:dimension   ?DataValue0
+                    FILTER ( ?DataValue0 > 1267491446 )
+                  }
+              }
+            UNION
+              { ?Var0  a                     RFDevice:Jamming
+                { ObjectDescription:Instance2420
+                            RFDevice:hasMaxOutputPower  ?Var0
+                }
+                { ?Var0     a                     Nuvio:Process .
+                  ObjectDescription:AntennaPolarization_instance2
+                            Nuvio:hasProcessQuality  ?Var0
+                }
+                { ?Var0  a                     Nuvio:UnitOfMeasure }
+                { ?Var0  a                     RFDevice:NoiseFigure
+                  { ?Var1  Nuvio:hasValue  ?Var0 }
+                }
+              }
+          }
+      }
+    }
+  }

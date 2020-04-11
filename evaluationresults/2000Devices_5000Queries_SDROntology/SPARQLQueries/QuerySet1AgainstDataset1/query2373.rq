@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    { ?Var0  Nuvio:compositeOf  ?USRPN200_0
+      { ?Var0  a                     Nuvio:Entity
+        {   { ?Var0  a                     gml:Tin }
+          UNION
+            { ?Var0     a                     Nuvio:Process .
+              ObjectDescription:Instance2653
+                        Nuvio:subprocessOf    ?Var0
+            }
+        }
+        OPTIONAL
+          { ?Var1  RFDevice:hasWeight  ?Var0 }
+        OPTIONAL
+          { ?Var2  RFDevice:hasResolution  ?Var0 }
+      }
+    }
+  }

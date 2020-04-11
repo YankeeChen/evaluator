@@ -1,0 +1,28 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    OPTIONAL
+      { ?JammingSystem_0
+                  RFDevice:supportsJamming  ?Var0
+        { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+          {   { ?Entity_0  a                    Nuvio:Entity }
+            UNION
+              { ?Entity_0  a                    sf:Point }
+          }
+          { ObjectDescription:RadarFrequencyBand_instance165
+                      RFDevice:hasBandwidthRange  ?Var0
+          }
+          { ?Var0  a                     RFDevice:InboundRangeGatePullOffJamming
+            { ?Quantity_0  RFDevice:hasPulseRepetitionInterval  ?Var0
+              { ?Quantity_0  a                  Nuvio:Quantity }
+            }
+          }
+        }
+      }
+  }

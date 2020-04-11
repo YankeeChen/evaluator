@@ -1,0 +1,32 @@
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Entity_0  RFDevice:isDeployedOn  ?RFSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    gml:OffsetCurve
+          { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+        }
+        { ?Situation_0  a                 Nuvio:Situation .
+          ?CumulativeDetection_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          OPTIONAL
+            { ?Feature_0  Nuvio:relevantIndividual  ?Situation_0
+              { ?Feature_0  a                   geosparql:Feature .
+                ?LinearRing_0
+                          geosparql:defaultGeometry  ?Feature_0
+                { ?LinearRing_0
+                            a                     gml:LinearRing
+                }
+              }
+            }
+        }
+      }
+    }
+  }

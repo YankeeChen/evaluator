@@ -1,0 +1,37 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Entity_0  RFDevice:hasChargingTime  ?ElectronicAttackSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Situation_0  Nuvio:expresses   ?Entity_0
+        {   {   { ?Situation_0  a                 Nuvio:Situation ;
+                            Nuvio:relevantIndividual  ?CompositeSolid_0
+                }
+              UNION
+                { ?Time_0  Nuvio:relevantIndividual  ?Situation_0
+                  { ?Time_0  a                     RFDevice:Time
+                    { ?Var0  Nuvio:hasValue  ?Time_0
+                      { ?UnitOfMeasure_0
+                                  Nuvio:hasUnitOfMeasure  ?Var0
+                        { ?UnitOfMeasure_0
+                                    a                     Nuvio:UnitOfMeasure
+                        }
+                      }
+                    }
+                  }
+                }
+            }
+          UNION
+            { ?CompositeSolid_0
+                        a                     gml:CompositeSolid
+            }
+        }
+      }
+    }
+  }

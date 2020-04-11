@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  Nuvio:partOf  ?JammingSystem_0
+      { ?InformationRepresentation_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    sf:GeometryCollection
+          OPTIONAL
+            { ?Var0  Nuvio:hasValue  ?Entity_0 }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Situation
+              { ?XC6SLX75FPGA_0
+                          Nuvio:relevantIndividual  ?Entity_0
+                { ?XC6SLX75FPGA_0
+                            a                     SDR:XC6SLX75FPGA
+                }
+              }
+            }
+        }
+        OPTIONAL
+          { ?InformationContent_0
+                      Nuvio:represents  ?InformationRepresentation_0
+          }
+      }
+    }
+  }

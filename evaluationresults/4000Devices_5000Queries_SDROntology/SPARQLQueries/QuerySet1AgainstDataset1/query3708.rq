@@ -1,0 +1,41 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Var0  RFDevice:supportsTuning  ?TrackingRadar_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        OPTIONAL
+          { ?Var0  RFDevice:hasBandwidth  ?Entity_0
+            {   { ?Object_0  Nuvio:isExpressedBy  ?Entity_0 }
+              UNION
+                {   {   { ?Entity_0  a                    SDR:USRPN3xx }
+                      UNION
+                        { ?Entity_0  a                    Nuvio:Situation .
+                          ?RadioFrequencyBand_0
+                                    Nuvio:relevantIndividual  ?Entity_0
+                          {   { ?AbstractGeometry_0
+                                          Nuvio:relevantIndividual  ?Entity_0
+                              }
+                            UNION
+                              { ?RadioFrequencyBand_0
+                                          a                     RFDevice:RadioFrequencyBand
+                              }
+                          }
+                        }
+                    }
+                  UNION
+                    { ?Entity_0  a                    RFDevice:Power
+                      { ?Var1  Nuvio:hasValue  ?Entity_0 }
+                    }
+                  { ?Object_0  RFDevice:hasPolarization  ObjectDescription:AntennaPolarization_instance22 }
+                }
+            }
+          }
+      }
+    }
+  }

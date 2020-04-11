@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    { ?Entity_0  RFDevice:hasProducer  ?USRPB200mini_0
+      { ?Entity_0  a                    geosparql:Geometry ;
+                  geosparql:isSimple    ?DataValue0
+        FILTER ( ?DataValue0 < false )
+        {   { ?Entity_0  a                    RFDevice:PulseRadarModulation }
+          UNION
+            { ?Entity_0  a                    RFDevice:DoubleValue
+              OPTIONAL
+                { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue1
+                  FILTER ( ?DataValue1 = "-88.99553591319284"^^xsd:double )
+                }
+            }
+        }
+      }
+    }
+  }

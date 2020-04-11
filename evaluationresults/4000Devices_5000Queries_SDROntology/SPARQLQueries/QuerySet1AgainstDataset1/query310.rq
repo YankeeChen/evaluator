@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTransmitting  ?SurveillanceRadar_0
+        { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+          { ?Attribute_0  RFDevice:hasMaxOutputPower  ?Var0 }
+        }
+      }
+  }

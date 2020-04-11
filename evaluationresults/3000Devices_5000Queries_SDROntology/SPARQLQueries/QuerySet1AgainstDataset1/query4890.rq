@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    OPTIONAL
+      { ?Object_0  Nuvio:aggregateOf  ?USRPE3xx_0
+        {   { ?Object_0  RFDevice:supportsTuning  ?RadarJamming_0 }
+          UNION
+            { ?Object_0  RFDevice:hasTarget  ?RadarJamming_0 }
+        }
+      }
+  }

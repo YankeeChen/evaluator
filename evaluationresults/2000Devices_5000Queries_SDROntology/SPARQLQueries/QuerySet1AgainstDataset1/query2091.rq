@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Entity_0  Nuvio:aggregateOf  ?RFSystem_0
+      { ?Entity_0  a                    RFDevice:SpatialAreaUnit
+        { ?Entity_0  a                    RFDevice:IntegerValue
+          { ?Var0  Nuvio:hasValue  ?Entity_0
+            { ?Var0  a                     RFDevice:PositiveFloatValue
+              { ?Var0  Nuvio:hasDataValue  ?DataValue0
+                { ?Var0  Nuvio:hasUnitOfMeasure  RFDevice:ppm }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

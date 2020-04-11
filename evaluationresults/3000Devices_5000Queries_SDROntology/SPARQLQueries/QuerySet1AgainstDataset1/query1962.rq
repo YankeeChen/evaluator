@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    OPTIONAL
+      { ?Var0  RFDevice:hasCapability  ?USRPB200mini_0
+        {   { ?Var0  a                     RFDevice:CommunicationsJamming }
+          UNION
+            { ObjectDescription:Instance2315
+                        Nuvio:hasProcessQuantity  ?Var0
+            }
+        }
+      }
+  }

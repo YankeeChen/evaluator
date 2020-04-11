@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsJamming  ?ElectronicSupportSystem_0
+        { SDR:Freq_100MHz
+                    RFDevice:hasBandwidth  ?Var0
+          OPTIONAL
+            { ?Var0  a                     RFDevice:SpotJamming
+              { ?Var0     a                     Nuvio:Process .
+                ?Composite_0  Nuvio:hasParticipant  ?Var0
+                { ?Composite_0  a                 gml:Composite }
+              }
+            }
+        }
+      }
+  }

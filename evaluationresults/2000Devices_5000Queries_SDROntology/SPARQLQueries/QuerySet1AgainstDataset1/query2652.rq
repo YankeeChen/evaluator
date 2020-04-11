@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?Var0  RFDevice:supportsJamming  ?MonostaticRadar_0
+      {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+            { ObjectDescription:RadioFrequencyBand_instance54
+                        RFDevice:hasBandwidthRange  ?Var0
+            }
+          }
+        UNION
+          { ?Var0     a                     Nuvio:Entity .
+            ?Object_0  Nuvio:isExpressedBy  ?Var0
+            { ?Var0  a                     RFDevice:FrequencyScanRateUnit }
+          }
+      }
+    }
+  }

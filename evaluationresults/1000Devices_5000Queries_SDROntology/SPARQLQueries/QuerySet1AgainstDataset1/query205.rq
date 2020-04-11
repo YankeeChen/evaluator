@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              a                     SDR:USRPB2xxmini
+    { ?Var0  RFDevice:supportsJamming  ?USRPB2xxmini_0
+      {   { ?Var0  a                     RFDevice:InverseGainJamming
+            { ?PolygonPatch_0
+                        Nuvio:isExpressedBy  ?Var0
+              { ?PolygonPatch_0
+                          a                     gml:PolygonPatch
+              }
+              { ?Var0  a                     RFDevice:Width }
+            }
+          }
+        UNION
+          { ?Var0  Nuvio:representedBy  ?InformationEntity_0 }
+      }
+    }
+  }

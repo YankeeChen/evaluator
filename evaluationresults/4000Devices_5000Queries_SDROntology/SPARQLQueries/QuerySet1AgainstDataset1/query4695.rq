@@ -1,0 +1,37 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  RFDevice:supportsSpectrumSensing  ?JammingSystem_0
+      { ?Situation_0  Nuvio:expresses  ?Entity_0
+        {   { ?Entity_0  a                    Nuvio:InformationEntity
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            }
+          UNION
+            {   { ?Situation_0  a                 Nuvio:Situation ;
+                            Nuvio:relevantIndividual  ?Quality_0
+                }
+              UNION
+                {   { ?Transmitter_0
+                                Nuvio:relevantIndividual  ?Situation_0
+                      {   { ?Transmitter_0
+                                      a                     RFDevice:Transmitter
+                          }
+                        UNION
+                          { ?Transmitter_0
+                                      RFDevice:supportsTuning  ?Entity_1
+                          }
+                      }
+                    }
+                  UNION
+                    { ?Quality_0  a                   Nuvio:Quality }
+                }
+            }
+        }
+      }
+    }
+  }

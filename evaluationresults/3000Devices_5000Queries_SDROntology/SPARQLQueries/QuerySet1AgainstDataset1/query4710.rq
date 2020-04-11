@@ -1,0 +1,41 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?RadarSystem_0
+      { ?Entity_1  Nuvio:expresses  ?Entity_0
+        { ?Entity_0  a                    gml:Surface
+          {   { ?Entity_0  Nuvio:relevantIndividual  ?SelfProtectionJamming_0 }
+            UNION
+              {   { ?ChokeRingAntenna_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                    { ?ChokeRingAntenna_0
+                                a                     RFDevice:ChokeRingAntenna
+                      OPTIONAL
+                        { ?XilinxZynq7000Family_0
+                                    Nuvio:aggregateOf  ?ChokeRingAntenna_0
+                          { ?XilinxZynq7000Family_0
+                                      a                     SDR:XilinxZynq7000Family
+                            { ObjectDescription:Producer_instance189
+                                        RFDevice:hasProducer  ?XilinxZynq7000Family_0
+                            }
+                          }
+                        }
+                    }
+                  }
+                UNION
+                  { ?SelfProtectionJamming_0
+                              RFDevice:hasPulseWidth  ?Entity_0
+                  }
+              }
+          }
+        }
+      }
+    }
+  }

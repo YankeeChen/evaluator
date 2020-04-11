@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?CR_0  Nuvio:partOf  ?Entity_0
+      { ?Var0  skos:member  ?Entity_0
+        { ?Var0  a                     skos:Concept }
+        { ?Entity_0  a                    Nuvio:Object
+          { ?Entity_0  a                    Nuvio:Value }
+        }
+      }
+    }
+  }

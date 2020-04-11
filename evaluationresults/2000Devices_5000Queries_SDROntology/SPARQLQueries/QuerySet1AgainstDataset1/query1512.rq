@@ -1,0 +1,16 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Object_0  Nuvio:compositeOf  ?Half_DuplexCommunicationsSystem_0
+        { ?Object_0  a                    Nuvio:Object .
+          ObjectDescription:NoiseFigure_instance96
+                    RFDevice:hasSamplingRate  ?Object_0
+        }
+      }
+  }

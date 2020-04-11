@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?USRPN310_0  Nuvio:aggregateOf  ?XilinxZynq7100SoC_0
+      {   { ?XilinxZynq7100SoC_0
+                      a                     SDR:XilinxZynq7100SoC
+          }
+        UNION
+          { ?RadioComponent_0
+                      Nuvio:partOf  ?XilinxZynq7100SoC_0
+            { ?RadioComponent_0
+                        a                     RFDevice:RadioComponent
+              { ?XilinxZynq7020SoC_0
+                          Nuvio:aggregateOf  ?RadioComponent_0
+                { ?XilinxZynq7020SoC_0
+                            a                     SDR:XilinxZynq7020SoC
+                  { ObjectDescription:RadarJammer_instance40
+                              Nuvio:partOf  ?XilinxZynq7020SoC_0
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

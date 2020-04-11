@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    OPTIONAL
+      { ?ModelX_0  RFDevice:supportsTuning  ?Transceiving_0
+        { ?Transceiving_0
+                    a                     RFDevice:Transceiving
+        }
+      }
+  }

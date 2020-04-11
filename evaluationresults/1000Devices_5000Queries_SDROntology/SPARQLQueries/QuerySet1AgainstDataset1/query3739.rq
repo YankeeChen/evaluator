@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    OPTIONAL
+      { ?SuperheterodyneReceiver_0
+                  Nuvio:compositeOf  ?RadarSystem_0
+        { ?Entity_0  Nuvio:aggregateOf  ?SuperheterodyneReceiver_0
+          { ?Entity_0  a                    gml:GeodesicString
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:ContinuousWaveRadarModulation }
+            { ?Entity_0  a                    Nuvio:InformationEntity }
+          }
+        }
+      }
+  }

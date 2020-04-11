@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE310_0
+WHERE
+  { ?USRPE310_0  a                  SDR:USRPE310
+    { ?USRPE310_0  RFDevice:hasNoiseFigure  ?Var0
+      { ?Var0  a                     RFDevice:NoiseFigure
+        { ?Var0  Nuvio:hasValue  ?Var1
+          { ?Var1  a                     Nuvio:Entity
+            { ?Var1  a                     RFDevice:TerrainBounceJamming
+              OPTIONAL
+                { ObjectDescription:Instance3838
+                            RFDevice:hasPulseRepetitionInterval  ?Var1
+                }
+              OPTIONAL
+                { ?Var1  a                     Nuvio:Object }
+            }
+          }
+        }
+      }
+    }
+  }

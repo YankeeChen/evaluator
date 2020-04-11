@@ -1,0 +1,45 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    OPTIONAL
+      { ?Var0  RFDevice:hasCapability  ?USRPE313_0
+        {   { ?Voltage_0  RFDevice:hasMaxOutputPower  ?Var0 }
+          UNION
+            { ?Voltage_0  a                   RFDevice:Voltage }
+          { ?Var0  a                     RFDevice:CrossPolarizationJamming
+            { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+              { ?Power_0  a                     RFDevice:Power
+                OPTIONAL
+                  { ?Power_0  Nuvio:hasValue  ?Var1
+                    { ?Var1  a                     RFDevice:IntValue }
+                  }
+              }
+            }
+            {   { ?Var0  a                     Nuvio:Entity }
+              UNION
+                { ?Var0     a                     Nuvio:Value .
+                  ?FrequencyScanRateUnit_0
+                            Nuvio:hasUnitOfMeasure  ?Var0
+                  { ?FrequencyScanRateUnit_0
+                              a                     RFDevice:FrequencyScanRateUnit
+                  }
+                  { ?Var0     a                     Nuvio:Object .
+                    ?Distance_0  RFDevice:hasBeamwidth  ?Var0
+                    { ?Distance_0  a                  RFDevice:Distance
+                      { ?Var2  Nuvio:hasValue  ?Distance_0 }
+                    }
+                    { ?Var0  a                     RFDevice:TimeInterval
+                      { ?Var3  Nuvio:hasValue  ?Var0 }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }

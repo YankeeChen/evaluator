@@ -1,0 +1,21 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE310_0
+WHERE
+  { ?USRPE310_0  a                  SDR:USRPE310
+    { ?Var0  Nuvio:aggregateOf  ?USRPE310_0
+      { ?Var0  a                     RFDevice:Transmitter
+        OPTIONAL
+          { ?Var1  RFDevice:hasTarget  ?Var0
+            { ?Var0  a                     RFDevice:LongitudeValueInRadian }
+          }
+        { ?Var0     a                     Nuvio:Object .
+          ?Angle_0  RFDevice:hasSamplingRate  ?Var0
+        }
+        { ?Var2  RFDevice:hasWidth  ?Var0 }
+      }
+    }
+  }

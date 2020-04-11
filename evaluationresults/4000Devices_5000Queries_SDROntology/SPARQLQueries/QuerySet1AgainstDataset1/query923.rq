@@ -1,0 +1,44 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:compositeOf  ?RadarWarningReceiver_0
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  a                     RFDevice:InstantaneousFrequencyMeasurementReceiver
+        { ?Entity_0  RFDevice:isProducerOf  ?InstantaneousFrequencyMeasurementReceiver_0
+          {   { ?Entity_0  a                    Nuvio:Entity .
+                ?InformationRepresentation_0
+                          Nuvio:isExpressedBy   ?Entity_0
+              }
+            UNION
+              { ?Entity_0  a                    RFDevice:CoverPulsesJamming
+                { ?Entity_0  RFDevice:hasMaxOutputPower  ?Quantity_0
+                  { ?Quantity_0  a                  Nuvio:Quantity }
+                }
+                { ?ArcByCenterPoint_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                }
+                {   { ?Entity_0  a                    Nuvio:Value }
+                  UNION
+                    { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 > -256837845 )
+                    }
+                }
+              }
+            { ?InformationRepresentation_0
+                        a                     Nuvio:InformationRepresentation
+            }
+          }
+          { ?InstantaneousFrequencyMeasurementReceiver_0
+                      RFDevice:isProducerOf  ObjectDescription:Producer_instance1263
+          }
+        }
+      }
+    }
+  }

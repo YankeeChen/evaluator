@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Object_0  RFDevice:hasProducer  ?ElectronicAttackSystem_0
+      { ObjectDescription:Frequency_instance33
+                  RFDevice:hasLength  ?Object_0
+      }
+    }
+  }

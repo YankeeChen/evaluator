@@ -1,0 +1,34 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?ElectronicAttackSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  a                    gml:AbstractGeometry
+              { ?Entity_0  a                    RFDevice:Angle
+                { ?AngleValue_0
+                            Nuvio:hasValue  ?Entity_0
+                  { ?AngleValue_0
+                              a                     RFDevice:AngleValue
+                    OPTIONAL
+                      { ?AngleValue_0
+                                  Nuvio:hasPrecision  ?DataValue0
+                        FILTER ( ?DataValue0 >= -1031373556 )
+                      }
+                  }
+                }
+              }
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Process }
+        }
+      }
+    }
+  }

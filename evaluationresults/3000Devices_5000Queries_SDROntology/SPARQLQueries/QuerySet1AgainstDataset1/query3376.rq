@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    OPTIONAL
+      { ?Var0  RFDevice:supportsJamming  ?USRPX3xx_0
+        {   { ?Var0     a                     Nuvio:Process .
+              ?CompositeSolid_0
+                        Nuvio:hasParticipant  ?Var0
+            }
+          UNION
+            { ?CompositeSolid_0
+                        a                     gml:CompositeSolid
+            }
+        }
+      }
+  }

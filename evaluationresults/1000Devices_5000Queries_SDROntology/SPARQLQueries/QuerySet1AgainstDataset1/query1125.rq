@@ -1,0 +1,37 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?RadarSystem_0
+      { ?Entity_0  a                    gml:PolyhedralSurface
+        {   { ?Entity_0  a                    RFDevice:LongValue }
+          UNION
+            { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0 }
+        }
+        OPTIONAL
+          { ?Var0  Nuvio:hasValue  ?Entity_0
+            { ?Var0  a                     RFDevice:PositiveFloatValue
+              { ?Var0  RFDevice:hasDecimalValue  ?DataValue1
+                FILTER ( ?DataValue1 > "-96.261444"^^xsd:double )
+              }
+            }
+          }
+        { ?Entity_0  a                    Nuvio:Value .
+          ?VoltageUnit_0
+                    Nuvio:hasUnitOfMeasure  ?Entity_0
+          { ?Entity_0  Nuvio:hasPrecision  ?DataValue2
+            FILTER ( ?DataValue2 < 1457862353 )
+            { ?VoltageUnit_0
+                        a                     RFDevice:VoltageUnit
+            }
+          }
+        }
+      }
+    }
+  }

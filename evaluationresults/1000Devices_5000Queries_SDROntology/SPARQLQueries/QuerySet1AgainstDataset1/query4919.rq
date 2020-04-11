@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?CommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    SDR:USRPB205mini-i
+          { ?Entity_0  RFDevice:isDeployedOn  ObjectDescription:Submarine_instance20 }
+          { ?Entity_0  a                    RFDevice:AmplitudeModulation
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:InformationContent .
+                ?Entity_1  Nuvio:representedBy  ?Entity_0
+              }
+          }
+        }
+      }
+    }
+  }

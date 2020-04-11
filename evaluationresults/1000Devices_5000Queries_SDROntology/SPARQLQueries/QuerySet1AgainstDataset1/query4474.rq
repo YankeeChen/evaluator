@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    { ?Var0  RFDevice:supportsTuning  ?SDR_0
+      { ?Var0  Nuvio:expresses  ?Var0
+        OPTIONAL
+          {   { ?Var0  a                     SDR:Spartan3ADSPFPGA
+                { ?Var0  a                     RFDevice:PowerUnit }
+                { ?ElectricChargeUnit_0
+                            Nuvio:hasUnitOfMeasure  ?Var0
+                }
+              }
+            UNION
+              { ?Var0  a                     RFDevice:Gain
+                OPTIONAL
+                  { ?Var1  Nuvio:hasValue  ?Var0 }
+              }
+          }
+        { ?Var0  a                     RFDevice:AutomaticGainControl }
+        { ?Var0  a                     Nuvio:Process }
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    OPTIONAL
+      { ?ModelX_0  RFDevice:isProducerOf  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity ;
+                    Nuvio:expresses       ?Value_0
+          { ?Value_0  a                     Nuvio:Value .
+            ?SpatialVolumeUnit_0
+                      Nuvio:hasUnitOfMeasure  ?Value_0
+            OPTIONAL
+              { ?SpatialVolumeUnit_0
+                          a                     RFDevice:SpatialVolumeUnit
+              }
+          }
+        }
+      }
+  }

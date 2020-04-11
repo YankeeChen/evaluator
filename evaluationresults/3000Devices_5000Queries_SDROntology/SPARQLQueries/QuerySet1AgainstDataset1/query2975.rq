@@ -1,0 +1,44 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    OPTIONAL
+      { ?Entity_0  RFDevice:supportsTransmitting  ?ContinuousWaveRadar_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?Entity_0  a                    Nuvio:Value .
+            ?Object_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 >= -1467261194 )
+              { ?Width_0  RFDevice:hasLevel  ?Object_0 }
+            }
+            { ?Entity_0  RFDevice:hasPositiveIntegerValue  ?DataValue1
+              FILTER ( ( ! ( ?DataValue1 >= -1.57 ) ) && ( ?DataValue1 <= 1.57 ) )
+              { ?Entity_0  Nuvio:hasValue  ?Var0
+                { ?Var0  Nuvio:hasDataValue  ?DataValue2
+                  FILTER ( ?DataValue2 != "-61.762714"^^xsd:double )
+                  { ?Var0  RFDevice:hasFloatValue  ?DataValue3
+                    FILTER ( ?DataValue3 > "0.0"^^xsd:double )
+                  }
+                }
+                { ?InformationContent_0
+                            Nuvio:representedBy  ?Entity_0
+                  OPTIONAL
+                    { ?InformationContent_0
+                                a                     Nuvio:InformationContent ;
+                                Nuvio:represents      ?InformationEntity_0
+                      { ?InformationEntity_0
+                                  a                     Nuvio:InformationEntity
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

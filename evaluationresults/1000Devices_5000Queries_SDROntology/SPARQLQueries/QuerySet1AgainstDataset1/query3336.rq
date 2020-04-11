@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?ModelX_0  Nuvio:aggregateOf  ?DirectConversionReceiver_0
+      { ?XC6SLX75FPGA_0
+                  Nuvio:partOf  ?DirectConversionReceiver_0
+        { ?XC6SLX75FPGA_0
+                    a                     SDR:XC6SLX75FPGA
+        }
+      }
+    }
+  }

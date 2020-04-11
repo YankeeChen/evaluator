@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?ContinuousWaveRadar_0
+      {   { ?Var0  Nuvio:isExpressedBy  ?Object_0 }
+        UNION
+          { ?Var0  a                     gml:GeodesicString
+            { ?Var0  a                     RFDevice:ContinuousWaveRadarModulation
+              { ?Var0  a                     RFDevice:PositiveIntegerValue
+                { ?Var0  a                     Nuvio:Quality }
+                { ?Var0  a                     Nuvio:Attribute }
+              }
+            }
+          }
+        { ObjectDescription:AntennaPolarization_instance38
+                    RFDevice:hasPolarization  ?Object_0
+        }
+        { ?Var0  a                     RFDevice:SweepJamming }
+      }
+    }
+  }

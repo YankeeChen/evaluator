@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                RFDevice:hasProducer  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    RFDevice:CrossEyeJamming
+          { ?Entity_0  a                    RFDevice:SpatialUnit
+            { ?Entity_0  a                    Nuvio:Situation ;
+                        Nuvio:relevantIndividual  ?Filter_0
+              { ?Filter_0  a                    RFDevice:Filter
+                { ?Filter_0  Nuvio:partOf  ?ADC_0
+                  { ?ADC_0  a                     RFDevice:ADC
+                    { ?CortexA9_0  Nuvio:compositeOf  ?ADC_0
+                      { ?CortexA9_0  a                  SDR:CortexA9 }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

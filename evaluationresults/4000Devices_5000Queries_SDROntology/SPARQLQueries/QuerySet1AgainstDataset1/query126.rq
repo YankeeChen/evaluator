@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  RFDevice:hasProducer  ?USRPN310_0
+      {   { ?Entity_0  a                    Nuvio:Entity ;
+                      Nuvio:isExpressedBy   ?InformationRepresentation_0
+          }
+        UNION
+          { ?Entity_0  a                    gml:ArcByBulge
+            { ?Entity_0  a                    RFDevice:ContinuousWaveRadarModulation }
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:LongitudeValueInRadian }
+          }
+      }
+    }
+  }

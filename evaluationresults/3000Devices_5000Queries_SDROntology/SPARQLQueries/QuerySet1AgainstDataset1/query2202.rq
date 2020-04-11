@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPN210_0
+      { ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Situation_0  a                 Nuvio:Situation .
+              ?LineString_0
+                        Nuvio:relevantIndividual  ?Situation_0
+            }
+          UNION
+            { ?LineString_0
+                        a                     sf:LineString
+            }
+        }
+      }
+    }
+  }

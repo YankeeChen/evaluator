@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?Entity_0  Nuvio:compositeOf  ?USRPB200_210_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:isExpressedBy   ?InformationContent_0
+        {   { ?Entity_0  a                    RFDevice:Moving }
+          UNION
+            { ?Entity_0  a                    Nuvio:Process .
+              ObjectDescription:Spartan6FPGA_instance3
+                        Nuvio:participatesIn  ?Entity_0
+            }
+          { ?Entity_0  a                    Nuvio:Object }
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:Situation ;
+                        Nuvio:relevantIndividual  ObjectDescription:ContinuousWaveRadarModulation_instance5
+              OPTIONAL
+                { ?PhaseModulation_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                }
+            }
+        }
+      }
+    }
+  }

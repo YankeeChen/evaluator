@@ -1,0 +1,15 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    OPTIONAL
+      { ?RFSystem_0  RFDevice:supportsJamming  ?Var0
+        { ?Var0  a                     RFDevice:FixedBandwidthSensing
+          { ObjectDescription:ADC_instance30
+                      RFDevice:hasTarget  ?Var0
+          }
+        }
+      }
+  }

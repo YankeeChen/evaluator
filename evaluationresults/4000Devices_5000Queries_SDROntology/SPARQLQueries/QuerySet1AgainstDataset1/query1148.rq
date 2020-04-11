@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    OPTIONAL
+      { ?Entity_0  Nuvio:aggregateOf  ?SDR_0
+        {   { ?Entity_0  a                    Nuvio:Entity }
+          UNION
+            { ?Entity_0  a                    RFDevice:RadarModulation
+              { ?Entity_0  a                    RFDevice:AngleUnit
+                { ?Entity_0  a                    RFDevice:LongitudeValueInRadian
+                  { ?Entity_0  RFDevice:hasNonNegativeIntegerValue  ?DataValue0
+                    FILTER ( ! ( ?DataValue0 <= 3.14 ) )
+                  }
+                }
+                { ?Entity_0  a                    Nuvio:Process .
+                  ?LineStringSegment_0
+                            Nuvio:hasParticipant  ?Entity_0
+                  { ?LineStringSegment_0
+                              a                     gml:LineStringSegment
+                  }
+                }
+              }
+            }
+        }
+      }
+  }

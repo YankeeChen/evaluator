@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    OPTIONAL
+      { ?Var0  RFDevice:hasCapability  ?PulseRadar_0
+        { ?Var0     a                     Nuvio:Entity .
+          ?Object_0  Nuvio:expresses      ?Var0
+          { ?Var0  a                     SDR:USRPB205mini-i
+            { ?Var1  RFDevice:hasWidth  ?Var0 }
+            OPTIONAL
+              { ?Var0     a                     Nuvio:Value .
+                ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Var0
+                { ?AngleUnit_0  a                 RFDevice:AngleUnit }
+              }
+            { ?Var0     a                     Nuvio:Situation .
+              ?CommunicationsSystem_0
+                        Nuvio:relevantIndividual  ?Var0
+              { ?CommunicationsSystem_0
+                          a                     RFDevice:CommunicationsSystem
+              }
+            }
+            { ?Object_0  RFDevice:hasVoltage  ?Attribute_0
+              OPTIONAL
+                { ?Attribute_0  a                 Nuvio:Attribute }
+            }
+          }
+        }
+      }
+  }

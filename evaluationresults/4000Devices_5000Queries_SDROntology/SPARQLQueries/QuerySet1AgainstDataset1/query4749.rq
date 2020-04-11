@@ -1,0 +1,36 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTransmitting  ?Half_DuplexCommunicationsSystem_0
+        {   { ?Var0  a                     Nuvio:Entity ;
+                     Nuvio:expresses       ?Var1
+            }
+          UNION
+            {   { ObjectDescription:Spartan6FPGA_instance18
+                            Nuvio:partOf  ?Var0
+                }
+              UNION
+                { ?Var0  a                     RFDevice:CrossEyeJamming }
+              { ?Var0  a                     RFDevice:InformationUnit }
+              { ?Var0  a                     Nuvio:InformationEntity .
+                ?Var1  Nuvio:informationSource  ?Var0
+                { ?InboundRangeGatePullOffJamming_0
+                            Nuvio:subprocessOf  ?Var1
+                  { ?InboundRangeGatePullOffJamming_0
+                              a                     RFDevice:InboundRangeGatePullOffJamming
+                    { ?Attribute_0  RFDevice:hasEffectiveRadiatedPower  ?InboundRangeGatePullOffJamming_0
+                      { ?Attribute_0  a                 Nuvio:Attribute }
+                    }
+                  }
+                }
+              }
+            }
+        }
+      }
+  }

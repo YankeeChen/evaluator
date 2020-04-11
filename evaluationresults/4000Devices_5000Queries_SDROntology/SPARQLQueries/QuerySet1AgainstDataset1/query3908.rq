@@ -1,0 +1,48 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Object_0  Nuvio:aggregateOf  ?USRPB210_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?Entity_0  RFDevice:hasGain     ?Object_0
+        {   {   { ?Entity_0  a                    Nuvio:Entity ;
+                            Nuvio:isExpressedBy   ?InformationEntity_0
+                }
+              UNION
+                { ?Entity_0  a                    RFDevice:InverseGainJamming
+                  { ?Power_0  RFDevice:hasEffectiveRadiatedPower  ?Entity_0
+                    { ?Var0  Nuvio:hasValue  ?Power_0
+                      { ?Var0     a                     Nuvio:Value .
+                        ?Object_0  Nuvio:hasUnitOfMeasure  ?Var0
+                      }
+                    }
+                  }
+                  { ?Var1  Nuvio:hasValue  ?Entity_0
+                    { ?Var1  Nuvio:hasUnitOfMeasure  ?Entity_0
+                      { ?Var1  Nuvio:hasDataValue  ?DataValue0
+                        FILTER ( ?DataValue0 >= "0"^^xsd:decimal )
+                      }
+                    }
+                    { ?Entity_0  a                    Nuvio:Process .
+                      ?SpotJamming_0
+                                Nuvio:subprocessOf    ?Entity_0
+                    }
+                  }
+                }
+            }
+          UNION
+            { ?BarrageJamming_0
+                        Nuvio:expresses  ?InformationEntity_0
+              { ?Attribute_0  RFDevice:hasTransmitPowerRange  ?BarrageJamming_0
+                { ?Attribute_0  a                 Nuvio:Attribute }
+              }
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,20 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    OPTIONAL
+      { ?Process_0  RFDevice:supportsSpectrumSensing  ?ElectronicAttackSystem_0
+        { ?Angle_0  RFDevice:hasMaxOutputPower  ?Process_0
+          { ?AngleValue_0
+                      Nuvio:hasValue  ?Angle_0
+            { ?AngleValue_0
+                        a                     RFDevice:AngleValue
+            }
+          }
+        }
+      }
+  }

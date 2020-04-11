@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Object_0  RFDevice:hasProducer  ?JammingSystem_0
+      {   { ?Object_0  RFDevice:hasSamplingRate  ?Weight_0 }
+        UNION
+          { ?Weight_0  a                    RFDevice:Weight }
+      }
+    }
+  }

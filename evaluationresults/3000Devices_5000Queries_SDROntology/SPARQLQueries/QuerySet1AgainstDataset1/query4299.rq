@@ -1,0 +1,31 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Submarine_0  RFDevice:isDeployedOn  ?ModelX_0
+      { ?Submarine_0  RFDevice:supportsTuning  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity ;
+                    Nuvio:expresses       ?Var0
+          {   { ?Entity_0  a                    RFDevice:BlinkingJamming
+                OPTIONAL
+                  { ObjectDescription:Power_instance55
+                              RFDevice:hasPulseRepetitionInterval  ?Entity_0
+                  }
+              }
+            UNION
+              { ?Entity_0  a                    RFDevice:SpatialAreaUnit
+                { ?Entity_0  a                    RFDevice:FrequencyAccuracy
+                  { ?Var0  Nuvio:hasValue  ?Entity_0
+                    { ?Var0  a                     Nuvio:Value }
+                  }
+                  { ?Entity_0  a                    Nuvio:InformationContent }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

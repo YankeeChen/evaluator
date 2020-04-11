@@ -1,0 +1,49 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    { ?Weight_0  RFDevice:hasGain  ?SDR_0
+      { ?Weight_0  a                    RFDevice:Weight
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          {   { ?Var0  a                     gml:PolyhedralSurface
+                OPTIONAL
+                  { ?Var0  a                     RFDevice:InformationUnit
+                    { ?Var0     a                     Nuvio:Object .
+                      ?Height_0  RFDevice:hasLength   ?Var0
+                      { ?Height_0  a                    RFDevice:Height }
+                    }
+                    { ?Var1  Nuvio:informationSource  ?Var0
+                      { ?Var1  a                     RFDevice:RadarFrequencyBand
+                        OPTIONAL
+                          {   { ?Var1     a                     Nuvio:Value .
+                                ?SpatialVolumeUnit_0
+                                          Nuvio:hasUnitOfMeasure  ?Var1
+                              }
+                            UNION
+                              { ?Var1  Nuvio:hasPrecision  ?DataValue0
+                                FILTER ( ?DataValue0 >= -5113195 )
+                                OPTIONAL
+                                  { ?SpatialVolumeUnit_0
+                                              a                     RFDevice:SpatialVolumeUnit
+                                  }
+                              }
+                          }
+                      }
+                    }
+                  }
+              }
+            UNION
+              { ?Var0  RFDevice:hasFloatValue  ?DataValue1
+                FILTER ( ! ( ?DataValue1 > "0.0"^^xsd:double ) )
+              }
+          }
+        }
+      }
+    }
+  }

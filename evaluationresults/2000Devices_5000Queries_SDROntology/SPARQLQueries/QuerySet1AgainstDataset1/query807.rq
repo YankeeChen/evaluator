@@ -1,0 +1,41 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?GNURadio_0
+      {   { ?Var0  a                     RFDevice:SpectrumSensing }
+        UNION
+          { ?FreqencyRange_0
+                      RFDevice:hasBandwidthRange  ?Var0
+            { ?FreqencyRange_0
+                        a                     RFDevice:FreqencyRange
+              { ?FrequencyAccuracy_0
+                          RFDevice:hasMax  ?FreqencyRange_0
+                { ?FrequencyAccuracy_0
+                            Nuvio:hasValue  ?Var1
+                  {   { ?UnitOfMeasure_0
+                                  Nuvio:isExpressedBy  ?Var1
+                      }
+                    UNION
+                      { ?Var1  a                     sf:TIN
+                        { ?Var1  a                     Nuvio:InformationEntity }
+                        { ?UnitOfMeasure_0
+                                    a                     Nuvio:UnitOfMeasure
+                        }
+                      }
+                  }
+                }
+              }
+            }
+          }
+        { ?Power_0  RFDevice:hasPulseWidth  ?Var0
+          { ?Power_0  a                     RFDevice:Power }
+        }
+      }
+    }
+  }

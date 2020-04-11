@@ -1,0 +1,33 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  RFDevice:isProducerOf  ?ModelX_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:expresses     ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    gml:Sphere
+            { ?Attribute_0  RFDevice:hasPulseWidth  ?Entity_0
+              { ?Attribute_0  a                 Nuvio:Attribute }
+              { ?Entity_0  Nuvio:isExpressedBy  ?MannedPlatform_0
+                { ?MannedPlatform_0
+                            a                     RFDevice:MannedPlatform
+                }
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?UnitOfMeasure_0
+                            Nuvio:hasUnitOfMeasure  ?Entity_0
+                  { ?UnitOfMeasure_0
+                              a                     Nuvio:UnitOfMeasure
+                  }
+                }
+              }
+            }
+          }
+        { ?Entity_0  Nuvio:hasProcessQuality  ?Process_0 }
+      }
+    }
+  }

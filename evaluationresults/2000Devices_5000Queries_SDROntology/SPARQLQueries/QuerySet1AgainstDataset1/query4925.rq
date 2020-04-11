@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?USRPB200_210_0
+                RFDevice:hasNoiseFigure  ?Entity_0
+      {   { ?Entity_0  a                    Nuvio:Entity }
+        UNION
+          { ?Entity_0  a                    gml:Geodesic
+            { ?Quantity_0  RFDevice:hasBandwidth  ?Entity_0
+              { ?Entity_0  RFDevice:hasPositiveIntegerValue  ?DataValue0
+                FILTER ( ?DataValue0 > 644634372 )
+                {   { ?Entity_0  a                    Nuvio:Value }
+                  UNION
+                    { ?Entity_0  Nuvio:hasPrecision  ?DataValue1
+                      FILTER ( ?DataValue1 != -1253862319 )
+                    }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

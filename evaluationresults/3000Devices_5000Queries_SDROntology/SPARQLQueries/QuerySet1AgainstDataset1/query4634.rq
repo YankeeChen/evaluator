@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Full_DuplexCommunicationsSystem_0
+                RFDevice:hasGain  ?Entity_0
+      { ?Entity_0  a                    RFDevice:CrossPolarizationJamming
+        { ?Entity_0  a                    RFDevice:VoltageUnit }
+        { ?Entity_0  a                    RFDevice:FloatValue
+          { ?Circle_0  Nuvio:relevantIndividual  ?Entity_0
+            { ?Circle_0  a                    gml:Circle }
+            { ?Entity_0  a                    Nuvio:Object }
+          }
+        }
+      }
+    }
+  }

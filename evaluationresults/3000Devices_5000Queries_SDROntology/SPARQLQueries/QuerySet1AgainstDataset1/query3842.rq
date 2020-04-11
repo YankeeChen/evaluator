@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Var0  Nuvio:compositeOf  ?USRPB2xx_0
+      {   { ?Situation_0  Nuvio:isExpressedBy  ?Var0 }
+        UNION
+          { ?Var0  Nuvio:hasValue  ?Var1
+            {   { ?Situation_0  a                 Nuvio:Situation .
+                  ?DigitalModulation_0
+                            Nuvio:relevantIndividual  ?Situation_0
+                  OPTIONAL
+                    { ?QuadratureAmplitudeModulation_0
+                                Nuvio:relevantIndividual  ?Situation_0
+                      { ?QuadratureAmplitudeModulation_0
+                                  a                     RFDevice:QuadratureAmplitudeModulation
+                      }
+                    }
+                }
+              UNION
+                { ?DigitalModulation_0
+                            a                     RFDevice:DigitalModulation
+                }
+            }
+          }
+        { SDR:Freq_61_44MHz
+                    RFDevice:hasSamplingRate  ?Var0
+        }
+      }
+    }
+  }

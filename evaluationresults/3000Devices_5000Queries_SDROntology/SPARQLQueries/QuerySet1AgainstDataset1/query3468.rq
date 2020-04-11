@@ -1,0 +1,40 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                RFDevice:supportsTuning  ?Var0
+      { ?Var0  a                     RFDevice:Transceiving
+        { ?Var0  a                     RFDevice:DeceptiveJamming
+          { ?Entity_0  RFDevice:hasMaxOutputPower  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+              { ?Entity_0  a                    RFDevice:VelocityUnit
+                { ?Entity_0  a                    Nuvio:InformationEntity .
+                  ?Var1     Nuvio:informationSource  ?Entity_0
+                  { ?Var1  a                     RFDevice:InverseGainJamming
+                    { ?Var1  RFDevice:hasPulseRepetitionFrequency  ?Attribute_0 }
+                  }
+                }
+              }
+              { ?Situation_0  Nuvio:relevantIndividual  ObjectDescription:USRPN200_instance26
+                { ?RadioFrequencyBand_0
+                            Nuvio:relevantIndividual  ?Situation_0
+                  { ?RadioFrequencyBand_0
+                              a                     RFDevice:RadioFrequencyBand
+                    { ?FrequencyAccuracy_0
+                                RFDevice:hasMax  ?RadioFrequencyBand_0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

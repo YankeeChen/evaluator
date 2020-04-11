@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX310_0
+WHERE
+  { ?USRPX310_0  a                  SDR:USRPX310
+    { ?USRPX310_0  Nuvio:partOf  ?RadioComponent_0
+      { ?XC6SLX150FPGA_0
+                  Nuvio:compositeOf  ?RadioComponent_0
+        {   { ?XC6SLX150FPGA_0
+                        a                     SDR:XC6SLX150FPGA
+            }
+          UNION
+            { ?Object_0  RFDevice:hasProducer  ?XC6SLX150FPGA_0
+              { ?NoiseFigure_0
+                          RFDevice:hasChargingTime  ?Object_0
+                { ?NoiseFigure_0
+                            a                     RFDevice:NoiseFigure
+                  { ?Var0  Nuvio:hasValue  ?NoiseFigure_0
+                    { ?Var1  Nuvio:hasUnitOfMeasure  ?Var0
+                      { ?Var0  a                     RFDevice:NonNegativeIntegerValue }
+                    }
+                  }
+                }
+              }
+              { ?XC6SLX150FPGA_0
+                          RFDevice:hasProducer  ?Object_1
+              }
+            }
+        }
+      }
+    }
+  }

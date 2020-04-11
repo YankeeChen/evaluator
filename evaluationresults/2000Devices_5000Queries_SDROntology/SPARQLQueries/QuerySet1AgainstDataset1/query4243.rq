@@ -1,0 +1,21 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Transceiving_0
+                RFDevice:supportsJamming  ?Full_DuplexCommunicationsSystem_0
+      { ?Transceiving_0
+                  a                     RFDevice:Transceiving
+        OPTIONAL
+          {   { ?Transceiving_0
+                          a                     RFDevice:Receiving
+              }
+            UNION
+              { ?Object_0  RFDevice:hasBandwidthRange  ?Transceiving_0 }
+          }
+      }
+    }
+  }

@@ -1,0 +1,18 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Entity_0  RFDevice:hasProducer  ?GNURadio_0
+      { ?Entity_0  a                    sf:PolyhedralSurface
+        {   { ?Entity_0  a                    RFDevice:Height }
+          UNION
+            { ?Var0  Nuvio:hasValue  ?Entity_0 }
+        }
+      }
+    }
+  }

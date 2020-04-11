@@ -1,0 +1,33 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  Nuvio:hasObjectQuantity  ?JammingSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationEntity_0
+                  Nuvio:expresses       ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    sf:MultiSurface
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:CumulativeDetection }
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:AngleUnit
+                { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+              }
+          }
+        OPTIONAL
+          { ?InformationEntity_0
+                      a                     Nuvio:InformationEntity ;
+                      Nuvio:isExpressedBy   ?MultiCurve_0
+            { ?MultiCurve_0
+                        a                     sf:MultiCurve
+            }
+          }
+      }
+    }
+  }

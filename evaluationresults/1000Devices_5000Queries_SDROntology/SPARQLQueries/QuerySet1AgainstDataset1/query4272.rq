@@ -1,0 +1,31 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Entity_0  RFDevice:hasProducer  ?Full_DuplexCommunicationsSystem_0
+        { ?Filter_0  Nuvio:relevantIndividual  ?Entity_0
+          { ?Filter_0  Nuvio:aggregateOf  ?XC7K325TFPGA_0
+            { ?Var0  RFDevice:hasProducer  ?XC7K325TFPGA_0 }
+          }
+          { ?Entity_0  a                    RFDevice:SpatialLinearUnit
+            { ?Var1  Nuvio:hasValue  ?Entity_0
+              { ?Var1  a                     RFDevice:NonNegativeDecimalValue
+                { ?Var1  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 > 1048329419 )
+                }
+              }
+            }
+            { ?Entity_0  a                    Nuvio:Attribute }
+          }
+          { ObjectDescription:Instance802
+                      Nuvio:hasSubprocess  ?Entity_0
+          }
+        }
+      }
+  }

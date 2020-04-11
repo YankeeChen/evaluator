@@ -1,0 +1,63 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?SuperheterodyneReceiver_0
+                Nuvio:aggregateOf  ?RadarWarningReceiver_0
+      { ?SuperheterodyneReceiver_0
+                  RFDevice:hasNoiseFigure  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?Process_0  Nuvio:expresses     ?Entity_0
+          { ?Entity_0  a                    sf:Line
+            { ?Entity_0  a                    RFDevice:LongitudeValueInDegree
+              { ?Entity_0  Nuvio:hasDataValue  ?DataValue0
+                FILTER ( ?DataValue0 >= "-180"^^xsd:decimal )
+              }
+            }
+            { ?Entity_0  a                    RFDevice:Velocity
+              { ?Entity_0  a                    Nuvio:Object .
+                ?AutomaticGainControl_0
+                          Nuvio:hasParticipant  ?Entity_0
+                { ?AutomaticGainControl_0
+                            a                     RFDevice:AutomaticGainControl
+                  { ?AutomaticGainControl_0
+                              RFDevice:hasPulseWidth  ?Quantity_0
+                    { ?Quantity_0  a                  Nuvio:Quantity }
+                  }
+                }
+              }
+            }
+          }
+          { ?Process_0  a                   Nuvio:Process .
+            ?FrequencyScanRate_0
+                      RFDevice:hasMaxOutputPower  ?Process_0
+            { ?FrequencyScanRate_0
+                        a                     RFDevice:FrequencyScanRate
+              { ?Var0  Nuvio:hasValue  ?FrequencyScanRate_0
+                {   { ?Var0  RFDevice:hasFloatValue  ?DataValue1
+                      FILTER ( ?DataValue1 < 1195956254 )
+                      { ?Var0  a                     Nuvio:Value ;
+                               Nuvio:hasUnitOfMeasure  ?SpatialLinearUnit_0
+                      }
+                    }
+                  UNION
+                    { ?FrequencyScanRateUnit_0
+                                Nuvio:hasUnitOfMeasure  ?Var0
+                      { ?FrequencyScanRateUnit_0
+                                  a                     RFDevice:FrequencyScanRateUnit
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

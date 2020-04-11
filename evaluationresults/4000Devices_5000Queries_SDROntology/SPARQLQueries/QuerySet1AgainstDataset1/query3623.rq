@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?UnmannedPlatform_0
+                RFDevice:isDeployedOn  ?SurveillanceRadar_0
+      { ?UnmannedPlatform_0
+                  a                     RFDevice:UnmannedPlatform
+      }
+    }
+  }

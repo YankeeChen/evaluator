@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?Var0  RFDevice:supportsJamming  ?USRPB200_210_0
+      { ?Var0  a                     Nuvio:Process ;
+               Nuvio:hasProcessQuality  ?Quality_0
+        { ?Quality_0  a                   Nuvio:Quality }
+        { ?Var0  a                     RFDevice:StandoffJamming
+          OPTIONAL
+            { ?Entity_0  RFDevice:hasMaxOutputPower  ?Var0
+              { ?Entity_0  a                    Nuvio:Entity ;
+                          Nuvio:expresses       ?Entity_0
+                { ?Entity_0  a                    RFDevice:Modulation
+                  { ?Entity_0  a                    Nuvio:Attribute }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

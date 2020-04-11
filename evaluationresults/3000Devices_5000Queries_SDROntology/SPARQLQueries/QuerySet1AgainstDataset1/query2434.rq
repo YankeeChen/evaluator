@@ -1,0 +1,24 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Var0  RFDevice:supportsJamming  ?Full_DuplexCommunicationsSystem_0
+        { ?Var0  a                     RFDevice:FixedBandwidthSensing
+          { ?Var0  RFDevice:hasBandwidthRange  ?QuantityRange_0
+            { ?QuantityRange_0
+                        a                     RFDevice:QuantityRange
+              { ?FrequencyAccuracy_0
+                          RFDevice:hasMax  ?QuantityRange_0
+                { ?FrequencyAccuracy_0
+                            a                     RFDevice:FrequencyAccuracy
+                }
+              }
+            }
+          }
+        }
+      }
+  }

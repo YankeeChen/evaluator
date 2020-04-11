@@ -1,0 +1,35 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?SearchRadar_0
+                Nuvio:compositeOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationEntity_0
+                  Nuvio:expresses       ?Entity_0
+        {   { ?Entity_0  a                    sf:MultiPolygon
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:Moving }
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Object .
+              ?ElectricCharge_0
+                        RFDevice:hasVoltage   ?Entity_0
+            }
+          { ?Entity_0  a                    Nuvio:Attribute }
+        }
+        {   { ?Var0  Nuvio:informationSource  ?InformationEntity_0 }
+          UNION
+            {   { ?Entity_1  RFDevice:hasMaxOutputPower  ?Var0 }
+              UNION
+                { ?Var0  a                     Nuvio:InformationContent }
+            }
+        }
+      }
+    }
+  }

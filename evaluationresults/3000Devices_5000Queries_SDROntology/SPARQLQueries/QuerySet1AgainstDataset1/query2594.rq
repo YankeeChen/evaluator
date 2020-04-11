@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              a                     SDR:USRPB2xxmini
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?USRPB2xxmini_0
+        { ObjectDescription:NoiseFigure_instance144
+                    RFDevice:hasPulseRepetitionInterval  ?Var0
+          {   { ?Var0  a                     RFDevice:Receiving }
+            UNION
+              { ?FreqencyRange_0
+                          RFDevice:hasBandwidthRange  ?Var0
+                { ?FreqencyRange_0
+                            a                     RFDevice:FreqencyRange
+                }
+              }
+          }
+        }
+      }
+  }

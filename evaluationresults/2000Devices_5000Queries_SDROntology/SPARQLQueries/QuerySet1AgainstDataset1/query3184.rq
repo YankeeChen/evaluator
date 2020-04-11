@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    OPTIONAL
+      { ?MannedPlatform_0
+                  RFDevice:isDeployedOn  ?USRPB200mini_0
+        { ?MannedPlatform_0
+                    a                     RFDevice:MannedPlatform
+        }
+      }
+  }

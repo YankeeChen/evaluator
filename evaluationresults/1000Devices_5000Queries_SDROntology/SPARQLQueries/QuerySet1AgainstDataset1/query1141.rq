@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Entity_0  RFDevice:hasProducer  ?ElectronicAttackSystem_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:isExpressedBy   ?Situation_0
+        {   { ?Entity_0  a                    RFDevice:Percentage }
+          UNION
+            { ?SpatialAreaUnit_0
+                        Nuvio:expresses  ?Entity_0
+            }
+        }
+        { ?Situation_0  a                 Nuvio:Situation }
+      }
+    }
+  }

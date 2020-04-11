@@ -1,0 +1,27 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?JammingSystem_0
+                Nuvio:aggregateOf  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:expresses     ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:EnergyDetection
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 <= -1301598578 )
+            }
+            { ?Entity_0  a                    Nuvio:InformationEntity }
+            { ?Process_0  a                   Nuvio:Process .
+              ObjectDescription:EmitterLocationDetection_instance1
+                        Nuvio:subprocessOf    ?Process_0
+            }
+          }
+      }
+    }
+  }

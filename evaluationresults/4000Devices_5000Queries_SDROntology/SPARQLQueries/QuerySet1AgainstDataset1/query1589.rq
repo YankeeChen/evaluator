@@ -1,0 +1,31 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    OPTIONAL
+      { ?Aircraft_0  RFDevice:isDeployedOn  ?SurveillanceRadar_0
+        { ?Aircraft_0  a                  RFDevice:Aircraft
+          { ?Entity_0  RFDevice:supportsSpectrumSensing  ?Aircraft_0
+            {   { ?Entity_0  a                    Nuvio:Entity .
+                  ?Value_0  Nuvio:isExpressedBy   ?Entity_0
+                }
+              UNION
+                {   { ?Entity_0  a                    RFDevice:Full-DuplexCommunicationsSystem }
+                  UNION
+                    { ?Entity_0  RFDevice:hasProducer  ?Object_0
+                      { ?Object_0  a                    Nuvio:Object .
+                        ObjectDescription:AntennaPolarization_instance40
+                                  RFDevice:hasPolarization  ?Object_0
+                      }
+                    }
+                  { ?Value_0  a                     Nuvio:Value }
+                }
+            }
+          }
+        }
+      }
+  }

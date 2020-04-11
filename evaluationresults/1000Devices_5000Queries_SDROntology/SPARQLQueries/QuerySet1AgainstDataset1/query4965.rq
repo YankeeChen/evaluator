@@ -1,0 +1,44 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX310_0
+WHERE
+  { ?USRPX310_0  a                  SDR:USRPX310
+    OPTIONAL
+      { ?Var0  RFDevice:hasCapability  ?USRPX310_0
+        { ?Entity_0  RFDevice:hasBandwidth  ?Var0
+          { ?Process_0  Nuvio:expresses  ?Entity_0
+            OPTIONAL
+              {   { ?Entity_0  a                    Nuvio:Situation .
+                    ?ADC_0    Nuvio:relevantIndividual  ?Entity_0
+                  }
+                UNION
+                  { ?ElectronicSupportSystem_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                  }
+                { ?ADC_0  a                     RFDevice:ADC
+                  { ?Attribute_0  RFDevice:hasResolution  ?ADC_0
+                    { ?Attribute_0  a                 Nuvio:Attribute }
+                  }
+                }
+              }
+            { ?Entity_1  Nuvio:hasProcessQuality  ?Process_0 }
+          }
+          { ?Var0  a                     RFDevice:SpectrumSensing
+            { ObjectDescription:Frequency_instance58
+                        RFDevice:hasBandwidth  ?Var0
+            }
+          }
+          { ?Var0  a                     RFDevice:InboundRangeGatePullOffJamming
+            {   { ?Var0  a                     RFDevice:Receiving }
+              UNION
+                { ObjectDescription:RadarFrequencyBand_instance22
+                            RFDevice:hasFrequencyAccuracy  ?Var0
+                }
+            }
+          }
+        }
+      }
+  }

@@ -1,0 +1,23 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Var0  RFDevice:supportsJamming  ?RadarWarningReceiver_0
+      { ?Var0  a                     Nuvio:Entity
+        {   { ?Var0  geosparql:spatialDimension  ?DataValue0
+              FILTER ( ?DataValue0 = -340447737 )
+            }
+          UNION
+            { ?Var0  a                     RFDevice:InformationUnit
+              { ?Var0  a                     RFDevice:PositiveIntegerValue }
+            }
+        }
+      }
+    }
+  }

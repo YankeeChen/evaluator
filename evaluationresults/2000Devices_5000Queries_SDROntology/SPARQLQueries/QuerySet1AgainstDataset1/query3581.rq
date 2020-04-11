@@ -1,0 +1,40 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?Var0  RFDevice:supportsTuning  ?CR_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { ?Var0  a                     RFDevice:SpectrumSensing }
+        { ?Quantity_0  RFDevice:hasMaxOutputPower  ?Var0
+          { ?Quantity_0  a                  Nuvio:Quantity }
+        }
+        { ?Var0  Nuvio:expresses  ?Var0
+          { ?Var0  a                     RFDevice:QuantityRange
+            { ?FrequencyScanRate_0
+                        RFDevice:hasMax  ?Var0
+              { ?Var1  Nuvio:hasValue  ?FrequencyScanRate_0
+                { ?Var1  a                     RFDevice:PositiveIntegerValue
+                  { RFDevice:Hz_per_s
+                              Nuvio:hasUnitOfMeasure  ?Var1
+                  }
+                }
+              }
+            }
+            { ?Var0  a                     RFDevice:FormationJamming
+              { ?Var0  a                     RFDevice:AngleValue
+                { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 <= 1637753024 )
+                }
+              }
+            }
+            { ?Var0  a                     RFDevice:Frequency }
+          }
+        }
+      }
+    }
+  }

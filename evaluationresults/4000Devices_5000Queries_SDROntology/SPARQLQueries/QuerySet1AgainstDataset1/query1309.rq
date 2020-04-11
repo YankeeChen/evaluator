@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?Entity_0  RFDevice:hasSamplingRate  ?CR_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    gml:PolyhedralSurface
+          { ?Entity_0  a                    RFDevice:ElectronicProtection }
+          { ?Entity_0  a                    RFDevice:LongValue
+            { ?Entity_0  a                    RFDevice:FrequencyScanRate
+              { ?UnitOfMeasure_0
+                          Nuvio:hasUnitOfMeasure  ?Entity_0
+                { ?UnitOfMeasure_0
+                            a                     Nuvio:UnitOfMeasure
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

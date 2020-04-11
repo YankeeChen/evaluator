@@ -1,0 +1,30 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    { ?Var0  RFDevice:supportsTransmitting  ?USRPN200_0
+      { ?Var1  RFDevice:hasTransmitPowerRange  ?Var0
+        OPTIONAL
+          { ?Power_0  RFDevice:hasPulseRepetitionInterval  ?Var0
+            { ?Power_0  a                     RFDevice:Power
+              { ?Var2  Nuvio:hasValue  ?Power_0
+                { ?UnitOfMeasure_0
+                            Nuvio:hasUnitOfMeasure  ?Var2
+                  { ?UnitOfMeasure_0
+                              a                     Nuvio:UnitOfMeasure
+                  }
+                  { ?Var2  RFDevice:hasDoubleValue  ?DataValue0
+                    FILTER ( ?DataValue0 < 49.36 )
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

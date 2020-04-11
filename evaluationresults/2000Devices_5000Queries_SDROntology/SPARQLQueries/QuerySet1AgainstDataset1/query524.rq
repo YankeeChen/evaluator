@@ -1,0 +1,45 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Var0  RFDevice:supportsJamming  ?Full_DuplexCommunicationsSystem_0
+      { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+        { ?Power_0  a                     RFDevice:Power
+          { ?Power_0  Nuvio:hasValue  ?Var1
+            { ?Var1  a                     RFDevice:LongValue
+              { ?Var1  RFDevice:hasPositiveIntegerValue  ?DataValue0
+                FILTER ( ?DataValue0 = -99.77 )
+              }
+            }
+          }
+        }
+        {   { ?Var0     a                     Nuvio:Entity .
+              ?InformationContent_0
+                        Nuvio:expresses       ?Var0
+            }
+          UNION
+            {   {   { ?Var0  a                     RFDevice:NoiseJamming
+                      { ?Var0  RFDevice:hasMaxOutputPower  ?Power_0 }
+                    }
+                  UNION
+                    { ?Var0  a                     RFDevice:LongitudeValueInRadian
+                      { ?Var2  Nuvio:hasUnitOfMeasure  ?Var0 }
+                    }
+                  { ?Var3  Nuvio:hasValue  ?Var0 }
+                }
+              UNION
+                { ?Var0  RFDevice:hasLength  ?Power_0 }
+            }
+          { ?InformationContent_0
+                      a                     Nuvio:InformationContent .
+            ?Var0     Nuvio:representedBy   ?InformationContent_0
+          }
+        }
+      }
+    }
+  }

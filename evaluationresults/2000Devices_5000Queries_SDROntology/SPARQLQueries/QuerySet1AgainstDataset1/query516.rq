@@ -1,0 +1,19 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?Entity_0  RFDevice:hasProducer  ?PulseDopplerRadar_0
+      {   { ObjectDescription:AntennaPolarization_instance19
+                      Nuvio:hasObjectQuality  ?Entity_0
+          }
+        UNION
+          { ?Entity_0  a                    RFDevice:SpatialAreaUnit
+            { ?Entity_0  a                    RFDevice:ElectricCharge }
+          }
+      }
+    }
+  }

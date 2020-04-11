@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Var0  RFDevice:supportsTuning  ?SurveillanceRadar_0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  a                     SDR:USRPN3xx
+          { ?CoverPulsesJamming_0
+                      Nuvio:isExpressedBy  ?Var0
+            OPTIONAL
+              { ?CoverPulsesJamming_0
+                          a                     RFDevice:CoverPulsesJamming
+                { ?CoverPulsesJamming_0
+                            RFDevice:hasPulseRepetitionFrequency  ?Power_0
+                  { ?Power_0  a                     RFDevice:Power }
+                }
+              }
+            OPTIONAL
+              { ?Var0  a                     Nuvio:UnitOfMeasure }
+          }
+        }
+        { ?Transceiving_0
+                    Nuvio:hasSubprocess  ?Var0
+          { ?Transceiving_0
+                      a                     RFDevice:Transceiving
+          }
+        }
+      }
+    }
+  }

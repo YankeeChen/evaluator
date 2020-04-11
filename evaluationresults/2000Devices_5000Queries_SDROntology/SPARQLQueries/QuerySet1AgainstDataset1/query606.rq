@@ -1,0 +1,41 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200mini_0
+WHERE
+  { ?USRPB200mini_0
+              a                     SDR:USRPB200mini
+    { ?Object_0  RFDevice:isDeployedOn  ?USRPB200mini_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?Height_0  RFDevice:hasWeight   ?Object_0
+        { ?Height_0  a                    RFDevice:Height
+          { ?Var0  Nuvio:hasValue  ?Height_0
+            {   { ?SpatialLinearUnit_0
+                            Nuvio:hasUnitOfMeasure  ?Var0
+                }
+              UNION
+                {   { ?Var0  a                     Nuvio:Entity }
+                  UNION
+                    { ?Var0  a                     RFDevice:PhaseShiftKeyingModulation
+                      { ?Var0  a                     RFDevice:PowerUnit }
+                      {   { ?Var0  a                     Nuvio:InformationEntity .
+                            ?Var1  Nuvio:informationSource  ?Var0
+                          }
+                        UNION
+                          {   { ?Var1  a                     RFDevice:WhipAntenna }
+                            UNION
+                              { ObjectDescription:Gain_instance15
+                                          RFDevice:hasCapacity  ?Var1
+                              }
+                          }
+                      }
+                    }
+                }
+            }
+          }
+        }
+      }
+    }
+  }

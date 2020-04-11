@@ -1,0 +1,37 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?ModelX_0  RFDevice:isProducerOf  ?Entity_0
+      { ?InformationRepresentation_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:BistaticRadar
+          { ?RadioComponent_0
+                      Nuvio:aggregateOf  ?Entity_0
+            { ?RadioComponent_0
+                        a                     RFDevice:RadioComponent
+              { ObjectDescription:Oscillator_instance32
+                          Nuvio:partOf  ?RadioComponent_0
+              }
+            }
+          }
+          { ?Entity_0  a                    RFDevice:FixedBandwidthSensing }
+          { ?Entity_0  a                    RFDevice:Power
+            { ?Entity_0  Nuvio:hasValue  ?Var0 }
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Value .
+                RFDevice:Meter
+                          Nuvio:hasUnitOfMeasure  ?Entity_0
+              }
+          }
+        }
+        { ?InformationRepresentation_0
+                    a                     Nuvio:InformationRepresentation .
+          ?Entity_0  Nuvio:represents     ?InformationRepresentation_0
+        }
+      }
+    }
+  }

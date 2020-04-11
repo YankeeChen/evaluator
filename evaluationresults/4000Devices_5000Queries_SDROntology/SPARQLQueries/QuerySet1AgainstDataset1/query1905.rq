@@ -1,0 +1,18 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    OPTIONAL
+      { ?PulseDopplerRadarModulation_0
+                  RFDevice:supportsSpectrumSensing  ?SurveillanceRadar_0
+        { ?PulseDopplerRadarModulation_0
+                    a                     RFDevice:PulseDopplerRadarModulation
+          { ?PulseDopplerRadarModulation_0
+                      RFDevice:hasEffectiveRadiatedPower  ?Quantity_0
+          }
+        }
+      }
+  }

@@ -1,0 +1,55 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Entity_0  RFDevice:isProducerOf  ?SurveillanceRadar_0
+      {   { ?InformationEntity_0
+                      Nuvio:expresses  ?Entity_0
+          }
+        UNION
+          {   { ?Entity_0  a                    RFDevice:TimeInterval
+                { ?Var0  Nuvio:hasValue  ?Entity_0 }
+              }
+            UNION
+              { ?Entity_0  a                    Nuvio:Situation ;
+                          Nuvio:relevantIndividual  ObjectDescription:IEDTrigger_instance148
+                OPTIONAL
+                  { ?StandoffJamming_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                    {   { ?StandoffJamming_0
+                                    a                     RFDevice:StandoffJamming
+                        }
+                      UNION
+                        { ?Entity_1  RFDevice:hasPulseRepetitionFrequency  ?StandoffJamming_0 }
+                    }
+                  }
+              }
+            { ?Entity_0  a                    Nuvio:Value .
+              ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+              OPTIONAL
+                { ?AngleUnit_0  a                 RFDevice:AngleUnit }
+            }
+            OPTIONAL
+              {   { ?InformationEntity_0
+                              a                     Nuvio:InformationEntity .
+                    ?PositiveIntegerValue_0
+                              Nuvio:isExpressedBy   ?InformationEntity_0
+                  }
+                UNION
+                  { ?PositiveIntegerValue_0
+                              a                     RFDevice:PositiveIntegerValue
+                    { ?PositiveIntegerValue_0
+                                RFDevice:hasIntegerValue  ?DataValue0
+                      FILTER ( ?DataValue0 < 552252233 )
+                    }
+                  }
+              }
+          }
+      }
+    }
+  }

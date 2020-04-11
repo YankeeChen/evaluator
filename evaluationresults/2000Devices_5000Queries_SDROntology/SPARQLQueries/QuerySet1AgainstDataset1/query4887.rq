@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?Aircraft_0  RFDevice:isDeployedOn  ?Full_DuplexCommunicationsSystem_0
+        { ?Entity_0  RFDevice:supportsJamming  ?Aircraft_0
+          { ?Entity_0  a                    RFDevice:BarrageJamming
+            { ?Entity_0  RFDevice:hasPulseWidth  ?Attribute_0
+              { ?Attribute_0  a                 Nuvio:Attribute }
+            }
+            { ?Entity_0  a                    RFDevice:InformationUnit }
+            { ?Entity_0  a                    RFDevice:FloatValue }
+          }
+        }
+      }
+  }

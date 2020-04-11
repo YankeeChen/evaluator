@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?Entity_0  RFDevice:isProducerOf  ?USRPN210_0
+      { ?Entity_0  a                    sf:Polygon
+        {   { ?Entity_0  a                    Nuvio:Object .
+              ?PulseRadarModulation_0
+                        RFDevice:supportsTransmitting  ?Entity_0
+            }
+          UNION
+            { ?PulseRadarModulation_0
+                        a                     RFDevice:PulseRadarModulation
+            }
+        }
+      }
+    }
+  }

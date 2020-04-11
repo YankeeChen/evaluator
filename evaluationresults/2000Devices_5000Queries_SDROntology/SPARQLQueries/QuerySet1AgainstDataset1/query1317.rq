@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    { ?SDR_0  RFDevice:supportsTuning  ?Var0
+      { ?Attribute_0  RFDevice:hasBandwidth  ?Var0
+        { ?Attribute_0  a                 Nuvio:Attribute }
+        { ?Var0  a                     RFDevice:AdjustableBandwidthSensing }
+        { ?Var0  a                     RFDevice:Transceiving
+          { ?Var0  a                     Nuvio:Process ;
+                   RFDevice:hasMaxOutputPower  ObjectDescription:Frequency_instance209
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,36 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    OPTIONAL
+      { ?Object_0  RFDevice:isProducerOf  ?SurveillanceRadar_0
+        { ?Entity_0  RFDevice:hasPolarization  ?Object_0
+          OPTIONAL
+            { ?InformationEntity_0
+                        Nuvio:isExpressedBy  ?Entity_0
+              {   { ?Entity_0  a                    RFDevice:SweptSpotJamming
+                    { ?Entity_1  RFDevice:hasPulseRepetitionFrequency  ?Entity_0 }
+                  }
+                UNION
+                  { ?Entity_0  a                    Nuvio:Value .
+                    ?AngleUnit_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+                    { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 != -1025291660 )
+                    }
+                    { ?AngleUnit_0  a                 RFDevice:AngleUnit }
+                    { ?Entity_0  a                    RFDevice:Percentage }
+                  }
+                { ?InformationEntity_0
+                            a                     Nuvio:InformationEntity ;
+                            Nuvio:expresses       ObjectDescription:ADC_instance1
+                }
+              }
+            }
+        }
+      }
+  }

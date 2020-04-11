@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Var0  RFDevice:supportsJamming  ?USRPN2xx_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?Process_0  Nuvio:isExpressedBy  ?Var0
+        { ?Var0  a                     RFDevice:NoiseJamming
+          { ?Var0  RFDevice:hasEffectiveRadiatedPower  ?Var0 }
+          {   { ?Angle_0  RFDevice:hasWidth  ?Var0 }
+            UNION
+              { ?Angle_0  a                     RFDevice:Angle
+                { ObjectDescription:LongitudeValueInRadian_instance0
+                            Nuvio:hasValue  ?Angle_0
+                }
+              }
+            { ?Var0  a                     Nuvio:UnitOfMeasure }
+          }
+        }
+        { ?Process_0  a                   Nuvio:Process }
+      }
+    }
+  }

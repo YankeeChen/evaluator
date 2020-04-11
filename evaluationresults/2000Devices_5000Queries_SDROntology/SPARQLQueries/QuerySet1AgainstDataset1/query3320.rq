@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    OPTIONAL
+      { ?Satellite_0  RFDevice:isDeployedOn  ?USRPN210_0
+        {   { ?Satellite_0  a                 RFDevice:Satellite }
+          UNION
+            { ?Satellite_0  RFDevice:supportsTuning  ?Entity_0
+              { ?Entity_0  a                    Nuvio:Entity .
+                ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+                { ?XilinxFPGA_0
+                            Nuvio:compositeOf  ?Entity_0
+                  { ?Entity_1  RFDevice:hasProducer  ?XilinxFPGA_0
+                    { ObjectDescription:Producer_instance611
+                                RFDevice:hasProducer  ?XilinxFPGA_0
+                    }
+                  }
+                  { ?Entity_0  RFDevice:hasNoiseFigure  ?ElectricCharge_0 }
+                  OPTIONAL
+                    { ?Process_0  a                   Nuvio:Process .
+                      ?Processor_0  RFDevice:hasTarget  ?Process_0
+                    }
+                }
+              }
+            }
+        }
+      }
+  }

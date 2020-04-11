@@ -1,0 +1,48 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    OPTIONAL
+      { ?SearchRadar_0
+                  Nuvio:aggregateOf  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+          { ?Entity_0  a                    RFDevice:Amplifier
+            { ?Quantity_0  RFDevice:hasNoiseFigure  ?Entity_0 }
+            {   { ?Entity_0  a                    RFDevice:NoiseJamming }
+              UNION
+                { ?Entity_1  RFDevice:hasEffectiveRadiatedPower  ?Entity_0 }
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:SpatialAreaUnit
+                  OPTIONAL
+                    {   { ?Entity_0  a                    RFDevice:Weight
+                          { ?Var0  Nuvio:hasValue  ?Entity_0
+                            { ?Entity_1  Nuvio:hasUnitOfMeasure  ?Var0 }
+                          }
+                        }
+                      UNION
+                        {   { ?Entity_0  a                    Nuvio:Value }
+                          UNION
+                            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                              FILTER ( ?DataValue0 >= -2113793898 )
+                            }
+                        }
+                      { ?Entity_0  a                    Nuvio:InformationRepresentation }
+                    }
+                }
+            }
+          }
+          { ?Object_0  a                    Nuvio:Object ;
+                      RFDevice:supportsTransmitting  ?CumulativeDetection_0
+            { ?CumulativeDetection_0
+                        a                     RFDevice:CumulativeDetection
+            }
+          }
+        }
+      }
+  }

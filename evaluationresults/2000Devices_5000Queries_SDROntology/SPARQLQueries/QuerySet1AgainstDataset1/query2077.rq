@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    OPTIONAL
+      { ?USRPB200_0  Nuvio:aggregateOf  ?IEDJammer_0
+        { ?IEDJammer_0  a                 RFDevice:IEDJammer
+          { ObjectDescription:Instance853
+                      RFDevice:supportsTransmitting  ?IEDJammer_0
+          }
+        }
+      }
+  }

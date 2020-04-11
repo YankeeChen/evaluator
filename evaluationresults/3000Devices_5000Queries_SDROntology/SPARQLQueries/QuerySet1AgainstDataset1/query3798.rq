@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  Nuvio:hasObjectQuantity  ?RadarSystem_0
+      { ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Var0  Nuvio:informationSource  ?Entity_0
+          OPTIONAL
+            {   { ?Var0     a                     Nuvio:Situation .
+                  ?LineString_0
+                            Nuvio:relevantIndividual  ?Var0
+                }
+              UNION
+                { ?LineString_0
+                            a                     gml:LineString
+                }
+            }
+        }
+      }
+    }
+  }

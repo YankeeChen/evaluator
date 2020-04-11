@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?RadarSystem_0
+                RFDevice:supportsTransmitting  ?Var0
+      {   { ?Var0  a                     SDR:USRPN300
+            { ?Var1  Nuvio:aggregateOf  ?Var0
+              { ?Var2  RFDevice:hasWeight  ?Var1
+                { ?Var3  RFDevice:hasHeight  ?Var1
+                  { SDR:Data_14bit
+                              RFDevice:hasResolution  ?Var1
+                  }
+                }
+              }
+            }
+          }
+        UNION
+          { ?Var0  RFDevice:hasDoubleValue  ?DataValue0 }
+      }
+    }
+  }

@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    { ?Var0  Nuvio:partOf  ?USRPN200_0
+      { ?Var0  a                     RFDevice:ADC
+        { ?WhipAntenna_0
+                    Nuvio:compositeOf  ?Var0
+          { ?WhipAntenna_0
+                      a                     RFDevice:WhipAntenna
+            OPTIONAL
+              { ?Var1  RFDevice:hasCapability  ?WhipAntenna_0
+                { ?Var1     a                     Nuvio:Entity .
+                  ?InformationContent_0
+                            Nuvio:isExpressedBy   ?Var1
+                  { ?Var1  a                     RFDevice:OnOffKeyingModulation
+                    { ?Var1     a                     Nuvio:Process .
+                      ?Quality_0  Nuvio:hasProcessQuality  ?Var1
+                    }
+                    { ?InformationContent_0
+                                a                     Nuvio:InformationContent .
+                      ?Var1     Nuvio:represents      ?InformationContent_0
+                    }
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

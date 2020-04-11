@@ -1,0 +1,20 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Var0  RFDevice:hasCapability  ?ElectronicAttackSystem_0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  a                     RFDevice:PhaseShiftKeyingModulation
+          { ?Var0  a                     RFDevice:Width
+            { ?Var1  Nuvio:hasValue  ?Var0
+              { ?Var1  a                     RFDevice:DecimalValue }
+            }
+          }
+        }
+      }
+    }
+  }

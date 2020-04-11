@@ -1,0 +1,23 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:partOf  ?ModelX_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Value_0  Nuvio:isExpressedBy   ?Entity_0
+        { ?Entity_0  a                    RFDevice:PositiveFloatValue
+          { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+            FILTER ( ?DataValue0 < "84.861374"^^xsd:double )
+          }
+          { ?Entity_0  a                    Nuvio:Process .
+            ObjectDescription:AntennaPolarization_instance28
+                      Nuvio:hasProcessQuality  ?Entity_0
+          }
+        }
+      }
+    }
+  }

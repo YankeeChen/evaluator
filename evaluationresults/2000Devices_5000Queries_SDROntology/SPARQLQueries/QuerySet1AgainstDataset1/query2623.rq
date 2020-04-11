@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?DirectConversionReceiver_0
+                Nuvio:aggregateOf  ?ElectronicAttackSystem_0
+      { ?Artix7FPGA_0
+                  Nuvio:partOf  ?DirectConversionReceiver_0
+        { ?Object_0  RFDevice:isProducerOf  ?Artix7FPGA_0
+          { ?StandoffJamming_0
+                      Nuvio:participatesIn  ?Object_0
+            { ?StandoffJamming_0
+                        a                     RFDevice:StandoffJamming
+              { ?Attribute_0  RFDevice:hasTransmitPowerRange  ?StandoffJamming_0 }
+            }
+          }
+        }
+      }
+    }
+  }

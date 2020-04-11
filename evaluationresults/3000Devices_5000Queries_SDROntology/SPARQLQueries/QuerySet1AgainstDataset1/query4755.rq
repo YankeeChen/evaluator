@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    OPTIONAL
+      { ?Jammer_0  Nuvio:aggregateOf  ?RFSystem_0
+        { ?Jammer_0  Nuvio:partOf  ?Receiver_0
+          { ?Receiver_0  a                  RFDevice:Receiver
+            { ?Receiver_0  RFDevice:hasNoiseFigure  ?Quantity_0
+              { ?Quantity_0  a                  Nuvio:Quantity }
+            }
+          }
+        }
+      }
+  }

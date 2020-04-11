@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Submarine_0  RFDevice:isDeployedOn  ?CommunicationsSystem_0
+      { ?Moving_0  RFDevice:hasCapability  ?Submarine_0
+        { ?Moving_0  a                    RFDevice:Moving }
+      }
+    }
+  }

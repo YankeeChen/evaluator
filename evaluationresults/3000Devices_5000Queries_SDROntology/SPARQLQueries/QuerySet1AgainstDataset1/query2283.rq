@@ -1,0 +1,20 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Entity_0  RFDevice:isProducerOf  ?ContinuousWaveRadar_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?InformationEntity_0
+        { ?Entity_0  a                    gml:Shell
+          { ?Entity_0  a                    RFDevice:RadarJamming }
+        }
+        { ?InformationEntity_0
+                    a                     Nuvio:InformationEntity
+        }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Var0  RFDevice:hasCapability  ?BistaticRadar_0
+      { ?Var0  RFDevice:hasBandwidthRange  ?Entity_0
+        { ?Entity_0  Nuvio:expresses  ?InformationEntity_0
+          {   { ?Entity_0  a                    gml:MultiCurve }
+            UNION
+              { ?Entity_0  a                    RFDevice:LongitudeValue
+                { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 >= 121331304 )
+                }
+                { ?Entity_0  a                    Nuvio:InformationContent }
+              }
+          }
+        }
+      }
+    }
+  }

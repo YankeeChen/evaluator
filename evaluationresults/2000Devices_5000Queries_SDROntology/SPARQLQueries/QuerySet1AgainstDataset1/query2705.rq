@@ -1,0 +1,32 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Entity_0  RFDevice:hasProducer  ?RadarWarningReceiver_0
+      { ?Situation_0  Nuvio:expresses  ?Entity_0
+        {   { ?Entity_0  a                    gml:OrientableSurface }
+          UNION
+            { ?Entity_0  a                    RFDevice:FrequencyShiftKeyingModulation
+              OPTIONAL
+                { ?Entity_0  a                    Nuvio:Process }
+            }
+        }
+        { ?Situation_0  a                 Nuvio:Situation .
+          ?DeceptiveJamming_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          { ?FeatureDetection_0
+                      Nuvio:relevantIndividual  ?Situation_0
+          }
+          OPTIONAL
+            { ?DeceptiveJamming_0
+                        a                     RFDevice:DeceptiveJamming
+            }
+        }
+      }
+    }
+  }

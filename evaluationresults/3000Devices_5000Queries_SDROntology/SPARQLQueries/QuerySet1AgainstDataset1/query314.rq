@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Object_0  RFDevice:isProducerOf  ?ContinuousWaveRadar_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?Process_0  RFDevice:supportsTransmitting  ?Object_0
+        { ?Process_0  a                   Nuvio:Process .
+          ObjectDescription:AntennaPolarization_instance19
+                    Nuvio:hasProcessQuality  ?Process_0
+        }
+      }
+    }
+  }

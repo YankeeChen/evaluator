@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    { ?Var0  RFDevice:supportsJamming  ?USRPE3xx_0
+      { ?Entity_0  RFDevice:hasTransmitPowerRange  ?Var0
+        { ?Entity_0  a                    RFDevice:LongitudeValueInDegree
+          { ?Entity_0  Nuvio:hasDataValue  ?DataValue0
+            FILTER ( ! ( ?DataValue0 >= "-180"^^xsd:decimal ) )
+          }
+          { ?Entity_0  a                    Nuvio:UnitOfMeasure
+            {   { ?Entity_0  a                    Nuvio:Situation .
+                  ?DigitalModulation_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?Half_DuplexCommunicationsSystem_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                    { ?DigitalModulation_0
+                                a                     RFDevice:DigitalModulation
+                    }
+                  }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:Attribute }
+            }
+          }
+        }
+        { ?Var0  a                     RFDevice:Transceiving }
+      }
+    }
+  }

@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Var0  RFDevice:supportsTransmitting  ?USRPB210_0
+      { ObjectDescription:Jammer_instance106
+                  Nuvio:participatesIn  ?Var0
+        OPTIONAL
+          { ?Var0  a                     RFDevice:DRFMJamming }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?IEDJammer_0  Nuvio:compositeOf  ?JammingSystem_0
+      { ?IEDJammer_0  a                 RFDevice:IEDJammer
+        { ?Entity_0  RFDevice:hasFrequencyRange  ?IEDJammer_0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+            OPTIONAL
+              {   { ?Entity_0  a                    RFDevice:PhasedArrayAntenna }
+                UNION
+                  { ?Entity_0  a                    RFDevice:FrequencyAccuracy
+                    { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                  }
+              }
+            { ?Object_0  a                    Nuvio:Object }
+          }
+        }
+      }
+    }
+  }

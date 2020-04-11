@@ -1,0 +1,45 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?RadarWarningReceiver_0
+      {   { ?Var0     a                     Nuvio:Entity .
+            ?InformationEntity_0
+                      Nuvio:expresses       ?Var0
+          }
+        UNION
+          {   { ?Var0  a                     gml:GeometricComplex }
+            UNION
+              { ?Triangle_0  Nuvio:relevantIndividual  ?Var0
+                { ?Var0  Nuvio:relevantIndividual  ?PulseDopplerRadar_0
+                  { ?PulseDopplerRadar_0
+                              a                     RFDevice:PulseDopplerRadar
+                  }
+                  { ?Triangle_0  a                  gml:Triangle }
+                }
+                OPTIONAL
+                  { ?Var0     a                     Nuvio:Process .
+                    ?Attribute_0  Nuvio:hasProcessQuality  ?Var0
+                  }
+              }
+            { ?Var0    a                     Nuvio:Object .
+              ?Gain_0  RFDevice:hasHeight    ?Var0
+              OPTIONAL
+                { ?Gain_0  a                     RFDevice:Gain
+                  OPTIONAL
+                    { ?Var1  Nuvio:hasValue  ?Gain_0 }
+                }
+            }
+          }
+        OPTIONAL
+          { ?InformationEntity_0
+                      a                     Nuvio:InformationEntity
+          }
+      }
+    }
+  }

@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE310_0
+WHERE
+  { ?USRPE310_0  a                  SDR:USRPE310
+    { ?USRPE310_0  RFDevice:hasProducer  ?Object_0
+      { ?AmplitudeModulation_0
+                  RFDevice:supportsTuning  ?Object_0
+        OPTIONAL
+          { ?AmplitudeModulation_0
+                      a                     RFDevice:AmplitudeModulation
+          }
+      }
+    }
+  }

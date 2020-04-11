@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?Ship_0  RFDevice:isDeployedOn  ?USRPB2xx_0
+      { ?Entity_0  RFDevice:supportsTransmitting  ?Ship_0
+        { ?Entity_0  a                    Nuvio:Entity
+          {   { ?Entity_0  a                    gml:LineStringSegment }
+            UNION
+              {   { ?Entity_0  a                    Nuvio:Object ;
+                              Nuvio:participatesIn  ?ElectronicAttack_0
+                  }
+                UNION
+                  { ?ElectronicAttack_0
+                              a                     RFDevice:ElectronicAttack
+                  }
+              }
+          }
+        }
+      }
+    }
+  }

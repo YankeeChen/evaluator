@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?MobilePlatform_0
+                RFDevice:isDeployedOn  ?MonostaticRadar_0
+      { ?MobilePlatform_0
+                  a                     RFDevice:MobilePlatform
+        { ?Process_0  RFDevice:supportsSpectrumSensing  ?MobilePlatform_0
+          { ?Process_0  a                   Nuvio:Process .
+            ?AmplitudeShiftKeyingModulation_0
+                      Nuvio:hasSubprocess   ?Process_0
+          }
+        }
+      }
+    }
+  }

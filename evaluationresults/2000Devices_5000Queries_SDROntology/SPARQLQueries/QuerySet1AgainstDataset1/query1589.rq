@@ -1,0 +1,37 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Entity_0  Nuvio:aggregateOf  ?RFSystem_0
+      { ?Entity_0  a                    RFDevice:DirectConversionReceiver
+        { ?NoiseFigure_0
+                    RFDevice:hasNoiseFigure  ?Entity_0
+        }
+        { ?Entity_0  a                    Nuvio:DimensionlessUnit
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:DataSize
+              { ?Var0  Nuvio:hasValue  ?Entity_0
+                { ?Var0  Nuvio:hasUnitOfMeasure  ?UnitOfMeasure_0
+                  { ?UnitOfMeasure_0
+                              a                     Nuvio:UnitOfMeasure
+                  }
+                }
+              }
+            }
+          { ?Entity_0  a                    Nuvio:InformationEntity .
+            ?Var1     Nuvio:informationSource  ?Entity_0
+            OPTIONAL
+              { ObjectDescription:TimeInterval_instance9
+                          RFDevice:hasPulseRepetitionInterval  ?Var1
+              }
+          }
+          { ObjectDescription:BistaticRadar_instance18
+                      RFDevice:hasTarget  ?Entity_0
+          }
+        }
+      }
+    }
+  }

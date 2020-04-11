@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Entity_0  RFDevice:hasProducer  ?USRPE313_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:expresses       ?Situation_0
+        { ?Entity_0  a                    gml:GeometricComplex
+          { ?Entity_0  a                    Nuvio:Process .
+            ?Entity_1  Nuvio:hasProcessQuality  ?Entity_0
+          }
+        }
+        OPTIONAL
+          { ?Situation_0  a                 Nuvio:Situation
+            { ?TimeUnit_0  Nuvio:relevantIndividual  ?Situation_0
+              { ?TimeUnit_0  a                  RFDevice:TimeUnit }
+            }
+          }
+      }
+    }
+  }

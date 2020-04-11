@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Entity_0  Nuvio:compositeOf  ?USRPE313_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    Nuvio:Situation .
+          ?CyclostationaryDetection_0
+                    Nuvio:relevantIndividual  ?Entity_0
+          { ObjectDescription:RadarFrequencyBand_instance40
+                      Nuvio:relevantIndividual  ?Entity_0
+          }
+          OPTIONAL
+            { ?CyclostationaryDetection_0
+                        a                     RFDevice:CyclostationaryDetection
+            }
+        }
+      }
+    }
+  }

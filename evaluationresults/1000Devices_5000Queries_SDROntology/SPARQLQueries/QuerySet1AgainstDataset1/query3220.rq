@@ -1,0 +1,30 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    OPTIONAL
+      { ?Object_0  Nuvio:aggregateOf  ?ModelX_0
+        { ?Entity_0  Nuvio:hasObjectQuality  ?Object_0
+          OPTIONAL
+            {   { ?Process_0  Nuvio:isExpressedBy  ?Entity_0 }
+              UNION
+                { ?Entity_0  a                    RFDevice:AmplitudeShiftKeyingModulation
+                  OPTIONAL
+                    { ?Entity_0  a                    RFDevice:FrequencyUnit }
+                }
+              OPTIONAL
+                { ?EmitterLocationDetection_0
+                            Nuvio:subprocessOf  ?Process_0
+                  OPTIONAL
+                    { ?EmitterLocationDetection_0
+                                a                     RFDevice:EmitterLocationDetection
+                      { ?Var0  Nuvio:participatesIn  ?EmitterLocationDetection_0 }
+                    }
+                }
+            }
+        }
+      }
+  }

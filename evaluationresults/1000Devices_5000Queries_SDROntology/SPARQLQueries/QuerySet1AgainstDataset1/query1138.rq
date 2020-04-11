@@ -1,0 +1,30 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Entity_0  RFDevice:hasWeight  ?ElectronicSupportSystem_0
+      { ?Entity_1  RFDevice:hasPulseRepetitionInterval  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Object .
+          ?Entity_1  RFDevice:hasPolarization  ?Entity_0
+          { ?Entity_0  a                    RFDevice:LongitudeValue
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 >= -2012282561 )
+            }
+          }
+          {   { ?Entity_0  a                    Nuvio:InformationEntity ;
+                          Nuvio:isExpressedBy   ?Full_DuplexCommunicationsSystem_0
+              }
+            UNION
+              { ObjectDescription:Producer_instance67
+                          RFDevice:hasProducer  ?Full_DuplexCommunicationsSystem_0
+              }
+          }
+        }
+      }
+    }
+  }

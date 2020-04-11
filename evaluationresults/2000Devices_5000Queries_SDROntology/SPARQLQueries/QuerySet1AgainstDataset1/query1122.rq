@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    OPTIONAL
+      { ?RadioComponent_0
+                  Nuvio:partOf  ?TrackingRadar_0
+        { ?RadioComponent_0
+                    a                     RFDevice:RadioComponent
+          { ?XilinxZynq7000Family_0
+                      Nuvio:partOf  ?RadioComponent_0
+            { ?XilinxZynq7000Family_0
+                        Nuvio:aggregateOf  ?ParabolicDishAntenna_0
+              { ?ParabolicDishAntenna_0
+                          a                     RFDevice:ParabolicDishAntenna
+              }
+            }
+          }
+        }
+      }
+  }

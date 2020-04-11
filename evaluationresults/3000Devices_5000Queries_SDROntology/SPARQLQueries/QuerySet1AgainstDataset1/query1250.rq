@@ -1,0 +1,35 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Var0  RFDevice:supportsTuning  ?CommunicationsSystem_0
+      {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing }
+        UNION
+          { ?Entity_0  RFDevice:hasBandwidthRange  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity .
+              ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+              OPTIONAL
+                {   { ?Entity_0  a                    RFDevice:Role
+                      { ?Entity_0  a                    RFDevice:InboundRangeGatePullOffJamming
+                        { ?Quantity_0  RFDevice:hasMaxOutputPower  ?Entity_0
+                          { ?Quantity_0  a                  Nuvio:Quantity }
+                        }
+                        OPTIONAL
+                          {   { ?Entity_0  a                    RFDevice:FrequencyUnit }
+                            UNION
+                              { ?Entity_0  a                    RFDevice:LongValue }
+                          }
+                      }
+                    }
+                  UNION
+                    { ?Process_0  a                   Nuvio:Process }
+                }
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?BistaticRadar_0
+                  RFDevice:isProducerOf  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+            FILTER ( ?DataValue0 < -33.95 )
+            { ?Entity_0  a                    RFDevice:Ratio
+              { ?Entity_0  a                    Nuvio:InformationContent .
+                ?InformationRepresentation_0
+                          Nuvio:represents      ?Entity_0
+              }
+            }
+          }
+        }
+      }
+  }

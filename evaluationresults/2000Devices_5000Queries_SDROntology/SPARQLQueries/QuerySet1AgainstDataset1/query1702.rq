@@ -1,0 +1,21 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?Entity_0  RFDevice:hasProducer  ?USRPB200_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    RFDevice:ChokeRingAntenna
+          { ?Entity_0  a                    Nuvio:Situation
+            { ?Entity_0  a                    Nuvio:Object .
+              ?Entity_1  Nuvio:hasObjectQuality  ?Entity_0
+            }
+          }
+          { ?Entity_0  a                    Nuvio:Process }
+        }
+      }
+    }
+  }

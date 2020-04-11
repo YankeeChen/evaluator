@@ -1,0 +1,31 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    OPTIONAL
+      { ?SuperheterodyneReceiver_0
+                  Nuvio:partOf  ?Full_DuplexCommunicationsSystem_0
+        { ?Entity_0  RFDevice:hasProducer  ?SuperheterodyneReceiver_0
+          { ?Entity_0  a                    Nuvio:Entity ;
+                      Nuvio:isExpressedBy   ?Process_0
+            {   { ?Entity_0  a                    RFDevice:Filter }
+              UNION
+                { ?Entity_0  Nuvio:aggregateOf  ?DirectionalAntenna_0
+                  { ?DirectionalAntenna_0
+                              a                     RFDevice:DirectionalAntenna
+                    { ObjectDescription:Instance4848
+                                Nuvio:partOf  ?DirectionalAntenna_0
+                    }
+                  }
+                }
+              OPTIONAL
+                { ?Process_0  RFDevice:hasPulseRepetitionInterval  ?Velocity_0 }
+            }
+          }
+        }
+      }
+  }

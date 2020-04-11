@@ -1,0 +1,30 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?Var0  RFDevice:supportsTuning  ?USRPB200_210_0
+      { ?UnitOfMeasure_0
+                  Nuvio:isExpressedBy  ?Var0
+        OPTIONAL
+          {   { ?Var0     a                     Nuvio:Object .
+                ObjectDescription:Frequency_instance48
+                          RFDevice:hasWidth     ?Var0
+                { ?Var0  Nuvio:hasValue  ?Var0 }
+                {   { ?Var1  Nuvio:informationSource  ?Var0 }
+                  UNION
+                    { ?Var1  a                     SDR:XilinxZynq7020SoC }
+                }
+              }
+            UNION
+              { ?UnitOfMeasure_0
+                          a                     Nuvio:UnitOfMeasure
+              }
+          }
+      }
+    }
+  }

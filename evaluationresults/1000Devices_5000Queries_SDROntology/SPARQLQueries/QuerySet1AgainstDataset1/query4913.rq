@@ -1,0 +1,34 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?RFSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationContent_0
+                  Nuvio:expresses       ?Entity_0
+        { ?Entity_0  a                    RFDevice:CommunicationsSystem
+          { ?Entity_1  RFDevice:hasProducer  ?Entity_0 }
+          { ?Entity_0  a                    Nuvio:InformationEntity .
+            ?CompositeSurface_0
+                      Nuvio:expresses       ?Entity_0
+            { ?CompositeSurface_0
+                        a                     gml:CompositeSurface
+            }
+            { ?Entity_0  a                    Nuvio:Value .
+              ?SpatialVolumeUnit_0
+                        Nuvio:hasUnitOfMeasure  ?Entity_0
+              { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                FILTER ( ?DataValue0 = 767495987 )
+              }
+              { ?Entity_0  a                    RFDevice:Velocity }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:hasCapability  ?RFSystem_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        { ?Var0     a                     Nuvio:Process .
+          ?SpatialObject_0
+                    Nuvio:hasParticipant  ?Var0
+          { ?SpatialObject_0
+                      a                     geosparql:SpatialObject .
+            ?MultiLineString_0
+                      geosparql:rcc8tppi    ?SpatialObject_0
+            { ?MultiLineString_0
+                        a                     sf:MultiLineString
+            }
+          }
+        }
+      }
+    }
+  }

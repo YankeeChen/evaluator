@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              a                     SDR:USRPB2xxmini
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?USRPB2xxmini_0
+      { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+        { ?Var0  a                     RFDevice:SpectrumSensing
+          OPTIONAL
+            { ?Object_0  RFDevice:hasBandwidthRange  ?Var0
+              { ?Object_0  a                    Nuvio:Object .
+                ?StandoffJamming_0
+                          RFDevice:hasCapability  ?Object_0
+                {   { ?StandoffJamming_0
+                                a                     RFDevice:StandoffJamming
+                    }
+                  UNION
+                    { ?StandoffJamming_0
+                                RFDevice:hasPulseRepetitionInterval  ?Entity_0
+                      { ?Entity_0  a                    Nuvio:Entity ;
+                                  Nuvio:expresses       ?Object_1
+                        { ?Entity_0  a                    sf:MultiPoint
+                          { ?Entity_0  Nuvio:hasProcessQuantity  ?Power_0
+                            { ?Power_0  a                     RFDevice:Power }
+                          }
+                          { ?Entity_0  a                    RFDevice:DoubleValue }
+                          { ?Entity_0  a                    Nuvio:Attribute }
+                        }
+                      }
+                    }
+                }
+              }
+            }
+        }
+        { ?Var0  a                     RFDevice:SelfProtectionJamming }
+      }
+    }
+  }

@@ -1,0 +1,36 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Weight_0  RFDevice:hasMaxPowerConsumption  ?CommunicationsSystem_0
+      { ?Weight_0  a                    RFDevice:Weight
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          { ?Var0  a                     RFDevice:FloatValue
+            { ?Var0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 >= 687875982 )
+            }
+            { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+              { ?Entity_0  a                    Nuvio:Entity
+                {   { ?Entity_0  a                    RFDevice:PositiveIntegerValue }
+                  UNION
+                    { ?Entity_0  RFDevice:hasFloatValue  ?DataValue1
+                      FILTER ( ?DataValue1 > -20.81 )
+                    }
+                  { ?Entity_0  a                    RFDevice:Percentage }
+                }
+              }
+            }
+            OPTIONAL
+              { ?Var0  RFDevice:hasDoubleValue  ?DataValue2
+                FILTER ( ?DataValue2 > "0.0"^^xsd:double )
+              }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTransmitting  ?PulseDopplerRadar_0
+        { ?Var0     a                     Nuvio:Entity .
+          ?Entity_0  Nuvio:expresses      ?Var0
+          { ?Var0  a                     SDR:USRPB210 }
+        }
+      }
+  }

@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    { ?Var0  Nuvio:partOf  ?USRPE3xx_0
+      { ?Var0  Nuvio:expresses  ?Process_0
+        { ?Var0  a                     RFDevice:CoverJamming
+          { ?Var0  a                     RFDevice:PowerUnit
+            OPTIONAL
+              { ?Var0     a                     Nuvio:Situation .
+                ?Battery_0  Nuvio:relevantIndividual  ?Var0
+                { ?TimeInstant_0
+                            RFDevice:hasMaxPowerConsumption  ?Battery_0
+                  { ?TimeInstant_0
+                              a                     RFDevice:TimeInstant
+                  }
+                }
+              }
+          }
+          OPTIONAL
+            { ?Process_0  a                   Nuvio:Process .
+              ?Quality_0  RFDevice:hasMaxSensedPower  ?Process_0
+              { ?Quality_0  a                   Nuvio:Quality }
+            }
+        }
+        { ?Var1  RFDevice:hasWidth  ?Var0 }
+      }
+    }
+  }

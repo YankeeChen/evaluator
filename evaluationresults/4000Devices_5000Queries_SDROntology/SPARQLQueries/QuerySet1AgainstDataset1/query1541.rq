@@ -1,0 +1,56 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?PulseDopplerRadar_0
+      {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing }
+        UNION
+          {   { ?Var0  a                     RFDevice:CrossEyeJamming }
+            UNION
+              {   { ?Var0  a                     RFDevice:Receiving }
+                UNION
+                  { ?FreqencyRange_0
+                              RFDevice:hasBandwidthRange  ?Var0
+                    { ?FreqencyRange_0
+                                a                     RFDevice:FreqencyRange
+                      OPTIONAL
+                        { ?Entity_0  RFDevice:hasMax  ?FreqencyRange_0
+                          { ?Entity_0  a                    gml:AbstractGeometricPrimitive
+                            {   { ?Entity_0  a                    RFDevice:RadarJamming }
+                              UNION
+                                { ?Power_0  RFDevice:hasTransmitPowerRange  ?Entity_0
+                                  { ?Var1  Nuvio:hasValue  ?Power_0
+                                    { ?Var1  RFDevice:hasDoubleValue  ?DataValue0
+                                      FILTER ( ?DataValue0 > -86.55 )
+                                    }
+                                  }
+                                }
+                              {   { ?Entity_0  a                    Nuvio:Quantity }
+                                UNION
+                                  { ?Entity_0  a                    Nuvio:Situation .
+                                    ?ElectronicSupportSystem_0
+                                              Nuvio:relevantIndividual  ?Entity_0
+                                    { ?ElectronicSupportSystem_0
+                                                a                     RFDevice:ElectronicSupportSystem
+                                      { ObjectDescription:Producer_instance19
+                                                  RFDevice:isProducerOf  ?ElectronicSupportSystem_0
+                                      }
+                                    }
+                                  }
+                              }
+                            }
+                          }
+                        }
+                    }
+                  }
+              }
+          }
+      }
+    }
+  }

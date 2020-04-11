@@ -1,0 +1,22 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?Entity_0  RFDevice:hasHeight  ?RadarWarningReceiver_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:DataTransmissionMode
+          {   { ?Object_0  a                    Nuvio:Object .
+                ?Quantity_0  Nuvio:hasObjectQuality  ?Object_0
+              }
+            UNION
+              { ?Quantity_0  a                  Nuvio:Quantity }
+          }
+        }
+      }
+    }
+  }

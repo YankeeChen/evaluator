@@ -1,0 +1,42 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?ElectronicSupportSystem_0
+                RFDevice:isDeployedOn  ?Submarine_0
+      {   { ?Submarine_0  a                 RFDevice:Submarine }
+        UNION
+          { ?Submarine_0  RFDevice:supportsSpectrumSensing  ?Process_0
+            { ?Process_0  a                   Nuvio:Process .
+              ?Entity_0  Nuvio:subprocessOf   ?Process_0
+              {   { ?Entity_0  a                    Nuvio:Entity .
+                    ?InformationRepresentation_0
+                              Nuvio:isExpressedBy   ?Entity_0
+                  }
+                UNION
+                  {   { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                    UNION
+                      { ?Entity_0  a                    RFDevice:FloatValue
+                        { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+                          FILTER ( ?DataValue0 >= "-14.864479"^^xsd:double )
+                        }
+                        { ?Entity_0  a                    RFDevice:AntennaPolarization }
+                        { ?Entity_0  a                    Nuvio:Value
+                          { ?Entity_0  Nuvio:hasPrecision  ?DataValue1
+                            FILTER ( ?DataValue1 >= 1665565335 )
+                          }
+                        }
+                      }
+                  }
+                { ?Entity_0  Nuvio:represents  ?InformationRepresentation_0 }
+              }
+            }
+          }
+      }
+    }
+  }

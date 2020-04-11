@@ -1,0 +1,29 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Entity_0  Nuvio:partOf  ?ContinuousWaveRadar_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    RFDevice:SweptSpotJamming
+          { ?Entity_0  RFDevice:hasTransmitPowerRange  ?Power_0
+            { ?Power_0  a                     RFDevice:Power }
+          }
+          { ?SpatialAreaUnit_0
+                      Nuvio:hasUnitOfMeasure  ?Entity_0
+            { ?SpatialAreaUnit_0
+                        a                     RFDevice:SpatialAreaUnit
+            }
+            { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 = -510337071 )
+            }
+          }
+          { ?Entity_0  a                    Nuvio:Situation }
+        }
+      }
+    }
+  }

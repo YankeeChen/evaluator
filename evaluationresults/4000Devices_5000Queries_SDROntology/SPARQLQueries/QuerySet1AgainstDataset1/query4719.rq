@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:aggregateOf  ?USRPB200_0
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  a                     RFDevice:InstantaneousFrequencyMeasurementReceiver
+        { ?InstantaneousFrequencyMeasurementReceiver_0
+                    RFDevice:supportsSpectrumSensing  ?Receiving_0
+          { ?Receiving_0  a                 RFDevice:Receiving
+            OPTIONAL
+              { ?Entity_0  RFDevice:hasBandwidthRange  ?Receiving_0
+                {   { ?InformationEntity_0
+                                Nuvio:isExpressedBy  ?Entity_0
+                    }
+                  UNION
+                    { ?Entity_0  RFDevice:hasProducer  ?Producer_0
+                      { ?Entity_0  a                    RFDevice:Velocity
+                        { ?Entity_0  Nuvio:hasValue  ?Var0 }
+                        { ?Entity_0  a                    Nuvio:Value .
+                          ObjectDescription:FrequencyUnit_instance13
+                                    Nuvio:hasUnitOfMeasure  ?Entity_0
+                        }
+                      }
+                      { ?Entity_0  a                    Nuvio:InformationEntity }
+                    }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

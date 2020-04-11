@@ -1,0 +1,37 @@
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?SurveillanceRadar_0
+      { ?Var0  a                     RFDevice:SweepJamming
+        { ?Var0  a                     Nuvio:Entity
+          {   {   { ?GeometryCollection_0
+                              geosparql:defaultGeometry  ?Var0
+                    { ?GeometryCollection_0
+                                a                     sf:GeometryCollection
+                    }
+                  }
+                UNION
+                  { ?Var0  a                     Nuvio:Value
+                    {   { ?Var0  a                     RFDevice:ShortValue }
+                      UNION
+                        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 = -1124495110 )
+                        }
+                    }
+                  }
+              }
+            UNION
+              { ?Var0  a                     RFDevice:NoiseFigure }
+          }
+        }
+      }
+    }
+  }

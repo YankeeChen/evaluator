@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?Object_0  RFDevice:isProducerOf  ?USRPN300_0
+      {   { ?Entity_0  RFDevice:hasNoiseFigure  ?Object_0 }
+        UNION
+          { ?Entity_0  a                    Nuvio:Entity ;
+                      Nuvio:isExpressedBy   ?InformationEntity_0
+            {   {   { ?Entity_0  a                    gml:AbstractSurfacePatch }
+                  UNION
+                    { ?Entity_0  a                    RFDevice:PositiveDecimalValue }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?Object_1  Nuvio:hasUnitOfMeasure  ?Entity_0
+                }
+            }
+          }
+      }
+    }
+  }

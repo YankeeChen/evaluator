@@ -1,0 +1,41 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Object_0  RFDevice:isProducerOf  ?Half_DuplexCommunicationsSystem_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?Entity_0  Nuvio:hasParticipant  ?Object_0
+        {   { ?Process_0  Nuvio:expresses  ?Entity_0 }
+          UNION
+            {   { ?Entity_0  a                    RFDevice:PulseDopplerRadarModulation
+                  { ?Frequency_0  RFDevice:hasPulseWidth  ?Entity_0
+                    { ?Var0  Nuvio:hasValue  ?Frequency_0
+                      { ?Var0     a                     Nuvio:Value .
+                        ObjectDescription:InformationUnit_instance3
+                                  Nuvio:hasUnitOfMeasure  ?Var0
+                        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 <= 791319098 )
+                        }
+                      }
+                    }
+                  }
+                }
+              UNION
+                {   { ?Entity_0  a                    Nuvio:Process ;
+                                RFDevice:hasEffectiveRadiatedPower  ?FrequencyAccuracy_0
+                    }
+                  UNION
+                    { ?FrequencyAccuracy_0
+                                a                     RFDevice:FrequencyAccuracy
+                    }
+                }
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,44 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    OPTIONAL
+      { ?USRPN200_0  Nuvio:aggregateOf  ?Entity_0
+        { ?Object_0  Nuvio:expresses  ?Entity_0
+          OPTIONAL
+            {   { ?Entity_0  RFDevice:hasProducer  ?Producer_0
+                  { ?Producer_0  a                  RFDevice:Producer }
+                  { ?Entity_0  a                    RFDevice:InboundRangeGatePullOffJamming
+                    { ?Power_0  RFDevice:hasMaxOutputPower  ?Entity_0
+                      { ?Var0  Nuvio:hasValue  ?Power_0
+                        { RFDevice:Decibel_milliwatts
+                                    Nuvio:hasUnitOfMeasure  ?Var0
+                        }
+                      }
+                    }
+                  }
+                  {   { ?Entity_0  a                    RFDevice:TimeUnit }
+                    UNION
+                      { ?Entity_0  a                    Nuvio:InformationEntity .
+                        ?Var1     Nuvio:informationSource  ?Entity_0
+                        { ?Var1  a                     gml:Shell }
+                      }
+                  }
+                }
+              UNION
+                { ?Entity_0  Nuvio:represents  ?InformationEntity_0 }
+              {   { ?Object_0  Nuvio:hasParticipant  ?AmplitudeModulation_0 }
+                UNION
+                  { ?AmplitudeModulation_0
+                              a                     RFDevice:AmplitudeModulation
+                  }
+              }
+            }
+        }
+      }
+  }

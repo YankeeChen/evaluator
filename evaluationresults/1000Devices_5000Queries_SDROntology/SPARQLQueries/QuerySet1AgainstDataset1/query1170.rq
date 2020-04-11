@@ -1,0 +1,50 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Var0  RFDevice:hasCapability  ?BistaticRadar_0
+      { ?Var0  Nuvio:hasProcessQuality  ?AntennaPolarization_0
+        { ?AntennaPolarization_0
+                    a                     RFDevice:AntennaPolarization
+        }
+        { ?Var0  a                     RFDevice:CrossEyeJamming
+          { ?Entity_0  RFDevice:hasPulseRepetitionInterval  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity ;
+                        Nuvio:expresses       ?Situation_0
+              { ?Entity_0  a                    RFDevice:Oscillator
+                OPTIONAL
+                  {   { ?Var1  Nuvio:hasValue  ?Entity_0 }
+                    UNION
+                      { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                  }
+                { ?Situation_0  a                 Nuvio:Situation ;
+                            Nuvio:relevantIndividual  ObjectDescription:BistaticRadar_instance10
+                  { ?SearchRadar_0
+                              Nuvio:relevantIndividual  ?Situation_0
+                    {   { ?SearchRadar_0
+                                    a                     RFDevice:SearchRadar
+                        }
+                      UNION
+                        { ?PulseDopplerRadarModulation_0
+                                    RFDevice:supportsSpectrumSensing  ?SearchRadar_0
+                          { ?PulseDopplerRadarModulation_0
+                                      a                     RFDevice:PulseDopplerRadarModulation
+                            { ?PulseDopplerRadarModulation_0
+                                        RFDevice:hasTransmitPowerRange  ObjectDescription:TimeInterval_instance9
+                            }
+                          }
+                        }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

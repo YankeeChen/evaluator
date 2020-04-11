@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?Jammer_0  Nuvio:compositeOf  ?USRPN300_0
+      { ?Jammer_0  a                    RFDevice:Jammer
+        OPTIONAL
+          { ?Jammer_0  RFDevice:supportsSpectrumSensing  ?BlinkingJamming_0
+            { ?BlinkingJamming_0
+                        a                     RFDevice:BlinkingJamming
+              OPTIONAL
+                { ?Power_0  RFDevice:hasEffectiveRadiatedPower  ?BlinkingJamming_0
+                  { ?Var0  Nuvio:hasValue  ?Power_0
+                    { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+                      { ?Entity_0  a                    Nuvio:Entity
+                        OPTIONAL
+                          { ?Entity_0  a                    RFDevice:LatitudeValueInDegree
+                            { ?Entity_0  Nuvio:hasValue  ?Var1
+                              { ?Var1  Nuvio:hasUnitOfMeasure  ObjectDescription:FrequencyUnit_instance4 }
+                              { ObjectDescription:USRPN300_instance13
+                                          Nuvio:relevantIndividual  ?Entity_0
+                              }
+                            }
+                          }
+                      }
+                    }
+                  }
+                }
+            }
+          }
+      }
+    }
+  }

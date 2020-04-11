@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?JammingSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Situation_0  Nuvio:expresses   ?Entity_0
+        { ?Situation_0  a                 Nuvio:Situation .
+          ?MultiSurface_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          { ?ADC_0  Nuvio:relevantIndividual  ?Situation_0
+            { ObjectDescription:DataSize_instance24
+                        RFDevice:hasResolution  ?ADC_0
+            }
+            { ?MultiSurface_0
+                        a                     gml:MultiSurface
+            }
+          }
+        }
+      }
+    }
+  }

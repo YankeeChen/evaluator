@@ -1,0 +1,33 @@
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Entity_0  RFDevice:hasProducer  ?RadarSystem_0
+      { ?InformationEntity_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  Nuvio:relevantIndividual  ?Geometry_0
+          { ?Geometry_0  a                  geosparql:Geometry }
+          { ?AntennaPolarization_0
+                      Nuvio:hasObjectQuality  ?Entity_0
+            { ?AntennaPolarization_0
+                        a                     RFDevice:AntennaPolarization
+            }
+          }
+          { ?InformationEntity_0
+                      a                     Nuvio:InformationEntity .
+            ?GeometricComplex_0
+                      Nuvio:isExpressedBy   ?InformationEntity_0
+            { ?GeometricComplex_0
+                        a                     gml:GeometricComplex
+            }
+          }
+        }
+      }
+    }
+  }

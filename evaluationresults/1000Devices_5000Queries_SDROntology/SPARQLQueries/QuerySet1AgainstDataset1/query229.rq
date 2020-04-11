@@ -1,0 +1,41 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Weight_0  RFDevice:hasWeight  ?RFSystem_0
+      { ?Weight_0  a                    RFDevice:Weight
+        { ?Weight_0  Nuvio:hasValue  ?Var0
+          { ?Var0  Nuvio:hasPrecision  ?DataValue0
+            FILTER ( ?DataValue0 <= 2005492006 )
+            { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+              {   { ?Entity_0  a                    Nuvio:Entity .
+                    ?Value_0  Nuvio:expresses       ?Entity_0
+                  }
+                UNION
+                  { ?Geometry_0  geosparql:defaultGeometry  ?Entity_0
+                    { ?Geometry_0  a                  geosparql:Geometry ;
+                                geosparql:isEmpty     ?DataValue1
+                      FILTER ( ?DataValue1 > true )
+                    }
+                    { ?Entity_0  a                    RFDevice:VelocityUnit
+                      { ?Entity_0  a                    RFDevice:AntennaPolarization }
+                    }
+                  }
+                { ?Value_0  a                     Nuvio:Value
+                  OPTIONAL
+                    { ?Value_0  Nuvio:hasPrecision  ?DataValue2
+                      FILTER ( ?DataValue2 != -900546772 )
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

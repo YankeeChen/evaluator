@@ -1,0 +1,30 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  RFDevice:isProducerOf  ?ModelX_0
+      { ?Process_0  Nuvio:expresses  ?Entity_0
+        { ?Entity_0  a                    RFDevice:FeatureDetection
+          { ?Entity_0  a                    Nuvio:Situation .
+            ?TimeInterval_0
+                      Nuvio:relevantIndividual  ?Entity_0
+            { ObjectDescription:DirectConversionReceiver_instance176
+                        Nuvio:relevantIndividual  ?Entity_0
+              { ?Var0  Nuvio:hasValue  ?TimeInterval_0
+                { ?Var0  a                     RFDevice:DecimalValue
+                  { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                    FILTER ( ?DataValue0 <= 872864790 )
+                  }
+                }
+              }
+            }
+          }
+          { ?Process_0  a                   Nuvio:Process }
+        }
+      }
+    }
+  }

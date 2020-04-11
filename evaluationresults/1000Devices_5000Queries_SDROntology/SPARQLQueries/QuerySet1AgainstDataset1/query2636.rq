@@ -1,0 +1,36 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Full_DuplexCommunicationsSystem_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?Var0  a                     RFDevice:CrossPolarizationJamming
+        { ?Quantity_0  RFDevice:hasMaxOutputPower  ?Var0 }
+        {   { ?Var0  a                     Nuvio:Entity ;
+                     Nuvio:expresses       ?Var0
+            }
+          UNION
+            { ?Var0  a                     RFDevice:NonNegativeDecimalValue
+              OPTIONAL
+                { ?Var0  RFDevice:hasFloatValue  ?DataValue0
+                  FILTER ( ?DataValue0 < -29.93 )
+                }
+              { SDR:Weight_446g
+                          Nuvio:relevantIndividual  ?Var0
+                { ?Var0  Nuvio:relevantIndividual  ?USRPE3xx_0
+                  { ?Producer_0  RFDevice:isProducerOf  ?USRPE3xx_0
+                    { ?Producer_0  a                  RFDevice:Producer }
+                  }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

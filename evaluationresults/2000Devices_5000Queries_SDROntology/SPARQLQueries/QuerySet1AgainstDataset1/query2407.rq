@@ -1,0 +1,32 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Weight_0  RFDevice:hasMaxPowerConsumption  ?Full_DuplexCommunicationsSystem_0
+      { ?Var0  Nuvio:hasValue  ?Weight_0
+        { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity
+            {   { ?Entity_0  a                    skos:OrderedCollection ;
+                            skos:memberList       ?Entity_0
+                }
+              UNION
+                { ?Entity_0  a                    RFDevice:FrequencyUnit
+                  { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue }
+                  { ?Entity_0  Nuvio:represents  ?InformationContent_0
+                    OPTIONAL
+                      { ?InformationContent_0
+                                  a                     Nuvio:InformationContent
+                      }
+                  }
+                }
+            }
+          }
+        }
+      }
+    }
+  }

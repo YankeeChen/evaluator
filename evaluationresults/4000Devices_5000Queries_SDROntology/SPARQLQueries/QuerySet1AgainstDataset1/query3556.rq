@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    OPTIONAL
+      { ?Entity_0  Nuvio:compositeOf  ?USRPX300_0
+        { ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+          { ?OffsetCurve_0
+                      Nuvio:expresses  ?Entity_0
+            { ?OffsetCurve_0
+                        a                     gml:OffsetCurve
+            }
+          }
+        }
+      }
+  }

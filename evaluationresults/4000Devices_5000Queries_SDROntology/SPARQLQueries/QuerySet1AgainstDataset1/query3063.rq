@@ -1,0 +1,49 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  RFDevice:hasProducer  ?CommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?Entity_0  a                    RFDevice:PulseRadarModulation
+          { ?TimeInterval_0
+                      RFDevice:hasEffectiveRadiatedPower  ?Entity_0
+            {   { ?TimeInterval_0
+                            a                     RFDevice:TimeInterval
+                }
+              UNION
+                { ?Var0  Nuvio:hasValue  ?TimeInterval_0
+                  { ?Var0  RFDevice:hasFloatValue  ?DataValue0
+                    FILTER ( ?DataValue0 >= -61.58 )
+                  }
+                }
+            }
+          }
+          {   { ?Entity_0  a                    RFDevice:SpatialVolumeUnit }
+            UNION
+              { ?Entity_0  a                    RFDevice:Width
+                { ?Var1  Nuvio:hasValue  ?Entity_0
+                  { ?Var1  Nuvio:hasPrecision  ?DataValue1
+                    FILTER ( ?DataValue1 >= 770296963 )
+                  }
+                }
+              }
+            { ?Entity_0  a                    Nuvio:Situation ;
+                        Nuvio:relevantIndividual  ?SpotJamming_0
+              { ?SearchRadar_0
+                          Nuvio:relevantIndividual  ?Entity_0
+              }
+              OPTIONAL
+                { ?SpotJamming_0
+                            a                     RFDevice:SpotJamming
+                }
+            }
+          }
+        }
+      }
+    }
+  }

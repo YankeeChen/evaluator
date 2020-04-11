@@ -58,6 +58,11 @@ public class ConsoleMain {
 	private static final String DEV_NUMBER = "devNumber";
 
 	/**
+	 * SPARQL query directory option name on console.
+	 */
+	private static final String SPARQL_QUERY_DIRECTORY = "sparqlQueryDirectory";
+
+	/**
 	 * The most complete ontology directory option name on console.
 	 */
 	private static final String COMPLETE_ONTOLOGY_DIRECTORY = "completeOntologyDirectory";
@@ -108,15 +113,16 @@ public class ConsoleMain {
 			System.exit(1);
 		}
 
-		File sparqlQueryDirectory = new File("SPARQLqueries");
-		if (!sparqlQueryDirectory.isDirectory()) 
-			sparqlQueryDirectory.mkdirs();
-			
+		File sparqlQueryDirectory;
+		if (line.hasOption(SPARQL_QUERY_DIRECTORY)) {
+			sparqlQueryDirectory = new File(line.getOptionValue(SPARQL_QUERY_DIRECTORY));
+			if (!sparqlQueryDirectory.isDirectory())
+				sparqlQueryDirectory.mkdirs();
+		} else
+			sparqlQueryDirectory = new File("SPARQLqueries");
 
 		File xqueryQueryDirectory = new File("XQueryqueries");
-		if (!xqueryQueryDirectory.isDirectory()) 
-			xqueryQueryDirectory.mkdirs();
-		
+
 		if (line.hasOption(TRANSFORM_OPTION_NAME)) {
 			convert(sparqlQueryDirectory, xqueryQueryDirectory);
 			System.exit(1);
@@ -179,11 +185,13 @@ public class ConsoleMain {
 
 		options.addOption(Option.builder(HELP_OPTION_NAME).desc("Views this help text").build());
 		options.addOption(Option.builder(TRANSFORM_OPTION_NAME).desc("Perform query transformation").build());
+		options.addOption(Option.builder(SPARQL_QUERY_DIRECTORY).argName("PATH").hasArg()
+				.desc("Directory of the SPARQL queries;./SPARQLqueries/ by default.").build());
 		options.addOption(Option.builder(COMPLETE_ONTOLOGY_DIRECTORY).argName("PATH").hasArg().desc(
-				"Directory of the most complete ontology (TBox);./ontoloiges/SDROntology/BenchmarkOntology/ by default.")
+				"Directory of the most complete ontology (TBox);./ontologies/SDROntology/BenchmarkOntology/ by default.")
 				.build());
-		options.addOption(Option.builder(TEST_ONTOLOGY_DIRECTORY).argName("PATH").hasArg()
-				.desc("Parent directory of test ontologies (TBox);./ontoloiges/SDROntology/TestOntology/ by default.")
+		options.addOption(Option.builder(TEST_ONTOLOGY_DIRECTORY).argName("PATH").hasArg().desc(
+				"Parent directory of the test ontologies (TBox);./ontologies/SDROntology/TestOntology/ by default.")
 				.build());
 		return options;
 	}

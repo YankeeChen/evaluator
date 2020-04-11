@@ -1,0 +1,52 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Entity_0  RFDevice:hasSamplingRate  ?SurveillanceRadar_0
+      { ?InformationRepresentation_0
+                  Nuvio:expresses  ?Entity_0
+        OPTIONAL
+          {   { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            UNION
+              { ?Entity_0  a                    RFDevice:DoubleValue
+                { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 <= 353161612 )
+                }
+                { ?Entity_0  a                    Nuvio:Situation .
+                  ?DataTransmissionMode_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  OPTIONAL
+                    { ?CompositeSolid_0
+                                Nuvio:relevantIndividual  ?Entity_0
+                      { ?CompositeSolid_0
+                                  a                     gml:CompositeSolid
+                      }
+                    }
+                  { ?DataTransmissionMode_0
+                              a                     RFDevice:DataTransmissionMode
+                  }
+                }
+                { ?Entity_0  a                    Nuvio:InformationEntity ;
+                            Nuvio:informationSource  ?Var0
+                  { ?Var0     a                     Nuvio:Process .
+                    ?PulseRadarModulation_0
+                              Nuvio:subprocessOf    ?Var0
+                    { ?PulseRadarModulation_0
+                                a                     RFDevice:PulseRadarModulation
+                    }
+                  }
+                }
+              }
+          }
+        { ?InformationRepresentation_0
+                    a                     Nuvio:InformationRepresentation
+        }
+      }
+    }
+  }

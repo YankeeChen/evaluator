@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  a                     SDR:SDR
+    { ?SDR_0  Nuvio:compositeOf  ?IEDJammer_0
+      { ?IEDJammer_0  a                 RFDevice:IEDJammer
+        { ?CrossPolarizationJamming_0
+                    RFDevice:hasCapability  ?IEDJammer_0
+          { ?CrossPolarizationJamming_0
+                      a                     RFDevice:CrossPolarizationJamming
+          }
+        }
+      }
+    }
+  }

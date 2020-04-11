@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX300_0
+WHERE
+  { ?USRPX300_0  a                  SDR:USRPX300
+    OPTIONAL
+      { ?USRPX300_0  Nuvio:aggregateOf  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?Entity_0  a                    Nuvio:UnitOfMeasure
+            { ?Entity_0  a                    Nuvio:InformationEntity .
+              ObjectDescription:ElectronicAttackSystem_instance35
+                        Nuvio:isExpressedBy   ?Entity_0
+            }
+          }
+        }
+      }
+  }

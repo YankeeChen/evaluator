@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?USRPN310_0  Nuvio:aggregateOf  ?InstantaneousFrequencyMeasurementReceiver_0
+      { ?Spartan3ADSPFPGA_0
+                  Nuvio:compositeOf  ?InstantaneousFrequencyMeasurementReceiver_0
+        { ?XilinxZynq7000Family_0
+                    Nuvio:aggregateOf  ?Spartan3ADSPFPGA_0
+          { ?XilinxZynq7000Family_0
+                      a                     SDR:XilinxZynq7000Family
+            { ?Object_0  RFDevice:hasProducer  ?XilinxZynq7000Family_0
+              { ?Object_0  a                    Nuvio:Object .
+                ?Ratio_0  RFDevice:hasLength    ?Object_0
+                { ?Ratio_0  a                     RFDevice:Ratio }
+              }
+              { ?Producer_0  RFDevice:isProducerOf  ?XilinxZynq7000Family_0 }
+            }
+          }
+        }
+      }
+    }
+  }

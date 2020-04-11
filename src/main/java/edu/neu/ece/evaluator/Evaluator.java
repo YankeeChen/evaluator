@@ -181,7 +181,10 @@ public class Evaluator {
 	 *             If there are some excepts during the metric collection process.
 	 */
 	private void collectOWLBasedMetrics() throws Exception {
-		for (File testFile : testOntologyDirectory.listFiles()) {
+		File[] ontologyfiles = testOntologyDirectory.listFiles();
+		Arrays.sort(ontologyfiles, new DirectoryComparator());
+
+		for (File testFile : ontologyfiles) {
 			if (!testFile.isDirectory())
 				continue;
 			loadBackgroundKnowledge(testFile);
@@ -591,8 +594,8 @@ public class Evaluator {
 	/**
 	 * Collect query result quality metrics.
 	 * 
-	 * @param query ID.
-	 *            Query ID.
+	 * @param query
+	 *            ID. Query ID.
 	 * @param queryResults
 	 *            Query results.
 	 */
@@ -644,6 +647,39 @@ class FileComparator implements Comparator<File> {
 		try {
 			int e = name.lastIndexOf('.');
 			String number = name.substring(5, e);
+			i = Integer.parseInt(number);
+		} catch (Exception e) {
+			// if filename does not match the format then default to 0
+			i = 0;
+		}
+		return i;
+	}
+}
+
+/**
+ * Implement Comparator to compare directory based on directory names.
+ * 
+ * @author Yanji Chen
+ * @version 1.0
+ * @since 2020-04-04
+ */
+class DirectoryComparator implements Comparator<File> {
+	@Override
+	public int compare(File o1, File o2) {
+		return Integer.compare(extractNumber(o1.getName()), extractNumber(o2.getName()));
+	}
+
+	/**
+	 * Extract number within the file name.
+	 * 
+	 * @param name
+	 *            File name.
+	 * @return Number within the file name.
+	 */
+	private int extractNumber(String name) {
+		int i = 0;
+		try {
+			String number = name.substring(1, name.length());
 			i = Integer.parseInt(number);
 		} catch (Exception e) {
 			// if filename does not match the format then default to 0

@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?EmitterLocationDetection_0
+                RFDevice:supportsTuning  ?ElectronicSupportSystem_0
+      { ?EmitterLocationDetection_0
+                  a                     RFDevice:EmitterLocationDetection
+        { ?EmitterLocationDetection_0
+                    Nuvio:participatesIn  ?Var0
+          { ?RangeGatePullOffJamming_0
+                      RFDevice:supportsTransmitting  ?Var0
+            { ?RangeGatePullOffJamming_0
+                        a                     RFDevice:RangeGatePullOffJamming
+            }
+            { ObjectDescription:Weight_instance92
+                        RFDevice:hasLevel  ?Var0
+            }
+          }
+        }
+      }
+    }
+  }

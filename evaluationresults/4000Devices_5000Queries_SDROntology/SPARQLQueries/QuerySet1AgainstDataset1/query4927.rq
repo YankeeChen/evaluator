@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    OPTIONAL
+      { ?PulseRadar_0
+                  Nuvio:aggregateOf  ?Entity_0
+        { ?InformationContent_0
+                    Nuvio:isExpressedBy  ?Entity_0
+          { ?Entity_0  a                    SDR:GNURadio
+            { ?Entity_0  a                    RFDevice:PositiveFloatValue
+              { ?Entity_0  a                    RFDevice:Gain }
+              { ?Entity_0  a                    Nuvio:Situation .
+                ?DeceptiveCommunicationsJamming_0
+                          Nuvio:relevantIndividual  ?Entity_0
+                OPTIONAL
+                  { ?IntValue_0  Nuvio:relevantIndividual  ?Entity_0
+                    { ?IntValue_0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 > 2074359622 )
+                    }
+                    { ?DeceptiveCommunicationsJamming_0
+                                RFDevice:hasPulseRepetitionFrequency  ?Quantity_0
+                      { ?Quantity_0  a                  Nuvio:Quantity }
+                    }
+                  }
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?PowerUnit_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+                }
+              }
+            }
+            { ?InformationContent_0
+                        a                     Nuvio:InformationContent
+            }
+          }
+        }
+      }
+  }

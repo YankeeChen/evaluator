@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?USRPN210_0  Nuvio:compositeOf  ?Var0
+      { ?Var0  a                     RFDevice:Detection
+        { ObjectDescription:AntennaPolarization_instance7
+                    Nuvio:hasObjectQuality  ?Var0
+          { ?Var0  a                     RFDevice:Voltage
+            { ?Var0  Nuvio:hasValue  ?Var1
+              { ?Var1  a                     RFDevice:PositiveFloatValue
+                { ?Var1  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 = -1166803095 )
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

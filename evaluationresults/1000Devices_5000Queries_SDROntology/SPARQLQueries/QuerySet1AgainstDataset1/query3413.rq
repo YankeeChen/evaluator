@@ -1,0 +1,34 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Entity_0  RFDevice:hasMaxPowerConsumption  ?USRPN2xx_0
+      {   { ?Object_0  Nuvio:expresses  ?Entity_0 }
+        UNION
+          { ?Entity_0  Nuvio:hasProcessQuantity  ?Entity_0
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Situation .
+                ?IntegerValue_0
+                          Nuvio:relevantIndividual  ?Entity_0
+                { ?LinearRing_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?LinearRing_0
+                              a                     gml:LinearRing
+                  }
+                  OPTIONAL
+                    { ?IntegerValue_0
+                                a                     RFDevice:IntegerValue
+                    }
+                }
+              }
+          }
+        OPTIONAL
+          { ?Object_0  a                    Nuvio:Object }
+      }
+    }
+  }

@@ -1,0 +1,28 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Entity_0  Nuvio:partOf  ?TrackingRadar_0
+      {   { ?Entity_0  a                    RFDevice:LongitudeValue }
+        UNION
+          { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+            FILTER ( ?DataValue0 >= 1843566582 )
+          }
+        {   { ObjectDescription:WeightUnit_instance15
+                        Nuvio:hasUnitOfMeasure  ?Entity_0
+            }
+          UNION
+            { ?Entity_0  a                    Nuvio:Process .
+              ?SpotJamming_0
+                        Nuvio:hasSubprocess   ?Entity_0
+            }
+        }
+        { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+      }
+    }
+  }

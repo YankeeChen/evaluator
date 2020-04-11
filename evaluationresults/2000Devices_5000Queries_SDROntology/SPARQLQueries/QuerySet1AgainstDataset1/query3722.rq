@@ -1,0 +1,40 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Entity_0  RFDevice:hasProducer  ?SearchRadar_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?InformationRepresentation_0
+                  Nuvio:expresses       ?Entity_0
+        {   { ?Entity_0  a                    RFDevice:Aircraft
+              { ?Process_0  RFDevice:supportsTuning  ?Entity_0
+                { ?Process_0  a                   Nuvio:Process .
+                  ?Cone_0   Nuvio:participatesIn  ?Process_0
+                  { ?Cone_0  a                     gml:Cone }
+                }
+              }
+            }
+          UNION
+            { ?Object_0  Nuvio:hasUnitOfMeasure  ?Entity_0 }
+          { ?Entity_0  a                    RFDevice:AngleUnit
+            { ?Entity_0  a                    RFDevice:Power
+              { ?Entity_0  a                    Nuvio:Attribute }
+            }
+          }
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation .
+            ?InformationEntity_0
+                      Nuvio:representedBy   ?InformationRepresentation_0
+            { ?InformationEntity_0
+                        a                     Nuvio:InformationEntity
+            }
+          }
+        }
+      }
+    }
+  }

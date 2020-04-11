@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Var0  RFDevice:supportsTransmitting  ?TrackingRadar_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?UnitOfMeasure_0
+                  Nuvio:expresses       ?Var0
+        { ?Var0     a                     Nuvio:InformationRepresentation .
+          ?InformationEntity_0
+                    Nuvio:represents      ?Var0
+          { ?IEDTrigger_0
+                      Nuvio:isExpressedBy  ?InformationEntity_0
+          }
+        }
+        { ?Var0  a                     Nuvio:Process ;
+                 Nuvio:hasParticipant  ?CortexA9_0
+          { ?CortexA9_0  a                  SDR:CortexA9 }
+        }
+      }
+    }
+  }

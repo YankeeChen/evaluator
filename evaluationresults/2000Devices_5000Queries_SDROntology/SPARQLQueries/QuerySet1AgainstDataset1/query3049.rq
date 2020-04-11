@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xxmini_0
+WHERE
+  { ?USRPB2xxmini_0
+              a                     SDR:USRPB2xxmini
+    { ?Entity_0  RFDevice:hasProducer  ?USRPB2xxmini_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Attribute_0  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  a                    geosparql:Geometry }
+          UNION
+            { ?Entity_0  a                    RFDevice:AnalogModulation }
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:NonNegativeIntegerValue
+              { ?Var0  Nuvio:hasValue  ?Entity_0
+                { RFDevice:Second
+                            Nuvio:hasUnitOfMeasure  ?Var0
+                }
+              }
+            }
+          { ?Attribute_0  a                 Nuvio:Attribute }
+        }
+      }
+    }
+  }

@@ -1,0 +1,29 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_0
+WHERE
+  { ?USRPB200_0  a                  SDR:USRPB200
+    { ?Entity_0  RFDevice:isProducerOf  ?USRPB200_0
+      { ?XC3SD3400AFPGA_0
+                  Nuvio:compositeOf  ?Entity_0
+        { ?XC3SD3400AFPGA_0
+                    a                     SDR:XC3SD3400AFPGA
+        }
+        { ?Entity_0  a                    RFDevice:DeceptiveCommunicationsJamming
+          { ?Entity_1  RFDevice:hasMaxOutputPower  ?Entity_0 }
+          { ?Entity_0  a                    Nuvio:Process ;
+                      RFDevice:hasTarget    ?OrderedCollection_0
+            { ?OrderedCollection_0
+                        a                     skos:OrderedCollection .
+              ?Object_0  skos:memberList      ?OrderedCollection_0
+              { ?Object_0  a                    Nuvio:Object }
+            }
+          }
+        }
+      }
+    }
+  }

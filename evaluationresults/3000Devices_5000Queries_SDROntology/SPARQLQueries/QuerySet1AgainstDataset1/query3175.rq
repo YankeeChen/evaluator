@@ -1,0 +1,29 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?Full_DuplexCommunicationsSystem_0
+      { ?InformationRepresentation_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    gml:Solid
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:InverseGainJamming
+              { ?Entity_0  RFDevice:hasMaxOutputPower  ?Attribute_0
+                { ?Attribute_0  a                 Nuvio:Attribute }
+              }
+              { ObjectDescription:Instance3554
+                          Nuvio:subprocessOf  ?Entity_0
+              }
+            }
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation
+          }
+        }
+      }
+    }
+  }

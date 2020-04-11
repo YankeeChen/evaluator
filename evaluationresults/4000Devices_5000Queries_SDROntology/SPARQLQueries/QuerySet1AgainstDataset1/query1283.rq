@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?USRPX3xx_0  RFDevice:supportsTransmitting  ?Var0
+      { ?Var1  RFDevice:hasTransmitPowerRange  ?Var0
+        {   { ?Var0  a                     RFDevice:Transceiving }
+          UNION
+            { ?Var0  a                     RFDevice:CoverJamming
+              OPTIONAL
+                { ?Var0  a                     RFDevice:Receiving }
+            }
+        }
+      }
+    }
+  }

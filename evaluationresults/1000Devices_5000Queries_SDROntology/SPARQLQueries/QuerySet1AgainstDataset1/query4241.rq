@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?BistaticRadar_0
+        { ?Var0  RFDevice:hasTransmitPowerRange  ?Entity_0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?InformationContent_0
+                      Nuvio:expresses       ?Entity_0
+            {   { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 <= 1442095748 )
+                  OPTIONAL
+                    { ?Entity_0  a                    Nuvio:InformationEntity }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:Situation .
+                  ObjectDescription:USRPN200_instance1
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?CR_0  Nuvio:relevantIndividual  ?Entity_0
+                    { ?CR_0  a                     SDR:CR
+                      { ?CR_0  RFDevice:hasNoiseFigure  ?Quantity_0
+                        { ?Quantity_0  a                  Nuvio:Quantity }
+                      }
+                    }
+                  }
+                }
+            }
+            OPTIONAL
+              { ?InformationContent_0
+                          a                     Nuvio:InformationContent .
+                ?Entity_0  Nuvio:representedBy  ?InformationContent_0
+              }
+          }
+        }
+      }
+  }

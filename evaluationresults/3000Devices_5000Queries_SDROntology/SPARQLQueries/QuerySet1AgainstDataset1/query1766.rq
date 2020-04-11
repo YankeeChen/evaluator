@@ -1,0 +1,20 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    OPTIONAL
+      { ?Entity_0  Nuvio:aggregateOf  ?USRPB205mini_i_0
+        { ?Entity_0  a                    Nuvio:Entity
+          OPTIONAL
+            { ?Entity_0  a                    gml:Cone
+              { ?Entity_0  a                    Nuvio:Value }
+              { ?Var0  Nuvio:informationSource  ?Entity_0 }
+            }
+        }
+      }
+  }

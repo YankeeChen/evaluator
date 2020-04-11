@@ -1,0 +1,25 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Var0  RFDevice:hasCapability  ?ContinuousWaveRadar_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { ?Entity_0  RFDevice:hasBandwidthRange  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity
+            { ?Entity_0  a                    sf:Polygon
+              OPTIONAL
+                { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+              { ?Entity_0  a                    RFDevice:DataSize
+                { ?Entity_0  a                    Nuvio:InformationEntity }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

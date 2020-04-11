@@ -1,0 +1,46 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?InstantaneousFrequencyMeasurementReceiver_0
+                Nuvio:aggregateOf  ?ModelX_0
+      { ?ChokeRingAntenna_0
+                  Nuvio:aggregateOf  ?InstantaneousFrequencyMeasurementReceiver_0
+        { ?Producer_0  RFDevice:hasProducer  ?ChokeRingAntenna_0
+          { ?ChokeRingAntenna_0
+                      RFDevice:hasProducer  ?Entity_0
+            { ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+              {   { ?Entity_0  a                    SDR:USRPN310 }
+                UNION
+                  { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue
+                    { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+                      FILTER ( ?DataValue0 = 79.79 )
+                    }
+                  }
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?Process_0  Nuvio:hasUnitOfMeasure  ?Entity_0
+                  { ?Entity_0  Nuvio:hasPrecision  ?DataValue1
+                    FILTER ( ?DataValue1 != -399296404 )
+                  }
+                  OPTIONAL
+                    { ?InformationEntity_0
+                                Nuvio:subprocessOf  ?Process_0
+                      { ?InformationEntity_0
+                                  a                     Nuvio:InformationEntity .
+                        ?OnOffKeyingModulation_0
+                                  Nuvio:isExpressedBy   ?InformationEntity_0
+                      }
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

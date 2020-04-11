@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?Submarine_0  RFDevice:isDeployedOn  ?ContinuousWaveRadar_0
+      { ?Submarine_0  a                 RFDevice:Submarine
+        { ?Entity_0  RFDevice:supportsTuning  ?Submarine_0
+          {   { ?Entity_0  a                    Nuvio:Entity .
+                ?Entity_1  Nuvio:isExpressedBy  ?Entity_0
+              }
+            UNION
+              { ?Entity_0  a                    SDR:XC6SLX150FPGA
+                { ?Producer_0  RFDevice:hasProducer  ?Entity_0
+                  { ?Producer_0  a                  RFDevice:Producer }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

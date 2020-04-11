@@ -1,0 +1,38 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Entity_0  RFDevice:hasProducer  ?CommunicationsSystem_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    SDR:Artix7FPGA
+          { ?Entity_0  Nuvio:compositeOf  ?XC3SD1800AFPGA_0
+            { ?XC3SD1800AFPGA_0
+                        a                     SDR:XC3SD1800AFPGA
+            }
+          }
+          OPTIONAL
+            {   { ?Entity_0  a                    RFDevice:PowerUnit }
+              UNION
+                { ?Entity_0  a                    Nuvio:Value .
+                  ?FrequencyUnit_0
+                            Nuvio:hasUnitOfMeasure  ?Entity_0
+                }
+            }
+        }
+        { ?Situation_0  a                 Nuvio:Situation .
+          ?CubicSpline_0
+                    Nuvio:relevantIndividual  ?Situation_0
+          { ?CubicSpline_0
+                      a                     gml:CubicSpline
+          }
+        }
+      }
+    }
+  }

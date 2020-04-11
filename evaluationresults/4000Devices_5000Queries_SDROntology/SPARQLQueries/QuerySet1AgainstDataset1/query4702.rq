@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarWarningReceiver_0
+WHERE
+  { ?RadarWarningReceiver_0
+              a                     RFDevice:RadarWarningReceiver
+    { ?RadarWarningReceiver_0
+                RFDevice:supportsTuning  ?Process_0
+      {   { ?Process_0  a                   Nuvio:Process ;
+                      Nuvio:hasSubprocess   ?CrossPolarizationJamming_0
+          }
+        UNION
+          { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?CrossPolarizationJamming_0
+            { ?Var0  Nuvio:hasValue  ?Power_0
+              { ?PowerUnit_0  Nuvio:hasUnitOfMeasure  ?Var0
+                { ?PowerUnit_0  a                 RFDevice:PowerUnit }
+              }
+            }
+          }
+      }
+    }
+  }

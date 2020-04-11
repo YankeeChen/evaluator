@@ -1,0 +1,50 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    OPTIONAL
+      { ?MonostaticRadar_0
+                  RFDevice:hasProducer  ?Entity_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?UnitOfMeasure_1
+                    Nuvio:isExpressedBy   ?Entity_0
+          { ?Entity_0  a                    RFDevice:ElectronicSupport
+            { ?Entity_0  a                    Nuvio:InformationEntity .
+              ?Var0     Nuvio:informationSource  ?Entity_0
+              { ?Var0  a                     gml:OrientableCurve }
+            }
+            { ?USRPB200mini_i_0
+                        Nuvio:relevantIndividual  ?Entity_0
+              {   { ?Entity_0  Nuvio:relevantIndividual  ?Entity_0 }
+                UNION
+                  { ?USRPB200mini_i_0
+                              a                     SDR:USRPB200mini-i
+                    { ObjectDescription:XC6SLX150FPGA_instance47
+                                Nuvio:partOf  ?USRPB200mini_i_0
+                    }
+                  }
+              }
+              OPTIONAL
+                {   { ?Entity_0  a                    RFDevice:Time }
+                  UNION
+                    { ?Var1  Nuvio:hasValue  ?Entity_0
+                      { ?UnitOfMeasure_0
+                                  Nuvio:hasUnitOfMeasure  ?Var1
+                        { ?UnitOfMeasure_0
+                                    a                     Nuvio:UnitOfMeasure
+                        }
+                      }
+                    }
+                }
+              { ?Entity_0  a                    Nuvio:InformationRepresentation }
+            }
+          }
+        }
+      }
+  }

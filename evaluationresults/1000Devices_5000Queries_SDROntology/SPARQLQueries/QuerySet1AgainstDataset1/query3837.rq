@@ -1,0 +1,20 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Var0  RFDevice:supportsTransmitting  ?ElectronicAttackSystem_0
+      {   { ?Var0  a                     RFDevice:AdjustableBandwidthSensing
+            { ?Var0  a                     RFDevice:DeceptiveCommunicationsJamming }
+          }
+        UNION
+          { ?Var0  RFDevice:hasFrequencyAccuracy  ?QuantityRange_0
+            { ObjectDescription:Frequency_instance61
+                        RFDevice:hasMax  ?QuantityRange_0
+            }
+          }
+      }
+    }
+  }

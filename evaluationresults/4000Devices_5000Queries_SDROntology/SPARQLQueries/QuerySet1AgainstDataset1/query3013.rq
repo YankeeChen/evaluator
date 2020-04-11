@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:hasCapability  ?RFSystem_0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  a                     gml:Surface
+          { ?USRPN300_0  Nuvio:relevantIndividual  ?Var0
+            { ?USRPN300_0  RFDevice:supportsSpectrumSensing  ?Var1 }
+          }
+          { ?Var0  a                     Nuvio:Attribute }
+        }
+        OPTIONAL
+          { ?Power_0  RFDevice:hasPulseRepetitionInterval  ?Var0
+            { ?Power_0  a                     RFDevice:Power
+              OPTIONAL
+                { ?Var2  Nuvio:hasValue  ?Power_0 }
+            }
+          }
+      }
+    }
+  }

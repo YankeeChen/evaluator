@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?ModelX_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?InformationEntity_0
+                  Nuvio:isExpressedBy   ?Var0
+        OPTIONAL
+          { ?InformationEntity_0
+                      a                     Nuvio:InformationEntity .
+            ?Var1     Nuvio:informationSource  ?InformationEntity_0
+            { ?Var1  a                     RFDevice:DAC
+              { ?OmnidirectionalAntenna_0
+                          Nuvio:compositeOf  ?Var1
+                { ?OmnidirectionalAntenna_0
+                            a                     RFDevice:OmnidirectionalAntenna
+                }
+              }
+            }
+          }
+      }
+    }
+  }

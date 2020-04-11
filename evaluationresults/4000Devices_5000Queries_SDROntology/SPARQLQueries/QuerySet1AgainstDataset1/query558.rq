@@ -1,0 +1,30 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    OPTIONAL
+      { ?Entity_0  RFDevice:supportsTransmitting  ?ContinuousWaveRadar_0
+        { ?Object_0  Nuvio:expresses  ?Entity_0
+          { ?Entity_0  a                    sf:MultiPoint
+            { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+              FILTER ( ?DataValue0 != "61.242172"^^xsd:double )
+              { ?Entity_0  a                    Nuvio:Process .
+                ?InboundRangeGatePullOffJamming_0
+                          Nuvio:subprocessOf    ?Entity_0
+                { ?InboundRangeGatePullOffJamming_0
+                            a                     RFDevice:InboundRangeGatePullOffJamming
+                }
+              }
+            }
+            OPTIONAL
+              { ?Object_0  a                    Nuvio:Object }
+          }
+        }
+      }
+  }

@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    { ?Entity_0  Nuvio:aggregateOf  ?BistaticRadar_0
+      { ?Entity_0  Nuvio:isExpressedBy  ?Object_0
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:Producer
+            { ?Entity_0  a                    RFDevice:LongitudeValueInRadian }
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            { ?Entity_0  a                    Nuvio:Process }
+          }
+        { ?Object_0  a                    Nuvio:Object ;
+                    RFDevice:supportsJamming  ?DRFMJamming_0
+          { ?DRFMJamming_0
+                      Nuvio:hasProcessQuantity  ?Quantity_0
+          }
+        }
+      }
+    }
+  }

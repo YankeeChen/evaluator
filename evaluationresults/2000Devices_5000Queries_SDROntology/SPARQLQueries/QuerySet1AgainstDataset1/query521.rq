@@ -1,0 +1,40 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?MonostaticRadar_0
+WHERE
+  { ?MonostaticRadar_0
+              a                     RFDevice:MonostaticRadar
+    { ?RadarJammer_0
+                Nuvio:compositeOf  ?MonostaticRadar_0
+      { ?RadarJammer_0
+                  a                     RFDevice:RadarJammer
+        { ?Entity_0  RFDevice:supportsTuning  ?RadarJammer_0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?InformationRepresentation_0
+                      Nuvio:expresses       ?Entity_0
+            OPTIONAL
+              { ?Entity_0  a                    gml:Clothoid
+                { ?Entity_0  Nuvio:subprocessOf  ?CrossPolarizationJamming_0
+                  { ?CrossPolarizationJamming_0
+                              a                     RFDevice:CrossPolarizationJamming
+                    { ?CrossPolarizationJamming_0
+                                RFDevice:hasPulseRepetitionInterval  ?Quantity_0
+                      { ?Quantity_0  a                  Nuvio:Quantity }
+                    }
+                  }
+                }
+                { ?Entity_0  a                    RFDevice:FrequencyUnit
+                  { ?Entity_0  a                    RFDevice:LongValue }
+                }
+              }
+            { ?InformationRepresentation_0
+                        a                     Nuvio:InformationRepresentation
+            }
+          }
+        }
+      }
+    }
+  }

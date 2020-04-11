@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    { ?USRPE312_0  RFDevice:hasNoiseFigure  ?Entity_0
+      { ?Entity_0  a                    gml:Shell
+        { ?Entity_0  a                    RFDevice:AngleModulation
+          { ?Entity_0  a                    RFDevice:Height
+            { ?Var0  Nuvio:hasValue  ?Entity_0
+              { ?UnitOfMeasure_0
+                          Nuvio:hasUnitOfMeasure  ?Var0
+                { ?UnitOfMeasure_0
+                            a                     Nuvio:UnitOfMeasure
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

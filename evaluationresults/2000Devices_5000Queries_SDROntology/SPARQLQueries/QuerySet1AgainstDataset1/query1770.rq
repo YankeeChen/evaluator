@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE313_0
+WHERE
+  { ?USRPE313_0  a                  SDR:USRPE313
+    { ?Entity_0  RFDevice:hasGain  ?USRPE313_0
+      { ?Entity_0  a                    sf:MultiPoint
+        { ?Entity_0  a                    Nuvio:Situation .
+          ?SearchRadar_0
+                    Nuvio:relevantIndividual  ?Entity_0
+          { ?VelocityUnit_0
+                      Nuvio:relevantIndividual  ?Entity_0
+            { ?VelocityUnit_0
+                        a                     RFDevice:VelocityUnit
+            }
+          }
+          { ?SearchRadar_0
+                      a                     RFDevice:SearchRadar
+            { ?Entity_0  RFDevice:hasCapability  ?SearchRadar_0 }
+          }
+        }
+        { ObjectDescription:WeightUnit_instance2
+                    Nuvio:hasUnitOfMeasure  ?Entity_0
+        }
+      }
+    }
+  }

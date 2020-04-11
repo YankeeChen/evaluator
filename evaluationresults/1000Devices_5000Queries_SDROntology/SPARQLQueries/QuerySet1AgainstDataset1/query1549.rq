@@ -1,0 +1,28 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Entity_0  RFDevice:hasProducer  ?USRPN2xx_0
+      { ?Entity_0  a                    RFDevice:TimeUnit
+        { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+          FILTER ( ?DataValue0 != 1699335511 )
+        }
+        OPTIONAL
+          {   { ?Entity_0  a                    RFDevice:Ratio }
+            UNION
+              { ?Entity_0  a                    Nuvio:InformationRepresentation .
+                ?InformationEntity_0
+                          Nuvio:representedBy   ?Entity_0
+                { ?InformationEntity_0
+                            a                     Nuvio:InformationEntity
+                }
+              }
+          }
+      }
+    }
+  }

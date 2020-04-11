@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPE310_0
+WHERE
+  { ?USRPE310_0  a                  SDR:USRPE310
+    OPTIONAL
+      { ?USRPE310_0  RFDevice:supportsTuning  ?Var0
+        { ?Var0     a                     Nuvio:Entity .
+          ?Value_0  Nuvio:isExpressedBy   ?Var0
+          { ?Var0  a                     gml:LineStringSegment
+            { ?Var0  a                     Nuvio:DimensionlessUnit }
+            OPTIONAL
+              { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                FILTER ( ?DataValue0 < 1094151181 )
+              }
+          }
+        }
+      }
+  }

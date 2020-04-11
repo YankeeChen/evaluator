@@ -1,0 +1,21 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    { ?IEDJammer_0  Nuvio:partOf  ?PulseRadar_0
+      { ?IEDJammer_0  a                 RFDevice:IEDJammer
+        OPTIONAL
+          { ?XC7K325TFPGA_0
+                      Nuvio:partOf  ?IEDJammer_0
+            { ?XC7K325TFPGA_0
+                        a                     SDR:XC7K325TFPGA
+            }
+          }
+      }
+    }
+  }

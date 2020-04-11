@@ -1,0 +1,31 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Entity_0  RFDevice:hasProducer  ?Full_DuplexCommunicationsSystem_0
+      { ?Object_0  Nuvio:expresses  ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:Processor
+            { ?Entity_0  a                    RFDevice:Gain
+              OPTIONAL
+                { ?Var0  Nuvio:hasValue  ?Entity_0
+                  { ?Var1  Nuvio:hasUnitOfMeasure  ?Var0
+                    { ?Var0  a                     RFDevice:ShortValue }
+                  }
+                }
+              { ?Entity_0  a                    Nuvio:Value .
+                RFDevice:Hertz
+                          Nuvio:hasUnitOfMeasure  ?Entity_0
+              }
+            }
+          }
+        { ?Voltage_0  RFDevice:hasNoiseFigure  ?Object_0
+          { ?Voltage_0  a                   RFDevice:Voltage }
+        }
+      }
+    }
+  }

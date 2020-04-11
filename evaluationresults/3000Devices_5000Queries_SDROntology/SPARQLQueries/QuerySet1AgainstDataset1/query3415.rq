@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?MobilePlatform_0
+                RFDevice:isDeployedOn  ?USRPB210_0
+      { ?MobilePlatform_0
+                  a                     RFDevice:MobilePlatform
+        { ObjectDescription:Moving_instance68
+                    RFDevice:supportsSpectrumSensing  ?MobilePlatform_0
+        }
+      }
+    }
+  }

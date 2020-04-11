@@ -1,0 +1,30 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPX310_0
+WHERE
+  { ?USRPX310_0  a                  SDR:USRPX310
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPX310_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:expresses     ?Entity_0
+        OPTIONAL
+          { ?Entity_0  a                    Nuvio:Process .
+            ?MultiSolid_0
+                      Nuvio:participatesIn  ?Entity_0
+            { ?MultiSolid_0
+                        a                     gml:MultiSolid
+            }
+            { ?Entity_0  a                    RFDevice:RadarJamming }
+            {   { ?Entity_0  a                    RFDevice:ElectricCharge
+                  { ?Entity_0  Nuvio:hasValue  ?Var0 }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    OPTIONAL
+      { ?Object_0  RFDevice:isProducerOf  ?GNURadio_0
+        { ?Object_0  a                    Nuvio:Object .
+          ?TerrainBounceJamming_0
+                    RFDevice:supportsTransmitting  ?Object_0
+          {   { ?TerrainBounceJamming_0
+                          a                     RFDevice:TerrainBounceJamming
+              }
+            UNION
+              { ?Entity_0  RFDevice:hasPulseWidth  ?TerrainBounceJamming_0
+                { ?Entity_0  a                    Nuvio:Entity
+                  { ?Entity_0  a                    RFDevice:FloatValue
+                    {   { ?Entity_0  a                    RFDevice:Percentage }
+                      UNION
+                        { ?Entity_0  a                    Nuvio:Process ;
+                                    Nuvio:hasParticipant  ?CompositeSurface_0
+                          { ?CompositeSurface_0
+                                      a                     gml:CompositeSurface
+                          }
+                        }
+                    }
+                  }
+                }
+              }
+          }
+        }
+      }
+  }

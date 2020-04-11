@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?ElectronicSupportSystem_0
+                RFDevice:hasProducer  ?Entity_0
+      { ?Entity_0  Nuvio:expresses  ?Process_0
+        { ?Receiver_0  Nuvio:partOf  ?Entity_0
+          { ObjectDescription:ParabolicDishAntenna_instance1
+                      Nuvio:compositeOf  ?Receiver_0
+          }
+          { ?Process_0  a                   Nuvio:Process .
+            ?ElectronicWarfare_0
+                      Nuvio:hasSubprocess   ?Process_0
+            { ?ElectronicWarfare_0
+                        a                     RFDevice:ElectronicWarfare
+            }
+          }
+        }
+      }
+    }
+  }

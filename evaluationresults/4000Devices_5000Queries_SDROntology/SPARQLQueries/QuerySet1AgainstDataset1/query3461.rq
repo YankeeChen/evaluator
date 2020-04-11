@@ -1,0 +1,21 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    { ?Entity_0  RFDevice:isProducerOf  ?CR_0
+      { ?Process_0  Nuvio:expresses  ?Entity_0
+        { ?AutomaticGainControl_0
+                    Nuvio:hasSubprocess  ?Process_0
+          { ?AutomaticGainControl_0
+                      a                     RFDevice:AutomaticGainControl
+            OPTIONAL
+              { ?Attribute_0  RFDevice:hasTransmitPowerRange  ?AutomaticGainControl_0 }
+          }
+        }
+      }
+    }
+  }

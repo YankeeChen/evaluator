@@ -1,0 +1,40 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Receiver_0  Nuvio:partOf  ?RadarSystem_0
+      { ?Entity_0  RFDevice:supportsJamming  ?Receiver_0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?InformationEntity_0
+                    Nuvio:expresses       ?Entity_0
+          { ?Entity_0  a                    Nuvio:Situation
+            { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue
+              OPTIONAL
+                { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+                  FILTER ( ! ( ?DataValue0 >= "0"^^xsd:decimal ) )
+                }
+            }
+            { ?Entity_0  a                    RFDevice:Voltage }
+            { ?Entity_0  a                    Nuvio:InformationRepresentation }
+          }
+          OPTIONAL
+            { ?Var0  Nuvio:informationSource  ?InformationEntity_0
+              OPTIONAL
+                { ?Var0  a                     SDR:USRPB205mini-i
+                  { ?Var0  a                     RFDevice:DRFMJamming
+                    { ObjectDescription:Instance2392
+                                Nuvio:hasProcessQuantity  ?Var0
+                    }
+                  }
+                }
+            }
+        }
+      }
+    }
+  }

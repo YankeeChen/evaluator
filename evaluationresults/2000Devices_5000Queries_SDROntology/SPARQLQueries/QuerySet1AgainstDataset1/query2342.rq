@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Submarine_0  RFDevice:isDeployedOn  ?USRPB210_0
+      {   { ?Submarine_0  a                 RFDevice:Submarine }
+        UNION
+          { ?Entity_0  RFDevice:supportsSpectrumSensing  ?Submarine_0
+            { ?InformationEntity_0
+                        Nuvio:expresses  ?Entity_0
+              {   { ?Entity_0  a                    Nuvio:Situation .
+                    ?SearchRadar_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                    OPTIONAL
+                      { ?Object_0  RFDevice:hasProducer  ?SearchRadar_0 }
+                  }
+                UNION
+                  { ?Entity_0  a                    RFDevice:Frequency
+                    { ?Entity_0  Nuvio:hasValue  ?Var0
+                      { ?Var0  RFDevice:hasDoubleValue  ?DataValue0
+                        { ?Var0  a                     Nuvio:Value }
+                      }
+                    }
+                    { ?Entity_0  a                    Nuvio:Attribute }
+                  }
+                {   { ?FormationJamming_0
+                                Nuvio:isExpressedBy  ?InformationEntity_0
+                    }
+                  UNION
+                    { ?FormationJamming_0
+                                a                     RFDevice:FormationJamming
+                    }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

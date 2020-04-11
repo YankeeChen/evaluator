@@ -1,0 +1,50 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?USRPB200_210_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?CoverPulsesJamming_0
+                  Nuvio:subprocessOf  ?Var0
+        { ?CoverPulsesJamming_0
+                    a                     RFDevice:CoverPulsesJamming
+          { ?Entity_0  RFDevice:hasTransmitPowerRange  ?CoverPulsesJamming_0
+            { ?Entity_0  Nuvio:isExpressedBy  ?InformationEntity_0
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:Full-DuplexCommunicationsSystem
+                  OPTIONAL
+                    { ?Transmitting_0
+                                RFDevice:supportsTuning  ?Entity_0
+                    }
+                  { ?Entity_0  a                    Nuvio:Situation .
+                    ?NoiseJamming_0
+                              Nuvio:relevantIndividual  ?Entity_0
+                    { ?ArcByBulge_0
+                                Nuvio:relevantIndividual  ?Entity_0
+                      { ?ArcByBulge_0
+                                  a                     gml:ArcByBulge
+                      }
+                    }
+                    { ?NoiseJamming_0
+                                a                     RFDevice:NoiseJamming
+                      { ?Quantity_0  RFDevice:hasTransmitPowerRange  ?NoiseJamming_0 }
+                    }
+                    { ?Entity_0  a                    Nuvio:InformationRepresentation .
+                      ?InformationEntity_0
+                                Nuvio:represents      ?Entity_0
+                    }
+                  }
+                }
+            }
+          }
+        }
+        { ?Attribute_0  RFDevice:hasPulseRepetitionInterval  ?Var0 }
+      }
+    }
+  }

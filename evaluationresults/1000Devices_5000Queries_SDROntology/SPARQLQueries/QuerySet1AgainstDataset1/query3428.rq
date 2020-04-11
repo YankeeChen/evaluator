@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    OPTIONAL
+      { ?USRPB210_0  Nuvio:aggregateOf  ?Var0
+        { ?Var0     a                     Nuvio:Entity .
+          ?InformationEntity_0
+                    Nuvio:isExpressedBy   ?Var0
+          { ?Var1  Nuvio:hasObjectQuantity  ?Var0 }
+        }
+      }
+  }

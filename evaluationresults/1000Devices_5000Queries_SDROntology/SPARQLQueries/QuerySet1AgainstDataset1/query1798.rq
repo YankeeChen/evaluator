@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Var0  Nuvio:partOf  ?USRPB210_0
+      {   { ?Var0  a                     Nuvio:Entity
+            { ?Var0  a                     Nuvio:InformationEntity
+              { ?Var0  a                     Nuvio:Situation }
+              { ?Var0  a                     Nuvio:Value
+                { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 = 624330791 )
+                }
+              }
+            }
+          }
+        UNION
+          { ?Var0  RFDevice:hasHeight  ?Var1 }
+      }
+    }
+  }

@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Object_0  RFDevice:isProducerOf  ?SearchRadar_0
+      { ObjectDescription:DataSize_instance14
+                  RFDevice:hasLevel  ?Object_0
+      }
+    }
+  }

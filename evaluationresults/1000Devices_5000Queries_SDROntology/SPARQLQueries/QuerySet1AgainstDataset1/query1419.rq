@@ -1,0 +1,32 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Entity_0  RFDevice:isProducerOf  ?ElectronicSupportSystem_0
+      { ?Entity_0  Nuvio:expresses  ?Process_0
+        { ?Entity_0  a                    RFDevice:SpatialVolumeUnit
+          { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+            FILTER ( ?DataValue0 >= -807791127 )
+            { ?AbstractGeometricPrimitive_0
+                        Nuvio:relevantIndividual  ?Entity_0
+              { ?AbstractGeometricPrimitive_0
+                          a                     gml:AbstractGeometricPrimitive
+              }
+            }
+          }
+        }
+        OPTIONAL
+          { ?Process_0  a                   Nuvio:Process .
+            ?USRPB200_210_0
+                      Nuvio:hasParticipant  ?Process_0
+            { ?Var0  RFDevice:hasNoiseFigure  ?USRPB200_210_0 }
+          }
+      }
+    }
+  }

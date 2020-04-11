@@ -1,0 +1,45 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Weight_0  RFDevice:hasGain  ?TrackingRadar_0
+      { ?Weight_0  a                    RFDevice:Weight
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          {   { ?Var0  a                     Nuvio:Value ;
+                       Nuvio:hasUnitOfMeasure  ?InformationEntity_0
+                { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 = -1166803095 )
+                  { ?Var1  Nuvio:informationSource  ?InformationEntity_0
+                    OPTIONAL
+                      { ?Var1  a                     skos:Collection ;
+                               skos:member           ?Var2
+                        OPTIONAL
+                          {   { ?Var2  a                     Nuvio:Entity }
+                            UNION
+                              { ?Var2  RFDevice:hasLength  ?Var3
+                                OPTIONAL
+                                  { ?Var2  a                     RFDevice:FrequencyShiftKeyingModulation }
+                              }
+                          }
+                      }
+                  }
+                }
+              }
+            UNION
+              { ?UnitOfMeasure_0
+                          Nuvio:hasUnitOfMeasure  ?Var0
+                { ?UnitOfMeasure_0
+                            a                     Nuvio:UnitOfMeasure
+                }
+              }
+          }
+        }
+      }
+    }
+  }

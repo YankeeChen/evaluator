@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Entity_0  RFDevice:hasWidth  ?USRPX3xx_0
+      { ?Entity_0  a                    Nuvio:Attribute
+        { ?Entity_0  Nuvio:hasDataValue  ?DataValue0
+          FILTER ( ?DataValue0 != -63.88 )
+          {   { ?SplineCurve_0
+                          RFDevice:hasTarget  ?Entity_0
+              }
+            UNION
+              { ?SplineCurve_0
+                          a                     gml:SplineCurve
+              }
+          }
+        }
+      }
+    }
+  }

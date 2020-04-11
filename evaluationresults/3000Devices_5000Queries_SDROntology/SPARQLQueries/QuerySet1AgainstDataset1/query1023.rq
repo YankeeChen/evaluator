@@ -1,0 +1,22 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:hasObjectQuantity  ?ModelX_0
+      {   { ?Entity_0  a                    Nuvio:Entity }
+        UNION
+          { ?Entity_0  a                    sf:MultiCurve
+            { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue
+              { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+                FILTER ( ?DataValue0 >= "0"^^xsd:decimal )
+              }
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?JammingSystem_0
+                Nuvio:aggregateOf  ?RadioComponent_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ObjectDescription:IEDTrigger_instance68
+                    Nuvio:partOf  ?RadioComponent_0
+        }
+      }
+    }
+  }

@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?RadioComponent_0
+                Nuvio:compositeOf  ?SearchRadar_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?CortexA9_0  Nuvio:partOf  ?RadioComponent_0
+          {   { ?CortexA9_0  a                  SDR:CortexA9 }
+            UNION
+              { ?Object_0  RFDevice:isProducerOf  ?CortexA9_0
+                { ?Object_0  a                    Nuvio:Object }
+              }
+          }
+        }
+      }
+    }
+  }

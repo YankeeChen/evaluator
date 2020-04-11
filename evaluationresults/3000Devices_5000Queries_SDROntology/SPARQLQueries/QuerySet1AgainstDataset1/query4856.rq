@@ -1,0 +1,22 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SurveillanceRadar_0
+WHERE
+  { ?SurveillanceRadar_0
+              a                     RFDevice:SurveillanceRadar
+    { ?Entity_0  Nuvio:compositeOf  ?SurveillanceRadar_0
+      { RFDevice:Full-Duplex
+                  RFDevice:hasDataTransmissionMode  ?Entity_0
+        { ?Entity_0  a                    RFDevice:CumulativeDetection }
+        OPTIONAL
+          { ?Entity_0  a                    RFDevice:IntValue
+            { ?Entity_0  RFDevice:hasDecimalValue  ?DataValue0
+              FILTER ( ?DataValue0 != -61.21 )
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,30 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Entity_0  RFDevice:hasCapacity  ?ElectronicSupportSystem_0
+      { ?UnitOfMeasure_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        { ?RadioFrequencyBand_0
+                    RFDevice:hasFrequencyAccuracy  ?Entity_0
+          { ?RadioFrequencyBand_0
+                      a                     RFDevice:RadioFrequencyBand
+            { RFDevice:Freq_3kHz
+                        RFDevice:hasMin  ?RadioFrequencyBand_0
+            }
+          }
+          { ?Entity_0  a                    RFDevice:FloatValue }
+          { ObjectDescription:FrequencyUnit_instance6
+                      Nuvio:hasUnitOfMeasure  ?Entity_0
+          }
+          { ?UnitOfMeasure_0
+                      a                     Nuvio:UnitOfMeasure
+          }
+        }
+      }
+    }
+  }

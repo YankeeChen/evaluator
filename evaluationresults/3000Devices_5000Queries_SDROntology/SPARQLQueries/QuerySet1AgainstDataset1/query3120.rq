@@ -1,0 +1,27 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  Nuvio:aggregateOf  ?USRPN310_0
+      { ?Entity_0  Nuvio:expresses  ?Situation_0
+        { ?Entity_0  a                    Nuvio:Process
+          OPTIONAL
+            { ?Entity_0  a                    Nuvio:InformationRepresentation .
+              ?InformationContent_0
+                        Nuvio:representedBy   ?Entity_0
+              { ?Entity_0  Nuvio:representedBy  ?InformationContent_0 }
+            }
+          { ?Role_0  Nuvio:relevantIndividual  ?Situation_0
+            { ?Situation_0  Nuvio:relevantIndividual  ?Spartan6FPGA_0
+              { SDR:Xilinx  RFDevice:hasProducer  ?Spartan6FPGA_0 }
+              { ?Role_0  a                     RFDevice:Role }
+            }
+          }
+        }
+      }
+    }
+  }

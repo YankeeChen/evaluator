@@ -1,0 +1,16 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    OPTIONAL
+      { ?Object_0  Nuvio:partOf  ?CR_0
+        { ?Object_0  a                    Nuvio:Object .
+          ?Quantity_0  Nuvio:hasObjectQuality  ?Object_0
+          OPTIONAL
+            { ?Quantity_0  a                  Nuvio:Quantity }
+        }
+      }
+  }

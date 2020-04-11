@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN300_0
+WHERE
+  { ?USRPN300_0  a                  SDR:USRPN300
+    { ?Var0  RFDevice:supportsTuning  ?USRPN300_0
+      { ?Var0  a                     Nuvio:Entity ;
+               Nuvio:isExpressedBy   ?Object_0
+        { ?Var0  a                     RFDevice:PulseDopplerRadarModulation
+          { ?Quantity_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+            { ?Quantity_0  a                  Nuvio:Quantity }
+          }
+          { ?Var0  a                     RFDevice:SpatialLinearUnit
+            { ?Var0  a                     Nuvio:Value ;
+                     Nuvio:hasUnitOfMeasure  ?Var0
+            }
+          }
+        }
+        { ?Object_0  a                    Nuvio:Object .
+          ?Height_0  RFDevice:hasWidth    ?Object_0
+          { ?Var1  Nuvio:hasValue  ?Height_0
+            { ?SpatialUnit_0
+                        Nuvio:hasUnitOfMeasure  ?Var1
+              { ?SpatialUnit_0
+                          a                     RFDevice:SpatialUnit
+              }
+            }
+          }
+        }
+      }
+    }
+  }

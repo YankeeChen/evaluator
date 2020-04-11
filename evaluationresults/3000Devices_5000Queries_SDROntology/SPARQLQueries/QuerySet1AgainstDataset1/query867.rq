@@ -1,0 +1,19 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?Satellite_0  RFDevice:isDeployedOn  ?TrackingRadar_0
+      { ?Satellite_0  a                 RFDevice:Satellite
+        { ?Process_0  RFDevice:supportsSpectrumSensing  ?Satellite_0
+          { ?Process_0  a                   Nuvio:Process .
+            ObjectDescription:Power_instance41
+                      RFDevice:hasTransmitPowerRange  ?Process_0
+          }
+        }
+      }
+    }
+  }

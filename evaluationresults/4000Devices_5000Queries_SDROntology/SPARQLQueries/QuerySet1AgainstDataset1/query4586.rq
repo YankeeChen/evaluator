@@ -1,0 +1,28 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    OPTIONAL
+      { ?Entity_0  RFDevice:supportsJamming  ?SearchRadar_0
+        { ?UnitOfMeasure_0
+                    Nuvio:isExpressedBy  ?Entity_0
+          { ?Entity_0  a                    gml:Solid
+            {   { ?Entity_0  a                    RFDevice:AngleValue
+                  OPTIONAL
+                    { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 < -1420376143 )
+                    }
+                }
+              UNION
+                { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+            }
+          }
+        }
+      }
+  }

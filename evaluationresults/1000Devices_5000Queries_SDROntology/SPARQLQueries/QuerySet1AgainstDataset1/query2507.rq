@@ -1,0 +1,51 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:hasCapability  ?RFSystem_0
+      { ?Var0  a                     RFDevice:Transmitting
+        OPTIONAL
+          { ?Power_0  RFDevice:hasEffectiveRadiatedPower  ?Var0
+            { ?Power_0  a                     RFDevice:Power
+              { ?Power_0  Nuvio:hasValue  ?Var1
+                { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var1
+                  { ?InformationRepresentation_0
+                              Nuvio:isExpressedBy  ?Entity_0
+                    {   { ?Entity_0  a                    Nuvio:Value }
+                      UNION
+                        { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                          FILTER ( ?DataValue0 <= 668206108 )
+                        }
+                      {   { ?Entity_0  a                    RFDevice:Frequency }
+                        UNION
+                          { ?Var2  Nuvio:hasValue  ?Entity_0 }
+                        { ?Entity_0  a                    Nuvio:Object .
+                          ?SweepJamming_0
+                                    RFDevice:supportsSpectrumSensing  ?Entity_0
+                          { ?SweepJamming_0
+                                      a                     RFDevice:SweepJamming
+                          }
+                        }
+                      }
+                    }
+                    { ?InformationRepresentation_0
+                                a                     Nuvio:InformationRepresentation .
+                      ?InformationContent_0
+                                Nuvio:represents      ?InformationRepresentation_0
+                      { ?InformationContent_0
+                                  a                     Nuvio:InformationContent .
+                        ?Entity_0  Nuvio:representedBy  ?InformationContent_0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

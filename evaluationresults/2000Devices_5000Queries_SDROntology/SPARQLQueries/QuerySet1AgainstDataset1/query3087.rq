@@ -1,0 +1,19 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?MobilePlatform_0
+                RFDevice:isDeployedOn  ?ModelX_0
+      {   { ?MobilePlatform_0
+                      a                     RFDevice:MobilePlatform
+          }
+        UNION
+          { ?Entity_0  RFDevice:supportsTuning  ?MobilePlatform_0
+            { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+          }
+      }
+    }
+  }

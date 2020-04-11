@@ -1,0 +1,23 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Entity_0  RFDevice:hasProducer  ?ElectronicAttackSystem_0
+      { ?Entity_0  Nuvio:expresses  ?UnitOfMeasure_0
+        {   { ?Entity_0  a                    gml:Solid
+              { ?Entity_0  a                    RFDevice:LatitudeValue }
+              { ?Entity_0  a                    Nuvio:Attribute }
+            }
+          UNION
+            { ?UnitOfMeasure_0
+                        a                     Nuvio:UnitOfMeasure
+            }
+        }
+      }
+    }
+  }

@@ -1,0 +1,51 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?IEDJammer_0  Nuvio:aggregateOf  ?GNURadio_0
+      { ?IEDJammer_0  a                 RFDevice:IEDJammer
+        { ?RadarJamming_0
+                    RFDevice:supportsTransmitting  ?IEDJammer_0
+          { ?RadarJamming_0
+                      a                     RFDevice:RadarJamming
+            { ?Entity_0  RFDevice:hasPulseRepetitionInterval  ?RadarJamming_0
+              { ?Value_0  Nuvio:expresses  ?Entity_0
+                { ?Entity_0  a                    skos:Concept ;
+                            skos:broaderTransitive  ?Entity_0
+                  OPTIONAL
+                    { ?Entity_0  a                    RFDevice:ElectronicSupport
+                      OPTIONAL
+                        { ?Entity_0  a                    Nuvio:InformationContent .
+                          ?InformationEntity_0
+                                    Nuvio:represents      ?Entity_0
+                          { ?InformationEntity_0
+                                      a                     Nuvio:InformationEntity .
+                            ?AmplitudeShiftKeyingModulation_0
+                                      Nuvio:isExpressedBy   ?InformationEntity_0
+                            OPTIONAL
+                              { ?AmplitudeShiftKeyingModulation_0
+                                          a                     RFDevice:AmplitudeShiftKeyingModulation
+                              }
+                          }
+                        }
+                    }
+                  { ?Value_0  a                     Nuvio:Value .
+                    ?DimensionlessUnit_0
+                              Nuvio:hasUnitOfMeasure  ?Value_0
+                    { ?DimensionlessUnit_0
+                                a                     Nuvio:DimensionlessUnit
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

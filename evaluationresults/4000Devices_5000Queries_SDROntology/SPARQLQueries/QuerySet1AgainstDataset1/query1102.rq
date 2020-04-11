@@ -1,0 +1,39 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?SuperheterodyneReceiver_0
+                Nuvio:partOf  ?ElectronicAttackSystem_0
+      { ?SuperheterodyneReceiver_0
+                  a                     RFDevice:SuperheterodyneReceiver
+        { ?Entity_0  RFDevice:hasProducer  ?SuperheterodyneReceiver_0
+          { ?Entity_1  Nuvio:isExpressedBy  ?Entity_0
+            { ?Entity_0  a                    RFDevice:Receiver
+              { ?ParabolicDishAntenna_0
+                          Nuvio:aggregateOf  ?Entity_0
+                { ?ParabolicDishAntenna_0
+                            a                     RFDevice:ParabolicDishAntenna
+                  { ?Var0  RFDevice:supportsTuning  ?ParabolicDishAntenna_0
+                    { ?Var0  a                     Nuvio:Process }
+                  }
+                }
+              }
+              { ?Entity_0  a                    RFDevice:CyclostationaryDetection
+                OPTIONAL
+                  { ?Entity_0  a                    Nuvio:Value
+                    { ?Entity_0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 != -1143453936 )
+                    }
+                  }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

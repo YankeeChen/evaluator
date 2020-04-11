@@ -1,0 +1,43 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?USRPB200_210_0
+                RFDevice:supportsSpectrumSensing  ?Var0
+      { ?Var1  RFDevice:hasMaxOutputPower  ?Var0
+        { ?Var1  Nuvio:hasValue  ?Var2 }
+        { ?Entity_0  RFDevice:hasTransmitPowerRange  ?Var0
+          { ?Entity_0  a                    Nuvio:Entity .
+            ?Situation_0  Nuvio:expresses   ?Entity_0
+            { ?Entity_0  a                    SDR:XC7K325TFPGA
+              { ObjectDescription:Producer_instance45
+                          RFDevice:hasProducer  ?Entity_0
+              }
+              { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+              { ?Entity_0  a                    Nuvio:InformationEntity .
+                ?PolynomialSpline_0
+                          Nuvio:expresses       ?Entity_0
+                { ?PolynomialSpline_0
+                            a                     gml:PolynomialSpline
+                }
+              }
+              { ?Entity_0  Nuvio:relevantIndividual  ?Situation_0
+                { ?DeceptiveCommunicationsJamming_0
+                            Nuvio:relevantIndividual  ?Situation_0
+                  { ?Power_0  RFDevice:hasEffectiveRadiatedPower  ?DeceptiveCommunicationsJamming_0
+                    { ?Power_0  a                     RFDevice:Power }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

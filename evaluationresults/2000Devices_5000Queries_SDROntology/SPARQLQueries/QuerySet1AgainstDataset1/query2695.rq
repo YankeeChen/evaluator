@@ -1,0 +1,39 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    OPTIONAL
+      { ?USRPN310_0  RFDevice:hasProducer  ?Entity_0
+        { ?Process_0  Nuvio:expresses  ?Entity_0
+          OPTIONAL
+            { ObjectDescription:Frequency_instance215
+                        RFDevice:hasMax  ?Entity_0
+              { ?Entity_0  a                    RFDevice:AdjustableBandwidthSensing
+                { ?Object_0  RFDevice:hasBandwidthRange  ?Entity_0
+                  { ?Object_0  a                    Nuvio:Object }
+                }
+              }
+              OPTIONAL
+                { ?Entity_0  a                    RFDevice:FrequencyScanRate
+                  { ?Entity_0  Nuvio:hasValue  ?Var0
+                    { ?Var0  Nuvio:hasDataValue  ?DataValue0
+                      FILTER ( ?DataValue0 != 437906209 )
+                    }
+                  }
+                  { ?Entity_0  a                    Nuvio:Situation ;
+                              Nuvio:relevantIndividual  ?QuantityRange_0
+                    { ObjectDescription:NoiseFigure_instance81
+                                RFDevice:hasMax  ?QuantityRange_0
+                    }
+                  }
+                }
+              { ?Entity_1  Nuvio:hasProcessQuality  ?Process_0 }
+            }
+        }
+      }
+  }

@@ -1,0 +1,33 @@
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Transmitter_0
+                Nuvio:partOf  ?CommunicationsSystem_0
+      { ?Entity_0  RFDevice:hasFrequencyRange  ?Transmitter_0
+        { ?Process_0  Nuvio:expresses  ?Entity_0
+          { ?Entity_0  a                    gml:Solid
+            { ?Entity_0  a                    RFDevice:CrossPolarizationJamming
+              { ?Entity_0  a                    Nuvio:InformationEntity ;
+                          Nuvio:expresses       ?GeometryCollection_0
+                { ?GeometryCollection_0
+                            a                     sf:GeometryCollection
+                }
+              }
+              { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0 }
+            }
+            { ?Process_0  a                   Nuvio:Process .
+              ObjectDescription:FreqencyRange_instance20
+                        RFDevice:hasTarget    ?Process_0
+            }
+          }
+        }
+      }
+    }
+  }

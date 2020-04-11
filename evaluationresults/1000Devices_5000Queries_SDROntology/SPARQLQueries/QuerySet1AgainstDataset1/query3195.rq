@@ -1,0 +1,24 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Receiver_0  Nuvio:partOf  ?RFSystem_0
+      { ?Entity_0  RFDevice:hasNoiseFigure  ?Receiver_0
+        { ?Entity_0  a                    Nuvio:Entity
+          { ?Entity_0  a                    gml:MultiGeometry
+            {   { ?Entity_0  a                    Nuvio:Process .
+                  ?Quantity_0  Nuvio:hasProcessQuality  ?Entity_0
+                }
+              UNION
+                { ?Quantity_0  a                  Nuvio:Quantity }
+              { ?Entity_0  a                    RFDevice:NonNegativeDecimalValue }
+            }
+          }
+        }
+      }
+    }
+  }

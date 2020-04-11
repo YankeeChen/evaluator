@@ -1,0 +1,22 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    OPTIONAL
+      { ?InstantaneousFrequencyMeasurementReceiver_0
+                  Nuvio:partOf  ?USRPX3xx_0
+        { ?Entity_0  RFDevice:supportsJamming  ?InstantaneousFrequencyMeasurementReceiver_0
+          {   { ?Entity_0  a                    Nuvio:Entity }
+            UNION
+              { ?Entity_0  a                    RFDevice:AngleUnit
+                { ?Entity_0  a                    Nuvio:Value }
+                { ?Entity_0  a                    Nuvio:Attribute }
+              }
+          }
+        }
+      }
+  }

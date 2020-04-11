@@ -1,0 +1,42 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?RadioComponent_0
+                Nuvio:aggregateOf  ?Half_DuplexCommunicationsSystem_0
+      { ?Object_0  RFDevice:isProducerOf  ?RadioComponent_0
+        { ?Object_0  a                    Nuvio:Object .
+          ?ElectricCharge_0
+                    RFDevice:hasHeight    ?Object_0
+          { ?Var0  Nuvio:hasValue  ?ElectricCharge_0
+            { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+              {   { ?Entity_0  a                    Nuvio:Entity }
+                UNION
+                  { ?Entity_0  a                    RFDevice:FormationJamming
+                    {   { RFDevice:Decibel
+                                    Nuvio:hasUnitOfMeasure  ?Entity_0
+                        }
+                      UNION
+                        { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+                          FILTER ( ?DataValue0 = 82.66 )
+                          { ?LatitudeValueInDegree_0
+                                      Nuvio:hasValue  ?Entity_0
+                            { ?LatitudeValueInDegree_0
+                                        a                     RFDevice:LatitudeValueInDegree
+                            }
+                          }
+                        }
+                    }
+                  }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Weight_0  RFDevice:hasMaxPowerConsumption  ?CommunicationsSystem_0
+      { ?Weight_0  a                    RFDevice:Weight
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          {   { ?Attribute_0  Nuvio:isExpressedBy  ?Var0 }
+            UNION
+              { ?Var0  a                     gml:CompositeSurface
+                { ?Var0  a                     RFDevice:ElectricChargeUnit
+                  { ?Var0     a                     Nuvio:InformationRepresentation .
+                    ?Entity_0  Nuvio:represents     ?Var0
+                  }
+                }
+              }
+          }
+        }
+      }
+    }
+  }

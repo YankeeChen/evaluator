@@ -1,0 +1,21 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    OPTIONAL
+      { ?TrackingRadar_0
+                  RFDevice:isDeployedOn  ?Object_0
+        { ?Object_0  a                    Nuvio:Object .
+          ?OnOffKeyingModulation_0
+                    Nuvio:participatesIn  ?Object_0
+          OPTIONAL
+            { ?OnOffKeyingModulation_0
+                        a                     RFDevice:OnOffKeyingModulation
+            }
+        }
+      }
+  }

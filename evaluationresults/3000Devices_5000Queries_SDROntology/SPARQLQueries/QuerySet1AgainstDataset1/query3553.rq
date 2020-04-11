@@ -1,0 +1,52 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTransmitting  ?BistaticRadar_0
+        { ?Var0  a                     RFDevice:FixedBandwidthSensing
+          { ?Var0  a                     RFDevice:SelfProtectionJamming
+            { ?Attribute_0  RFDevice:hasPulseWidth  ?Var0
+              { ?Attribute_0  a                 Nuvio:Attribute }
+            }
+            { ?Var0  a                     RFDevice:Transceiving
+              { ?Var0  a                     RFDevice:NoiseJamming
+                { ?Var0  RFDevice:hasTransmitPowerRange  ?Entity_0
+                  { ?Entity_0  a                    RFDevice:Gain
+                    {   { ?IntegerValue_0
+                                    Nuvio:relevantIndividual  ?Entity_0
+                          { ?XC7K410TFPGA_0
+                                      Nuvio:relevantIndividual  ?Entity_0
+                            { ?XC7K410TFPGA_0
+                                        a                     SDR:XC7K410TFPGA
+                            }
+                            { ?IntegerValue_0
+                                        RFDevice:hasPositiveIntegerValue  ?DataValue0
+                              FILTER ( ?DataValue0 >= -20.97 )
+                            }
+                          }
+                        }
+                      UNION
+                        { ?Entity_0  a                    Nuvio:Process .
+                          ?QuadratureAmplitudeModulation_0
+                                    Nuvio:subprocessOf    ?Entity_0
+                          OPTIONAL
+                            { ?QuadratureAmplitudeModulation_0
+                                        a                     RFDevice:QuadratureAmplitudeModulation
+                            }
+                        }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  }

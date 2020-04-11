@@ -1,0 +1,23 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB205mini_i_0
+WHERE
+  { ?USRPB205mini_i_0
+              a                     SDR:USRPB205mini-i
+    { ?XilinxFPGA_0
+                Nuvio:partOf  ?USRPB205mini_i_0
+      {   { ?XilinxFPGA_0
+                      a                     SDR:XilinxFPGA
+          }
+        UNION
+          { ?XilinxFPGA_0
+                      RFDevice:hasProducer  ?Producer_0
+            { ?Producer_0  a                  RFDevice:Producer }
+            { ?Producer_0  RFDevice:isProducerOf  ?XilinxFPGA_0 }
+          }
+      }
+    }
+  }

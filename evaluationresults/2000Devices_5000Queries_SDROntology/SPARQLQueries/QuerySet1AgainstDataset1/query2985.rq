@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN200_0
+WHERE
+  { ?USRPN200_0  a                  SDR:USRPN200
+    OPTIONAL
+      { ?USRPN200_0  Nuvio:partOf  ?Entity_0
+        { ?Entity_0  Nuvio:isExpressedBy  ?InformationRepresentation_0
+          { ?Entity_0  a                    RFDevice:TrackingRadar
+            { ?Entity_0  a                    RFDevice:Weight
+              { ?Var0  Nuvio:hasValue  ?Entity_0 }
+              { ?Entity_0  a                    Nuvio:InformationEntity }
+            }
+          }
+          { ?InformationRepresentation_0
+                      a                     Nuvio:InformationRepresentation .
+            ?InformationEntity_0
+                      Nuvio:representedBy   ?InformationRepresentation_0
+          }
+        }
+      }
+  }

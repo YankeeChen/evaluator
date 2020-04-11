@@ -1,0 +1,20 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    OPTIONAL
+      { ?Weight_0  RFDevice:hasChargingTime  ?RFSystem_0
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          { ?Var0  a                     RFDevice:PositiveFloatValue
+            OPTIONAL
+              { ?Var0  RFDevice:hasDecimalValue  ?DataValue0
+                FILTER ( ?DataValue0 <= "72.6685"^^xsd:double )
+              }
+          }
+        }
+      }
+  }

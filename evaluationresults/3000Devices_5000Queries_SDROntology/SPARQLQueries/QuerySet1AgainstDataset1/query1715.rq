@@ -1,0 +1,47 @@
+PREFIX  skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?BistaticRadar_0
+        { ?Var0  a                     Nuvio:Entity
+          {   { ?Var0  a                     RFDevice:InverseGainJamming }
+            UNION
+              { ?Var0  RFDevice:hasMaxOutputPower  ?Var0 }
+            { ?Var0  a                     RFDevice:SpatialVolumeUnit }
+            {   { ?Var0     a                     Nuvio:Process .
+                  ?PhaseModulation_0
+                            Nuvio:hasSubprocess   ?Var0
+                  { ?PhaseModulation_0
+                              a                     RFDevice:PhaseModulation
+                  }
+                }
+              UNION
+                { ?Situation_0  Nuvio:hasUnitOfMeasure  ?Var0
+                  { ?Situation_0  a                 Nuvio:Situation .
+                    ?BlinkingJamming_0
+                              Nuvio:relevantIndividual  ?Situation_0
+                    { ?ConceptScheme_0
+                                Nuvio:relevantIndividual  ?Situation_0
+                      { ?ConceptScheme_0
+                                  a                     skos:ConceptScheme ;
+                                  skos:topConceptOf     ?Collection_0
+                        { ?Collection_0
+                                    a                     skos:Collection .
+                          ?Var1     skos:member           ?Collection_0
+                          { ?Var1  a                     skos:Concept }
+                        }
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }

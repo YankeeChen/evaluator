@@ -1,0 +1,25 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Var0  RFDevice:supportsJamming  ?USRPX3xx_0
+      { ?Var0  a                     gml:Tin
+        { ?Var0  Nuvio:hasPrecision  ?DataValue0
+          FILTER ( ?DataValue0 < 1826121335 )
+        }
+        { ?Var0  a                     RFDevice:Weight
+          { ?Var0  a                     Nuvio:Object }
+          { ?Entity_0  Nuvio:represents  ?Var0 }
+        }
+        { ?Var0  a                     RFDevice:CrossPolarizationJamming
+          { ?Power_0  RFDevice:hasPulseRepetitionInterval  ?Var0 }
+        }
+      }
+    }
+  }

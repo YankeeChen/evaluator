@@ -1,0 +1,43 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicAttackSystem_0
+WHERE
+  { ?ElectronicAttackSystem_0
+              a                     RFDevice:ElectronicAttackSystem
+    { ?Var0  RFDevice:hasCapability  ?ElectronicAttackSystem_0
+      { ?Var0  RFDevice:hasBandwidth  ?Attribute_0
+        { ?Attribute_0  a                 Nuvio:Attribute }
+        { ?RadioFrequencyBand_0
+                    RFDevice:hasBandwidthRange  ?Var0
+          { ?RadioFrequencyBand_0
+                      a                     RFDevice:RadioFrequencyBand
+            { ?RadioFrequencyBand_0
+                        RFDevice:hasMin  ?Entity_0
+              { ?Entity_0  a                    Nuvio:Entity ;
+                          Nuvio:expresses       ?Entity_0
+                { ?Entity_0  a                    RFDevice:RadarFrequencyBand
+                  { ?Attribute_1  RFDevice:hasMax  ?Entity_0 }
+                }
+              }
+            }
+          }
+        }
+        {   { ?Var0  a                     RFDevice:Transceiving }
+          UNION
+            { ?Var0  a                     RFDevice:Receiving
+              { ?Object_0  RFDevice:hasBandwidthRange  ?Var0
+                { ?FeatureDetection_0
+                            Nuvio:hasParticipant  ?Object_0
+                  OPTIONAL
+                    { ?FeatureDetection_0
+                                a                     RFDevice:FeatureDetection
+                    }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

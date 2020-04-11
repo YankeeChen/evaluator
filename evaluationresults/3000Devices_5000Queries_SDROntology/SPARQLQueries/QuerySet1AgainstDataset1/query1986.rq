@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?USRPB2xx_0  RFDevice:supportsSpectrumSensing  ?Var0
+      {   { ?Var0     a                     Nuvio:Process .
+            ?Clothoid_0  RFDevice:hasTarget  ?Var0
+            { ?Clothoid_0  a                  gml:Clothoid }
+          }
+        UNION
+          { ?Power_0  RFDevice:hasPulseRepetitionFrequency  ?Var0
+            { ?Var1  Nuvio:hasValue  ?Power_0
+              { ?Var1  RFDevice:hasDoubleValue  ?DataValue0
+                FILTER ( ?DataValue0 <= -5.73 )
+              }
+            }
+          }
+      }
+    }
+  }

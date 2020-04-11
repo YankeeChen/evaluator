@@ -1,0 +1,24 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?TrackingRadar_0
+WHERE
+  { ?TrackingRadar_0
+              a                     RFDevice:TrackingRadar
+    { ?TrackingRadar_0
+                RFDevice:hasProducer  ?Object_0
+      { ?Object_0  a                    Nuvio:Object .
+        ?Entity_0  RFDevice:hasPolarization  ?Object_0
+        { ?Value_0  Nuvio:isExpressedBy  ?Entity_0
+          {   { ?Entity_0  a                    SDR:USRPN300 }
+            UNION
+              { ?Object_0  RFDevice:isProducerOf  ?Entity_0 }
+            { ?Entity_0  a                    RFDevice:WeightUnit }
+            { ?Value_0  a                     Nuvio:Value }
+          }
+        }
+      }
+    }
+  }

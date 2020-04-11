@@ -1,0 +1,19 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    OPTIONAL
+      { ?Transmitting_0
+                  RFDevice:hasCapability  ?CommunicationsSystem_0
+        {   { ?Transmitting_0
+                        a                     RFDevice:Transmitting
+            }
+          UNION
+            { ?Power_0  Nuvio:hasProcessQuantity  ?Transmitting_0 }
+        }
+      }
+  }

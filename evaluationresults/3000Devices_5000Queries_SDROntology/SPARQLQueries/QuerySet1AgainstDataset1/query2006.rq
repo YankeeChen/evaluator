@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?SDR_0
+WHERE
+  { ?SDR_0  rdf:type  SDR:SDR
+    { ?Entity_0  Nuvio:compositeOf  ?SDR_0
+      { ?Entity_0  rdf:type            Nuvio:Entity .
+        ?InformationContent_0
+                  Nuvio:isExpressedBy  ?Entity_0
+        {   { ?Entity_0  rdf:type  rdf:List }
+          UNION
+            { ?Entity_0  rdf:type  Nuvio:Attribute }
+          { ?InformationContent_0
+                      rdf:type             Nuvio:InformationContent .
+            ?InformationEntity_0
+                      Nuvio:representedBy  ?InformationContent_0
+            { ?InformationEntity_0
+                        rdf:type         Nuvio:InformationEntity .
+              ?MultiSurface_0
+                        Nuvio:expresses  ?InformationEntity_0
+              { ?MultiSurface_0
+                          rdf:type  sf:MultiSurface
+              }
+            }
+          }
+        }
+      }
+    }
+  }

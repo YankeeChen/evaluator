@@ -1,0 +1,35 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Var0  RFDevice:hasCapability  ?ElectronicSupportSystem_0
+      { ?Var0  a                     RFDevice:FixedBandwidthSensing
+        { RFDevice:Freq_300kHz
+                    RFDevice:hasBandwidth  ?Var0
+        }
+        {   { ?InformationContent_0
+                        Nuvio:expresses  ?Var0
+              { ?Var0  a                     RFDevice:StandoffJamming
+                {   { ?Var0  a                     RFDevice:PowerUnit
+                      OPTIONAL
+                        { ?Var0  a                     RFDevice:Gain }
+                    }
+                  UNION
+                    { ?Var0     a                     Nuvio:InformationEntity .
+                      ?USRPE310_0  Nuvio:expresses    ?Var0
+                    }
+                }
+              }
+            }
+          UNION
+            { ?InformationContent_0
+                        a                     Nuvio:InformationContent
+            }
+        }
+      }
+    }
+  }

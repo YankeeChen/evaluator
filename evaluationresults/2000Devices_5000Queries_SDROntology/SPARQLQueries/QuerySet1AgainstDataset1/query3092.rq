@@ -1,0 +1,31 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    OPTIONAL
+      { ?Weight_0  RFDevice:hasLevel  ?GNURadio_0
+        { ?Var0  Nuvio:hasValue  ?Weight_0
+          { ?Entity_0  Nuvio:hasUnitOfMeasure  ?Var0
+            { ?Entity_0  a                    Nuvio:Entity
+              OPTIONAL
+                { ?Entity_0  a                    gml:CompositeSurface
+                  { ?Entity_0  a                    RFDevice:CoverJamming
+                    { ?Attribute_0  RFDevice:hasMaxSensedPower  ?Entity_0
+                      { ?Attribute_0  a                 Nuvio:Attribute }
+                    }
+                  }
+                  { ?Entity_0  RFDevice:hasPositiveIntegerValue  ?DataValue0
+                    FILTER ( ?DataValue0 <= -97.33 )
+                  }
+                }
+            }
+          }
+        }
+      }
+  }

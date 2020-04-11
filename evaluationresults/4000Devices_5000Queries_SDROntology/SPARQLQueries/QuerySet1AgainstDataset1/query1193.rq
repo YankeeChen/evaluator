@@ -1,0 +1,13 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?SearchRadar_0
+WHERE
+  { ?SearchRadar_0
+              a                     RFDevice:SearchRadar
+    { ?Object_0  RFDevice:hasProducer  ?SearchRadar_0
+      { ObjectDescription:AntennaPolarization_instance34
+                  RFDevice:hasPolarization  ?Object_0
+      }
+    }
+  }

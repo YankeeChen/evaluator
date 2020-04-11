@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?Half_DuplexCommunicationsSystem_0
+                RFDevice:hasProducer  ?Entity_0
+      { ?Entity_0  a                    Nuvio:Entity
+        { ?PhaseShiftKeyingModulation_0
+                    RFDevice:hasCapability  ?Entity_0
+          { ?PhaseShiftKeyingModulation_0
+                      a                     RFDevice:PhaseShiftKeyingModulation
+          }
+          { ?Entity_0  Nuvio:expresses  ?Composite_0
+            OPTIONAL
+              { ?Composite_0  a                 gml:Composite }
+          }
+        }
+      }
+    }
+  }

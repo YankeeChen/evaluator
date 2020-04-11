@@ -1,0 +1,14 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+
+SELECT DISTINCT  ?RFSystem_0
+WHERE
+  { ?RFSystem_0  a                  RFDevice:RFSystem
+    { ?Var0  RFDevice:supportsJamming  ?RFSystem_0
+      { ?Var0  a                     RFDevice:Receiving
+        { ObjectDescription:RadarFrequencyBand_instance88
+                    RFDevice:hasFrequencyAccuracy  ?Var0
+        }
+      }
+    }
+  }

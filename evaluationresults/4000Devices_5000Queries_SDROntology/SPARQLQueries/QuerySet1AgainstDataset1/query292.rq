@@ -1,0 +1,36 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Object_0  RFDevice:isProducerOf  ?ElectronicSupportSystem_0
+      { ?Object_0  RFDevice:supportsSpectrumSensing  ?InverseGainJamming_0
+        OPTIONAL
+          { ?InverseGainJamming_0
+                      a                     RFDevice:InverseGainJamming
+            { ?Entity_0  RFDevice:hasPulseRepetitionFrequency  ?InverseGainJamming_0
+              { ?Entity_0  a                    Nuvio:Entity .
+                ?InformationContent_0
+                          Nuvio:expresses       ?Entity_0
+                { ?Entity_0  a                    Nuvio:Situation .
+                  ?TimeInterval_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                  { ?TimeInterval_0
+                              a                     RFDevice:TimeInterval
+                  }
+                  { ?Entity_0  a                    Nuvio:UnitOfMeasure
+                    { ?Entity_0  a                    Nuvio:Attribute }
+                  }
+                  { ?InformationContent_0
+                              a                     Nuvio:InformationContent
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

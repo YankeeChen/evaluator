@@ -1,0 +1,27 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?RadarSystem_0
+WHERE
+  { ?RadarSystem_0
+              a                     RFDevice:RadarSystem
+    { ?Object_0  Nuvio:compositeOf  ?RadarSystem_0
+      { ?CoverPulsesJamming_0
+                  RFDevice:supportsSpectrumSensing  ?Object_0
+        {   { ?CoverPulsesJamming_0
+                        a                     RFDevice:CoverPulsesJamming
+            }
+          UNION
+            { ?Entity_0  RFDevice:hasMaxSensedPower  ?CoverPulsesJamming_0
+              { ?Entity_0  a                    Nuvio:Entity
+                { ?Entity_0  a                    RFDevice:VelocityUnit
+                  { ?Entity_0  a                    RFDevice:Height }
+                  { ?Entity_0  Nuvio:relevantIndividual  ObjectDescription:ElectronicAttackSystem_instance59 }
+                }
+              }
+            }
+        }
+      }
+    }
+  }

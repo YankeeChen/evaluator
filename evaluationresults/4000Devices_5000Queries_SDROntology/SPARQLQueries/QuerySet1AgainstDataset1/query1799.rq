@@ -1,0 +1,27 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?Entity_0  Nuvio:partOf  ?ModelX_0
+      { ?Entity_0  a                    Nuvio:Entity .
+        ?Process_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    RFDevice:SpatialLinearUnit
+          { ?Entity_0  RFDevice:hasFloatValue  ?DataValue0
+            FILTER ( ?DataValue0 != 51.52 )
+          }
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:Ratio }
+          { ?Process_0  a                   Nuvio:Process ;
+                      Nuvio:hasParticipant  ?FreqencyRange_0
+            { ?FreqencyRange_0
+                        a                     RFDevice:FreqencyRange
+            }
+          }
+        }
+      }
+    }
+  }

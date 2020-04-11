@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?USRPX3xx_0
+      { ?Var0  a                     RFDevice:AutomaticGainControl
+        { ?Var0  Nuvio:isExpressedBy  ?Process_0
+          { ?Var0  a                     sf:GeometryCollection
+            { ?Var0  a                     Nuvio:Attribute }
+            OPTIONAL
+              {   { ?Process_0  a                   Nuvio:Process .
+                    ?Quantity_0  Nuvio:hasProcessQuality  ?Process_0
+                  }
+                UNION
+                  { ?Quantity_0  a                  Nuvio:Quantity }
+              }
+          }
+        }
+      }
+    }
+  }

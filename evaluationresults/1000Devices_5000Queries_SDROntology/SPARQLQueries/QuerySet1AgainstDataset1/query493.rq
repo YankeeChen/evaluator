@@ -1,0 +1,29 @@
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                RFDevice:hasCapability  ?Entity_0
+      { ?Situation_0  Nuvio:isExpressedBy  ?Entity_0
+        { ?Entity_0  a                    geosparql:Geometry
+          { ?Entity_0  a                    RFDevice:NonNegativeIntegerValue }
+          { ?Entity_0  a                    Nuvio:Process ;
+                      Nuvio:participatesIn  ?ArcString_0
+            { ?Var0  Nuvio:informationSource  ?Entity_0
+              { ?Var0  a                     RFDevice:RadarFrequencyBand
+                { ?Var0  RFDevice:hasMin  ?Angle_0
+                  { ?Angle_0  a                     RFDevice:Angle }
+                }
+                { ?Var0  a                     RFDevice:Modulation }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

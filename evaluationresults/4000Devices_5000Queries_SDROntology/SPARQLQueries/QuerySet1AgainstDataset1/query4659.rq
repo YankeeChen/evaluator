@@ -1,0 +1,42 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB200_210_0
+WHERE
+  { ?USRPB200_210_0
+              a                     SDR:USRPB200-210
+    { ?Var0  Nuvio:compositeOf  ?USRPB200_210_0
+      {   { ?Var0     a                     Nuvio:Object .
+            ?Velocity_0  RFDevice:hasWeight  ?Var0
+          }
+        UNION
+          { ?Var1  Nuvio:hasValue  ?Velocity_0
+            { ?Var1  a                     Nuvio:Entity
+              { ?PulseDopplerRadarModulation_0
+                          Nuvio:subprocessOf  ?Var1
+                {   { ?PulseDopplerRadarModulation_0
+                                a                     RFDevice:PulseDopplerRadarModulation
+                    }
+                  UNION
+                    { ?TimeInterval_0
+                                RFDevice:hasMaxOutputPower  ?PulseDopplerRadarModulation_0
+                      { ?TimeInterval_0
+                                  a                     RFDevice:TimeInterval
+                        { ?Var2  Nuvio:hasValue  ?TimeInterval_0
+                          { ?Var2  Nuvio:hasDataValue  ?DataValue0
+                            FILTER ( ?DataValue0 > "0"^^xsd:decimal )
+                          }
+                        }
+                      }
+                    }
+                }
+              }
+            }
+          }
+        { ?Var3  Nuvio:hasObjectQuantity  ?Var0 }
+      }
+    }
+  }

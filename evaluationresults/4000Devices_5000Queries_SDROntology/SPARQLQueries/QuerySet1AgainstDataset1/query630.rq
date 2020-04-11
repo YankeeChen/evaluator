@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB210_0
+WHERE
+  { ?USRPB210_0  a                  SDR:USRPB210
+    { ?Var0  Nuvio:compositeOf  ?USRPB210_0
+      { ?Var0     a                     Nuvio:Entity .
+        ?InformationEntity_0
+                  Nuvio:isExpressedBy   ?Var0
+        OPTIONAL
+          { ?Var0  Nuvio:partOf  ?DirectConversionReceiver_0
+            {   { ?DirectConversionReceiver_0
+                            a                     RFDevice:DirectConversionReceiver
+                }
+              UNION
+                { ?Object_0  Nuvio:compositeOf  ?DirectConversionReceiver_0
+                  { ?Object_0  a                    Nuvio:Object .
+                    ?Angle_0  RFDevice:hasNoiseFigure  ?Object_0
+                    { ?Angle_0  a                     RFDevice:Angle }
+                  }
+                }
+            }
+            { ?Var0  a                     RFDevice:FixedBandwidthSensing
+              { ?Var0  a                     RFDevice:ElectricChargeUnit }
+              { ?Var0  a                     Nuvio:InformationEntity }
+              { ?Var0  a                     Nuvio:Attribute
+                { ?Var0  a                     Nuvio:Value }
+              }
+            }
+          }
+        { ?Var1  RFDevice:hasResolution  ?Var0 }
+      }
+    }
+  }

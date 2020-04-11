@@ -1,0 +1,25 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?ModelX_0  RFDevice:hasProducer  ?Entity_0
+      { ?Entity_0  a                    RFDevice:Receiver
+        { ObjectDescription:NoiseFigure_instance47
+                    RFDevice:hasNoiseFigure  ?Entity_0
+        }
+        OPTIONAL
+          { ?Entity_0  a                    Nuvio:Object .
+            ?Attribute_0  RFDevice:hasPolarization  ?Entity_0
+            OPTIONAL
+              { ?Entity_0  a                    Nuvio:Situation .
+                ?Solid_0  Nuvio:relevantIndividual  ?Entity_0
+                { ?Solid_0  a                     gml:Solid }
+              }
+          }
+      }
+    }
+  }

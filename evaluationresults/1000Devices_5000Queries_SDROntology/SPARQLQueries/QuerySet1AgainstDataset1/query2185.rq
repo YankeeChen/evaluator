@@ -1,0 +1,15 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE312_0
+WHERE
+  { ?USRPE312_0  a                  SDR:USRPE312
+    OPTIONAL
+      { ?XilinxZynq7000Family_0
+                  Nuvio:compositeOf  ?USRPE312_0
+        { ?XilinxZynq7000Family_0
+                    a                     SDR:XilinxZynq7000Family
+        }
+      }
+  }

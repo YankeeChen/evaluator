@@ -1,0 +1,17 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPE3xx_0
+WHERE
+  { ?USRPE3xx_0  a                  SDR:USRPE3xx
+    OPTIONAL
+      { ?Jammer_0  Nuvio:aggregateOf  ?USRPE3xx_0
+        { ?Jammer_0  a                    RFDevice:Jammer
+          { ObjectDescription:RadioFrequencyBand_instance17
+                      RFDevice:hasFrequencyAccuracy  ?Jammer_0
+          }
+        }
+      }
+  }

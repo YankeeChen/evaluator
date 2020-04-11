@@ -1,0 +1,39 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?USRPX3xx_0
+WHERE
+  { ?USRPX3xx_0  a                  SDR:USRPX3xx
+    { ?Entity_0  RFDevice:hasProducer  ?USRPX3xx_0
+      { ?Entity_0  a                    Nuvio:Entity ;
+                  Nuvio:expresses       ?UnitOfMeasure_0
+        { ?Entity_0  a                    gml:Curve
+          OPTIONAL
+            { ?Entity_0  a                    RFDevice:AngleUnit
+              {   { ?Entity_0  Nuvio:relevantIndividual  ?LatitudeValue_0 }
+                UNION
+                  { ?Entity_0  Nuvio:relevantIndividual  ?Percentage_0
+                    { ?Percentage_0
+                                a                     RFDevice:Percentage
+                    }
+                  }
+              }
+              OPTIONAL
+                {   { ObjectDescription:WeightUnit_instance1
+                                Nuvio:hasUnitOfMeasure  ?Entity_0
+                    }
+                  UNION
+                    { ?Entity_0  a                    Nuvio:Object }
+                }
+            }
+          OPTIONAL
+            { ?UnitOfMeasure_0
+                        a                     Nuvio:UnitOfMeasure
+            }
+        }
+      }
+    }
+  }

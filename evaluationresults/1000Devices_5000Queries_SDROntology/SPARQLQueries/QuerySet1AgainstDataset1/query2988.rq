@@ -1,0 +1,19 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN210_0
+WHERE
+  { ?USRPN210_0  a                  SDR:USRPN210
+    { ?USRPN210_0  RFDevice:hasProducer  ?Entity_0
+      {   { ?Entity_0  a                    gml:MultiGeometry }
+        UNION
+          { ?Entity_0  a                    RFDevice:PhaseShiftKeyingModulation }
+        { ?Entity_0  a                    Nuvio:Process
+          { ?Entity_0  a                    RFDevice:FrequencyAccuracy }
+        }
+      }
+    }
+  }

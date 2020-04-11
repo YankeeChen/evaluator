@@ -1,0 +1,22 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+
+SELECT DISTINCT  ?BistaticRadar_0
+WHERE
+  { ?BistaticRadar_0
+              a                     RFDevice:BistaticRadar
+    OPTIONAL
+      { ?Var0  RFDevice:supportsTuning  ?BistaticRadar_0
+        { ?Var0  a                     RFDevice:CoverPulsesJamming
+          OPTIONAL
+            { ObjectDescription:Power_instance37
+                        RFDevice:hasTransmitPowerRange  ?Var0
+            }
+          { ?Var0  a                     RFDevice:Transceiving
+            { ?Power_0  RFDevice:hasMaxSensedPower  ?Var0
+              { ?Power_0  a                     RFDevice:Power }
+            }
+          }
+        }
+      }
+  }

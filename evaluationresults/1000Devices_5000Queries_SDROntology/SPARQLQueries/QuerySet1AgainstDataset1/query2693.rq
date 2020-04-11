@@ -1,0 +1,45 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    OPTIONAL
+      { ?Entity_0  Nuvio:partOf  ?CR_0
+        { ?Process_1  Nuvio:isExpressedBy  ?Entity_0
+          { ?Entity_0  a                    RFDevice:DoubleValue
+            { ?Entity_0  RFDevice:hasDoubleValue  ?DataValue0
+              FILTER ( ?DataValue0 <= "48.67532316198381"^^xsd:double )
+            }
+            { ?Var0  Nuvio:hasValue  ?Entity_0
+              {   { ?Var0  a                     Nuvio:Value }
+                UNION
+                  { ?Var0  Nuvio:hasPrecision  ?DataValue1
+                    FILTER ( ?DataValue1 < 1046514863 )
+                  }
+              }
+              { ?Entity_0  a                    Nuvio:InformationEntity .
+                ?Var1     Nuvio:informationSource  ?Entity_0
+                { ?Var1  a                     RFDevice:RFSystem
+                  OPTIONAL
+                    { ?Var1  a                     RFDevice:EmitterIdentification
+                      { ?Var2  Nuvio:hasParticipant  ?Var1
+                        { ?Var2  RFDevice:supportsTuning  ?Process_0
+                          { ?Process_0  a                   Nuvio:Process ;
+                                      Nuvio:hasProcessQuality  ?Entity_0
+                          }
+                        }
+                      }
+                    }
+                }
+              }
+              OPTIONAL
+                { ?Entity_0  a                    Nuvio:InformationRepresentation }
+            }
+          }
+        }
+      }
+  }

@@ -1,0 +1,39 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPB2xx_0
+WHERE
+  { ?USRPB2xx_0  a                  SDR:USRPB2xx
+    { ?RadioComponent_0
+                Nuvio:aggregateOf  ?USRPB2xx_0
+      { ?ChokeRingAntenna_0
+                  Nuvio:compositeOf  ?RadioComponent_0
+        { ?ChokeRingAntenna_0
+                    a                     RFDevice:ChokeRingAntenna
+          { ?Entity_0  RFDevice:hasPolarization  ?ChokeRingAntenna_0
+            {   { ?Entity_0  a                    Nuvio:Entity .
+                  ?InformationRepresentation_0
+                            Nuvio:expresses       ?Entity_0
+                }
+              UNION
+                { ?Entity_0  a                    RFDevice:PositiveDecimalValue
+                  { ?Entity_0  a                    RFDevice:Length }
+                  { ?Entity_0  a                    Nuvio:Attribute
+                    { ?Entity_0  a                    Nuvio:InformationEntity .
+                      ?SpatialObject_0
+                                Nuvio:expresses       ?Entity_0
+                      { ?SpatialObject_0
+                                  a                     geosparql:SpatialObject
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+    }
+  }

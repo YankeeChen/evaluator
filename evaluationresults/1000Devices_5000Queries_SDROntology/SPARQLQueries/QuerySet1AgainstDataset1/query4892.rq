@@ -1,0 +1,33 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?PulseRadar_0
+WHERE
+  { ?PulseRadar_0
+              a                     RFDevice:PulseRadar
+    { ?Var0  RFDevice:supportsJamming  ?PulseRadar_0
+      { ?Var0  a                     RFDevice:FormationJamming
+        { ?Entity_0  RFDevice:hasTransmitPowerRange  ?Var0
+          {   { ?Entity_0  a                    Nuvio:Entity }
+            UNION
+              { ?Entity_0  a                    gml:MultiSurface
+                { ?Entity_0  a                    RFDevice:NonNegativeIntegerValue }
+                { ?Entity_0  a                    Nuvio:Situation
+                  { ?Entity_0  a                    Nuvio:UnitOfMeasure }
+                }
+              }
+          }
+        }
+        {   { ?Var0  a                     RFDevice:Receiving }
+          UNION
+            { ?Var0  RFDevice:hasBandwidthRange  ?QuantityRange_0
+              { ?QuantityRange_0
+                          a                     RFDevice:QuantityRange
+              }
+            }
+        }
+      }
+    }
+  }

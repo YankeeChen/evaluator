@@ -1,0 +1,35 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?USRPN310_0
+WHERE
+  { ?USRPN310_0  a                  SDR:USRPN310
+    { ?Entity_0  RFDevice:hasProducer  ?USRPN310_0
+      {   { ?Entity_0  a                    Nuvio:Entity .
+            ?Object_0  Nuvio:isExpressedBy  ?Entity_0
+          }
+        UNION
+          { ?Entity_0  a                    RFDevice:InboundRangeGatePullOffJamming
+            { ObjectDescription:Power_instance7
+                        RFDevice:hasMaxOutputPower  ?Entity_0
+            }
+            OPTIONAL
+              { ?Entity_0  a                    RFDevice:SpatialLinearUnit
+                {   { ?Entity_0  a                    RFDevice:Angle }
+                  UNION
+                    { ?Value_0  Nuvio:hasValue  ?Entity_0
+                      { ?Value_0  a                     Nuvio:Value }
+                    }
+                }
+              }
+            { ?Entity_0  a                    Nuvio:Attribute }
+            { ?Object_0  a                    Nuvio:Object .
+              ObjectDescription:AntennaPolarization_instance10
+                        Nuvio:hasObjectQuality  ?Object_0
+            }
+          }
+      }
+    }
+  }

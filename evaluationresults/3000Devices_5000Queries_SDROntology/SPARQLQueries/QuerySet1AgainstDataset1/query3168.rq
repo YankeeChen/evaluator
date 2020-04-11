@@ -1,0 +1,26 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?CR_0
+WHERE
+  { ?CR_0  a                     SDR:CR
+    OPTIONAL
+      { ?IEDJammer_0  Nuvio:compositeOf  ?CR_0
+        {   { ?IEDJammer_0  a                 RFDevice:IEDJammer }
+          UNION
+            { ?Transceiver_0
+                        Nuvio:compositeOf  ?IEDJammer_0
+              {   { ?Transceiver_0
+                              a                     RFDevice:Transceiver
+                  }
+                UNION
+                  { ?FPGA_0  Nuvio:partOf  ?Transceiver_0
+                    { ?FPGA_0  a                     SDR:FPGA }
+                  }
+              }
+            }
+        }
+      }
+  }

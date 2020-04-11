@@ -1,0 +1,17 @@
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+
+SELECT DISTINCT  ?CommunicationsSystem_0
+WHERE
+  { ?CommunicationsSystem_0
+              a                     RFDevice:CommunicationsSystem
+    { ?Transmitting_0
+                RFDevice:hasCapability  ?CommunicationsSystem_0
+      { ?Transmitting_0
+                  a                     RFDevice:Transmitting
+        { ?Transmitting_0
+                    RFDevice:hasMaxOutputPower  ObjectDescription:Power_instance10
+        }
+      }
+    }
+  }

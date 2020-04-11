@@ -1,0 +1,18 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Half_DuplexCommunicationsSystem_0
+WHERE
+  { ?Half_DuplexCommunicationsSystem_0
+              a                     RFDevice:Half-DuplexCommunicationsSystem
+    { ?RadioComponent_0
+                Nuvio:compositeOf  ?Half_DuplexCommunicationsSystem_0
+      { ?RadioComponent_0
+                  a                     RFDevice:RadioComponent
+        { ?RadioComponent_0
+                    Nuvio:aggregateOf  ObjectDescription:Instance1565
+        }
+      }
+    }
+  }

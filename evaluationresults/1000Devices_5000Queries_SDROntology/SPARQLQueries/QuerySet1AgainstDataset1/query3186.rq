@@ -1,0 +1,32 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription1000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ContinuousWaveRadar_0
+WHERE
+  { ?ContinuousWaveRadar_0
+              a                     RFDevice:ContinuousWaveRadar
+    { ?ContinuousWaveRadar_0
+                Nuvio:aggregateOf  ?Transmitter_0
+      { ?Transmitter_0
+                  a                     RFDevice:Transmitter
+        OPTIONAL
+          { ?QuantityRange_0
+                      RFDevice:hasFrequencyRange  ?Transmitter_0
+            { ?QuantityRange_0
+                        a                     RFDevice:QuantityRange
+              { ?Angle_0  RFDevice:hasMin  ?QuantityRange_0
+                { ?Angle_0  a                     RFDevice:Angle
+                  { ?LongitudeValueInDegree_0
+                              Nuvio:hasValue  ?Angle_0
+                    { ?LongitudeValueInDegree_0
+                                a                     RFDevice:LongitudeValueInDegree
+                    }
+                  }
+                }
+              }
+            }
+          }
+      }
+    }
+  }

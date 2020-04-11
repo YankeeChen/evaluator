@@ -1,0 +1,37 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?USRPN2xx_0
+WHERE
+  { ?USRPN2xx_0  a                  SDR:USRPN2xx
+    { ?Var0  RFDevice:supportsJamming  ?USRPN2xx_0
+      { ?Var0  a                     Nuvio:Entity
+        OPTIONAL
+          { ?Var0  a                     gml:Sphere
+            OPTIONAL
+              { ?Var0  a                     RFDevice:TerrainBounceJamming
+                { ?Var0  RFDevice:hasTransmitPowerRange  ?Attribute_0 }
+              }
+            { ?Var0  a                     Nuvio:Value ;
+                     Nuvio:hasUnitOfMeasure  ?Var0
+              OPTIONAL
+                { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                  FILTER ( ?DataValue0 < -675037974 )
+                }
+              { ?Var0  a                     RFDevice:DataSize }
+            }
+          }
+        { ?Var0  a                     RFDevice:Transceiving
+          { ?Var0  a                     RFDevice:SelfProtectionJamming
+            OPTIONAL
+              { ?Var0  RFDevice:hasPulseRepetitionInterval  ?Entity_0 }
+          }
+          { ?Var0  a                     RFDevice:Receiving }
+        }
+      }
+    }
+  }

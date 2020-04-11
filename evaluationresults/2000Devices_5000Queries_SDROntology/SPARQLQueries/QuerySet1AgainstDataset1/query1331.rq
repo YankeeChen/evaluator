@@ -1,0 +1,32 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?Full_DuplexCommunicationsSystem_0
+WHERE
+  { ?Full_DuplexCommunicationsSystem_0
+              a                     RFDevice:Full-DuplexCommunicationsSystem
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?Full_DuplexCommunicationsSystem_0
+      {   { ?Power_0  RFDevice:hasEffectiveRadiatedPower  ?Var0
+            { ?Power_0  Nuvio:hasValue  ?Var1
+              { ?Var1  RFDevice:hasPositiveIntegerValue  ?DataValue0
+                FILTER ( ?DataValue0 >= 67.37 )
+              }
+            }
+          }
+        UNION
+          { ?Var0  a                     Nuvio:Entity
+            { ?Var0  a                     RFDevice:Tuning
+              { ?Var0     a                     Nuvio:InformationEntity .
+                ?SpectrumSensing_0
+                          Nuvio:expresses       ?Var0
+                { ObjectDescription:FreqencyRange_instance35
+                            RFDevice:hasBandwidthRange  ?SpectrumSensing_0
+                }
+              }
+            }
+          }
+      }
+    }
+  }

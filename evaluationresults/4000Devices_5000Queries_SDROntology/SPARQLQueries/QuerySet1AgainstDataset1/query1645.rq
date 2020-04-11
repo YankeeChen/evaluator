@@ -1,0 +1,31 @@
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription4000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+
+SELECT DISTINCT  ?PulseDopplerRadar_0
+WHERE
+  { ?PulseDopplerRadar_0
+              a                     RFDevice:PulseDopplerRadar
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?PulseDopplerRadar_0
+      { ?Var0  a                     Nuvio:Entity
+        { ?Var0  a                     RFDevice:Transmitting
+          { ?MultiSolid_0
+                      Nuvio:relevantIndividual  ?Var0
+            { ?Var0  Nuvio:relevantIndividual  ?Var0
+              { ?MultiSolid_0
+                          a                     gml:MultiSolid
+              }
+            }
+          }
+          { ?Var0  Nuvio:hasUnitOfMeasure  ObjectDescription:FrequencyUnit_instance34
+            { ?Var0  Nuvio:hasPrecision  ?DataValue0
+              FILTER ( ?DataValue0 = 407386163 )
+            }
+          }
+        }
+        { ?Var0  a                     RFDevice:BarrageJamming }
+      }
+    }
+  }

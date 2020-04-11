@@ -1,0 +1,33 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?JammingSystem_0
+WHERE
+  { ?JammingSystem_0
+              a                     RFDevice:JammingSystem
+    { ?Var0  RFDevice:supportsTransmitting  ?JammingSystem_0
+      { ?Entity_0  RFDevice:hasMaxOutputPower  ?Var0
+        { ?Entity_0  a                    Nuvio:Entity .
+          ?Var1     Nuvio:isExpressedBy   ?Entity_0
+          { ?Entity_0  a                    RFDevice:System
+            { ?DataSize_0  Nuvio:relevantIndividual  ?Entity_0
+              OPTIONAL
+                { ?FrequencyShiftKeyingModulation_0
+                            Nuvio:relevantIndividual  ?Entity_0
+                }
+            }
+            { ?Var1  Nuvio:informationSource  ?Entity_0
+              OPTIONAL
+                {   { ?Var1  a                     SDR:SDR }
+                  UNION
+                    { ?Var1  RFDevice:hasLevel  ?Attribute_0 }
+                }
+            }
+          }
+        }
+        { ?Var0  a                     Nuvio:Process }
+      }
+    }
+  }

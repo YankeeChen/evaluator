@@ -1,0 +1,51 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  sf:   <http://www.opengis.net/ont/sf#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX  gml:  <http://www.opengis.net/ont/gml#>
+PREFIX  xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+
+SELECT DISTINCT  ?GNURadio_0
+WHERE
+  { ?GNURadio_0  a                  SDR:GNURadio
+    { ?Var0  RFDevice:supportsSpectrumSensing  ?GNURadio_0
+      {   { ?Situation_0  Nuvio:isExpressedBy  ?Var0
+            OPTIONAL
+              {   { ?Var0  a                     RFDevice:Receiving
+                    { ?FreqencyRange_0
+                                RFDevice:hasFrequencyAccuracy  ?Var0
+                      { ObjectDescription:Frequency_instance247
+                                  RFDevice:hasMax  ?FreqencyRange_0
+                      }
+                    }
+                  }
+                UNION
+                  { ?Var0  a                     RFDevice:LatitudeValue
+                    { ?Var0  Nuvio:hasPrecision  ?DataValue0
+                      FILTER ( ?DataValue0 >= 1834087766 )
+                    }
+                    OPTIONAL
+                      { ?Var0  a                     RFDevice:FrequencyAccuracy
+                        { ?Var1  Nuvio:hasValue  ?Var0 }
+                      }
+                  }
+                { ?Situation_0  Nuvio:relevantIndividual  ?LineString_0
+                  {   { ?Sphere_0  Nuvio:relevantIndividual  ?Situation_0
+                        { ?Sphere_0  a                    gml:Sphere }
+                      }
+                    UNION
+                      { ?LineString_0
+                                  a                     sf:LineString
+                      }
+                  }
+                }
+              }
+          }
+        UNION
+          { ObjectDescription:RadarFrequencyBand_instance69
+                      RFDevice:hasBandwidthRange  ?Var0
+          }
+      }
+    }
+  }

@@ -1,0 +1,21 @@
+PREFIX  SDR:  <http://ece.neu.edu/ontologies/SDR.owl#>
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription2000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ElectronicSupportSystem_0
+WHERE
+  { ?ElectronicSupportSystem_0
+              a                     RFDevice:ElectronicSupportSystem
+    { ?Entity_0  RFDevice:supportsJamming  ?ElectronicSupportSystem_0
+      {   { ?Entity_0  a                    RFDevice:LatitudeValue }
+        UNION
+          { ?Entity_0  a                    Nuvio:Situation .
+            ?USRPN200_0  Nuvio:relevantIndividual  ?Entity_0
+            { ?Entity_0  Nuvio:relevantIndividual  ObjectDescription:RadarWarningReceiver_instance11 }
+            OPTIONAL
+              { ?USRPN200_0  a                  SDR:USRPN200 }
+          }
+      }
+    }
+  }

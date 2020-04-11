@@ -1,0 +1,26 @@
+PREFIX  ObjectDescription: <http://ece.neu.edu/ontologies/ObjectDescription3000.owl#>
+PREFIX  RFDevice: <http://ece.neu.edu/ontologies/RFDevice.owl#>
+PREFIX  Nuvio: <http://cogradio.org/ont/Nuvio.owl#>
+
+SELECT DISTINCT  ?ModelX_0
+WHERE
+  { ?ModelX_0  a                    RFDevice:ModelX
+    { ?ModelX_0  RFDevice:supportsJamming  ?Transceiving_0
+      { ?Transceiving_0
+                  a                     RFDevice:Transceiving
+        {   {   { ?Value_0  Nuvio:isExpressedBy  ?Transceiving_0 }
+              UNION
+                { ?Transceiving_0
+                            a                     RFDevice:PulseRadarModulation
+                  { ?Attribute_0  RFDevice:hasPulseRepetitionInterval  ?Transceiving_0 }
+                }
+            }
+          UNION
+            { ?Value_0  a                     Nuvio:Value .
+              ObjectDescription:PowerUnit_instance3
+                        Nuvio:hasUnitOfMeasure  ?Value_0
+            }
+        }
+      }
+    }
+  }
